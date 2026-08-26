@@ -1,0 +1,30 @@
+services:
+  science-academy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      # Coolify replaces this with the generated (or your own) domain — e.g.
+      # science.patrickhasse.de — and points its proxy at port 3000.
+      - SERVICE_FQDN_SCIENCEACADEMY_3000
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    # expose, not ports: Coolify's proxy reaches the container over its own
+    # network, so nothing needs to be published on the host.
+    expose:
+      - "3000"
+    # sync accounts + progress for all courses (SQLite) must outlive redeploys
+    volumes:
+      - science-data:/app/data
+    healthcheck:
+      test:
+        ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:3000/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+
+volumes:
+  science-data:

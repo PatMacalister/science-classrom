@@ -1,0 +1,36 @@
+# Build artifacts and deps — reinstalled/rebuilt inside the image
+node_modules
+.next
+out
+build
+coverage
+
+# VCS and agent/project docs
+.git
+.gitignore
+README.md
+AGENTS.md
+CLAUDE.md
+
+# Docker files themselves
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Secrets — never bake these into an image layer
+.env
+.env.*
+
+# Generated / local noise
+next-env.d.ts
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea
+*.swp
+.vercel
