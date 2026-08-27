@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import SimCanvas from "@/shared/SimCanvas";
-import { Controls, Slider, Segmented } from "@/catalyst/components/controls";
+import { Controls, Slider, Segmented, useTl } from "@/catalyst/components/controls";
 import { clamp, rng } from "@/catalyst/lib/sim/helpers";
 import * as D from "@/catalyst/lib/sim/draw";
 
@@ -11,6 +11,7 @@ import * as D from "@/catalyst/lib/sim/draw";
  * ===================================================================== */
 
 export function EnergyLab() {
+  const tl = useTl();
   const [dH, setDH] = useState(-60);
   const [ea, setEa] = useState(90);
   const [catalyst, setCatalyst] = useState<"off" | "on">("off");
@@ -133,10 +134,10 @@ export function EnergyLab() {
         />
         <Slider label="Collision energy" min={20} max={150} step={5} value={push} onChange={setPush} fmt={(v) => `${v} kJ`} />
         <div className="ctl-row">
-          <label>Attempt</label>
+          <label>{tl("Attempt")}</label>
           <div className="seg">
             <button type="button" className="seg-btn" onClick={launch}>
-              Launch the collision →
+              {tl("Launch the collision →")}
             </button>
           </div>
         </div>
@@ -272,6 +273,7 @@ export function RateLab() {
 const EQBOX = { x: 60, y: 50, w: 500, h: 300 };
 
 export function EquilibriumLab() {
+  const tl = useTl();
   const [tempPct, setTempPct] = useState(30);
   const world = useRef<{ states: Array<0 | 1>; xs: number[]; ys: number[] }>({
     states: Array.from({ length: 80 }, (_, i) => (i < 60 ? 0 : 1) as 0 | 1),
@@ -357,16 +359,16 @@ export function EquilibriumLab() {
       <SimCanvas width={900} height={430} draw={draw} />
       <Controls>
         <div className="ctl-row">
-          <label>Stress the system</label>
+          <label>{tl("Stress the system")}</label>
           <div className="seg">
             <button type="button" className="seg-btn" onClick={() => addParticles(0, 20)}>
-              + add 20 A
+              {tl("+ add 20 A")}
             </button>
             <button type="button" className="seg-btn" onClick={() => addParticles(1, 20)}>
-              + add 20 B
+              {tl("+ add 20 B")}
             </button>
             <button type="button" className="seg-btn" onClick={() => removeB(20)}>
-              − remove 20 B
+              {tl("− remove 20 B")}
             </button>
           </div>
         </div>

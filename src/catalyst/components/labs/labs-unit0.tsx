@@ -6,6 +6,7 @@ import { Controls, Slider, Select } from "@/catalyst/components/controls";
 import { clamp } from "@/catalyst/lib/sim/helpers";
 import * as D from "@/catalyst/lib/sim/draw";
 import { ELEMENTS } from "@/catalyst/lib/elements";
+import { useLang } from "@/catalyst/lib/i18n";
 
 /** Shell filling for Z ≤ 20 (exact up to calcium): 2, 8, 8, 2. */
 function shellsFor(electrons: number): number[] {
@@ -26,11 +27,13 @@ function shellsFor(electrons: number): number[] {
  * ===================================================================== */
 
 export function AtomBuilderLab() {
+  const { lang } = useLang();
   const [p, setP] = useState(6);
   const [n, setN] = useState(6);
   const [e, setE] = useState(6);
 
   const el = ELEMENTS[p - 1];
+  const elName = lang === "de" ? el.nameDe : el.name;
   const charge = p - e;
   const chargeLabel = charge === 0 ? "neutral atom" : charge > 0 ? `${charge}+ ion (cation)` : `${-charge}− ion (anion)`;
   const commonN = Math.round(Number.parseFloat(el.mass.replace(/[()]/g, ""))) - p;
@@ -78,7 +81,7 @@ export function AtomBuilderLab() {
     // identity panel
     D.panel(ctx, 620, 60, 250, 330);
     D.label(ctx, el.symbol, 745, 140, { size: 64, bold: true, color: D.COL.accent });
-    D.label(ctx, el.name, 745, 190, { size: 18, color: D.COL.text });
+    D.label(ctx, elName, 745, 190, { size: 18, color: D.COL.text });
     D.label(ctx, `Z = ${p}`, 745, 220, { size: 14, color: D.COL.muted, mono: true });
     D.label(ctx, `A = ${p + n}`, 745, 242, { size: 14, color: D.COL.muted, mono: true });
     D.label(ctx, chargeLabel, 745, 282, {
@@ -96,7 +99,7 @@ export function AtomBuilderLab() {
     D.label(ctx, "protons +, neutrons gray,", 745, 350, { size: 11, color: D.COL.muted });
     D.label(ctx, "electrons cyan", 745, 366, { size: 11, color: D.COL.muted });
 
-    D.meter(ctx, 20, 14, 170, "element (from protons)", `${el.name}`, D.COL.accent);
+    D.meter(ctx, 20, 14, 170, "element (from protons)", elName, D.COL.accent);
     D.meter(ctx, 205, 14, 140, "mass number A", `${p + n}`, D.COL.amber);
     D.meter(ctx, 360, 14, 140, "net charge", charge > 0 ? `+${charge}` : `${charge}`, charge === 0 ? D.COL.good : D.COL.bad);
   };
@@ -120,6 +123,7 @@ export function AtomBuilderLab() {
 const SHELL_ELEMENTS = ELEMENTS.slice(0, 20);
 
 export function ShellLab() {
+  const { lang } = useLang();
   const [z, setZ] = useState(11);
   const [placed, setPlaced] = useState(11);
 
@@ -172,7 +176,7 @@ export function ShellLab() {
             setZ(Number(v));
             setPlaced(0);
           }}
-          options={SHELL_ELEMENTS.map((s) => ({ value: String(s.z), label: `${s.z} — ${s.name} (${s.symbol})` }))}
+          options={SHELL_ELEMENTS.map((s) => ({ value: String(s.z), label: `${s.z} — ${lang === "de" ? s.nameDe : s.name} (${s.symbol})` }))}
         />
         <Slider label="Electrons placed" min={0} max={target} step={1} value={shown} onChange={setPlaced} fmt={(v) => `${v} / ${target}`} />
       </Controls>

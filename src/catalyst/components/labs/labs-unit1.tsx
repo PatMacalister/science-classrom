@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import SimCanvas from "@/shared/SimCanvas";
-import { Controls, Segmented, Select } from "@/catalyst/components/controls";
+import { Controls, Segmented, Select, useTl } from "@/catalyst/components/controls";
 import { clamp } from "@/catalyst/lib/sim/helpers";
 import * as D from "@/catalyst/lib/sim/draw";
 
@@ -26,6 +26,7 @@ const PAIRS: IonPair[] = [
 ];
 
 export function IonicLab() {
+  const tl = useTl();
   const [pairId, setPairId] = useState("nacl");
   const [given, setGiven] = useState(0);
   const anim = useRef({ progress: 1 }); // 0..1 flight of the moving electron
@@ -119,13 +120,13 @@ export function IonicLab() {
           }}
         />
         <div className="ctl-row">
-          <label>Reaction</label>
+          <label>{tl("Reaction")}</label>
           <div className="seg">
             <button type="button" className="seg-btn" onClick={transfer} disabled={done}>
-              Transfer one electron →
+              {tl("Transfer one electron →")}
             </button>
             <button type="button" className="seg-btn" onClick={reset}>
-              Reset
+              {tl("Reset")}
             </button>
           </div>
         </div>
@@ -345,6 +346,7 @@ const EN_ELEMENTS: ENElement[] = [
 ];
 
 export function BondLab() {
+  const tl = useTl();
   const [aSym, setASym] = useState("Na");
   const [bSym, setBSym] = useState("Cl");
 
@@ -413,7 +415,7 @@ export function BondLab() {
       if (kind === "ionic") {
         const winner = A.en > B.en ? A : B;
         const loser = A.en > B.en ? B : A;
-        D.label(ctx, `${winner.sym} rips the electron away: ${loser.sym}⁺ and ${winner.sym}⁻`, 450, 320, { size: 13, color: D.COL.bad });
+        D.label(ctx, `${winner.sym} ${tl("rips the electron away:")} ${loser.sym}⁺ + ${winner.sym}⁻`, 450, 320, { size: 13, color: D.COL.bad });
       } else if (kind === "polar covalent") {
         D.label(ctx, "δ+", stronger === -1 ? bx + 55 : ax - 55, cy - 40, { size: 17, color: D.COL.bad, bold: true });
         D.label(ctx, "δ−", stronger === -1 ? ax - 55 : bx + 55, cy - 40, { size: 17, color: D.COL.accent, bold: true });
@@ -447,13 +449,13 @@ export function BondLab() {
           label="Atom A"
           value={aSym}
           onChange={setASym}
-          options={EN_ELEMENTS.map((e) => ({ value: e.sym, label: `${e.name} (χ = ${e.en.toFixed(2)})` }))}
+          options={EN_ELEMENTS.map((e) => ({ value: e.sym, label: `${tl(e.name)} (χ = ${e.en.toFixed(2)})` }))}
         />
         <Select
           label="Atom B"
           value={bSym}
           onChange={setBSym}
-          options={EN_ELEMENTS.map((e) => ({ value: e.sym, label: `${e.name} (χ = ${e.en.toFixed(2)})` }))}
+          options={EN_ELEMENTS.map((e) => ({ value: e.sym, label: `${tl(e.name)} (χ = ${e.en.toFixed(2)})` }))}
         />
       </Controls>
     </>

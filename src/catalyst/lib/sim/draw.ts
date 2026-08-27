@@ -1,7 +1,11 @@
 /**
  * Canvas drawing primitives for the chemistry labs: labels, meters, vessels
  * and atoms. Everything works in the SimCanvas logical coordinate space.
+ * All text funnels through label(), which translates via the exact-match
+ * lab dictionary (see labStrings.ts) — dynamic strings pass through.
  */
+
+import { tl } from "@/catalyst/lib/labStrings";
 
 export const COL = {
   accent: "#2dd4bf",
@@ -33,7 +37,7 @@ export function label(
     : FONT(opts.size ?? 13, opts.bold);
   ctx.textAlign = opts.align ?? "center";
   ctx.textBaseline = "middle";
-  ctx.fillText(text, x, y);
+  ctx.fillText(tl(text), x, y);
 }
 
 export function dot(ctx: Ctx, x: number, y: number, r: number, color: string) {

@@ -75,7 +75,7 @@ const EN = {
   backToOverview: "Back to overview",
   chooseNextSpec: "Choose your next branch",
   notTranslated:
-    "🇩🇪 Die Lektionstexte sind (noch) auf Englisch — Oberfläche, Periodensystem und alle Eselsbrücken sind deutsch.",
+    "🇩🇪 This lesson's full text hasn't been translated yet — the theory below is in English. Titles, quizzes and the interface are already localized.",
   lessonNotFound: "Lesson not found",
   lessonNotFoundBody: "That lesson doesn't exist (yet).",
   backToCurriculum: "Back to the curriculum",
@@ -113,6 +113,9 @@ const EN = {
   syncError: "sync error — working offline",
   syncCodeLabel: "Sync code",
   syncCopy: "Copy",
+  syncQr: "QR code",
+  syncQrHide: "Hide QR",
+  syncQrHint: "Scan with another device: the course opens and links itself automatically.",
   syncUnlink: "Unlink this device",
   syncAcross: "Sync across devices",
   syncEnable: "Enable sync",
@@ -167,7 +170,7 @@ const EN = {
   elementsChip: "PERIODIC TABLE",
   elementsTitle: "The 118 Elements",
   elementsLead:
-    "Every element, its symbol — and an Eselsbrücke (a German memory hook) for each one, because half the symbols come from Latin or Greek names you'd never guess. Click any tile for details; switch to the list to search.",
+    "Every element, its symbol — and a memory hook for each one (in German: an Eselsbrücke), because half the symbols come from Latin or Greek names you'd never guess. Click any tile for details; switch to the list to search.",
   elementsSearch: "Search: name, symbol or number…",
   elementsGridView: "Table view",
   elementsListView: "List view",
@@ -176,7 +179,8 @@ const EN = {
   colName: "Name",
   colNameDe: "German name",
   colMass: "Mass",
-  colEsel: "Eselsbrücke",
+  colEsel: "Memory hook",
+  eselTag: "💡 Memory hook",
   detailPeriod: "Period",
   detailGroup: "Group",
   detailMass: "Atomic mass",
@@ -246,7 +250,7 @@ const DE: Record<keyof typeof EN, string> = {
   backToOverview: "Zurück zur Übersicht",
   chooseNextSpec: "Wähle deinen nächsten Zweig",
   notTranslated:
-    "🇩🇪 Die Lektionstexte sind (noch) auf Englisch — Oberfläche, Periodensystem und alle Eselsbrücken sind deutsch.",
+    "🇩🇪 Der volle Text dieser Lektion ist noch nicht übersetzt — die Theorie unten ist auf Englisch. Titel, Quiz und Oberfläche sind bereits lokalisiert.",
   lessonNotFound: "Lektion nicht gefunden",
   lessonNotFoundBody: "Diese Lektion existiert (noch) nicht.",
   backToCurriculum: "Zurück zum Lehrplan",
@@ -280,6 +284,9 @@ const DE: Record<keyof typeof EN, string> = {
   syncError: "Sync-Fehler — arbeite offline",
   syncCodeLabel: "Sync-Code",
   syncCopy: "Kopieren",
+  syncQr: "QR-Code",
+  syncQrHide: "QR ausblenden",
+  syncQrHint: "Mit einem anderen Gerät scannen: Der Kurs öffnet sich und verbindet sich automatisch.",
   syncUnlink: "Gerät trennen",
   syncAcross: "Über Geräte synchronisieren",
   syncEnable: "Sync aktivieren",
@@ -341,6 +348,7 @@ const DE: Record<keyof typeof EN, string> = {
   colNameDe: "Deutscher Name",
   colMass: "Masse",
   colEsel: "Eselsbrücke",
+  eselTag: "🫏 Eselsbrücke",
   detailPeriod: "Periode",
   detailGroup: "Gruppe",
   detailMass: "Atommasse",
@@ -393,6 +401,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = lang;
+    // keep the (non-React) canvas label translator in step with the language
+    void import("./labStrings").then(({ setLabDictionary, LAB_DE }) =>
+      setLabDictionary(lang === "de" ? LAB_DE : null)
+    );
   }, [lang]);
 
   const setLang = useCallback((l: Lang) => {

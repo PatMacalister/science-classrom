@@ -5,7 +5,8 @@ import { useState } from "react";
 import type { Unit } from "@/catalyst/lib/curriculum/types";
 import { LESSONS, UNITS, getUnit, lessonNumber, lessonsOfUnit } from "@/catalyst/lib/curriculum/registry";
 import { TIERS, tierIdOf } from "@/catalyst/lib/curriculum/tiers";
-import { useT, type UIKey } from "@/catalyst/lib/i18n";
+import { localizeLesson, localizeUnit } from "@/catalyst/lib/curriculum/localize";
+import { useLang, useT, type UIKey } from "@/catalyst/lib/i18n";
 import { useProgress } from "@/shared/progress";
 import SyncPanel from "./SyncPanel";
 
@@ -23,6 +24,7 @@ const BADGE_KEYS: Record<string, UIKey> = {
 
 export default function HomeView() {
   const progress = useProgress();
+  const { lang } = useLang();
   const t = useT();
   const [confirmReset, setConfirmReset] = useState(false);
   const [toggles, setToggles] = useState<Record<string, boolean>>({});
@@ -46,7 +48,8 @@ export default function HomeView() {
   const currentTier = firstIncomplete ? tierIdOf(getUnit(firstIncomplete.unitId)) : TIERS[TIERS.length - 1].id;
   const isOpen = (tierId: string) => toggles[tierId] ?? tierId === currentTier;
 
-  const renderUnit = (unit: Unit) => {
+  const renderUnit = (unitRaw: Unit) => {
+    const unit = localizeUnit(unitRaw, lang);
     const lessons = lessonsOfUnit(unit.id);
     const unitDone = lessons.filter((l) => progress.isComplete(l.slug)).length;
     return (
@@ -63,7 +66,8 @@ export default function HomeView() {
           <p className="unit-blurb">{unit.blurb}</p>
         </div>
         <div className="lesson-grid">
-          {lessons.map((lesson) => {
+          {lessons.map((lessonRaw) => {
+            const lesson = localizeLesson(lessonRaw, lang);
             const done = progress.isComplete(lesson.slug);
             return (
               <Link
@@ -72,7 +76,7 @@ export default function HomeView() {
                 className={`lesson-card${done ? " done" : ""}`}
               >
                 <div className="card-top">
-                  <span className="lesson-no">{t("lessonWord")} {lessonNumber(lesson)}</span>
+                  <span className="lesson-no">{t("lessonWord")} {lessonNumber(lessonRaw)}</span>
                   <span className={`status ${done ? "done" : "todo"}`} suppressHydrationWarning>
                     {done ? t("doneBadge") : "○"}
                   </span>

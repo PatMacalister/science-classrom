@@ -100,7 +100,7 @@ export default function ElementsPage() {
                     <td style={{ color: "var(--muted)" }}>{lang === "de" ? el.name : el.nameDe}</td>
                     <td className="cell-mass">{el.mass}</td>
                     <td className="cell-esel">
-                      <EselText text={el.esel} />
+                      <EselText text={lang === "de" ? el.esel : el.hook} />
                     </td>
                   </tr>
                 );

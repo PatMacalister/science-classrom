@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import SimCanvas from "@/shared/SimCanvas";
-import { Controls, Slider, Segmented, Select } from "@/catalyst/components/controls";
+import { Controls, Slider, Segmented, Select, useTl } from "@/catalyst/components/controls";
 import { clamp } from "@/catalyst/lib/sim/helpers";
 import * as D from "@/catalyst/lib/sim/draw";
 
@@ -11,6 +11,7 @@ import * as D from "@/catalyst/lib/sim/draw";
  * ===================================================================== */
 
 export function RedoxLab() {
+  const tl = useTl();
   const [setup, setSetup] = useState<"zn-cu" | "cu-zn">("zn-cu");
   const [running, setRunning] = useState<"paused" | "running">("running");
   const progress = useRef(0);
@@ -105,7 +106,7 @@ export function RedoxLab() {
           onChange={setRunning}
         />
         <div className="ctl-row">
-          <label>Reset</label>
+          <label>{tl("Reset")}</label>
           <div className="seg">
             <button
               type="button"
@@ -114,7 +115,7 @@ export function RedoxLab() {
                 progress.current = 0;
               }}
             >
-              Fresh beaker
+              {tl("Fresh beaker")}
             </button>
           </div>
         </div>
@@ -144,6 +145,7 @@ const ELECTRODES: Electrode[] = [
 ];
 
 export function GalvanicLab() {
+  const tl = useTl();
   const [anodeSym, setAnodeSym] = useState("Zn");
   const [cathodeSym, setCathodeSym] = useState("Cu");
 
@@ -229,7 +231,7 @@ export function GalvanicLab() {
         color: D.COL.bad,
       });
     } else {
-      D.label(ctx, `${A.sym} dissolves and sends electrons through the wire to ${C.sym} — chemistry become current`, 440, 445, {
+      D.label(ctx, `${A.sym} → ${C.sym}: ${tl("electrons take the wire — chemistry become current")}`, 440, 445, {
         size: 12.5,
         color: D.COL.muted,
       });
@@ -244,13 +246,13 @@ export function GalvanicLab() {
           label="Anode metal (−)"
           value={anodeSym}
           onChange={setAnodeSym}
-          options={ELECTRODES.map((e) => ({ value: e.sym, label: `${e.name} (E° = ${e.e0.toFixed(2)} V)` }))}
+          options={ELECTRODES.map((e) => ({ value: e.sym, label: `${tl(e.name)} (E° = ${e.e0.toFixed(2)} V)` }))}
         />
         <Select
           label="Cathode metal (+)"
           value={cathodeSym}
           onChange={setCathodeSym}
-          options={ELECTRODES.map((e) => ({ value: e.sym, label: `${e.name} (E° = ${e.e0.toFixed(2)} V)` }))}
+          options={ELECTRODES.map((e) => ({ value: e.sym, label: `${tl(e.name)} (E° = ${e.e0.toFixed(2)} V)` }))}
         />
       </Controls>
     </>
@@ -262,6 +264,7 @@ export function GalvanicLab() {
  * ===================================================================== */
 
 export function ElectrolysisLab() {
+  const tl = useTl();
   const [volts, setVolts] = useState(0);
   const gas = useRef({ h2: 0, o2: 0 });
 
@@ -327,7 +330,7 @@ export function ElectrolysisLab() {
       <Controls>
         <Slider label="Voltage" min={0} max={5} step={0.1} value={volts} onChange={setVolts} fmt={(v) => `${v.toFixed(1)} V`} />
         <div className="ctl-row">
-          <label>Tubes</label>
+          <label>{tl("Tubes")}</label>
           <div className="seg">
             <button
               type="button"
@@ -336,7 +339,7 @@ export function ElectrolysisLab() {
                 gas.current = { h2: 0, o2: 0 };
               }}
             >
-              Empty the tubes
+              {tl("Empty the tubes")}
             </button>
           </div>
         </div>

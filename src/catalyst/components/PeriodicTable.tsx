@@ -32,7 +32,7 @@ const CATEGORY_ORDER: ElementCategory[] = [
   "unknown",
 ];
 
-/** Render an Eselsbrücke string: text between *asterisks* becomes <b>. */
+/** Render a memory-hook string: text between *asterisks* becomes <b>. */
 export function EselText({ text }: { text: string }) {
   const parts = text.split("*");
   return (
@@ -85,9 +85,9 @@ export function ElementDetail({ el }: { el: ChemElement }) {
         </div>
       </div>
       <div className="pt-esel">
-        <span className="esel-tag">🫏 Eselsbrücke</span>
+        <span className="esel-tag">{t("eselTag")}</span>
         <p>
-          <EselText text={el.esel} />
+          <EselText text={lang === "de" ? el.esel : el.hook} />
         </p>
       </div>
     </div>
@@ -147,22 +147,23 @@ export default function PeriodicTable({
               </button>
             );
           })}
-          {/* markers where the f-block detaches from the main table */}
+          {/* range markers pointing at the detached f-block rows below —
+              deliberately styled unlike element tiles (no symbol, dashed) */}
           <div
-            className="pt-tile pt-gap"
-            style={{ ...catStyle("lanthanide"), gridRow: 6, gridColumn: 3, cursor: "default" }}
+            className="pt-range"
+            style={{ ...catStyle("lanthanide"), gridRow: 6, gridColumn: 3 }}
             aria-hidden
           >
-            <span className="z">57–71</span>
-            <span className="nm">La–Lu</span>
+            <span className="rng">57–71</span>
+            <span className="arrow">↓</span>
           </div>
           <div
-            className="pt-tile pt-gap"
-            style={{ ...catStyle("actinide"), gridRow: 7, gridColumn: 3, cursor: "default" }}
+            className="pt-range"
+            style={{ ...catStyle("actinide"), gridRow: 7, gridColumn: 3 }}
             aria-hidden
           >
-            <span className="z">89–103</span>
-            <span className="nm">Ac–Lr</span>
+            <span className="rng">89–103</span>
+            <span className="arrow">↓</span>
           </div>
           <div className="pt-spacer-row" style={{ gridRow: 8, gridColumn: "1 / -1" }} />
         </div>

@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { LESSONS, getLesson, lessonNumber } from "@/catalyst/lib/curriculum/registry";
-import { useT } from "@/catalyst/lib/i18n";
+import { localizeLesson } from "@/catalyst/lib/curriculum/localize";
+import { useLang, useT } from "@/catalyst/lib/i18n";
 import { useProgress } from "@/shared/progress";
 
 interface Card {
@@ -19,6 +20,7 @@ interface Card {
  */
 export default function ReviewPage() {
   const progress = useProgress();
+  const { lang } = useLang();
   const t = useT();
   const [pos, setPos] = useState(0);
   const [chosen, setChosen] = useState<number | null>(null);
@@ -56,7 +58,8 @@ export default function ReviewPage() {
   if (!progress.ready) return null;
 
   const card = deck[pos];
-  const lesson = card ? getLesson(card.slug) : undefined;
+  const lessonRaw = card ? getLesson(card.slug) : undefined;
+  const lesson = lessonRaw ? localizeLesson(lessonRaw, lang) : undefined;
   const question = lesson?.quiz?.[card.qi];
 
   const grade = (correct: boolean) => {
@@ -107,7 +110,7 @@ export default function ReviewPage() {
       <p className="review-progress">
         {t("reviewCard", { i: pos + 1, n: deck.length })}{" "}
         <Link href={`/catalyst/lesson/${lesson.slug}`}>
-          {lessonNumber(lesson)} {lesson.title}
+          {lessonNumber(lessonRaw!)} {lesson.title}
         </Link>
       </p>
 

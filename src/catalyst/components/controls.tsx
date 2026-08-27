@@ -1,6 +1,19 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { useLang } from "@/catalyst/lib/i18n";
+import { LAB_DE } from "@/catalyst/lib/labStrings";
+
+/**
+ * Language-aware lab-string lookup: subscribes to the language context (so
+ * controls re-render on switch) and translates via the exact-match lab
+ * dictionary. Dynamic strings fall through unchanged. Also used by labs for
+ * their in-canvas buttons and composed option labels.
+ */
+export function useTl(): (s: string) => string {
+  const { lang } = useLang();
+  return lang === "de" ? (s: string) => LAB_DE[s] ?? s : (s: string) => s;
+}
 
 /* ---------- Slider over a continuous range ---------- */
 
@@ -21,9 +34,10 @@ export function Slider({
   onChange: (v: number) => void;
   fmt?: (v: number) => string;
 }) {
+  const tl = useTl();
   return (
     <div className="ctl-row">
-      <label>{label}</label>
+      <label>{tl(label)}</label>
       <input
         type="range"
         min={min}
@@ -52,9 +66,10 @@ export function PickSlider({
   onChange: (index: number) => void;
   fmt: (v: number) => string;
 }) {
+  const tl = useTl();
   return (
     <div className="ctl-row">
-      <label>{label}</label>
+      <label>{tl(label)}</label>
       <input
         type="range"
         min={0}
@@ -81,9 +96,10 @@ export function Segmented<T extends string>({
   value: T;
   onChange: (v: T) => void;
 }) {
+  const tl = useTl();
   return (
     <div className="ctl-row">
-      {label ? <label>{label}</label> : null}
+      {label ? <label>{tl(label)}</label> : null}
       <div className="seg">
         {options.map((o) => (
           <button
@@ -92,7 +108,7 @@ export function Segmented<T extends string>({
             className={`seg-btn${o.value === value ? " active" : ""}`}
             onClick={() => onChange(o.value)}
           >
-            {o.label}
+            {tl(o.label)}
           </button>
         ))}
       </div>
@@ -113,13 +129,14 @@ export function Select({
   value: string;
   onChange: (v: string) => void;
 }) {
+  const tl = useTl();
   return (
     <div className="ctl-row">
-      <label>{label}</label>
+      <label>{tl(label)}</label>
       <select value={value} onChange={(e) => onChange(e.target.value)}>
         {options.map((o) => (
           <option key={o.value} value={o.value}>
-            {o.label}
+            {tl(o.label)}
           </option>
         ))}
       </select>
@@ -142,10 +159,13 @@ export function Readout({
   value: ReactNode;
   tone?: "warn" | "good" | "amber";
 }) {
+  const tl = useTl();
   return (
     <div className="ro">
-      <div className="ro-label">{label}</div>
-      <div className={`ro-val${tone ? ` ${tone}` : ""}`}>{value}</div>
+      <div className="ro-label">{tl(label)}</div>
+      <div className={`ro-val${tone ? ` ${tone}` : ""}`}>
+        {typeof value === "string" ? tl(value) : value}
+      </div>
     </div>
   );
 }

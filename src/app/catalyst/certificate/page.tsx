@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { LESSONS, getLesson } from "@/catalyst/lib/curriculum/registry";
+import { localizeLesson } from "@/catalyst/lib/curriculum/localize";
 import { useLang, useT } from "@/catalyst/lib/i18n";
 import { useProgress } from "@/shared/progress";
 
@@ -30,7 +31,9 @@ export default function CertificatePage() {
             return (
               <p key={slug} style={{ margin: "6px 0" }}>
                 {done ? "✅" : "⬜"}{" "}
-                <Link href={`/catalyst/lesson/${slug}`}>{lesson ? lesson.title : slug}</Link>
+                <Link href={`/catalyst/lesson/${slug}`}>
+                  {lesson ? localizeLesson(lesson, lang).title : slug}
+                </Link>
               </p>
             );
           })}

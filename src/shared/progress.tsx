@@ -24,6 +24,8 @@ export type { ProgressState, QuizRecord, ReviewItem };
 export type SyncStatus = "off" | "syncing" | "synced" | "error";
 
 export interface ProgressStore {
+  /** The course id this store is namespaced to (route segment, sync API). */
+  course: string;
   /** False until the persisted state has been loaded (avoids hydration flicker). */
   ready: boolean;
   state: ProgressState;
@@ -259,6 +261,24 @@ export function ProgressProvider({ course, children }: { course: string; childre
     [apiBase, syncKey, pushToServer]
   );
 
+  /*
+   * Scan-to-link: a QR on another device encodes …/<course>#sync=<code>.
+   * On arrival, adopt the code (merging both sides) and scrub it from the
+   * URL — the hash never reaches the server, and shouldn't linger in the
+   * address bar either.
+   */
+  const hashChecked = useRef(false);
+  useEffect(() => {
+    if (!ready || hashChecked.current) return;
+    hashChecked.current = true;
+    const m = window.location.hash.match(/^#sync=([a-z0-9-]{6,})$/i);
+    if (!m) return;
+    const code = m[1].toLowerCase();
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+    if (codeRef.current === code) return;
+    void linkWithCode(code).catch(() => setSyncStatus("error"));
+  }, [ready, linkWithCode]);
+
   const disableSync = useCallback(() => {
     codeRef.current = null;
     setSyncCode(null);
@@ -288,6 +308,7 @@ export function ProgressProvider({ course, children }: { course: string; childre
 
   const store = useMemo<ProgressStore>(
     () => ({
+      course,
       ready,
       state,
       isComplete: (slug) => !!state.quiz[slug]?.passed,
@@ -308,6 +329,7 @@ export function ProgressProvider({ course, children }: { course: string; childre
       importJson,
     }),
     [
+      course,
       ready,
       state,
       recordQuiz,

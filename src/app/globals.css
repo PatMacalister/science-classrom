@@ -887,6 +887,28 @@ sub, sup { font-size: 0.72em; }
 .sync-msg.error { color: var(--bad); }
 .sync-msg.muted { color: var(--muted); }
 
+/* scan-to-link QR for the sync code */
+.sync-qr {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 10px 0 4px;
+  flex-wrap: wrap;
+}
+.sync-qr svg {
+  width: 168px;
+  height: 168px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  flex: 0 0 auto;
+}
+.sync-qr-caption {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  max-width: 320px;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 18px 22px 30px;
@@ -985,6 +1007,24 @@ sub, sup { font-size: 0.72em; }
   white-space: nowrap;
 }
 .pt-gap { min-height: 52px; }
+/* range markers pointing to the detached f-block rows — styled unlike tiles */
+.pt-range {
+  min-height: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border: 1px dashed color-mix(in srgb, var(--cat) 55%, transparent);
+  border-radius: 6px;
+  background: transparent;
+}
+.pt-range .rng {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--cat);
+}
+.pt-range .arrow { font-size: 0.7rem; color: var(--muted); line-height: 1; }
 .pt-fblock-note {
   grid-column: 3 / span 1;
   align-self: center;

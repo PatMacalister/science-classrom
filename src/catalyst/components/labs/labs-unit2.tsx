@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SimCanvas from "@/shared/SimCanvas";
-import { Controls, Slider, Segmented, Select } from "@/catalyst/components/controls";
+import { Controls, Slider, Segmented, Select, useTl } from "@/catalyst/components/controls";
 import { fmtSci } from "@/catalyst/lib/sim/helpers";
 import * as D from "@/catalyst/lib/sim/draw";
 
@@ -85,6 +85,7 @@ function gcd(a: number, b: number): number {
 }
 
 export function BalanceLab() {
+  const tl = useTl();
   const [eqId, setEqId] = useState("water");
   const eq = EQUATIONS.find((e) => e.id === eqId)!;
   const nSpecies = eq.left.length + eq.right.length;
@@ -166,7 +167,7 @@ export function BalanceLab() {
       D.label(ctx, `balanced — but every coefficient is divisible by ${g}. Find the smallest set!`, 450, msgY, { size: 14, color: D.COL.amber });
     } else {
       const off = elements.filter((el) => (leftTotals[el] ?? 0) !== (rightTotals[el] ?? 0));
-      D.label(ctx, `not balanced: ${off.join(", ")} count${off.length > 1 ? "s" : ""} differ${off.length > 1 ? "" : "s"}`, 450, msgY, { size: 14, color: D.COL.bad });
+      D.label(ctx, `${tl("not balanced:")} ${off.join(", ")}`, 450, msgY, { size: 14, color: D.COL.bad });
     }
   };
 
@@ -181,7 +182,7 @@ export function BalanceLab() {
         {allSpecies.map((s, i) => (
           <Slider
             key={`${eqId}-${i}`}
-            label={`${i < eq.left.length ? "left" : "right"}: ${s.formula}`}
+            label={`${tl(i < eq.left.length ? "left" : "right")}: ${s.formula}`}
             min={1}
             max={6}
             step={1}
@@ -217,6 +218,7 @@ const SUBSTANCES: MolSubstance[] = [
 ];
 
 export function MoleLab() {
+  const tl = useTl();
   const [subId, setSubId] = useState("water");
   const [grams, setGrams] = useState(18);
 
@@ -247,7 +249,7 @@ export function MoleLab() {
     D.wire(ctx, [[420, 214], [820, 214]], "#243144", 1);
     D.label(ctx, "moles × Avogadro = particles", 620, 240, { size: 14, color: D.COL.muted });
     D.label(ctx, `${mol.toFixed(3)} mol × 6.022 × 10²³`, 620, 272, { size: 16, mono: true, color: D.COL.text });
-    D.label(ctx, `= ${fmtSci(particles, 3)} particles`, 620, 306, { size: 22, mono: true, bold: true, color: D.COL.amber });
+    D.label(ctx, `= ${fmtSci(particles, 3)} ${tl("particles")}`, 620, 306, { size: 22, mono: true, bold: true, color: D.COL.amber });
 
     D.meter(ctx, 20, 14, 200, "molar mass M", `${sub.molarMass.toFixed(2)} g/mol`, D.COL.accent);
     D.meter(ctx, 235, 14, 150, "amount n", `${mol.toFixed(3)} mol`, D.COL.amber);
@@ -262,7 +264,7 @@ export function MoleLab() {
           label="Substance"
           value={subId}
           onChange={setSubId}
-          options={SUBSTANCES.map((s) => ({ value: s.id, label: `${s.label} (${s.formula}, M = ${s.molarMass.toFixed(2)})` }))}
+          options={SUBSTANCES.map((s) => ({ value: s.id, label: `${tl(s.label)} (${s.formula}, M = ${s.molarMass.toFixed(2)})` }))}
         />
         <Slider label="Mass on the scale" min={0} max={500} step={1} value={grams} onChange={setGrams} fmt={(v) => `${v} g`} />
       </Controls>

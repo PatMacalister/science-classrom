@@ -309,15 +309,16 @@ export const unit0: UnitModule = {
           </ul>
 
           <div className="callout note">
-            <span className="co-title">Why the symbols need Eselsbrücken</span>
+            <span className="co-title">Why the symbols need memory hooks</span>
             <p>
               The symbols are international, but their roots are Latin and Greek: iron is{" "}
               <strong>Fe</strong> (<em>ferrum</em>), sodium is <strong>Na</strong> (
               <em>natrium</em>), potassium is <strong>K</strong> (<em>kalium</em>), tungsten is{" "}
               <strong>W</strong> (German <em>Wolfram</em>!). No one guesses these — everyone
-              memorizes them. That&rsquo;s exactly what an <strong>Eselsbrücke</strong> (German
-              for &ldquo;donkey bridge&rdquo; — a mnemonic) is for: a little story that carries
-              you from the name to the symbol. Every element in the lab below has one.
+              memorizes them. That&rsquo;s exactly what a <strong>memory hook</strong> — in
+              German, an <em>Eselsbrücke</em>, a &ldquo;donkey bridge&rdquo; — is for: a little
+              story that carries you from the name to the symbol. Every element in the lab below
+              has one in both languages (switch with the EN/DE toggle).
             </p>
           </div>
 
@@ -333,13 +334,14 @@ export const unit0: UnitModule = {
         </>
       ),
       lab: {
-        title: "The Periodic Table — with an Eselsbrücke for Every Element",
+        title: "The Periodic Table — with a Memory Hook for Every Element",
         intro: (
           <>
             <p>
-              The full map, 118 tiles. Click any element for its data and its Eselsbrücke — the
-              German memory hook linking its name to its symbol. (The standalone page under{" "}
-              <strong>🧪 Elements</strong> in the top bar adds a searchable list view.)
+              The full map, 118 tiles. Click any element for its data and its memory hook — the
+              little story linking its name to its symbol (in German mode you get the
+              Eselsbrücke instead). The standalone page under <strong>🧪 Elements</strong> in
+              the top bar adds a searchable list view.
             </p>
             <ul>
               <li>Walk down group 1, then across period 3 — watch the categories change color.</li>

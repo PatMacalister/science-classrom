@@ -59,7 +59,7 @@ export const COURSES: CourseInfo[] = [
     accent: "#2dd4bf",
     field: { en: "Chemistry", de: "Chemie" },
     tagline: {
-      en: "Chemistry from the atom up — bonds, reactions, moles, acids and electrochemistry, plus all 118 elements with an Eselsbrücke each.",
+      en: "Chemistry from the atom up — bonds, reactions, moles, acids and electrochemistry, plus a memory hook for each of the 118 elements.",
       de: "Chemie vom Atom aufwärts — Bindungen, Reaktionen, Mol, Säuren und Elektrochemie, plus alle 118 Elemente mit je einer Eselsbrücke.",
     },
     capstone: {

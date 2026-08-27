@@ -13,13 +13,12 @@ in `getDriver()` reads `process.env.DATABASE_URL` and currently only logs a
 warning that no hosted driver is configured — implement a Postgres/libSQL
 driver there when a `DATABASE_URL` exists.
 
-## German lesson bodies (Catalyst)
+## (resolved) German lesson bodies
 
-Spark is fully bilingual (interface + all lesson bodies via its
-`lib/curriculum/de/` overlay). Catalyst's interface and periodic table are
-bilingual, but its lesson Theory/quiz/problem texts are English; DE mode shows
-a notice banner. To translate, follow Spark's pattern: per-lesson override
-modules merged by a localize layer.
+Both courses are now fully bilingual — interface, all lesson bodies and the
+canvas labels. The fallback machinery stays in place: any future lesson added
+without a `curriculum/de/` entry automatically shows the English body under a
+notice banner, so content can be written first and translated later.
 
 ## Landing-page lesson counts
 

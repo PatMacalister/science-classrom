@@ -3,10 +3,12 @@
 import { useRef, useState } from "react";
 import { useT } from "@/catalyst/lib/i18n";
 import { useProgress } from "@/shared/progress";
+import SyncQr from "@/shared/SyncQr";
 
 export default function SyncPanel() {
   const progress = useProgress();
   const t = useT();
+  const [showQr, setShowQr] = useState(false);
   const [linkCode, setLinkCode] = useState("");
   const [message, setMessage] = useState<{ text: string; error?: boolean } | null>(null);
   const [busy, setBusy] = useState(false);
@@ -76,18 +78,29 @@ export default function SyncPanel() {
       </div>
 
       {progress.syncCode ? (
-        <div className="sync-row">
-          <span className="sync-label">{t("syncCodeLabel")}</span>
-          <code className="sync-code" onClick={copyCode}>
-            {progress.syncCode}
-          </code>
-          <button type="button" className="btn secondary small" onClick={copyCode}>
-            {t("syncCopy")}
-          </button>
-          <button type="button" className="btn secondary small" onClick={() => progress.disableSync()}>
-            {t("syncUnlink")}
-          </button>
-        </div>
+        <>
+          <div className="sync-row">
+            <span className="sync-label">{t("syncCodeLabel")}</span>
+            <code className="sync-code" onClick={copyCode}>
+              {progress.syncCode}
+            </code>
+            <button type="button" className="btn secondary small" onClick={copyCode}>
+              {t("syncCopy")}
+            </button>
+            <button type="button" className="btn secondary small" onClick={() => setShowQr((q) => !q)}>
+              {showQr ? t("syncQrHide") : t("syncQr")}
+            </button>
+            <button type="button" className="btn secondary small" onClick={() => progress.disableSync()}>
+              {t("syncUnlink")}
+            </button>
+          </div>
+          {showQr ? (
+            <SyncQr
+              value={`${window.location.origin}/${progress.course}#sync=${progress.syncCode}`}
+              caption={t("syncQrHint")}
+            />
+          ) : null}
+        </>
       ) : (
         <div className="sync-row">
           <span className="sync-label">{t("syncAcross")}</span>

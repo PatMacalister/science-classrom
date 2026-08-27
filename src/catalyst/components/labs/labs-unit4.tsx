@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SimCanvas from "@/shared/SimCanvas";
-import { Controls, Slider, Select } from "@/catalyst/components/controls";
+import { Controls, Slider, Select, useTl } from "@/catalyst/components/controls";
 import { clamp, fmtSci } from "@/catalyst/lib/sim/helpers";
 import * as D from "@/catalyst/lib/sim/draw";
 
@@ -56,6 +56,7 @@ const PH_SUBSTANCES: PhSubstance[] = [
 ];
 
 export function PHLab() {
+  const tl = useTl();
   const [subId, setSubId] = useState("lemon");
   const [dilution, setDilution] = useState(0);
 
@@ -123,9 +124,9 @@ export function PHLab() {
             setSubId(v);
             setDilution(0);
           }}
-          options={PH_SUBSTANCES.map((s) => ({ value: s.id, label: `${s.label} (pH ${s.ph.toFixed(1)})` }))}
+          options={PH_SUBSTANCES.map((s) => ({ value: s.id, label: `${tl(s.label)} (pH ${s.ph.toFixed(1)})` }))}
         />
-        <Slider label="Dilute with water" min={0} max={6} step={1} value={dilution} onChange={setDilution} fmt={(v) => (v === 0 ? "undiluted" : `×10${v > 1 ? `^${v}` : ""}`)} />
+        <Slider label="Dilute with water" min={0} max={6} step={1} value={dilution} onChange={setDilution} fmt={(v) => (v === 0 ? tl("undiluted") : `×10${v > 1 ? `^${v}` : ""}`)} />
       </Controls>
     </>
   );
