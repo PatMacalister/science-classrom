@@ -50,8 +50,14 @@ export default function ReviewPage() {
         }
       }
     }
-    // eslint-disable-next-line react-hooks/purity -- one-time shuffle per visit is the desired behaviour
-    return cards.sort(() => 0.5 - Math.random());
+    // Fisher–Yates: a sort() comparator that ignores its arguments is an
+    // inconsistent comparator, so it shuffles with a pronounced bias.
+    for (let i = cards.length - 1; i > 0; i--) {
+      // eslint-disable-next-line react-hooks/purity -- one-time shuffle per visit is the desired behaviour
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    return cards;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progress.ready]);
 

@@ -82,6 +82,9 @@ export function ElementDetail({ el }: { el: ChemElement }) {
           <span>
             {t("detailCategory")}: <b>{t(CATEGORY_KEYS[el.category])}</b>
           </span>
+          <span>
+            {t("detailShells")}: <b>{el.shells.join("–")}</b>
+          </span>
         </div>
       </div>
       <div className="pt-esel">

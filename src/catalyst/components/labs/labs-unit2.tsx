@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import SimCanvas from "@/shared/SimCanvas";
-import { Controls, Slider, Segmented, Select, useTl } from "@/catalyst/components/controls";
+import { Controls, Readout, Readouts, Slider, Segmented, Select, useTl } from "@/catalyst/components/controls";
 import { fmtSci } from "@/catalyst/lib/sim/helpers";
+import { tl as translate } from "@/catalyst/lib/labStrings";
 import * as D from "@/catalyst/lib/sim/draw";
 
 /* =====================================================================
@@ -331,6 +332,163 @@ export function LimitingLab() {
         <Slider label="Hydrogen H₂" min={0} max={10} step={0.5} value={h2} onChange={setH2} fmt={(v) => `${v} mol`} />
         <Slider label="Oxygen O₂" min={0} max={10} step={0.5} value={o2} onChange={setO2} fmt={(v) => `${v} mol`} />
       </Controls>
+    </>
+  );
+}
+
+/* =====================================================================
+ * Lab 2.4 — Reaction sorter: five patterns, one card at a time. Name the
+ * pattern before the answer shows itself.
+ * ===================================================================== */
+
+type RxType = "synthesis" | "decomposition" | "single" | "double" | "combustion";
+
+const TYPE_LABEL: Record<RxType, string> = {
+  synthesis: "Synthesis",
+  decomposition: "Decomposition",
+  single: "Single replacement",
+  double: "Double replacement",
+  combustion: "Combustion",
+};
+
+const TYPE_PATTERN: Record<RxType, string> = {
+  synthesis: "A + B \u2192 AB",
+  decomposition: "AB \u2192 A + B",
+  single: "A + BC \u2192 AC + B",
+  double: "AB + CD \u2192 AD + CB",
+  combustion: "fuel + O\u2082 \u2192 CO\u2082 + H\u2082O",
+};
+
+interface RxCard {
+  eq: string;
+  type: RxType;
+  why: string;
+}
+
+const CARDS: RxCard[] = [
+  { eq: "2 Mg + O\u2082 \u2192 2 MgO", type: "synthesis",
+    why: "Two elements combine into one compound. Nothing comes apart." },
+  { eq: "2 H\u2082O \u2192 2 H\u2082 + O\u2082", type: "decomposition",
+    why: "One compound splits into two elements - electrolysis does exactly this." },
+  { eq: "Zn + CuSO\u2084 \u2192 ZnSO\u2084 + Cu", type: "single",
+    why: "Zinc kicks copper out of its compound and takes its place. One element swaps in, one drops out." },
+  { eq: "AgNO\u2083 + NaCl \u2192 AgCl + NaNO\u2083", type: "double",
+    why: "Both compounds swap partners. AgCl is insoluble, so it precipitates out and drives the reaction." },
+  { eq: "CH\u2084 + 2 O\u2082 \u2192 CO\u2082 + 2 H\u2082O", type: "combustion",
+    why: "A hydrocarbon plus oxygen giving carbon dioxide and water - the signature of burning." },
+  { eq: "CaCO\u2083 \u2192 CaO + CO\u2082", type: "decomposition",
+    why: "Heating limestone splits it into quicklime and carbon dioxide. One in, two out." },
+  { eq: "Fe + 2 HCl \u2192 FeCl\u2082 + H\u2082", type: "single",
+    why: "Iron displaces hydrogen from the acid, and the hydrogen bubbles off as a gas." },
+  { eq: "N\u2082 + 3 H\u2082 \u2192 2 NH\u2083", type: "synthesis",
+    why: "Two elements, one product. The Haber process that feeds about half the planet." },
+  { eq: "HCl + NaOH \u2192 NaCl + H\u2082O", type: "double",
+    why: "Acid and base swap partners to give a salt and water - neutralisation is a double replacement." },
+  { eq: "2 C\u2088H\u2081\u2088 + 25 O\u2082 \u2192 16 CO\u2082 + 18 H\u2082O", type: "combustion",
+    why: "Octane burning in an engine. Hydrocarbon + O2 gives CO2 + H2O, every time." },
+];
+
+export function ReactionTypeLab() {
+  const tl = useTl();
+  const [i, setI] = useState(0);
+  const [picked, setPicked] = useState<RxType | null>(null);
+  const [score, setScore] = useState({ right: 0, wrong: 0 });
+
+  const card = CARDS[i];
+  const correct = picked === card.type;
+
+  const choose = (t: RxType) => {
+    if (picked) return;
+    setPicked(t);
+    setScore((s) => ({
+      right: s.right + (t === card.type ? 1 : 0),
+      wrong: s.wrong + (t === card.type ? 0 : 1),
+    }));
+  };
+
+  const next = () => {
+    setPicked(null);
+    setI((v) => (v + 1) % CARDS.length);
+  };
+
+  const draw = (ctx: CanvasRenderingContext2D) => {
+    D.panel(ctx, 80, 60, 740, 116);
+    D.label(ctx, `reaction ${i + 1} of ${CARDS.length}`, 450, 84, { color: D.COL.muted, size: 11 });
+    D.label(ctx, card.eq, 450, 124, { size: 24, bold: true, color: D.COL.accent, mono: true });
+    D.label(ctx, picked ? TYPE_PATTERN[card.type] : "which pattern is this?", 450, 156, {
+      color: picked ? D.COL.amber : D.COL.muted, size: picked ? 14 : 12, mono: !!picked,
+    });
+
+    if (picked) {
+      D.panel(ctx, 80, 196, 740, 150, correct ? "rgba(71,194,107,0.10)" : "rgba(242,109,109,0.10)");
+      D.label(ctx, correct ? "correct" : `it is ${TYPE_LABEL[card.type]}`, 450, 226, {
+        size: 18, bold: true, color: correct ? D.COL.good : D.COL.bad,
+      });
+      // translate before wrapping — the per-line tl() inside D.label could
+      // never match a dictionary key once the sentence is chopped into lines
+      let line = "";
+      let ly = 260;
+      for (const w of translate(card.why).split(" ")) {
+        if ((line + w).length > 66) {
+          D.label(ctx, line.trim(), 450, ly, { color: D.COL.text, size: 13 });
+          ly += 20;
+          line = "";
+        }
+        line += w + " ";
+      }
+      D.label(ctx, line.trim(), 450, ly, { color: D.COL.text, size: 13 });
+      if (!correct) {
+        D.label(ctx, `you said ${TYPE_LABEL[picked]}: ${TYPE_PATTERN[picked]}`, 450, 326, {
+          color: D.COL.muted, size: 12, mono: true,
+        });
+      }
+    } else {
+      D.label(ctx, "the five patterns", 450, 216, { color: D.COL.muted, size: 11 });
+      (Object.keys(TYPE_LABEL) as RxType[]).forEach((t, n) => {
+        const y = 244 + n * 24;
+        D.label(ctx, TYPE_LABEL[t], 330, y, { size: 13, align: "right", color: D.COL.text });
+        D.label(ctx, TYPE_PATTERN[t], 370, y, { size: 13, align: "left", color: D.COL.amber, mono: true });
+      });
+    }
+
+    D.meter(ctx, 20, 14, 150, "correct", String(score.right), D.COL.good);
+    D.meter(ctx, 180, 14, 150, "missed", String(score.wrong), score.wrong ? D.COL.bad : D.COL.muted);
+  };
+
+  return (
+    <>
+      <SimCanvas width={900} height={370} draw={draw} />
+      <Controls>
+        <div className="ctl-row">
+          <label>{tl("Classify it")}</label>
+          <div className="seg">
+            {(Object.keys(TYPE_LABEL) as RxType[]).map((t) => (
+              <button
+                key={t}
+                type="button"
+                className={`seg-btn${picked === t ? " active" : ""}`}
+                onClick={() => choose(t)}
+                disabled={!!picked}
+              >
+                {tl(TYPE_LABEL[t])}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="ctl-row">
+          <label>{tl("Next")}</label>
+          <div className="seg">
+            <button type="button" className="seg-btn" onClick={next} disabled={!picked}>
+              {tl("Next reaction \u2192")}
+            </button>
+          </div>
+        </div>
+      </Controls>
+      <Readouts>
+        <Readout label="Score" value={`${score.right} / ${score.right + score.wrong}`} tone="good" />
+        <Readout label="Card" value={`${i + 1} / ${CARDS.length}`} />
+        <Readout label="This one" value={picked ? TYPE_LABEL[card.type] : "\u2014"} tone="amber" />
+      </Readouts>
     </>
   );
 }

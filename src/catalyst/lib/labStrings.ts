@@ -301,6 +301,117 @@ export const LAB_DE: Record<string, string> = {
 let active: Record<string, string> | null = null;
 
 /** Install (or clear) the dictionary consulted by tl(). */
+/* ---- unit 1.4: shape & polarity ---- */
+export const LAB_DE_SHAPES: Record<string, string> = {
+  Molecule: "Molekül",
+  "Lone pairs": "Freie Paare",
+  Show: "Zeigen",
+  Hide: "Ausblenden",
+  Geometry: "Geometrie",
+  "Bond angle": "Bindungswinkel",
+  Overall: "Insgesamt",
+  "electron groups": "Elektronengruppen",
+  shape: "Form",
+  polar: "polar",
+  nonpolar: "unpolar",
+  Methane: "Methan",
+  Ammonia: "Ammoniak",
+  Water: "Wasser",
+  "Carbon dioxide": "Kohlenstoffdioxid",
+  "Boron trifluoride": "Bortrifluorid",
+  tetrahedral: "tetraedrisch",
+  "trigonal pyramidal": "trigonal-pyramidal",
+  bent: "gewinkelt",
+  linear: "linear",
+  "trigonal planar": "trigonal-planar",
+  "net dipole": "Gesamtdipol",
+  "pulls cancel - no net dipole": "die Züge heben sich auf — kein Gesamtdipol",
+  "polar molecule": "polares Molekül",
+  "nonpolar molecule": "unpolares Molekül",
+  "Four identical bonds pointing to the corners of a tetrahedron - every pull cancels.":
+    "Vier identische Bindungen zu den Ecken eines Tetraeders — jeder Zug hebt sich auf.",
+  "The lone pair pushes the three bonds down into a pyramid - the pulls no longer cancel.":
+    "Das freie Paar drückt die drei Bindungen zu einer Pyramide herunter — die Züge heben sich nicht mehr auf.",
+  "Two lone pairs squeeze the bonds into a V. The dipoles add instead of cancelling - this is why water is water.":
+    "Zwei freie Paare quetschen die Bindungen zu einem V. Die Dipole addieren sich, statt sich aufzuheben — deshalb ist Wasser Wasser.",
+  "Both C=O bonds are strongly polar - but they point exactly opposite, so the molecule as a whole is not.":
+    "Beide C=O-Bindungen sind stark polar — sie zeigen aber exakt entgegengesetzt, das Molekül als Ganzes also nicht.",
+  "Three polar bonds at 120 degrees - perfectly balanced, so no net dipole despite fluorine's greed.":
+    "Drei polare Bindungen bei 120 Grad — perfekt ausgeglichen, also kein Gesamtdipol trotz Fluors Gier.",
+};
+
+/* ---- unit 1.5: intermolecular forces ---- */
+export const LAB_DE_IMF: Record<string, string> = {
+  Substance: "Stoff",
+  Temperature: "Temperatur",
+  State: "Zustand",
+  "Molar mass": "Molare Masse",
+  "Boiling point": "Siedepunkt",
+  "Held by": "Gehalten von",
+  state: "Zustand",
+  "boils at": "siedet bei",
+  gas: "Gas",
+  liquid: "flüssig",
+  "gas - molecules fly free": "Gas — die Moleküle fliegen frei",
+  "liquid - molecules cling": "flüssig — die Moleküle klammern",
+  "boiling point": "Siedepunkt",
+  "strongest force": "stärkste Kraft",
+  "London dispersion only": "nur London-Dispersion",
+  "dipole-dipole": "Dipol-Dipol",
+  "hydrogen bonding (N-H)": "Wasserstoffbrücken (N-H)",
+  "hydrogen bonding (O-H)": "Wasserstoffbrücken (O-H)",
+  "Hydrogen sulfide": "Schwefelwasserstoff",
+  "Nonpolar. Only fleeting, accidental dipoles hold it together.":
+    "Unpolar. Nur flüchtige, zufällige Dipole halten es zusammen.",
+  "Bent and polar, but sulfur is too big and mild for hydrogen bonds.":
+    "Gewinkelt und polar, aber Schwefel ist zu groß und zu mild für Wasserstoffbrücken.",
+  "One lone pair, three H - real hydrogen bonds, but only one acceptor.":
+    "Ein freies Paar, drei H — echte Wasserstoffbrücken, aber nur ein Akzeptor.",
+  "Two lone pairs and two H: every molecule can hold four neighbours.":
+    "Zwei freie Paare und zwei H: Jedes Molekül kann vier Nachbarn halten.",
+};
+
+/* ---- unit 2.4: reaction sorter ---- */
+export const LAB_DE_RXTYPES: Record<string, string> = {
+  "Classify it": "Ordne zu",
+  Next: "Weiter",
+  "Next reaction →": "Nächste Reaktion →",
+  Score: "Punkte",
+  Card: "Karte",
+  "This one": "Diese hier",
+  correct: "richtig",
+  missed: "verfehlt",
+  Synthesis: "Synthese",
+  Decomposition: "Analyse",
+  "Single replacement": "Einfache Substitution",
+  "Double replacement": "Doppelte Substitution",
+  Combustion: "Verbrennung",
+  "which pattern is this?": "welches Muster ist das?",
+  "the five patterns": "die fünf Muster",
+  "Two elements combine into one compound. Nothing comes apart.":
+    "Zwei Elemente verbinden sich zu einer Verbindung. Nichts zerfällt.",
+  "One compound splits into two elements - electrolysis does exactly this.":
+    "Eine Verbindung zerfällt in zwei Elemente — genau das macht die Elektrolyse.",
+  "Zinc kicks copper out of its compound and takes its place. One element swaps in, one drops out.":
+    "Zink wirft Kupfer aus seiner Verbindung und nimmt dessen Platz ein. Ein Element rückt nach, eines fällt heraus.",
+  "Both compounds swap partners. AgCl is insoluble, so it precipitates out and drives the reaction.":
+    "Beide Verbindungen tauschen Partner. AgCl ist unlöslich, fällt aus und treibt damit die Reaktion.",
+  "A hydrocarbon plus oxygen giving carbon dioxide and water - the signature of burning.":
+    "Ein Kohlenwasserstoff plus Sauerstoff ergibt Kohlenstoffdioxid und Wasser — die Signatur des Brennens.",
+  "Heating limestone splits it into quicklime and carbon dioxide. One in, two out.":
+    "Kalkstein erhitzt zerfällt zu gebranntem Kalk und Kohlenstoffdioxid. Einer rein, zwei raus.",
+  "Iron displaces hydrogen from the acid, and the hydrogen bubbles off as a gas.":
+    "Eisen verdrängt Wasserstoff aus der Säure, und der Wasserstoff perlt als Gas ab.",
+  "Two elements, one product. The Haber process that feeds about half the planet.":
+    "Zwei Elemente, ein Produkt. Das Haber-Bosch-Verfahren, das etwa den halben Planeten ernährt.",
+  "Acid and base swap partners to give a salt and water - neutralisation is a double replacement.":
+    "Säure und Base tauschen Partner zu Salz und Wasser — Neutralisation ist eine doppelte Substitution.",
+  "Octane burning in an engine. Hydrocarbon + O2 gives CO2 + H2O, every time.":
+    "Oktan verbrennt im Motor. Kohlenwasserstoff + O₂ ergibt CO₂ + H₂O, jedes Mal.",
+};
+
+Object.assign(LAB_DE, LAB_DE_SHAPES, LAB_DE_IMF, LAB_DE_RXTYPES);
+
 export function setLabDictionary(dict: Record<string, string> | null) {
   active = dict;
 }
