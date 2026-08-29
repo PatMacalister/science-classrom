@@ -1,5 +1,11 @@
 import type { UnitModule } from "./types";
-import { BalanceLab, MoleLab, LimitingLab, ReactionTypeLab } from "@/catalyst/components/labs/labs-unit2";
+import {
+  BalanceLab,
+  MoleLab,
+  LimitingLab,
+  ReactionTypeLab,
+  ConservationLab,
+} from "@/catalyst/components/labs/labs-unit2";
 
 export const unit2: UnitModule = {
   unit: {
@@ -84,6 +90,23 @@ export const unit2: UnitModule = {
           </>
         ),
         Component: BalanceLab,
+      },
+      extraLab: {
+        title: "Lavoisier's Balance",
+        intro: (
+          <>
+            <p>
+              Balancing an equation only makes sense because mass is conserved. Here is the
+              experiment that settled it — three reactions on a scale, in an open or a sealed vessel.
+            </p>
+            <ul>
+              <li>Run baking soda + vinegar in the <em>open</em> beaker. The mass drops. Now seal the jar and run it again.</li>
+              <li>Burn magnesium in the open and the mass goes <em>up</em>. Where did it come from?</li>
+              <li>Seal every reaction and the needle never moves. That is the law, demonstrated.</li>
+            </ul>
+          </>
+        ),
+        Component: ConservationLab,
       },
       quiz: [
         {

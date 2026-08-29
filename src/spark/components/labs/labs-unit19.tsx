@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import SimCanvas from "@/shared/SimCanvas";
-import { Controls, Readout, Readouts, Segmented, Slider } from "@/spark/components/controls";
+import { Controls, Readout, Readouts, Slider } from "@/spark/components/controls";
 import { clamp, Scope } from "@/spark/lib/sim/helpers";
 import * as D from "@/spark/lib/sim/draw";
 

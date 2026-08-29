@@ -105,9 +105,15 @@ in its own route-segment chunk.
 ## Provenance
 
 Merged from the two standalone apps in this workspace
-(`../electrical-engineering`, `../chemistry`), which remain untouched as
-references. Course code was imported byte-identical apart from mechanical
-rewrites (import namespaces, route prefixes, shared-module redirects); the
-imported Spark tree keeps its original lint profile via a scoped override in
-`eslint.config.mjs`. Standalone sync codes are not migrated (fresh
-`science.db`); browser-local progress carries over by key.
+(`../electrical-engineering`, `../chemistry`). Course code was imported
+byte-identical apart from mechanical rewrites (import namespaces, route
+prefixes, shared-module redirects). Standalone sync codes are not migrated
+(fresh `science.db`); browser-local progress carries over by key.
+
+This repo is the source of truth. `../electrical-engineering` is still the
+untouched Spark reference, but `../chemistry` has since been overwritten by a
+second, independent chemistry build and is **not** the app Catalyst came from —
+its worthwhile additions were ported here on their own branch. The Spark tree
+still carries a scoped lint override in `eslint.config.mjs` for the React
+purity/immutability rules it predates; everything else lints clean at full
+strength, with no warnings.

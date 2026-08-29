@@ -69,6 +69,23 @@ export const unit2De: Record<string, LessonContentDe> = {
         </>
       ),
     },
+    extraLab: {
+      title: "Lavoisiers Waage",
+      intro: (
+        <>
+          <p>
+            Eine Gleichung auszugleichen ergibt überhaupt nur Sinn, weil Masse erhalten bleibt. Hier
+            ist das Experiment, das die Frage entschieden hat — drei Reaktionen auf einer Waage, im
+            offenen oder im verschlossenen Gefäß.
+          </p>
+          <ul>
+            <li>Lass Natron + Essig im <em>offenen</em> Becherglas laufen. Die Masse sinkt. Jetzt verschließe das Glas und wiederhole es.</li>
+            <li>Verbrenne Magnesium offen — die Masse steigt. Woher kommt sie?</li>
+            <li>Verschließe jede Reaktion, und der Zeiger bewegt sich nie. Das ist das Gesetz, vorgeführt.</li>
+          </ul>
+        </>
+      ),
+    },
     quiz: [
       {
         q: "Was macht eine chemische Reaktion mit den Atomen?",

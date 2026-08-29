@@ -29,6 +29,7 @@ export default function LessonView({ lesson: lessonRaw }: { lesson: Lesson }) {
   const { prev, next } = prevNext(lessonRaw.slug);
   const Theory = lesson.Theory;
   const Lab = lesson.lab.Component;
+  const ExtraLab = lesson.extraLab?.Component;
   const untranslated = lang === "de" && !isFullyTranslated(lessonRaw.slug, lang);
 
   useEffect(() => {
@@ -96,6 +97,18 @@ export default function LessonView({ lesson: lessonRaw }: { lesson: Lesson }) {
           <Lab />
         </div>
       </section>
+
+      {ExtraLab ? (
+        <section className="interactive">
+          <div className="lab-head">
+            <h2>⚗️ {t("labWord")} — {lesson.extraLab!.title}</h2>
+          </div>
+          <div className="lab-desc">{lesson.extraLab!.intro}</div>
+          <div className="lab-body">
+            <ExtraLab />
+          </div>
+        </section>
+      ) : null}
 
       {lesson.problems ? <Problems lessonSlug={lessonRaw.slug} problems={lesson.problems} /> : null}
       {lesson.quiz ? <Quiz lessonSlug={lessonRaw.slug} questions={lesson.quiz} /> : null}

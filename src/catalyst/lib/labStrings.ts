@@ -410,7 +410,69 @@ export const LAB_DE_RXTYPES: Record<string, string> = {
     "Oktan verbrennt im Motor. Kohlenwasserstoff + O₂ ergibt CO₂ + H₂O, jedes Mal.",
 };
 
-Object.assign(LAB_DE, LAB_DE_SHAPES, LAB_DE_IMF, LAB_DE_RXTYPES);
+/* ---- unit 0.3b: periodic trends ---- */
+export const LAB_DE_TRENDS: Record<string, string> = {
+  Property: "Eigenschaft",
+  "Atomic radius": "Atomradius",
+  Electronegativity: "Elektronegativität",
+  "Ionization energy": "Ionisierungsenergie",
+  "First ionization energy": "Erste Ionisierungsenergie",
+  Showing: "Angezeigt",
+  Smallest: "Kleinster Wert",
+  Largest: "Größter Wert",
+  scale: "Skala",
+  "across a period": "quer durch eine Periode",
+  "down a group": "eine Gruppe hinunter",
+  "grey = no accepted value": "grau = kein anerkannter Wert",
+  "no accepted value": "kein anerkannter Wert",
+  "shrinks left to right (more pull, same shell), grows down a group (a whole new shell)":
+    "schrumpft von links nach rechts (mehr Zug, gleiche Schale), wächst nach unten (eine ganz neue Schale)",
+  "grows left to right, shrinks down a group - fluorine is the greediest atom there is":
+    "wächst von links nach rechts, schrumpft nach unten — Fluor ist das gierigste Atom überhaupt",
+  "grows left to right, shrinks down a group - the price of stealing one electron":
+    "wächst von links nach rechts, schrumpft nach unten — der Preis, ein Elektron zu stehlen",
+};
+
+/* ---- unit 2.1b: Lavoisier's balance ---- */
+export const LAB_DE_CONSERVATION: Record<string, string> = {
+  Vessel: "Gefäß",
+  "Open beaker": "Offenes Becherglas",
+  "Sealed jar": "Verschlossenes Glas",
+  "Run the reaction": "Reaktion ablaufen lassen",
+  "Start mass": "Startmasse",
+  "Mass now": "Masse jetzt",
+  Change: "Änderung",
+  Atoms: "Atome",
+  "always conserved": "immer erhalten",
+  "reaction progress": "Reaktionsfortschritt",
+  vessel: "Gefäß",
+  sealed: "verschlossen",
+  open: "offen",
+  "open to the air": "offen zur Luft",
+  reference: "Referenz",
+  unchanged: "unverändert",
+  "mass on the balance": "Masse auf der Waage",
+  "closed system": "geschlossenes System",
+  "open system": "offenes System",
+  "Baking soda + vinegar": "Natron + Essig",
+  "Burning magnesium": "Magnesium verbrennt",
+  "Iron rusting": "Eisen rostet",
+  "Every atom stays inside. The balance cannot move - mass is conserved, exactly.":
+    "Jedes Atom bleibt drin. Die Waage kann sich nicht bewegen — die Masse bleibt exakt erhalten.",
+  "Atoms leave as gas. Mass seems to vanish; it is only walking out of the jar.":
+    "Atome entweichen als Gas. Die Masse scheint zu verschwinden; sie spaziert nur aus dem Glas.",
+  "Atoms arrive from the air. Mass seems to appear; it was in the atmosphere all along.":
+    "Atome kommen aus der Luft dazu. Die Masse scheint zu entstehen; sie war die ganze Zeit in der Atmosphäre.",
+};
+
+Object.assign(
+  LAB_DE,
+  LAB_DE_SHAPES,
+  LAB_DE_IMF,
+  LAB_DE_RXTYPES,
+  LAB_DE_TRENDS,
+  LAB_DE_CONSERVATION
+);
 
 export function setLabDictionary(dict: Record<string, string> | null) {
   active = dict;

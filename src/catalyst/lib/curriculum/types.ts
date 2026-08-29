@@ -49,6 +49,12 @@ export interface Lesson {
   /** Theory section as a React component (plain JSX, may embed SVG diagrams). */
   Theory: ComponentType;
   lab: LabSpec;
+  /**
+   * A second simulation for lessons that carry two distinct ideas — rendered
+   * below the first. Use sparingly: if a lesson needs two labs to explain two
+   * unrelated things, it usually wants to be two lessons.
+   */
+  extraLab?: LabSpec;
   /** Standard lessons: pass the quiz (>= 75%) to complete. */
   quiz?: QuizQuestion[];
   /** Optional extra practice: solve-by-hand problems (not completion-gating). */
