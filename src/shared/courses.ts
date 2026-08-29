@@ -66,7 +66,24 @@ export const COURSES: CourseInfo[] = [
       en: "Ends at your kitchen table: a red-cabbage pH rainbow, a stoichiometric CO₂ balloon — and a lemon battery lighting a real LED.",
       de: "Endet am Küchentisch: Rotkohl-pH-Regenbogen, stöchiometrischer CO₂-Ballon — und eine Zitronenbatterie, die eine echte LED leuchten lässt.",
     },
-    lessonsTotal: 22,
+    lessonsTotal: 25,
+    unitsTotal: 7,
+  },
+  {
+    id: "helix",
+    name: "Helix Academy",
+    emoji: "🧬",
+    accent: "#a78bfa",
+    field: { en: "Biology", de: "Biologie" },
+    tagline: {
+      en: "Biology from one cell up — membranes, enzymes, DNA, heredity, evolution and ecology, plus the genetic code with a memory hook for every amino acid.",
+      de: "Biologie von einer Zelle aufwärts — Membranen, Enzyme, DNA, Vererbung, Evolution und Ökologie, plus der genetische Code mit einer Eselsbrücke für jede Aminosäure.",
+    },
+    capstone: {
+      en: "Ends in your kitchen: real DNA pulled out of a strawberry on a stick, and a balloon inflated by living yeast to a volume you predicted.",
+      de: "Endet in deiner Küche: echte DNA, am Stäbchen aus einer Erdbeere gezogen, und ein Ballon, den lebende Hefe auf ein von dir vorhergesagtes Volumen aufbläst.",
+    },
+    lessonsTotal: 17,
     unitsTotal: 7,
   },
 ];
