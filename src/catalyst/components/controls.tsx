@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { ReactNode } from "react";
 import { useLang } from "@/catalyst/lib/i18n";
@@ -147,7 +147,13 @@ export function Select({
 /* ---------- Readout tiles ---------- */
 
 export function Readouts({ children }: { children: ReactNode }) {
-  return <div className="readouts">{children}</div>;
+  return (
+    // A live region: canvas pixels are invisible to a screen reader, so the
+    // readouts are how a lab reports its state. Changes are announced politely.
+    <div className="readouts" role="status" aria-live="polite" aria-atomic="false">
+      {children}
+    </div>
+  );
 }
 
 export function Readout({

@@ -97,6 +97,9 @@ export default function Landing() {
             {t.titlePre} <span className="accent">{t.titleZap}</span>
           </h1>
           <p className="lead">{t.lead}</p>
+          <Link className="landing-search" href="/search">
+            🔍 {lang === "de" ? "Alle Lektionen durchsuchen" : "Search all lessons"}
+          </Link>
         </section>
 
         <div className="course-grid">

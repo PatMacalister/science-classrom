@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { LESSONS } from "@/spark/lib/curriculum/registry";
@@ -21,6 +21,9 @@ export default function TopBar() {
         </Link>
       </div>
       <div className="topbar-right">
+        <Link className="topbar-link" href="/search" title={t("searchTitle")}>
+          🔍
+        </Link>
         <div className="lang-switch" role="group" aria-label="Language">
           {(["en", "de"] as Lang[]).map((l) => (
             <button

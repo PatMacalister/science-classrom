@@ -84,6 +84,17 @@ export default function LessonView({ lesson: lessonRaw }: { lesson: Lesson }) {
         </p>
       ) : null}
 
+      {lesson.seeAlso?.length ? (
+        <p className="see-also">
+          <span className="see-also-tag">{t("seeAlso")}</span>
+          {lesson.seeAlso.map((ref) => (
+            <Link key={`${ref.course}/${ref.slug}`} href={`/${ref.course}/lesson/${ref.slug}`}>
+              {ref.label[lang] ?? ref.label.en}
+            </Link>
+          ))}
+        </p>
+      ) : null}
+
       <section className="theory">
         <Theory />
       </section>

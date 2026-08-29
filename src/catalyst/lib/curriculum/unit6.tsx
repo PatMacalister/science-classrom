@@ -19,6 +19,16 @@ export const unit6: UnitModule = {
       subtitle:
         "Ionic bonding was electron transfer standing still. Redox is electron transfer as an event — and some metals always pay.",
       buildsOn: ["ionic", "reactions"],
+      seeAlso: [
+        {
+          course: "spark",
+          slug: "charge",
+          label: {
+            en: "⚡ Spark 0.1 — Electric Charge & the Atom",
+            de: "⚡ Spark 0.1 — Elektrische Ladung & das Atom",
+          },
+        },
+      ],
       Theory: () => (
         <>
           <h2>Oxidation and reduction — always in pairs</h2>
@@ -136,6 +146,16 @@ export const unit6: UnitModule = {
       subtitle:
         "Separate the two halves of a redox reaction and force the electrons through a wire — that detour is every battery ever made.",
       buildsOn: ["redox"],
+      seeAlso: [
+        {
+          course: "spark",
+          slug: "voltage",
+          label: {
+            en: "⚡ Spark 0.2 — Voltage: Energy per Charge",
+            de: "⚡ Spark 0.2 — Spannung: Energie pro Ladung",
+          },
+        },
+      ],
       Theory: () => (
         <>
           <h2>The trick: separate the halves</h2>
@@ -381,6 +401,16 @@ export const unit6: UnitModule = {
       subtitle:
         "Zinc screw + copper coin + citrus = a real galvanic cell. Stack a few and light an actual LED with fruit.",
       buildsOn: ["galvanic", "redox"],
+      seeAlso: [
+        {
+          course: "spark",
+          slug: "first-circuit",
+          label: {
+            en: "⚡ Spark 1.1 — Your First Circuit (what to wire the lemons into)",
+            de: "⚡ Spark 1.1 — Deine erste Schaltung (wohin mit den Zitronen)",
+          },
+        },
+      ],
       Theory: () => (
         <>
           <h2>The shopping list</h2>
