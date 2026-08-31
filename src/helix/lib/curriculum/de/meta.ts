@@ -1,11 +1,10 @@
 import type { Lesson, Unit } from "../types";
 
 /**
- * German titles, subtitles and blurbs for every unit and lesson. Full lesson
- * bodies would live in de/unitN.tsx; Helix ships this metadata plus a German
- * interface and German lab labels, and the lesson bodies fall back to English
- * with the notice banner until they are translated. The other two courses are
- * fully translated — this one is the new arrival.
+ * German titles, subtitles and blurbs for every unit and lesson. The full
+ * lesson bodies live in de/unitN.tsx and are merged by ../localize.tsx; this
+ * metadata is what the home page, lesson navigation, review deck and
+ * certificate show in German.
  */
 
 export const unitMetaDe: Record<string, Partial<Unit>> = {
