@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SimCanvas from "@/shared/SimCanvas";
-import { Controls, Slider, Select } from "@/catalyst/components/controls";
+import { Controls, Readout, Readouts, Segmented, Slider, Select } from "@/catalyst/components/controls";
 import { clamp } from "@/catalyst/lib/sim/helpers";
 import * as D from "@/catalyst/lib/sim/draw";
 import { ELEMENTS } from "@/catalyst/lib/elements";
@@ -189,3 +189,190 @@ export function ShellLab() {
  * ===================================================================== */
 
 export { default as PeriodicTableLab } from "@/catalyst/components/PeriodicTable";
+
+/* =====================================================================
+ * Lab 0.3b — Periodic trends: the table is a map, and the map has slopes.
+ * Twenty elements, three properties, one lesson.
+ * ===================================================================== */
+
+interface TrendRow {
+  z: number;
+  /** Pauling electronegativity; null for noble gases without an accepted value. */
+  en: number | null;
+  /** Calculated atomic radius, pm. */
+  radius: number;
+  /** First ionization energy, kJ/mol. */
+  ie: number;
+}
+
+const TRENDS: TrendRow[] = [
+  { z: 1, en: 2.2, radius: 53, ie: 1312 },
+  { z: 2, en: null, radius: 31, ie: 2372 },
+  { z: 3, en: 0.98, radius: 167, ie: 520 },
+  { z: 4, en: 1.57, radius: 112, ie: 899 },
+  { z: 5, en: 2.04, radius: 87, ie: 801 },
+  { z: 6, en: 2.55, radius: 67, ie: 1086 },
+  { z: 7, en: 3.04, radius: 56, ie: 1402 },
+  { z: 8, en: 3.44, radius: 48, ie: 1314 },
+  { z: 9, en: 3.98, radius: 42, ie: 1681 },
+  { z: 10, en: null, radius: 38, ie: 2081 },
+  { z: 11, en: 0.93, radius: 190, ie: 496 },
+  { z: 12, en: 1.31, radius: 145, ie: 738 },
+  { z: 13, en: 1.61, radius: 118, ie: 578 },
+  { z: 14, en: 1.9, radius: 111, ie: 787 },
+  { z: 15, en: 2.19, radius: 98, ie: 1012 },
+  { z: 16, en: 2.58, radius: 88, ie: 1000 },
+  { z: 17, en: 3.16, radius: 79, ie: 1251 },
+  { z: 18, en: null, radius: 71, ie: 1521 },
+  { z: 19, en: 0.82, radius: 243, ie: 419 },
+  { z: 20, en: 1.0, radius: 194, ie: 590 },
+];
+
+type TrendKey = "radius" | "en" | "ie";
+
+const TREND_META: Record<TrendKey, { title: string; unit: string; note: string }> = {
+  radius: {
+    title: "Atomic radius",
+    unit: "pm",
+    note: "shrinks left to right (more pull, same shell), grows down a group (a whole new shell)",
+  },
+  en: {
+    title: "Electronegativity",
+    unit: "",
+    note: "grows left to right, shrinks down a group - fluorine is the greediest atom there is",
+  },
+  ie: {
+    title: "First ionization energy",
+    unit: "kJ/mol",
+    note: "grows left to right, shrinks down a group - the price of stealing one electron",
+  },
+};
+
+/** Squeeze the p-block next to the s-block so 20 elements fit in 8 columns. */
+function trendCell(z: number): { col: number; period: number } {
+  const el = ELEMENTS[z - 1];
+  const g = el.group ?? 1;
+  return { col: g <= 2 ? g : g - 10, period: el.period };
+}
+
+export function TrendsLab() {
+  const [trend, setTrend] = useState<TrendKey>("radius");
+  const [hover, setHover] = useState<number | null>(null);
+  const { lang } = useLang();
+
+  const meta = TREND_META[trend];
+  const values = TRENDS.map((r) => (trend === "en" ? r.en : trend === "radius" ? r.radius : r.ie));
+  const known = values.filter((v): v is number => v !== null);
+  const vMin = Math.min(...known);
+  const vMax = Math.max(...known);
+
+  const cellW = 62;
+  const cellH = 58;
+  const left = 120;
+  const top = 80;
+
+  const draw = (ctx: CanvasRenderingContext2D) => {
+    D.label(ctx, meta.title, 450, 26, { size: 16, bold: true, color: D.COL.accent });
+    D.label(ctx, meta.note, 450, 48, { size: 12, color: D.COL.muted });
+
+    TRENDS.forEach((row, i) => {
+      const el = ELEMENTS[row.z - 1];
+      const { col, period } = trendCell(row.z);
+      const x = left + (col - 1) * cellW;
+      const y = top + (period - 1) * cellH;
+      const v = values[i];
+      const frac = v === null ? 0 : (v - vMin) / (vMax - vMin);
+      ctx.fillStyle = v === null ? "rgba(120,130,145,0.18)" : `rgba(45, 212, 191, ${0.12 + frac * 0.72})`;
+      ctx.strokeStyle = hover === row.z ? D.COL.amber : "#243144";
+      ctx.lineWidth = hover === row.z ? 2 : 1;
+      ctx.beginPath();
+      ctx.roundRect(x, y, cellW - 5, cellH - 5, 6);
+      ctx.fill();
+      ctx.stroke();
+      D.label(ctx, el.symbol, x + (cellW - 5) / 2, y + 20, {
+        size: 15, bold: true, color: v === null ? D.COL.muted : "#08312c",
+      });
+      D.label(ctx, v === null ? "\u2014" : String(v), x + (cellW - 5) / 2, y + 39, {
+        size: 11, mono: true, color: v === null ? D.COL.muted : "#0b3a34",
+      });
+    });
+
+    // direction hints
+    D.arrow(ctx, left, top - 14, left + cellW * 7.4, top - 14, "rgba(246,178,107,0.75)", 2, 7);
+    D.label(ctx, "across a period", left + cellW * 3.7, top - 26, { color: D.COL.amber, size: 11 });
+    D.arrow(ctx, left - 18, top, left - 18, top + cellH * 3.6, "rgba(199,146,234,0.75)", 2, 7);
+    ctx.save();
+    ctx.translate(left - 34, top + cellH * 1.8);
+    ctx.rotate(-Math.PI / 2);
+    D.label(ctx, "down a group", 0, 0, { color: D.COL.violet, size: 11 });
+    ctx.restore();
+
+    // colour scale
+    const sx = 620;
+    D.panel(ctx, sx, top, 250, 232);
+    D.label(ctx, "scale", sx + 125, top + 20, { color: D.COL.muted, size: 11 });
+    for (let i = 0; i <= 5; i++) {
+      const f = i / 5;
+      const v = vMin + (vMax - vMin) * (1 - f);
+      const y = top + 40 + f * 150;
+      ctx.fillStyle = `rgba(45, 212, 191, ${0.12 + (1 - f) * 0.72})`;
+      ctx.fillRect(sx + 26, y, 42, 24);
+      const shown = trend === "en" ? v.toFixed(2) : String(Math.round(v));
+      D.label(ctx, `${shown} ${meta.unit}`, sx + 82, y + 12, {
+        color: D.COL.muted, size: 11, align: "left", mono: true,
+      });
+    }
+    D.label(ctx, "grey = no accepted value", sx + 125, top + 210, { color: D.COL.muted, size: 10 });
+
+    if (hover) {
+      const el = ELEMENTS[hover - 1];
+      const row = TRENDS[hover - 1];
+      const v = trend === "en" ? row.en : trend === "radius" ? row.radius : row.ie;
+      D.panel(ctx, 620, top + 244, 250, 76, "#101825");
+      D.label(ctx, `${el.symbol} \u2014 ${lang === "de" ? el.nameDe : el.name}`, 745, top + 268, {
+        size: 14, bold: true,
+      });
+      D.label(ctx, v === null ? "no accepted value" : `${v} ${meta.unit}`, 745, top + 294, {
+        size: 16, mono: true, color: D.COL.amber,
+      });
+    }
+  };
+
+  const pick = (x: number, y: number) => {
+    for (const row of TRENDS) {
+      const { col, period } = trendCell(row.z);
+      const cx = left + (col - 1) * cellW;
+      const cy = top + (period - 1) * cellH;
+      if (x >= cx && x <= cx + cellW - 5 && y >= cy && y <= cy + cellH - 5) return row.z;
+    }
+    return null;
+  };
+
+  return (
+    <>
+      <SimCanvas
+        width={900}
+        height={420}
+        draw={draw}
+        onPointerMove={(pt) => setHover(pick(pt.x, pt.y))}
+      />
+      <Controls>
+        <Segmented
+          label="Property"
+          value={trend}
+          onChange={setTrend}
+          options={[
+            { value: "radius", label: "Atomic radius" },
+            { value: "en", label: "Electronegativity" },
+            { value: "ie", label: "Ionization energy" },
+          ]}
+        />
+      </Controls>
+      <Readouts>
+        <Readout label="Showing" value={meta.title} />
+        <Readout label="Smallest" value={`${vMin} ${meta.unit}`} />
+        <Readout label="Largest" value={`${vMax} ${meta.unit}`} tone="amber" />
+      </Readouts>
+    </>
+  );
+}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   createContext,
@@ -71,6 +71,8 @@ const EN = {
   lessonWord: "LESSON",
   lessonPosition: "lesson {i} of {n} in this unit",
   buildsOn: "Builds on:",
+  seeAlso: "Same idea, other course:",
+  searchTitle: "Search all lessons",
   labWord: "Lab",
   previous: "← Previous",
   next: "Next →",
@@ -219,6 +221,8 @@ const DE: Record<keyof typeof EN, string> = {
   lessonWord: "LEKTION",
   lessonPosition: "Lektion {i} von {n} in dieser Einheit",
   buildsOn: "Baut auf:",
+  seeAlso: "Dieselbe Idee, anderer Kurs:",
+  searchTitle: "Alle Lektionen durchsuchen",
   labWord: "Labor",
   previous: "← Zurück",
   next: "Weiter →",

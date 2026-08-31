@@ -77,11 +77,27 @@ export const lessonMetaDe: Record<string, Partial<Lesson>> = {
     subtitle:
       "Metalle teilen ein Elektronenmeer; Moleküle teilen ungerecht. Eine Zahl — die Elektronegativität — sortiert jede Bindung dazwischen.",
   },
+  "molecular-shapes": {
+    title: "Molekülformen & warum Wasser gewinkelt ist",
+    subtitle:
+      "Elektronengruppen stoßen sich ab und weichen sich so weit wie möglich aus. Die Form, die dabei entsteht, entscheidet über die Polarität — und Wassers Form entscheidet über halbe Biologie.",
+  },
+  intermolecular: {
+    title: "Zwischenmolekulare Kräfte",
+    subtitle:
+      "Die schwachen Anziehungen zwischen Molekülen entscheiden, ob ein Stoff Gas, Flüssigkeit oder Feststoff ist — und sie sind der Grund, warum Wasser sich wie nichts anderes verhält.",
+  },
+
   /* ---- unit 2 ---- */
   reactions: {
     title: "Chemische Reaktionen & das Ausgleichen",
     subtitle:
       "Brennen, Rosten, Backen — jede Reaktion ist derselbe Zug: alte Bindungen brechen, neue entstehen, und jedes einzelne Atom überlebt.",
+  },
+  "reaction-types": {
+    title: "Die fünf Reaktionstypen",
+    subtitle:
+      "Fast jede Reaktion, der du begegnest, folgt einem von fünf Mustern. Erkenne das Muster, und du kannst die Produkte einer Reaktion vorhersagen, die du nie gesehen hast.",
   },
   mole: {
     title: "Das Mol: Das Dutzend der Chemie",

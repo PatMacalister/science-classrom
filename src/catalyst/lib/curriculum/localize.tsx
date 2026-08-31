@@ -23,6 +23,7 @@ export interface LessonContentDe {
   problems?: NumericProblem[];
   checklist?: ChecklistItem[];
   lab?: { title?: string; intro?: ReactNode };
+  extraLab?: { title?: string; intro?: ReactNode };
 }
 
 const CONTENT_DE: Record<string, LessonContentDe> = {
@@ -57,6 +58,11 @@ export function localizeLesson(lesson: Lesson, lang: Lang): Lesson {
       ...lesson.lab,
       title: content?.lab?.title ?? lesson.lab.title,
       intro: content?.lab?.intro ?? lesson.lab.intro,
+    },
+    extraLab: lesson.extraLab && {
+      ...lesson.extraLab,
+      title: content?.extraLab?.title ?? lesson.extraLab.title,
+      intro: content?.extraLab?.intro ?? lesson.extraLab.intro,
     },
   };
 }

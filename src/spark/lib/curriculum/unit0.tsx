@@ -14,6 +14,16 @@ export const unit0: UnitModule = {
     {
       slug: "charge",
       unitId: "u0",
+      seeAlso: [
+        {
+          course: "catalyst",
+          slug: "atoms",
+          label: {
+            en: "⚗️ Catalyst 0.1 — Atoms: the same particles, counted instead of pushed",
+            de: "⚗️ Catalyst 0.1 — Atome: dieselben Teilchen, gezählt statt geschoben",
+          },
+        },
+      ],
       title: "Electric Charge & the Atom",
       subtitle:
         "Everything electrical begins with a property of matter so fundamental we can only describe what it does: charge.",
@@ -141,6 +151,16 @@ export const unit0: UnitModule = {
     {
       slug: "voltage",
       unitId: "u0",
+      seeAlso: [
+        {
+          course: "catalyst",
+          slug: "galvanic",
+          label: {
+            en: "⚗️ Catalyst 6.2 — where a battery's voltage actually comes from",
+            de: "⚗️ Catalyst 6.2 — woher die Spannung einer Batterie wirklich kommt",
+          },
+        },
+      ],
       title: "Voltage: Energy per Charge",
       subtitle:
         "Separating charges stores energy, like lifting a weight. Voltage measures how much energy every coulomb gets.",

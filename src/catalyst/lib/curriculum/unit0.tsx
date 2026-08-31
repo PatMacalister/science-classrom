@@ -1,5 +1,5 @@
 import type { UnitModule } from "./types";
-import { AtomBuilderLab, ShellLab, PeriodicTableLab } from "@/catalyst/components/labs/labs-unit0";
+import { AtomBuilderLab, ShellLab, PeriodicTableLab, TrendsLab } from "@/catalyst/components/labs/labs-unit0";
 
 export const unit0: UnitModule = {
   unit: {
@@ -351,6 +351,23 @@ export const unit0: UnitModule = {
           </>
         ),
         Component: PeriodicTableLab,
+      },
+      extraLab: {
+        title: "Trend Explorer",
+        intro: (
+          <>
+            <p>
+              The table is not a list, it is a map — and the map has slopes. The first twenty
+              elements, coloured by whichever property you pick. Hover any tile for the exact value.
+            </p>
+            <ul>
+              <li>Pick <em>Atomic radius</em> and read across period 2: Li to Ne shrinks by a factor of four, even though electrons are being added.</li>
+              <li>Switch to <em>Ionization energy</em>. The pattern flips — the small atoms hold on hardest.</li>
+              <li>Compare Li, Na and K on all three. Going down a group undoes what going across a period did.</li>
+            </ul>
+          </>
+        ),
+        Component: TrendsLab,
       },
       quiz: [
         {

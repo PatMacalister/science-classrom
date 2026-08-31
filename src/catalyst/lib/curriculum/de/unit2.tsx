@@ -69,6 +69,23 @@ export const unit2De: Record<string, LessonContentDe> = {
         </>
       ),
     },
+    extraLab: {
+      title: "Lavoisiers Waage",
+      intro: (
+        <>
+          <p>
+            Eine Gleichung auszugleichen ergibt überhaupt nur Sinn, weil Masse erhalten bleibt. Hier
+            ist das Experiment, das die Frage entschieden hat — drei Reaktionen auf einer Waage, im
+            offenen oder im verschlossenen Gefäß.
+          </p>
+          <ul>
+            <li>Lass Natron + Essig im <em>offenen</em> Becherglas laufen. Die Masse sinkt. Jetzt verschließe das Glas und wiederhole es.</li>
+            <li>Verbrenne Magnesium offen — die Masse steigt. Woher kommt sie?</li>
+            <li>Verschließe jede Reaktion, und der Zeiger bewegt sich nie. Das ist das Gesetz, vorgeführt.</li>
+          </ul>
+        </>
+      ),
+    },
     quiz: [
       {
         q: "Was macht eine chemische Reaktion mit den Atomen?",
@@ -112,6 +129,161 @@ export const unit2De: Record<string, LessonContentDe> = {
         answer: 2,
         explain:
           "Geschlossenes System, gleiche Atome, gleiche Masse. Die freigesetzte Energie stammt aus der Bindungsumordnung, nicht aus vernichteter Materie (Kernreaktionen sind ein anderer Kurs).",
+      },
+    ],
+  },
+
+  /* ================================================================ */
+  "reaction-types": {
+    Theory: () => (
+      <>
+        <h2>Muster statt Auswendiglernen</h2>
+        <p>
+          Es gibt Millionen bekannter Reaktionen — was hoffnungslos klingt, bis man merkt, dass die
+          überwältigende Mehrheit in fünf Strukturmuster fällt. Lerne die Muster, und du kannst die
+          Produkte oft selbst hinschreiben.
+        </p>
+
+        <h3>1. Synthese (Vereinigung) — A + B → AB</h3>
+        <p>Zwei oder mehr einfache Stoffe verbinden sich zu einem komplexeren.</p>
+        <div className="formula">
+          2 Mg + O₂ → 2 MgO &nbsp;·&nbsp; N₂ + 3 H₂ → 2 NH₃
+          <span className="note">das zweite ist das Haber-Bosch-Verfahren — es ernährt fair gesagt etwa die Hälfte aller Lebenden</span>
+        </div>
+
+        <h3>2. Analyse (Zerlegung) — AB → A + B</h3>
+        <p>Eine Verbindung zerfällt in einfachere Teile, meist durch Hitze oder Strom.</p>
+        <div className="formula">
+          2 H₂O → 2 H₂ + O₂ &nbsp;·&nbsp; CaCO₃ → CaO + CO₂
+          <span className="note">gebrannter Kalk aus Kalkstein — so entsteht Zement, und damit ein großer Teil der globalen CO₂-Emissionen</span>
+        </div>
+
+        <h3>3. Einfache Substitution — A + BC → AC + B</h3>
+        <p>
+          Ein Element verdrängt ein anderes aus seiner Verbindung. Ob es das kann, entscheidet die{" "}
+          <strong>Spannungsreihe</strong>: Das unedlere Metall verdrängt das edlere.
+        </p>
+        <div className="formula">Zn + CuSO₄ → ZnSO₄ + Cu</div>
+        <p>
+          Wirf einen Zinkstreifen in blaue Kupfersulfatlösung: Das Blau verblasst, während sich der
+          Streifen kupfrig überzieht — du kannst dem Tausch zusehen. Umgekehrt passiert nichts, denn
+          Kupfer ist das edlere der beiden. Einheit 6 verdrahtet genau diese Bereitschaft zu einer
+          Batterie.
+        </p>
+
+        <h3>4. Doppelte Substitution — AB + CD → AD + CB</h3>
+        <p>
+          Zwei Verbindungen tauschen die Partner. Häufig in Lösung, und meist getrieben davon, dass
+          etwas die Mischung verlässt:
+        </p>
+        <div className="formula">
+          AgNO₃ + NaCl → AgCl↓ + NaNO₃
+          <span className="note">Silberchlorid ist unlöslich und fällt als weißer Niederschlag aus</span>
+        </div>
+        <p>
+          <strong>Neutralisation</strong> ist ebenfalls eine doppelte Substitution — Säure plus Base
+          ergibt Salz plus Wasser, worum es in Einheit 4 vollständig geht:
+        </p>
+        <div className="formula">HCl + NaOH → NaCl + H₂O</div>
+
+        <h3>5. Verbrennung — Brennstoff + O₂ → CO₂ + H₂O</h3>
+        <p>
+          Streng genommen ein Unterfall, aber so häufig, dass er einen eigenen Namen verdient.
+          Verbrenne einen beliebigen Kohlenwasserstoff mit reichlich Sauerstoff, und du bekommst
+          immer Kohlenstoffdioxid und Wasser:
+        </p>
+        <div className="formula">CH₄ + 2 O₂ → CO₂ + 2 H₂O</div>
+        <p>
+          Die freigesetzte Energie ist der Punkt: Sie heizt Wohnungen, treibt Motoren — und als
+          Zellatmung, also langsam und kontrolliert geführte Verbrennung, dich selbst.
+        </p>
+        <div className="callout warn">
+          <span className="co-title">Unvollständige Verbrennung</span>
+          <p>
+            Hungert die Flamme nach Sauerstoff, entstehen stattdessen Kohlenstoffmonoxid (CO) und
+            Ruß. CO bindet rund 200-mal stärker an Hämoglobin als Sauerstoff, ist farb- und
+            geruchlos und deshalb der Grund, warum ein verstopfter Abzug Menschen tötet. Eine gelbe,
+            rußende Flamme dort, wo eine blaue hingehört, ist die sichtbare Warnung.
+          </p>
+        </div>
+
+        <h2>Produkte vorhersagen</h2>
+        <p>
+          Das Muster zu erkennen heißt, die Produkte hinschreiben zu können, bevor man nachschlägt.
+          Gegeben &bdquo;Magnesium + Salzsäure&ldquo;: Metall plus Säure ist einfache Substitution,
+          Magnesium verdrängt also Wasserstoff — <strong>MgCl₂ + H₂</strong>. Mg ist 2+ und Chlorid
+          1−, die Formel folgt damit aus Einheit 1 — und dann gleichst du aus. Drei Lektionen, die
+          sich zu einer Vorhersage verbinden.
+        </p>
+      </>
+    ),
+    lab: {
+      title: "Der Reaktions-Sortierer",
+      intro: (
+        <>
+          <p>Zehn Reaktionen, eine nach der anderen. Benenne das Muster, dann sieh das Warum.</p>
+          <ul>
+            <li>Zähle zuerst, wie viele Stoffe auf jeder Seite stehen — das allein trennt Synthese von Analyse.</li>
+            <li>Taucht ein einzelnes Element auf beiden Seiten auf, ist es eine Substitution. Ein Tausch = einfach, zwei = doppelt.</li>
+            <li>O₂ links, CO₂ und H₂O rechts, ist immer Verbrennung.</li>
+          </ul>
+        </>
+      ),
+    },
+    quiz: [
+      {
+        q: "2 Mg + O₂ → 2 MgO ist ein Beispiel für…",
+        choices: ["Analyse", "Synthese", "Einfache Substitution", "Doppelte Substitution"],
+        answer: 1,
+        explain: "Zwei einfache Stoffe verbinden sich zu einer Verbindung: A + B → AB, eine Synthese.",
+      },
+      {
+        q: "Welchem Muster folgt AgNO₃ + NaCl → AgCl + NaNO₃?",
+        choices: [
+          "Einfache Substitution",
+          "Doppelte Substitution — die beiden Verbindungen tauschen Partner",
+          "Verbrennung",
+          "Analyse",
+        ],
+        answer: 1,
+        explain:
+          "Silber geht zum Chlorid, Natrium zum Nitrat: AB + CD → AD + CB. Angetrieben wird das Ganze davon, dass unlösliches AgCl ausfällt.",
+      },
+      {
+        q: "Zink verdrängt Kupfer aus Kupfersulfat, Kupfer aber nicht Zink aus Zinksulfat. Warum?",
+        choices: [
+          "Kupfer ist schwerer",
+          "Zink ist unedler als Kupfer, also ist nur diese Richtung günstig",
+          "Kupfersulfat ist ein Gas",
+          "Die Reaktion braucht Licht",
+        ],
+        answer: 1,
+        explain:
+          "Bei einer einfachen Substitution übernimmt das unedlere Metall das Anion. Zink steht in der Spannungsreihe über Kupfer, also läuft nur Zink → Kupfer.",
+      },
+      {
+        q: "Was sind die Produkte der vollständigen Verbrennung eines beliebigen Kohlenwasserstoffs?",
+        choices: [
+          "Kohlenstoffmonoxid und Wasserstoff",
+          "Kohlenstoffdioxid und Wasser",
+          "Ruß und Sauerstoff",
+          "Das hängt vom Kohlenwasserstoff ab",
+        ],
+        answer: 1,
+        explain:
+          "Mit genug Sauerstoff landet jeder Kohlenstoff in CO₂ und jeder Wasserstoff in H₂O. Zu wenig Sauerstoff ergibt unvollständige Verbrennung — CO und Ruß.",
+      },
+      {
+        q: "Magnesium wird in Salzsäure gegeben. Was ist nach den Mustern zu erwarten?",
+        choices: [
+          "MgCl₂ + H₂ — eine einfache Substitution, bei der Wasserstoffgas aufsteigt",
+          "MgH₂ + Cl₂",
+          "Keine Reaktion",
+          "MgCl + HCl₂",
+        ],
+        answer: 0,
+        explain:
+          "Metall plus Säure ist einfache Substitution: Das Metall verdrängt Wasserstoff. Mg ist 2+ und Cl ist 1−, also MgCl₂ plus H₂. Ausgeglichen: Mg + 2 HCl → MgCl₂ + H₂.",
       },
     ],
   },

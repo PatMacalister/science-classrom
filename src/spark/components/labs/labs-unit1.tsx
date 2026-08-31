@@ -436,7 +436,7 @@ export function SeriesParallelLab() {
   const rEq = mode === "series" ? r[0] + r[1] + r[2] : 1 / (1 / r[0] + 1 / r[1] + 1 / r[2]);
   const iTot = V / rEq;
   const branchI = r.map((ri) => (mode === "series" ? iTot : V / ri));
-  const branchV = r.map((ri, i) => (mode === "series" ? iTot * ri : V));
+  const branchV = r.map((ri) => (mode === "series" ? iTot * ri : V));
 
   const speedFor = (i: number) => clamp(2500 * i, 8, 300);
 

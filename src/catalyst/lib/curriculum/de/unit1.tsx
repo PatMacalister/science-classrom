@@ -349,4 +349,342 @@ export const unit1De: Record<string, LessonContentDe> = {
       },
     ],
   },
+
+  /* ================================================================ */
+  "molecular-shapes": {
+    Theory: () => (
+      <>
+        <h2>Eine Regel: Elektronengruppen stoßen sich ab</h2>
+        <p>
+          Moleküle sind dreidimensionale Gebilde mit festen Formen, und du kannst diese Formen mit
+          einer einzigen Idee vorhersagen: <strong>VSEPR</strong> (Valenzschalen-Elektronenpaar-Abstoßung).
+          Sie sagt: <em>Alle Elektronengruppen um ein Zentralatom stoßen sich gegenseitig ab und
+          ordnen sich deshalb so weit voneinander entfernt an wie möglich.</em>
+        </p>
+        <p>
+          Eine &bdquo;Gruppe&ldquo; ist entweder eine Bindung (einfach, doppelt oder dreifach — jede
+          zählt einmal) oder ein <strong>freies Elektronenpaar</strong>: ein Valenzelektronenpaar am
+          Zentralatom, das an nichts gebunden ist. Zähle die Gruppen, den Rest erledigt die
+          Geometrie:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Gruppen</th>
+              <th>Anordnung</th>
+              <th>Winkel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>2</td><td>linear</td><td>180°</td></tr>
+            <tr><td>3</td><td>trigonal-planar</td><td>120°</td></tr>
+            <tr><td>4</td><td>tetraedrisch</td><td>109,5°</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Methan, CH₄, hat vier Bindungen und keine freien Paare — die Wasserstoffatome sitzen also
+          auf den vier Ecken eines Tetraeders bei 109,5°. Nicht flach, sondern echt räumlich: Genau
+          das macht die organische Chemie so reichhaltig.
+        </p>
+
+        <h2>Freie Paare drücken stärker</h2>
+        <p>
+          Ein freies Paar wird nur von einem Kern gehalten, breitet sich deshalb weiter aus und
+          drückt <em>kräftiger</em> als ein Bindungspaar. Und benannt wird eine Form nach dem, was
+          man sieht — den Atomen —, nicht nach den unsichtbaren freien Paaren.
+        </p>
+        <p>Nimm die drei Nachbarn aus Periode 2, jeder mit vier Elektronengruppen:</p>
+        <ul>
+          <li>
+            <strong>Methan CH₄</strong>: 4 Bindungen, 0 freie Paare → <em>tetraedrisch</em>, 109,5°.
+          </li>
+          <li>
+            <strong>Ammoniak NH₃</strong>: 3 Bindungen, 1 freies Paar → das Paar drückt die
+            Bindungen nach unten: <em>trigonale Pyramide</em> bei 107°.
+          </li>
+          <li>
+            <strong>Wasser H₂O</strong>: 2 Bindungen, 2 freie Paare → zwei Paare drücken:{" "}
+            <em>gewinkelt</em> bei 104,5°.
+          </li>
+        </ul>
+        <p>
+          Jedes Mal dieselbe tetraedrische Grundanordnung; die beobachtete Form ändert sich nur,
+          weil manche Ecken von etwas besetzt sind, das man nicht sehen kann.
+        </p>
+
+        <h2>Polare Bindungen ergeben nicht automatisch ein polares Molekül</h2>
+        <p>
+          Das ist die Pointe — und der Punkt, an dem am häufigsten falsch gedacht wird. Die
+          Gesamtpolarität hängt <strong>sowohl</strong> von den Bindungsdipolen{" "}
+          <strong>als auch</strong> von der Form ab, denn Dipole sind Vektoren: Sie können sich
+          gegenseitig aufheben.
+        </p>
+        <p>
+          <strong>Kohlenstoffdioxid, O=C=O</strong>, hat zwei stark polare Bindungen. Aber das
+          Molekül ist linear, also zeigen beide Züge exakt in Gegenrichtung und heben sich perfekt
+          auf. CO₂ ist <em>unpolar</em> — trotz polarer Bindungen.
+        </p>
+        <p>
+          <strong>Wasser, H₂O</strong>, hat ebenfalls zwei polare Bindungen — ist aber mit 104,5°
+          gewinkelt, sodass sich die Züge <em>nicht</em> aufheben. Sie addieren sich zu einem
+          kräftigen Gesamtdipol, der von den Wasserstoffatomen zum Sauerstoff zeigt. Wasser ist ein
+          stark polares Molekül.
+        </p>
+        <div className="callout tip">
+          <span className="co-title">Alles Weitere hängt an diesen 104,5°</span>
+          <p>
+            Weil Wasser gewinkelt und polar ist, löst es Salze und Zucker, steigt in Baumstämmen
+            hoch, hat eine riesige Wärmekapazität, die das Klima stabilisiert — und sein Feststoff
+            ist weniger dicht als die Flüssigkeit, weshalb Eis schwimmt und Seen von oben zufrieren.
+            Fehlten dem Sauerstoff diese zwei freien Paare, wäre Wasser ein lineares, unpolares Gas
+            bei Raumtemperatur — und nichts davon, dich eingeschlossen, gäbe es.
+          </p>
+        </div>
+      </>
+    ),
+    lab: {
+      title: "Formen & Polarität",
+      intro: (
+        <>
+          <p>Fünf Moleküle, gezeichnet mit ihren freien Paaren und ihrem Gesamtdipol.</p>
+          <ul>
+            <li>Geh CH₄ → NH₃ → H₂O durch und sieh zu, wie die freien Paare den Bindungswinkel jedes Mal weiter zusammendrücken.</li>
+            <li>Vergleiche CO₂ und H₂O: Beide haben zwei polare Bindungen, aber nur eines ist ein polares Molekül. Die Form entscheidet.</li>
+            <li>Blende die freien Paare aus. Plötzlich wirkt die Form willkürlich — genau deshalb zählt VSEPR mit, was man nicht sieht.</li>
+          </ul>
+        </>
+      ),
+    },
+    quiz: [
+      {
+        q: "Was bestimmt laut VSEPR die Molekülform?",
+        choices: [
+          "Elektronengruppen um das Zentralatom stoßen sich ab und gehen maximal auf Abstand",
+          "Die Atome ordnen sich nach ihrer Atommasse",
+          "Moleküle nehmen immer die flachste mögliche Form an",
+          "Der Kern zieht alle Atome in eine Linie",
+        ],
+        answer: 0,
+        explain:
+          "Bindungen und freie Paare sind Bereiche negativer Ladung. Sie stoßen sich ab, und die Form ist diejenige Anordnung, die ihren Abstand maximiert.",
+      },
+      {
+        q: "Wassers Bindungswinkel beträgt 104,5°, weniger als Methans 109,5°. Warum?",
+        choices: [
+          "Sauerstoff ist schwerer als Kohlenstoff",
+          "Wasser hat nur zwei Bindungen, die sich deshalb weniger ausbreiten",
+          "Wassers zwei freie Paare stoßen stärker ab als Bindungspaare und drücken die Bindungen zusammen",
+          "Wassermoleküle schwingen ständig",
+        ],
+        answer: 2,
+        explain:
+          "Ein freies Paar wird nur von einem Kern gehalten, breitet sich weiter aus und drückt kräftiger — der H-O-H-Winkel sinkt unter den idealen Tetraederwert.",
+      },
+      {
+        q: "CO₂ hat zwei polare C=O-Bindungen, ist aber ein unpolares Molekül. Warum?",
+        choices: [
+          "Die Bindungen sind in Wirklichkeit unpolar",
+          "Es ist linear, sodass die beiden Bindungsdipole entgegengesetzt zeigen und sich aufheben",
+          "Kohlenstoffdioxid ist ionisch",
+          "Sauerstoff und Kohlenstoff haben dieselbe Elektronegativität",
+        ],
+        answer: 1,
+        explain:
+          "Dipole sind Vektoren. In einem linearen O=C=O zeigen die beiden gleich großen Züge 180° auseinander und summieren sich zu null.",
+      },
+      {
+        q: "Ein Zentralatom hat 3 Bindungen und 1 freies Paar. Welche Form hat das Molekül?",
+        choices: ["Tetraedrisch", "Trigonal-planar", "Trigonal-pyramidal", "Linear"],
+        answer: 2,
+        explain:
+          "Vier Elektronengruppen ordnen sich tetraedrisch an, benannt werden aber nur die sichtbaren Atome: drei von einem freien Paar heruntergedrückte Bindungen bilden eine trigonale Pyramide — wie NH₃.",
+      },
+      {
+        q: "Welches Paar von Tatsachen macht ein Molekül insgesamt polar?",
+        choices: [
+          "Polare Bindungen und eine symmetrische Form",
+          "Polare Bindungen und eine asymmetrische Form, die ihr Aufheben verhindert",
+          "Unpolare Bindungen und eine asymmetrische Form",
+          "Jedes Molekül, das Sauerstoff enthält",
+        ],
+        answer: 1,
+        explain:
+          "Beides ist nötig: Bindungsdipole müssen existieren, und die Geometrie darf sie nicht aufheben. Symmetrische Moleküle mit polaren Bindungen (CO₂, CH₄, BF₃) sind unpolar.",
+      },
+    ],
+  },
+
+  /* ================================================================ */
+  intermolecular: {
+    Theory: () => (
+      <>
+        <h2>Die Kräfte zwischen, nicht innerhalb</h2>
+        <p>
+          Kovalente Bindungen halten ein Molekül zusammen.{" "}
+          <strong>Zwischenmolekulare Kräfte</strong> halten getrennte Moleküle <em>aneinander</em>.
+          Sie sind weit schwächer — typisch wenige Prozent — und tauchen in keiner
+          Reaktionsgleichung auf. Trotzdem entscheiden sie fast jede beobachtbare physikalische
+          Eigenschaft: Schmelzpunkt, Siedepunkt, Viskosität, Oberflächenspannung, Löslichkeit.
+        </p>
+        <p>Drei Sorten zählen, die schwächste zuerst.</p>
+
+        <h3>1. London-Dispersionskräfte (in allem)</h3>
+        <p>
+          Elektronen bewegen sich. In jedem Augenblick können sie sich zufällig auf einer Seite
+          eines Moleküls sammeln — ein flüchtiger Dipol entsteht, induziert im Nachbarn einen
+          entgegengesetzten flüchtigen Dipol, und für diesen Moment ziehen sich beide an. Über die
+          Zeit gemittelt ist das eine echte, wenn auch schwache Kraft.
+        </p>
+        <p>
+          Dispersionskräfte gibt es in <em>jedem</em> Stoff, und sie wachsen mit der Elektronenzahl.
+          Deshalb verflüssigen sich die Edelgase der Reihe nach, und deshalb ist Methan ein Gas,
+          während Kerzenwachs — dieselbe Molekülsorte, nur viel länger — fest ist.
+        </p>
+
+        <h3>2. Dipol-Dipol-Kräfte (in polaren Molekülen)</h3>
+        <p>
+          Polare Moleküle haben dauerhafte δ+- und δ−-Enden, richten sich aus und ziehen sich Kopf
+          an Schwanz an. Bei ähnlicher Größe stärker als Dispersion — weshalb polare Stoffe meist
+          höher sieden als unpolare vergleichbarer Masse.
+        </p>
+
+        <h3>3. Wasserstoffbrücken (die starke)</h3>
+        <p>
+          Ein besonders kräftiger Sonderfall der Dipol-Dipol-Kraft. Nötig ist Wasserstoff, direkt
+          gebunden an <strong>N, O oder F</strong> — die drei kleinen, gierigen Atome. Wasserstoff
+          hat nur ein einziges Elektron; zieht Sauerstoff oder Fluor es weg, bleibt fast ein nacktes
+          Proton übrig: eine sehr konzentrierte positive Ladung, die einem freien Elektronenpaar des
+          Nachbarn sehr nahe kommen kann.
+        </p>
+        <div className="callout note">
+          <span className="co-title">Merke die drei: N, O, F</span>
+          <p>
+            Wasserstoffbrücken brauchen H an <strong>N</strong>, <strong>O</strong> oder{" "}
+            <strong>F</strong>. H–Cl zählt nicht: Chlor ist zwar polar genug, aber zu groß, seine
+            Ladung also zu verschmiert. Die Eselsbrücke ist kurz: <em>&bdquo;NOF — sonst nix.&ldquo;</em>
+          </p>
+        </div>
+
+        <h2>Die Anomalie, die es beweist</h2>
+        <p>
+          Vergleiche die Hydride der Gruppe 16 — H₂O, H₂S, H₂Se, H₂Te. Dispersionskräfte wachsen mit
+          der Größe, die Siedepunkte sollten also nach unten hin stetig steigen. Bei den letzten
+          dreien tun sie das. Wasser, das kleinste und leichteste, müsste bei etwa −80 °C sieden.
+        </p>
+        <p>
+          Es siedet bei <strong>+100 °C</strong>. Diese Diskrepanz von 180 Grad sind
+          Wasserstoffbrücken — und der Grund, warum es auf diesem Planeten überhaupt flüssiges
+          Wasser gibt.
+        </p>
+        <p>
+          Wasser ist selbst unter wasserstoffverbrückten Stoffen außergewöhnlich, wegen seiner Form:
+          Jedes Molekül hat zwei Wasserstoffatome zu geben <em>und</em> zwei freie Paare zu nehmen —
+          jedes Wassermolekül kann also vier Nachbarn gleichzeitig halten und baut ein durchgehendes
+          Netzwerk. Ammoniak hat drei H, aber nur ein freies Paar; Fluorwasserstoff ein H und drei
+          freie Paare. Nur Wasser ist ausgeglichen.
+        </p>
+        <p>Die Folgen:</p>
+        <ul>
+          <li>
+            <strong>Eis schwimmt.</strong> Beim Gefrieren rastet das Netzwerk in einen offenen
+            Sechseck-Käfig ein, der <em>weniger</em> dicht ist als die Flüssigkeit. Fast jeder
+            andere Stoff sinkt in sich selbst. Seen frieren deshalb von oben zu, und darunter
+            überlebt Leben.
+          </li>
+          <li>
+            <strong>Riesige Wärmekapazität.</strong> Wasser zu erwärmen heißt, ein weites Netz aus
+            Wasserstoffbrücken zu lockern — das schluckt enorm viel Energie. Ozeane dämpfen so das
+            Klima, und Schweiß kühlt wirksam.
+          </li>
+          <li>
+            <strong>Oberflächenspannung.</strong> Moleküle an der Oberfläche werden von unten
+            gezogen, ohne Ausgleich von oben. Insekten laufen darauf.
+          </li>
+          <li>
+            <strong>&bdquo;Gleiches löst Gleiches.&ldquo;</strong> Polares Wasser löst Polares und
+            Ionisches und verweigert Unpolares — es müsste sein eigenes Wasserstoffbrücken-Netz
+            aufbrechen, um einem Molekül Platz zu machen, das nichts zurückgibt.
+          </li>
+        </ul>
+      </>
+    ),
+    lab: {
+      title: "Siedepunkt-Labor",
+      intro: (
+        <>
+          <p>
+            Vier kleine Moleküle, ein Thermometer. Die violetten Linien sind die Anziehungen
+            zwischen den Molekülen.
+          </p>
+          <ul>
+            <li>Stell −50 °C ein und geh alle vier Stoffe durch. Zwei sind Gase, zwei Flüssigkeiten.</li>
+            <li>Vergleiche CH₄ (M = 16) mit H₂O (M = 18) — fast dieselbe Masse, 261 Grad Unterschied im Siedepunkt.</li>
+            <li>Heize über den Siedepunkt hinaus und sieh zu, wie die Anziehungslinien loslassen.</li>
+          </ul>
+        </>
+      ),
+    },
+    quiz: [
+      {
+        q: "Welche Kräfte werden gebrochen, wenn ein molekularer Stoff siedet?",
+        choices: [
+          "Die kovalenten Bindungen innerhalb der Moleküle",
+          "Die zwischenmolekularen Kräfte zwischen den Molekülen",
+          "Ionenbindungen",
+          "Kernkräfte",
+        ],
+        answer: 1,
+        explain:
+          "Sieden trennt ganze Moleküle voneinander. Die kovalenten Bindungen in ihnen bleiben unversehrt — Wasserdampf ist immer noch H₂O.",
+      },
+      {
+        q: "Wasserstoffbrücken verlangen Wasserstoff gebunden an welche Atome?",
+        choices: [
+          "Jedes Nichtmetall",
+          "Kohlenstoff, Stickstoff oder Schwefel",
+          "Stickstoff, Sauerstoff oder Fluor",
+          "Nur Sauerstoff",
+        ],
+        answer: 2,
+        explain:
+          "Nur N, O und F sind klein und elektronegativ genug, um Wasserstoff fast nackt zurückzulassen — „NOF, sonst nix“.",
+      },
+      {
+        q: "Wasser (M = 18) siedet bei 100 °C, Methan (M = 16) bei −161 °C. Warum?",
+        choices: [
+          "Wassermoleküle sind viel schwerer",
+          "Wasser bildet Wasserstoffbrücken; Methan ist unpolar und hat nur schwache Dispersionskräfte",
+          "Methan hat stärkere kovalente Bindungen",
+          "Wasser ist ionisch",
+        ],
+        answer: 1,
+        explain:
+          "Bei nahezu gleicher Masse bleibt als Unterschied nur die zwischenmolekulare Anziehung. Wassers Wasserstoffbrücken-Netz ist dramatisch stärker.",
+      },
+      {
+        q: "Warum schwimmt Eis auf Wasser?",
+        choices: [
+          "Eis enthält eingeschlossene Luft",
+          "Wasserstoffbrücken zwingen die Moleküle in einen offenen Käfig, der weniger dicht ist als die Flüssigkeit",
+          "Eismoleküle sind leichter als Wassermoleküle",
+          "Kaltes Wasser dehnt sich aus, weil seine kovalenten Bindungen länger werden",
+        ],
+        answer: 1,
+        explain:
+          "Beim Gefrieren bindet jedes Molekül vier Nachbarn in einem Sechseckgitter mit Lücken. Diese offene Struktur ist weniger dicht als flüssiges Wasser — Eis schwimmt.",
+      },
+      {
+        q: "Warum löst sich Öl nicht in Wasser?",
+        choices: [
+          "Ölmoleküle sind zu groß",
+          "Öl ist unpolar und bietet nichts, was die Wasserstoffbrücken ersetzt, die Wasser dafür brechen müsste",
+          "Öl ist dichter als Wasser",
+          "Öl reagiert mit Wasser",
+        ],
+        answer: 1,
+        explain:
+          "Das Lösen würde Wasser sein Wasserstoffbrücken-Netz kosten, ohne Gegenleistung durch unpolares Öl. „Gleiches löst Gleiches“ ist genau diese Energiebilanz, kurz gesagt.",
+      },
+    ],
+  },
 };
