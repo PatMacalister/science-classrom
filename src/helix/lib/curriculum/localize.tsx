@@ -2,18 +2,21 @@
 import type { Lang } from "@/helix/lib/i18n";
 import type { ChecklistItem, Lesson, NumericProblem, QuizQuestion, Unit } from "./types";
 import { unitMetaDe, lessonMetaDe } from "./de/meta";
+import { unit0De } from "./de/unit0";
+import { unit1De } from "./de/unit1";
+import { unit2De } from "./de/unit2";
+import { unit3De } from "./de/unit3";
+import { unit4De } from "./de/unit4";
+import { unit5De } from "./de/unit5";
+import { unit6De } from "./de/unit6";
 
 /**
  * Per-lesson German content overrides. Anything omitted falls back to the
  * English original — so lessons can be translated one at a time. To translate
  * a unit, add a `de/unitN.tsx` exporting Record<slug, LessonContentDe> and
  * spread it into CONTENT_DE below. Quiz answer indices must match the
- * English originals; the review deck relies on it.
- *
- * Helix currently ships German unit and lesson metadata (de/meta.ts), a German
- * interface and German canvas labels; the lesson bodies are still English and
- * show the fallback notice. Spark and Catalyst are fully translated — this
- * course is the newest and its bodies are the remaining work.
+ * English originals; the review deck relies on it. All 17 Helix lessons are
+ * fully translated — the course is bilingual like Spark and Catalyst.
  */
 export interface LessonContentDe {
   Theory?: ComponentType;
@@ -24,7 +27,15 @@ export interface LessonContentDe {
   extraLab?: { title?: string; intro?: ReactNode };
 }
 
-const CONTENT_DE: Record<string, LessonContentDe> = {};
+const CONTENT_DE: Record<string, LessonContentDe> = {
+  ...unit0De,
+  ...unit1De,
+  ...unit2De,
+  ...unit3De,
+  ...unit4De,
+  ...unit5De,
+  ...unit6De,
+};
 
 export function localizeUnit(unit: Unit, lang: Lang): Unit {
   if (lang !== "de") return unit;
