@@ -157,11 +157,11 @@ export const unit5: UnitModule = {
           q: "In evolutionary terms, 'fitness' means…",
           choices: [
             "Physical strength",
-            "Reproductive success in a particular environment",
-            "Health and longevity",
             "Speed and agility",
+            "Health and longevity",
+            "Reproductive success in a particular environment",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Only offspring count. A drab, slow organism that reproduces more is fitter than a spectacular one that reproduces less.",
         },
@@ -299,11 +299,11 @@ export const unit5: UnitModule = {
           q: "What makes a human arm and a bat wing homologous structures?",
           choices: [
             "They perform the same function",
-            "They share the same underlying bone arrangement, inherited from a common ancestor",
-            "They are the same size",
             "They evolved independently for flight",
+            "They are the same size",
+            "They share the same underlying bone arrangement, inherited from a common ancestor",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Same plan, different jobs. Shared structure despite different function points to inheritance, not to engineering necessity.",
         },
@@ -322,12 +322,12 @@ export const unit5: UnitModule = {
         {
           q: "Cytochrome c differs from the human version by 12% in horses and 45% in yeast. What does that indicate?",
           choices: [
-            "Yeast is more primitive",
             "Human and yeast lineages diverged far longer ago than human and horse",
+            "Yeast is more primitive",
             "Yeast has a faster metabolism",
             "The protein does a different job in yeast",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Differences accumulate with time since divergence. The molecular ordering reproduces the fossil and anatomical ordering.",
         },
@@ -347,11 +347,11 @@ export const unit5: UnitModule = {
           q: "How does a single species typically split into two?",
           choices: [
             "One individual mutates into a new species",
-            "Populations become isolated, diverge genetically, and eventually can no longer interbreed",
             "A species decides to specialise",
+            "Populations become isolated, diverge genetically, and eventually can no longer interbreed",
             "Two species merge and then separate",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Isolation stops gene flow; separate mutation and selection then push the populations apart until reproductive compatibility is lost.",
         },

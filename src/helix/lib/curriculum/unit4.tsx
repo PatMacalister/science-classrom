@@ -163,11 +163,11 @@ export const unit4: UnitModule = {
           q: "A tall plant crossed with a short plant gives all tall offspring. What does that tell you?",
           choices: [
             "Tallness is recessive",
-            "Tallness is dominant, and the offspring are heterozygous carriers of shortness",
             "The short plant had no alleles for height",
+            "Tallness is dominant, and the offspring are heterozygous carriers of shortness",
             "The traits blended",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "The recessive allele is present but masked. It reappears in about a quarter of the next generation, proving it was never lost.",
         },
@@ -181,12 +181,12 @@ export const unit4: UnitModule = {
         {
           q: "Two brown-eyed parents have a blue-eyed child. How?",
           choices: [
-            "A new mutation must have occurred",
             "Both parents are heterozygous carriers, and the child inherited the recessive allele from each",
+            "A new mutation must have occurred",
             "Blue eyes are dominant",
             "This is impossible",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Both parents are Aa, showing brown but carrying blue. There is a 1-in-4 chance per child of inheriting a recessive allele from both.",
         },
@@ -194,11 +194,11 @@ export const unit4: UnitModule = {
           q: "Two carriers already have three unaffected children. What is the risk for the fourth?",
           choices: [
             "Zero — the risk is used up",
-            "Still 1 in 4 — each conception is independent",
-            "1 in 2, because the odds must even out",
             "It depends on the sexes of the first three",
+            "1 in 2, because the odds must even out",
+            "Still 1 in 4 — each conception is independent",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Each conception is an independent event. Previous outcomes change nothing — the gambler's fallacy is a genuine hazard in genetic counselling.",
         },
@@ -348,11 +348,11 @@ export const unit4: UnitModule = {
           q: "How does meiosis differ from mitosis in outcome?",
           choices: [
             "Meiosis gives two identical diploid cells",
-            "Meiosis gives four genetically different haploid cells",
             "They are the same process",
+            "Meiosis gives four genetically different haploid cells",
             "Meiosis produces no new cells",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Mitosis copies a cell for growth and repair. Meiosis halves the chromosome number and shuffles the alleles, producing four unique gametes.",
         },
@@ -360,11 +360,11 @@ export const unit4: UnitModule = {
           q: "What is crossing over?",
           choices: [
             "Chromosomes from different species combining",
-            "Paired chromosomes physically exchanging matching segments before they separate",
-            "Two gametes fusing",
             "A copying error in DNA",
+            "Two gametes fusing",
+            "Paired chromosomes physically exchanging matching segments before they separate",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Homologous chromosomes swap equivalent stretches, so each one passed on is a mosaic of both parents rather than an intact copy of either.",
         },

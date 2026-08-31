@@ -174,11 +174,11 @@ export const unit6: UnitModule = {
           q: "What is biomagnification?",
           choices: [
             "Populations growing at higher trophic levels",
-            "Persistent toxins concentrating as they move up the food chain",
-            "Energy increasing at each level",
             "Predators growing larger over generations",
+            "Energy increasing at each level",
+            "Persistent toxins concentrating as they move up the food chain",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "A predator accumulates the toxin load of everything it eats. It is why top predators are hit hardest by pollutants like DDT and mercury.",
         },
@@ -345,12 +345,12 @@ export const unit6: UnitModule = {
         {
           q: "Why has human population growth looked exponential for so long?",
           choices: [
-            "Humans are exempt from carrying capacity",
             "We have repeatedly raised our own carrying capacity through agriculture, sanitation and medicine",
+            "Humans are exempt from carrying capacity",
             "Human populations do not compete",
             "Birth rates are constant",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Each innovation raised K rather than removing it. The question is where K now sits, and whether it is being drawn down.",
         },

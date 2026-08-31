@@ -8,7 +8,7 @@ import {
   CODON_TABLE,
   START_CODON,
   classVar,
-  familyDegeneracy,
+  synonymsInFamily,
   type AminoAcid,
 } from "@/helix/lib/codons";
 import { useLang, useT, type UIKey } from "@/helix/lib/i18n";
@@ -39,7 +39,7 @@ export function AminoDetail({ codon }: { codon: string }) {
   const t = useT();
   const { lang } = useLang();
   const aa = AMINO_BY_CODE[CODON_TABLE[codon]];
-  const deg = familyDegeneracy(codon[0], codon[1]);
+  const deg = synonymsInFamily(codon);
   const isStart = codon === START_CODON;
 
   return (

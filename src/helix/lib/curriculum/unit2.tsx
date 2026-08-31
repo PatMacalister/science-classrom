@@ -134,23 +134,23 @@ export const unit2: UnitModule = {
           q: "Where is the information in DNA actually stored?",
           choices: [
             "In the sugar-phosphate backbone",
-            "In the sequence of bases",
-            "In the number of strands",
             "In the length of the molecule",
+            "In the number of strands",
+            "In the sequence of bases",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "The backbone is identical all the way along. Only the order of A, T, C and G varies, and that order is the message.",
         },
         {
           q: "Why is GC-rich DNA harder to separate into single strands?",
           choices: [
-            "G and C are heavier",
             "C–G pairs have three hydrogen bonds, A–T pairs only two",
+            "G and C are heavier",
             "GC-rich DNA is more tightly coiled",
             "It has a different backbone",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "More hydrogen bonds per rung means more energy to break. Organisms in hot environments tend to have GC-rich genomes for this reason.",
         },
@@ -165,11 +165,11 @@ export const unit2: UnitModule = {
           q: "What does 'complementary strands' make possible?",
           choices: [
             "Faster mutation",
-            "Either strand can act as a template to rebuild the other exactly",
             "The molecule can store more information",
+            "Either strand can act as a template to rebuild the other exactly",
             "The strands can swap places",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Because the pairing rule is strict, one strand fully determines the other. Copying is therefore just a matter of unzipping and filling in.",
         },
@@ -309,11 +309,11 @@ export const unit2: UnitModule = {
           q: "Why is one new strand built in fragments rather than continuously?",
           choices: [
             "The enzyme gets tired",
-            "DNA polymerase can only build 5′→3′, and the two templates are antiparallel",
-            "To save energy",
             "To introduce mutations deliberately",
+            "To save energy",
+            "DNA polymerase can only build 5′→3′, and the two templates are antiparallel",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "One template happens to run the right way for continuous synthesis; the other does not, so it is copied in short backwards pieces that ligase joins up.",
         },
@@ -452,12 +452,12 @@ export const unit2: UnitModule = {
         {
           q: "Why does the genetic code use three bases per amino acid rather than two?",
           choices: [
-            "Three bases fit the ribosome better",
             "Two bases give only 16 combinations — fewer than the 20 amino acids needed",
+            "Three bases fit the ribosome better",
             "Three is more stable",
             "Historical accident with no reason",
           ],
-          answer: 1,
+          answer: 0,
           explain: "4² = 16 is not enough for 20 amino acids; 4³ = 64 is comfortably more than enough.",
         },
         {
@@ -474,8 +474,8 @@ export const unit2: UnitModule = {
         },
         {
           q: "Which codon is the START signal, and which amino acid does it also specify?",
-          choices: ["UAA, stop", "AUG, methionine", "UGG, tryptophan", "GGG, glycine"],
-          answer: 1,
+          choices: ["UAA, stop", "UGG, tryptophan", "AUG, methionine", "GGG, glycine"],
+          answer: 2,
           explain:
             "AUG does both jobs: it sets the reading frame and codes for methionine, so newly made proteins begin with Met.",
         },
@@ -490,11 +490,11 @@ export const unit2: UnitModule = {
           q: "Why can a human gene inserted into a bacterium produce a working human protein?",
           choices: [
             "Bacteria can read any code",
-            "The genetic code is essentially universal — the same codons mean the same amino acids in nearly all life",
-            "The gene is translated by human enzymes carried along with it",
             "It cannot — that does not work",
+            "The gene is translated by human enzymes carried along with it",
+            "The genetic code is essentially universal — the same codons mean the same amino acids in nearly all life",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Shared ancestry left every lineage using the same lookup table. It is why bacterially produced human insulin has been on the market since 1982.",
         },
@@ -625,12 +625,12 @@ export const unit2: UnitModule = {
         {
           q: "Sickle-cell anaemia is caused by…",
           choices: [
-            "A missing chromosome",
             "One base substitution swapping glutamate for valine in haemoglobin",
+            "A missing chromosome",
             "A frameshift in the haemoglobin gene",
             "A mutagen in the diet",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "A single missense mutation — one amino acid out of 146 — makes haemoglobin molecules stack into fibres that deform the cell.",
         },

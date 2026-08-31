@@ -1484,6 +1484,9 @@ sub, sup { font-size: 0.72em; }
   box-shadow: 0 0 0 1px var(--accent);
 }
 .codon-tile.start { box-shadow: inset 0 0 0 1px var(--good); }
+/* keep the START ring visible while the tile is selected — a bare .selected
+   box-shadow would otherwise replace it */
+.codon-tile.selected.start { box-shadow: 0 0 0 1px var(--accent), inset 0 0 0 1px var(--good); }
 .codon-tile .t-codon { font-family: var(--mono); font-size: 0.86rem; letter-spacing: 0.5px; }
 .codon-tile .t-aa { font-size: 0.72rem; color: var(--aa, var(--muted)); font-weight: 600; }
 

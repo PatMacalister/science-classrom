@@ -389,7 +389,15 @@ export function TranslationLab() {
 type MutKind = "none" | "substitution" | "insertion" | "deletion";
 
 export function MutationLab() {
-  const original = "TACAAACCCATTGGCACT";
+  /*
+   * mRNA: AUG UAC UGG AAA GGC CUC → protein MYWKGL, with NO internal stop.
+   * That is deliberate: every advertised outcome is reachable by a single
+   * edit — silent (e.g. position 5 G→A keeps Tyr), missense, and nonsense
+   * (position 5 G→T turns codon 2 into UAA, an early STOP). The previous
+   * gene carried a stop at codon 4, which made nonsense unreachable and let
+   * post-stop edits produce misleading verdicts.
+   */
+  const original = "TACATGACCTTTCCGGAG";
   const [kind, setKind] = useState<MutKind>("none");
   const [pos, setPos] = useState(4);
   const [newBase, setNewBase] = useState("G");
