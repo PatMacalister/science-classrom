@@ -165,11 +165,11 @@ export const unit0: UnitModule = {
           q: "Why do mitochondria have their own DNA and a double membrane?",
           choices: [
             "To store spare genes",
-            "Because they descend from free-living bacteria that were engulfed and kept",
-            "Because they are the oldest part of the nucleus",
             "It is a random quirk with no explanation",
+            "Because they are the oldest part of the nucleus",
+            "Because they descend from free-living bacteria that were engulfed and kept",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Endosymbiosis. They retain circular DNA and their own ribosomes because they were once independent organisms — and in humans they are inherited only from the mother.",
         },
@@ -502,23 +502,23 @@ export const unit0: UnitModule = {
           q: "What does an enzyme actually do to a reaction?",
           choices: [
             "It supplies the energy the reaction needs",
-            "It lowers the activation energy, so the reaction happens far faster at body temperature",
             "It makes an impossible reaction possible",
+            "It lowers the activation energy, so the reaction happens far faster at body temperature",
             "It raises the temperature locally",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Enzymes are catalysts: they lower the barrier, not the energy difference. A reaction that would not happen at all still will not — it just gets there much sooner if it would.",
         },
         {
           q: "Why is each enzyme specific to one substrate?",
           choices: [
-            "Each enzyme is a different size",
             "Its active site has a shape that fits only that substrate",
+            "Each enzyme is a different size",
             "Enzymes carry an identifying label",
             "They are not — enzymes work on anything",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "The active site's three-dimensional contours match one substrate, closing around it on arrival (induced fit). Shape is the specificity.",
         },
@@ -538,11 +538,11 @@ export const unit0: UnitModule = {
           q: "Above its optimum temperature, an enzyme's rate collapses rather than levelling off. Why?",
           choices: [
             "The substrate evaporates",
-            "The protein unfolds, so the active site loses the shape that made it work",
-            "The enzyme is used up faster",
             "Heat reverses the reaction",
+            "The enzyme is used up faster",
+            "The protein unfolds, so the active site loses the shape that made it work",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Denaturation. The fold — held by relatively weak interactions — comes apart, and since shape is function, the enzyme stops. It usually does not recover on cooling.",
         },

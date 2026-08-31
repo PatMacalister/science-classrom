@@ -158,6 +158,12 @@ export function PopulationLab() {
       });
     }
 
+    // clip to the panel: the exponential series runs to 5000 against a
+    // 1200-unit axis, and without this the line escapes over the meters
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(gx, gy, gw, gh);
+    ctx.clip();
     ctx.strokeStyle = D.COL.accent;
     ctx.lineWidth = 3;
     ctx.beginPath();
@@ -168,6 +174,7 @@ export function PopulationLab() {
       else ctx.lineTo(x, y);
     });
     ctx.stroke();
+    ctx.restore();
 
     D.label(ctx, translate("Time") + " →", gx + gw / 2, gy + gh + 22, { color: D.COL.muted, size: 11 });
     ctx.save();
@@ -254,8 +261,11 @@ export function FermentationLab() {
   const molGlucose = sugar / 180.16;
   const molCo2 = molGlucose * 2;
   const maxVolume = molCo2 * 24.0; // litres at room temperature
-  // temperature response: yeast dies above ~50 C, sluggish when cold
-  const tempFactor = temp > 45 ? Math.max(0, 1 - (temp - 45) / 10) : Math.exp(-(((temp - 35) / 16) ** 2));
+  // temperature response: sluggish when cold, dying above ~45 °C. The death
+  // ramp starts from the curve's edge value so the rate never jumps upward
+  // as the slider crosses the cliff.
+  const tempCurve = (x: number) => Math.exp(-(((x - 35) / 16) ** 2));
+  const tempFactor = temp > 45 ? tempCurve(45) * Math.max(0, 1 - (temp - 45) / 10) : tempCurve(temp);
   const progress = 1 - Math.exp((-minutes / 45) * tempFactor * 2.2);
   const volume = maxVolume * progress;
   const balloonR = clamp(Math.cbrt(volume) * 46, 8, 120);

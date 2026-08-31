@@ -16,10 +16,13 @@ export function PhotosynthesisLab() {
   const [co2, setCo2] = useState(50);
   const [temp, setTemp] = useState(25);
 
-  // each factor saturates on its own; the smallest ceiling wins
+  // each factor saturates on its own; the smallest ceiling wins.
+  // Past 40 °C the enzymes denature: the rate falls linearly from the curve's
+  // edge value, so there is no upward jump crossing the cliff.
   const lightCap = light / (25 + light) / (100 / (25 + 100));
   const co2Cap = co2 / (20 + co2) / (100 / (20 + 100));
-  const tempCap = temp > 40 ? Math.max(0, 1 - (temp - 40) / 8) : Math.exp(-(((temp - 30) / 14) ** 2));
+  const tempCurve = (x: number) => Math.exp(-(((x - 30) / 14) ** 2));
+  const tempCap = temp > 40 ? tempCurve(40) * Math.max(0, 1 - (temp - 40) / 8) : tempCurve(temp);
   const caps: Array<[string, number]> = [
     ["light", lightCap],
     ["CO₂", co2Cap],
@@ -28,9 +31,9 @@ export function PhotosynthesisLab() {
   const limiting = caps.reduce((a, b) => (a[1] <= b[1] ? a : b));
   const rate = Math.min(...caps.map((c) => c[1])) * 100;
 
-  const sim = useRef({ bubbles: [] as Array<{ x: number; y: number; r: number }> , acc: 0 });
+  const sim = useRef({ bubbles: [] as Array<{ x: number; y: number; r: number }>, acc: 0 });
 
-  const draw = (ctx: CanvasRenderingContext2D, dt: number, t: number) => {
+  const draw = (ctx: CanvasRenderingContext2D, dt: number) => {
     const s = sim.current;
 
     // --- the pondweed in a beaker, bubbling oxygen ---
@@ -117,7 +120,6 @@ export function PhotosynthesisLab() {
 
     D.meter(ctx, 400, 14, 210, "limiting factor", limiting[0], D.COL.amber);
     D.meter(ctx, 620, 14, 180, "Temperature", `${temp} °C`, temp > 40 ? D.COL.bad : D.COL.accent);
-    void t;
   };
 
   return (

@@ -89,18 +89,33 @@ export function CellLab() {
   const visible = PARTS.filter((p) => p.kinds.includes(kind));
   const sel = visible.find((p) => p.id === picked) ?? visible[0];
 
+  /*
+   * Bacteria are drawn smaller than the eukaryotic cells, since the theory
+   * makes a point of the 10–100× size gap. True scale would render them
+   * invisible, so this is a gesture, not a ratio — and the caption says so.
+   * All geometry (drawing AND hit-testing) goes through this one transform.
+   */
+  const S = kind === "bacterial" ? 0.55 : 1;
+  const tf = (p: Part) => ({
+    x: 300 + (p.x - 300) * S,
+    y: 220 + (p.y - 220) * S,
+    rx: p.rx * S,
+    ry: p.ry * S,
+  });
+
   const draw = (ctx: CanvasRenderingContext2D, _dt: number, t: number) => {
     // outer shapes first, so smaller organelles land on top
     const order = ["wall", "membrane", "cytoplasm", "vacuole", "nucleus", "dna", "chloro", "mito", "ribosome"];
     const sorted = [...visible].sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
 
     for (const p of sorted) {
+      const g = tf(p);
       const on = sel?.id === p.id;
       const wob = p.id === "ribosome" ? Math.sin(t * 2 + p.x) * 2 : 0;
       ctx.save();
       ctx.globalAlpha = p.id === "cytoplasm" ? 0.85 : 1;
       ctx.beginPath();
-      ctx.ellipse(p.x, p.y + wob, p.rx, p.ry, 0, 0, Math.PI * 2);
+      ctx.ellipse(g.x, g.y + wob, g.rx, g.ry, 0, 0, Math.PI * 2);
       ctx.fillStyle = p.id === "membrane" || p.id === "wall" ? "transparent" : p.color + (on ? "" : "cc");
       if (p.id !== "membrane" && p.id !== "wall") ctx.fill();
       ctx.strokeStyle = on ? "#ffffff" : p.color;
@@ -113,7 +128,7 @@ export function CellLab() {
         const rand = rng(11);
         for (let i = 0; i < 14; i++) {
           const a = rand() * Math.PI * 2;
-          const rr = 60 + rand() * 110;
+          const rr = (60 + rand() * 110) * S;
           D.dot(ctx, 300 + Math.cos(a) * rr * 1.4, 220 + Math.sin(a) * rr * 0.8, 3.5, "#fbbf2488");
         }
       }
@@ -121,7 +136,8 @@ export function CellLab() {
 
     // label the selected part in place
     if (sel) {
-      D.label(ctx, tl(sel.name), sel.x, sel.y - sel.ry - 12, {
+      const g = tf(sel);
+      D.label(ctx, tl(sel.name), g.x, g.y - g.ry - 12, {
         color: "#ffffff",
         size: 13,
         bold: true,
@@ -132,6 +148,12 @@ export function CellLab() {
       color: D.COL.muted,
       size: 12,
     });
+    if (kind === "bacterial") {
+      D.label(ctx, "drawn smaller — a real bacterium is 10–100× smaller still", 300, 382, {
+        color: D.COL.muted,
+        size: 11,
+      });
+    }
 
     // info panel
     const bx = 570;
@@ -154,9 +176,10 @@ export function CellLab() {
 
   const pick = (x: number, y: number) => {
     // smallest hit wins, so a ribosome inside the cytoplasm is still clickable
-    const hits = visible.filter(
-      (p) => ((x - p.x) / p.rx) ** 2 + ((y - p.y) / p.ry) ** 2 <= 1
-    );
+    const hits = visible.filter((p) => {
+      const g = tf(p);
+      return ((x - g.x) / g.rx) ** 2 + ((y - g.y) / g.ry) ** 2 <= 1;
+    });
     if (hits.length === 0) return;
     hits.sort((a, b) => a.rx * a.ry - b.rx * b.ry);
     setPicked(hits[0].id);
@@ -212,8 +235,11 @@ export function OsmosisLab() {
   const inside = 0.3; // the cell's own solute concentration, held fixed
   const diff = outside - inside;
   const tonicity = Math.abs(diff) < 0.02 ? "isotonic" : diff < 0 ? "hypotonic" : "hypertonic";
-  // a walled cell cannot expand past turgor; an animal cell can burst
-  const targetVol = clamp(1 - diff * 1.6, walled === "plant" ? 0.55 : 0.35, walled === "plant" ? 1.15 : 1.6);
+  // a walled cell cannot expand past turgor; an animal cell can burst.
+  // The multiplier is chosen so that near-pure water (outside < 0.05 M)
+  // actually pushes an animal cell past the burst threshold — the maximum
+  // swell is 1 − (0 − 0.3) × 2.0 = 1.6, comfortably above 1.5.
+  const targetVol = clamp(1 - diff * 2.0, walled === "plant" ? 0.55 : 0.35, walled === "plant" ? 1.15 : 1.7);
   const burst = walled === "animal" && targetVol > 1.5;
   const plasmolysed = walled === "plant" && targetVol < 0.7;
 
@@ -373,17 +399,21 @@ export function EnzymeLab() {
   const [ph, setPh] = useState(7);
   const [substrate, setSubstrate] = useState(50);
 
-  // bell curve on temperature, sharp cliff after denaturation
+  // bell curve on temperature; past the denaturation point the rate falls
+  // linearly FROM THE CURVE'S EDGE VALUE to zero — starting the cliff from 1
+  // instead would make the rate jump upward at 56 °C, contradicting the lesson
   const denatured = temp > 55;
+  const tempCurve = (x: number) => Math.exp(-(((x - 37) / 17) ** 2));
   const tempFactor = denatured
-    ? Math.max(0, 1 - (temp - 55) / 8)
-    : Math.exp(-(((temp - 37) / 17) ** 2));
+    ? tempCurve(55) * Math.max(0, 1 - (temp - 55) / 8)
+    : tempCurve(temp);
   const phFactor = Math.exp(-(((ph - 7) / 2.2) ** 2));
-  // Michaelis–Menten: saturating in substrate
+  // Michaelis–Menten: saturating in substrate. km = 25 puts satFactor at 0.8
+  // when the slider maxes out, so "saturated" must trigger below that.
   const km = 25;
   const satFactor = substrate / (km + substrate);
   const rate = tempFactor * phFactor * satFactor * 100;
-  const saturated = satFactor > 0.8;
+  const saturated = satFactor >= 0.75;
 
   const draw = (ctx: CanvasRenderingContext2D, _dt: number, t: number) => {
     // ---- the enzyme itself ----

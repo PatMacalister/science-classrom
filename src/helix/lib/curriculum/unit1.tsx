@@ -148,11 +148,11 @@ export const unit1: UnitModule = {
           q: "The oxygen released by photosynthesis is…",
           choices: [
             "The point of the reaction",
-            "A waste product, which happens to be what we breathe",
-            "Taken back in by the Calvin cycle",
             "Produced only at night",
+            "Taken back in by the Calvin cycle",
+            "A waste product, which happens to be what we breathe",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "It comes from splitting water and is simply discarded. Every O₂ molecule in the atmosphere is photosynthetic waste.",
         },
@@ -298,11 +298,11 @@ export const unit1: UnitModule = {
           q: "Why do cells use ATP rather than spending glucose directly?",
           choices: [
             "Glucose is toxic",
-            "ATP releases a small, usable packet of energy on demand — glucose is bulk storage",
             "Glucose cannot enter cells",
+            "ATP releases a small, usable packet of energy on demand — glucose is bulk storage",
             "ATP contains more total energy",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "It is a denomination problem. Glucose is the gold bar; ATP is the coin every cellular process is priced in.",
         },

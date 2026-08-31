@@ -187,10 +187,12 @@ export function classVar(cls: AminoClass): string {
 }
 
 /**
- * How many of a family's four codons share one amino acid — the wobble
- * pattern. 4 means the third base is entirely redundant.
+ * How many codons in THIS codon's four-member family (same first two bases)
+ * code for the same outcome as this codon — the wobble, counted per codon.
+ * 4 means the third base is entirely redundant; 1 means this codon is the
+ * only route to its amino acid within the family (AUG, UGG).
  */
-export function familyDegeneracy(first: string, second: string): number {
-  const acids = new Set(BASES.map((b) => CODON_TABLE[`${first}${second}${b}`]));
-  return 5 - acids.size; // 4 distinct → 1, 1 distinct → 4
+export function synonymsInFamily(codon: string): number {
+  const aa = CODON_TABLE[codon];
+  return BASES.filter((b) => CODON_TABLE[codon.slice(0, 2) + b] === aa).length;
 }
