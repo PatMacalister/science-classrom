@@ -326,6 +326,23 @@ export const unit0De: Record<string, LessonContentDe> = {
         </>
       ),
     },
+    extraLab: {
+      title: "Trend-Entdecker",
+      intro: (
+        <>
+          <p>
+            Das Periodensystem ist keine Liste, sondern eine Landkarte — und die Landkarte hat
+            Gefälle. Die ersten zwanzig Elemente, eingefärbt nach der Eigenschaft deiner Wahl. Fahre
+            über eine Kachel für den genauen Wert.
+          </p>
+          <ul>
+            <li>Wähle <em>Atomradius</em> und lies Periode 2 entlang: Von Li zu Ne schrumpft er um den Faktor vier — obwohl Elektronen dazukommen.</li>
+            <li>Wechsle zur <em>Ionisierungsenergie</em>. Das Muster kippt — die kleinen Atome halten am festesten.</li>
+            <li>Vergleiche Li, Na und K bei allen dreien. Eine Gruppe hinunter macht rückgängig, was quer durch die Periode passiert ist.</li>
+          </ul>
+        </>
+      ),
+    },
     quiz: [
       {
         q: "Elemente in derselben Spalte (Gruppe) des Periodensystems haben…",

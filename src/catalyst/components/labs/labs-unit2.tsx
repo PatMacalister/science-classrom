@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import SimCanvas from "@/shared/SimCanvas";
-import { Controls, Slider, Segmented, Select, useTl } from "@/catalyst/components/controls";
+import { Controls, Readout, Readouts, Slider, Segmented, Select, useTl } from "@/catalyst/components/controls";
 import { fmtSci } from "@/catalyst/lib/sim/helpers";
+import { tl as translate } from "@/catalyst/lib/labStrings";
 import * as D from "@/catalyst/lib/sim/draw";
 
 /* =====================================================================
@@ -331,6 +332,369 @@ export function LimitingLab() {
         <Slider label="Hydrogen H₂" min={0} max={10} step={0.5} value={h2} onChange={setH2} fmt={(v) => `${v} mol`} />
         <Slider label="Oxygen O₂" min={0} max={10} step={0.5} value={o2} onChange={setO2} fmt={(v) => `${v} mol`} />
       </Controls>
+    </>
+  );
+}
+
+/* =====================================================================
+ * Lab 2.4 — Reaction sorter: five patterns, one card at a time. Name the
+ * pattern before the answer shows itself.
+ * ===================================================================== */
+
+type RxType = "synthesis" | "decomposition" | "single" | "double" | "combustion";
+
+const TYPE_LABEL: Record<RxType, string> = {
+  synthesis: "Synthesis",
+  decomposition: "Decomposition",
+  single: "Single replacement",
+  double: "Double replacement",
+  combustion: "Combustion",
+};
+
+const TYPE_PATTERN: Record<RxType, string> = {
+  synthesis: "A + B \u2192 AB",
+  decomposition: "AB \u2192 A + B",
+  single: "A + BC \u2192 AC + B",
+  double: "AB + CD \u2192 AD + CB",
+  combustion: "fuel + O\u2082 \u2192 CO\u2082 + H\u2082O",
+};
+
+interface RxCard {
+  eq: string;
+  type: RxType;
+  why: string;
+}
+
+const CARDS: RxCard[] = [
+  { eq: "2 Mg + O\u2082 \u2192 2 MgO", type: "synthesis",
+    why: "Two elements combine into one compound. Nothing comes apart." },
+  { eq: "2 H\u2082O \u2192 2 H\u2082 + O\u2082", type: "decomposition",
+    why: "One compound splits into two elements - electrolysis does exactly this." },
+  { eq: "Zn + CuSO\u2084 \u2192 ZnSO\u2084 + Cu", type: "single",
+    why: "Zinc kicks copper out of its compound and takes its place. One element swaps in, one drops out." },
+  { eq: "AgNO\u2083 + NaCl \u2192 AgCl + NaNO\u2083", type: "double",
+    why: "Both compounds swap partners. AgCl is insoluble, so it precipitates out and drives the reaction." },
+  { eq: "CH\u2084 + 2 O\u2082 \u2192 CO\u2082 + 2 H\u2082O", type: "combustion",
+    why: "A hydrocarbon plus oxygen giving carbon dioxide and water - the signature of burning." },
+  { eq: "CaCO\u2083 \u2192 CaO + CO\u2082", type: "decomposition",
+    why: "Heating limestone splits it into quicklime and carbon dioxide. One in, two out." },
+  { eq: "Fe + 2 HCl \u2192 FeCl\u2082 + H\u2082", type: "single",
+    why: "Iron displaces hydrogen from the acid, and the hydrogen bubbles off as a gas." },
+  { eq: "N\u2082 + 3 H\u2082 \u2192 2 NH\u2083", type: "synthesis",
+    why: "Two elements, one product. The Haber process that feeds about half the planet." },
+  { eq: "HCl + NaOH \u2192 NaCl + H\u2082O", type: "double",
+    why: "Acid and base swap partners to give a salt and water - neutralisation is a double replacement." },
+  { eq: "2 C\u2088H\u2081\u2088 + 25 O\u2082 \u2192 16 CO\u2082 + 18 H\u2082O", type: "combustion",
+    why: "Octane burning in an engine. Hydrocarbon + O2 gives CO2 + H2O, every time." },
+];
+
+export function ReactionTypeLab() {
+  const tl = useTl();
+  const [i, setI] = useState(0);
+  const [picked, setPicked] = useState<RxType | null>(null);
+  const [score, setScore] = useState({ right: 0, wrong: 0 });
+
+  const card = CARDS[i];
+  const correct = picked === card.type;
+
+  const choose = (t: RxType) => {
+    if (picked) return;
+    setPicked(t);
+    setScore((s) => ({
+      right: s.right + (t === card.type ? 1 : 0),
+      wrong: s.wrong + (t === card.type ? 0 : 1),
+    }));
+  };
+
+  const next = () => {
+    setPicked(null);
+    setI((v) => (v + 1) % CARDS.length);
+  };
+
+  const draw = (ctx: CanvasRenderingContext2D) => {
+    D.panel(ctx, 80, 60, 740, 116);
+    D.label(ctx, `reaction ${i + 1} of ${CARDS.length}`, 450, 84, { color: D.COL.muted, size: 11 });
+    D.label(ctx, card.eq, 450, 124, { size: 24, bold: true, color: D.COL.accent, mono: true });
+    D.label(ctx, picked ? TYPE_PATTERN[card.type] : "which pattern is this?", 450, 156, {
+      color: picked ? D.COL.amber : D.COL.muted, size: picked ? 14 : 12, mono: !!picked,
+    });
+
+    if (picked) {
+      D.panel(ctx, 80, 196, 740, 150, correct ? "rgba(71,194,107,0.10)" : "rgba(242,109,109,0.10)");
+      D.label(ctx, correct ? "correct" : `it is ${TYPE_LABEL[card.type]}`, 450, 226, {
+        size: 18, bold: true, color: correct ? D.COL.good : D.COL.bad,
+      });
+      // translate before wrapping — the per-line tl() inside D.label could
+      // never match a dictionary key once the sentence is chopped into lines
+      let line = "";
+      let ly = 260;
+      for (const w of translate(card.why).split(" ")) {
+        if ((line + w).length > 66) {
+          D.label(ctx, line.trim(), 450, ly, { color: D.COL.text, size: 13 });
+          ly += 20;
+          line = "";
+        }
+        line += w + " ";
+      }
+      D.label(ctx, line.trim(), 450, ly, { color: D.COL.text, size: 13 });
+      if (!correct) {
+        D.label(ctx, `you said ${TYPE_LABEL[picked]}: ${TYPE_PATTERN[picked]}`, 450, 326, {
+          color: D.COL.muted, size: 12, mono: true,
+        });
+      }
+    } else {
+      D.label(ctx, "the five patterns", 450, 216, { color: D.COL.muted, size: 11 });
+      (Object.keys(TYPE_LABEL) as RxType[]).forEach((t, n) => {
+        const y = 244 + n * 24;
+        D.label(ctx, TYPE_LABEL[t], 330, y, { size: 13, align: "right", color: D.COL.text });
+        D.label(ctx, TYPE_PATTERN[t], 370, y, { size: 13, align: "left", color: D.COL.amber, mono: true });
+      });
+    }
+
+    D.meter(ctx, 20, 14, 150, "correct", String(score.right), D.COL.good);
+    D.meter(ctx, 180, 14, 150, "missed", String(score.wrong), score.wrong ? D.COL.bad : D.COL.muted);
+  };
+
+  return (
+    <>
+      <SimCanvas width={900} height={370} draw={draw} />
+      <Controls>
+        <div className="ctl-row">
+          <label>{tl("Classify it")}</label>
+          <div className="seg">
+            {(Object.keys(TYPE_LABEL) as RxType[]).map((t) => (
+              <button
+                key={t}
+                type="button"
+                className={`seg-btn${picked === t ? " active" : ""}`}
+                onClick={() => choose(t)}
+                disabled={!!picked}
+              >
+                {tl(TYPE_LABEL[t])}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="ctl-row">
+          <label>{tl("Next")}</label>
+          <div className="seg">
+            <button type="button" className="seg-btn" onClick={next} disabled={!picked}>
+              {tl("Next reaction \u2192")}
+            </button>
+          </div>
+        </div>
+      </Controls>
+      <Readouts>
+        <Readout label="Score" value={`${score.right} / ${score.right + score.wrong}`} tone="good" />
+        <Readout label="Card" value={`${i + 1} / ${CARDS.length}`} />
+        <Readout label="This one" value={picked ? TYPE_LABEL[card.type] : "\u2014"} tone="amber" />
+      </Readouts>
+    </>
+  );
+}
+
+/* =====================================================================
+ * Lab 2.1b — Lavoisier's balance: mass only seems to change when the
+ * vessel is open. Seal it and the needle cannot move.
+ * ===================================================================== */
+
+interface MassDemo {
+  name: string;
+  equation: string;
+  /** Mass of everything on the reactant side, grams. */
+  startMass: number;
+  /** Mass of gas that leaves an open vessel, or joins it from the air. */
+  gasMass: number;
+  /** true = the gas comes OUT of the mixture, false = it goes IN from the air. */
+  gasLeaves: boolean;
+  gasName: string;
+}
+
+const MASS_DEMOS: Record<string, MassDemo> = {
+  vinegar: {
+    name: "Baking soda + vinegar",
+    equation: "NaHCO\u2083 + CH\u2083COOH \u2192 CH\u2083COONa + H\u2082O + CO\u2082",
+    startMass: 100, gasMass: 4.4, gasLeaves: true, gasName: "CO\u2082",
+  },
+  magnesium: {
+    name: "Burning magnesium",
+    equation: "2 Mg + O\u2082 \u2192 2 MgO",
+    startMass: 100, gasMass: 65.9, gasLeaves: false, gasName: "O\u2082",
+  },
+  rust: {
+    name: "Iron rusting",
+    equation: "4 Fe + 3 O\u2082 \u2192 2 Fe\u2082O\u2083",
+    startMass: 100, gasMass: 43.0, gasLeaves: false, gasName: "O\u2082",
+  },
+};
+
+export function ConservationLab() {
+  const tl = useTl();
+  const [key, setKey] = useState("vinegar");
+  const [closed, setClosed] = useState<"open" | "closed">("open");
+  const [progress, setProgress] = useState(0);
+  const anim = useRef({ p: 0 });
+
+  const demo = MASS_DEMOS[key];
+  const isClosed = closed === "closed";
+  // in a sealed vessel the system mass cannot change; open, gas enters or leaves
+  const delta = isClosed ? 0 : (demo.gasLeaves ? -1 : 1) * demo.gasMass * progress;
+  const nowMass = demo.startMass + delta;
+  const level = Math.abs(delta) < 0.05;
+
+  const draw = (ctx: CanvasRenderingContext2D, dt: number, t: number) => {
+    const s = anim.current;
+    s.p += (progress - s.p) * Math.min(1, dt * 4);
+    const p = s.p;
+
+    // ---- the balance ----
+    const pivotX = 250;
+    const pivotY = 300;
+    const armLen = 150;
+    const tilt = Math.max(-0.2, Math.min(0.2, (-delta / demo.startMass) * 2.2));
+    D.wire(ctx, [[pivotX - 40, pivotY + 90], [pivotX, pivotY], [pivotX + 40, pivotY + 90]], D.COL.muted, 3);
+    D.wire(ctx, [[pivotX - 70, pivotY + 90], [pivotX + 70, pivotY + 90]], D.COL.muted, 4);
+    const lx = pivotX - Math.cos(tilt) * armLen;
+    const ly = pivotY - Math.sin(tilt) * armLen;
+    const rx = pivotX + Math.cos(tilt) * armLen;
+    const ry = pivotY + Math.sin(tilt) * armLen;
+    D.wire(ctx, [[lx, ly], [rx, ry]], D.COL.glass, 4);
+    D.dot(ctx, pivotX, pivotY, 7, D.COL.amber);
+
+    // left pan: the reaction vessel
+    D.wire(ctx, [[lx, ly], [lx, ly + 40]], D.COL.muted, 2);
+    const jarY = ly + 40;
+    D.beaker(ctx, lx - 45, jarY, 90, 76, 0.55, "rgba(45,212,191,0.35)");
+    if (p > 0.02) {
+      if (demo.gasLeaves) {
+        for (let i = 0; i < 12; i++) {
+          const bt = (t * 0.9 + i * 0.37) % 1;
+          const bx = lx - 28 + ((i * 37) % 56);
+          const by = jarY + 70 - bt * (isClosed ? 46 : 120);
+          if (!isClosed || by > jarY + 6) {
+            ctx.globalAlpha = (1 - bt) * p;
+            D.dot(ctx, bx, by, 3.5 + bt * 2, "#a7f3d0");
+            ctx.globalAlpha = 1;
+          }
+        }
+      } else {
+        D.glow(ctx, lx, jarY + 44, 60 * p, "#fff3c4", 0.5 * p);
+      }
+    }
+
+    if (isClosed) {
+      D.wire(ctx, [[lx - 52, jarY - 2], [lx + 52, jarY - 2]], D.COL.amber, 5);
+      D.label(ctx, "sealed", lx, jarY - 16, { color: D.COL.amber, size: 11, bold: true });
+    } else {
+      D.label(ctx, "open to the air", lx, jarY - 16, { color: D.COL.muted, size: 11 });
+    }
+
+    // right pan: the reference weight
+    D.wire(ctx, [[rx, ry], [rx, ry + 40]], D.COL.muted, 2);
+    ctx.fillStyle = "#3d4f6b";
+    ctx.beginPath();
+    ctx.roundRect(rx - 34, ry + 40, 68, 46, 5);
+    ctx.fill();
+    D.label(ctx, `${demo.startMass} g`, rx, ry + 63, { size: 14, bold: true, mono: true });
+    D.label(ctx, "reference", rx, ry + 100, { color: D.COL.muted, size: 11 });
+
+    // gas leaving or arriving
+    if (!isClosed && p > 0.05) {
+      const gy = jarY - 40 - p * 30;
+      ctx.globalAlpha = p;
+      if (demo.gasLeaves) {
+        D.arrow(ctx, lx, jarY - 26, lx, gy, "rgba(167,243,208,0.9)", 2.5, 8);
+        D.label(ctx, `${demo.gasName} escapes`, lx, gy - 16, { color: "#a7f3d0", size: 12, bold: true });
+      } else {
+        D.arrow(ctx, lx - 90, gy - 10, lx - 30, jarY + 20, "rgba(76,201,240,0.9)", 2.5, 8);
+        D.arrow(ctx, lx + 90, gy - 10, lx + 30, jarY + 20, "rgba(76,201,240,0.9)", 2.5, 8);
+        D.label(ctx, `${demo.gasName} joins from the air`, lx, gy - 24, {
+          color: "#4cc9f0", size: 12, bold: true,
+        });
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    // ---- the ledger ----
+    const bx = 540;
+    D.panel(ctx, bx, 60, 340, 330);
+    D.label(ctx, tl(demo.name), bx + 170, 84, { color: D.COL.muted, size: 12 });
+    D.label(ctx, demo.equation, bx + 170, 112, { color: D.COL.accent, size: 13, mono: true });
+
+    D.label(ctx, "mass on the balance", bx + 170, 150, { color: D.COL.muted, size: 11 });
+    D.label(ctx, `${nowMass.toFixed(1)} g`, bx + 170, 186, {
+      size: 34, bold: true, mono: true,
+      color: level ? D.COL.good : delta < 0 ? D.COL.bad : D.COL.amber,
+    });
+    D.label(
+      ctx,
+      level ? tl("unchanged") : `${delta > 0 ? "+" : ""}${delta.toFixed(1)} g`,
+      bx + 170, 214,
+      { color: level ? D.COL.good : D.COL.amber, size: 13, bold: true }
+    );
+
+    D.label(ctx, isClosed ? "closed system" : "open system", bx + 170, 250, {
+      color: isClosed ? D.COL.good : D.COL.bad, size: 13, bold: true,
+    });
+    const msg = isClosed
+      ? "Every atom stays inside. The balance cannot move - mass is conserved, exactly."
+      : demo.gasLeaves
+        ? "Atoms leave as gas. Mass seems to vanish; it is only walking out of the jar."
+        : "Atoms arrive from the air. Mass seems to appear; it was in the atmosphere all along.";
+    let line = "";
+    let ly2 = 280;
+    for (const w of translate(msg).split(" ")) {
+      if ((line + w).length > 40) {
+        D.label(ctx, line.trim(), bx + 170, ly2, { color: D.COL.muted, size: 11 });
+        ly2 += 17;
+        line = "";
+      }
+      line += w + " ";
+    }
+    D.label(ctx, line.trim(), bx + 170, ly2, { color: D.COL.muted, size: 11 });
+
+    D.meter(ctx, 20, 14, 200, "reaction progress", `${Math.round(progress * 100)} %`, D.COL.accent);
+    D.meter(ctx, 230, 14, 190, "vessel", isClosed ? "sealed" : "open", isClosed ? D.COL.good : D.COL.bad);
+  };
+
+  return (
+    <>
+      <SimCanvas width={900} height={420} draw={draw} />
+      <Controls>
+        <Select
+          label="Reaction"
+          value={key}
+          onChange={(v) => {
+            setKey(v);
+            setProgress(0);
+          }}
+          options={Object.entries(MASS_DEMOS).map(([k, v]) => ({ value: k, label: v.name }))}
+        />
+        <Segmented
+          label="Vessel"
+          value={closed}
+          onChange={setClosed}
+          options={[
+            { value: "open", label: "Open beaker" },
+            { value: "closed", label: "Sealed jar" },
+          ]}
+        />
+        <Slider
+          label="Run the reaction"
+          min={0}
+          max={1}
+          step={0.01}
+          value={progress}
+          onChange={setProgress}
+          fmt={(v) => `${Math.round(v * 100)} %`}
+        />
+      </Controls>
+      <Readouts>
+        <Readout label="Start mass" value={`${demo.startMass.toFixed(1)} g`} />
+        <Readout label="Mass now" value={`${nowMass.toFixed(1)} g`} tone={level ? "good" : "amber"} />
+        <Readout label="Change" value={`${delta >= 0 ? "+" : ""}${delta.toFixed(1)} g`} />
+        <Readout label="Atoms" value="always conserved" tone="good" />
+      </Readouts>
     </>
   );
 }

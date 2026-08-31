@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState, type CSSProperties } from "react";
 import PeriodicTable, { CATEGORY_KEYS, EselText } from "@/catalyst/components/PeriodicTable";
+import ElementDrill from "@/catalyst/components/ElementDrill";
 import { ELEMENTS, categoryVar } from "@/catalyst/lib/elements";
 import { useLang, useT } from "@/catalyst/lib/i18n";
 
@@ -14,7 +15,7 @@ import { useLang, useT } from "@/catalyst/lib/i18n";
 export default function ElementsPage() {
   const t = useT();
   const { lang } = useLang();
-  const [view, setView] = useState<"grid" | "list">("grid");
+  const [view, setView] = useState<"grid" | "list" | "drill">("grid");
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
@@ -58,6 +59,13 @@ export default function ElementsPage() {
           >
             {t("elementsListView")}
           </button>
+          <button
+            type="button"
+            className={`seg-btn${view === "drill" ? " active" : ""}`}
+            onClick={() => setView("drill")}
+          >
+            🎯 {t("elementsDrillView")}
+          </button>
         </div>
         {view === "list" ? (
           <input
@@ -69,7 +77,9 @@ export default function ElementsPage() {
         ) : null}
       </div>
 
-      {view === "grid" ? (
+      {view === "drill" ? (
+        <ElementDrill />
+      ) : view === "grid" ? (
         <PeriodicTable />
       ) : filtered.length === 0 ? (
         <p className="pt-empty">{t("elementsNoHit", { q: query.trim() })}</p>

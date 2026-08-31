@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import SimCanvas from "@/shared/SimCanvas";
 import { Controls, Readout, Readouts, Segmented, Slider } from "@/spark/components/controls";
 import { clamp } from "@/spark/lib/sim/helpers";

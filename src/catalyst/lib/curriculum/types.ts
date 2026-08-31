@@ -38,6 +38,18 @@ export interface LabSpec {
   Component: ComponentType;
 }
 
+/**
+ * A pointer into another course. The label is carried here rather than looked
+ * up, because a course must never import another course's curriculum — that
+ * would drag every lesson of the other field into this route's bundle.
+ */
+export interface CrossRef {
+  /** Course id from shared/courses.ts — "spark", "helix", … */
+  course: string;
+  slug: string;
+  label: { en: string; de: string };
+}
+
 export interface Lesson {
   /** URL slug, stable identifier — progress is keyed on this. */
   slug: string;
@@ -46,9 +58,17 @@ export interface Lesson {
   subtitle: string;
   /** Slugs of lessons this one builds on (rendered as back-links). */
   buildsOn?: string[];
+  /** Lessons in *other* courses that cover the same ground from their side. */
+  seeAlso?: CrossRef[];
   /** Theory section as a React component (plain JSX, may embed SVG diagrams). */
   Theory: ComponentType;
   lab: LabSpec;
+  /**
+   * A second simulation for lessons that carry two distinct ideas — rendered
+   * below the first. Use sparingly: if a lesson needs two labs to explain two
+   * unrelated things, it usually wants to be two lessons.
+   */
+  extraLab?: LabSpec;
   /** Standard lessons: pass the quiz (>= 75%) to complete. */
   quiz?: QuizQuestion[];
   /** Optional extra practice: solve-by-hand problems (not completion-gating). */

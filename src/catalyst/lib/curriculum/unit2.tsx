@@ -1,5 +1,11 @@
 import type { UnitModule } from "./types";
-import { BalanceLab, MoleLab, LimitingLab } from "@/catalyst/components/labs/labs-unit2";
+import {
+  BalanceLab,
+  MoleLab,
+  LimitingLab,
+  ReactionTypeLab,
+  ConservationLab,
+} from "@/catalyst/components/labs/labs-unit2";
 
 export const unit2: UnitModule = {
   unit: {
@@ -85,6 +91,23 @@ export const unit2: UnitModule = {
         ),
         Component: BalanceLab,
       },
+      extraLab: {
+        title: "Lavoisier's Balance",
+        intro: (
+          <>
+            <p>
+              Balancing an equation only makes sense because mass is conserved. Here is the
+              experiment that settled it — three reactions on a scale, in an open or a sealed vessel.
+            </p>
+            <ul>
+              <li>Run baking soda + vinegar in the <em>open</em> beaker. The mass drops. Now seal the jar and run it again.</li>
+              <li>Burn magnesium in the open and the mass goes <em>up</em>. Where did it come from?</li>
+              <li>Seal every reaction and the needle never moves. That is the law, demonstrated.</li>
+            </ul>
+          </>
+        ),
+        Component: ConservationLab,
+      },
       quiz: [
         {
           q: "What does a chemical reaction do to atoms?",
@@ -128,6 +151,166 @@ export const unit2: UnitModule = {
           answer: 2,
           explain:
             "Closed system, same atoms, same mass. The energy released comes from bond rearrangement, not from destroying matter (nuclear reactions are another course).",
+        },
+      ],
+    },
+
+    /* ================================================================ */
+    {
+      slug: "reaction-types",
+      unitId: "u2",
+      title: "The Five Kinds of Reaction",
+      subtitle:
+        "Most reactions you will ever meet follow one of five patterns. Recognise the pattern and you can predict the products of a reaction you have never seen.",
+      buildsOn: ["reactions"],
+      Theory: () => (
+        <>
+          <h2>Patterns, not memorisation</h2>
+          <p>
+            There are millions of known reactions, which sounds hopeless until you notice that the
+            overwhelming majority fall into five structural patterns. Learn the patterns and you can
+            often write the products yourself.
+          </p>
+
+          <h3>1. Synthesis (combination) — A + B → AB</h3>
+          <p>Two or more simple things join into one more complex thing.</p>
+          <div className="formula">
+            2 Mg + O₂ → 2 MgO &nbsp;·&nbsp; N₂ + 3 H₂ → 2 NH₃
+            <span className="note">the second is the Haber process — it is fair to say it feeds about half of everyone alive</span>
+          </div>
+
+          <h3>2. Decomposition — AB → A + B</h3>
+          <p>One compound splits into simpler pieces, usually driven by heat or electricity.</p>
+          <div className="formula">
+            2 H₂O → 2 H₂ + O₂ &nbsp;·&nbsp; CaCO₃ → CaO + CO₂
+            <span className="note">roasting limestone gives quicklime — how cement is made, and a large slice of global CO₂</span>
+          </div>
+
+          <h3>3. Single replacement — A + BC → AC + B</h3>
+          <p>
+            One element pushes another out of its compound. Whether it can depends on the{" "}
+            <strong>reactivity series</strong>: a more reactive metal displaces a less reactive one.
+          </p>
+          <div className="formula">Zn + CuSO₄ → ZnSO₄ + Cu</div>
+          <p>
+            Drop a zinc strip into blue copper sulfate and the blue fades while the strip turns
+            coppery — you can watch the swap happen. Reverse it and nothing occurs, because copper is
+            the less reactive of the two. Unit 6 wires exactly this eagerness into a battery.
+          </p>
+
+          <h3>4. Double replacement — AB + CD → AD + CB</h3>
+          <p>
+            Two compounds exchange partners. Common in solution, and usually driven by something
+            leaving the mixture:
+          </p>
+          <div className="formula">
+            AgNO₃ + NaCl → AgCl↓ + NaNO₃
+            <span className="note">silver chloride is insoluble, so it drops out as a white precipitate</span>
+          </div>
+          <p>
+            <strong>Neutralisation</strong> is a double replacement too — acid plus base giving a
+            salt plus water, which is the whole of Unit 4:
+          </p>
+          <div className="formula">HCl + NaOH → NaCl + H₂O</div>
+
+          <h3>5. Combustion — fuel + O₂ → CO₂ + H₂O</h3>
+          <p>
+            Technically a subtype, but so common it earns its own name. Burn any hydrocarbon in
+            plenty of oxygen and you always get carbon dioxide and water:
+          </p>
+          <div className="formula">CH₄ + 2 O₂ → CO₂ + 2 H₂O</div>
+          <p>
+            The energy released is the point: it heats homes, drives engines and — as respiration,
+            which is combustion run slowly and carefully inside cells — powers you.
+          </p>
+          <div className="callout warn">
+            <span className="co-title">Incomplete combustion</span>
+            <p>
+              Starve the flame of oxygen and you get carbon monoxide (CO) and soot instead. CO binds
+              to haemoglobin roughly 200 times more strongly than oxygen does, is colourless and
+              odourless, and is why a blocked flue kills people. A yellow, sooty flame where a blue
+              one belongs is the visible warning.
+            </p>
+          </div>
+
+          <h2>Predicting products</h2>
+          <p>
+            Recognising the pattern lets you write the products before looking them up. Given
+            &ldquo;magnesium + hydrochloric acid&rdquo;: a metal plus an acid is single replacement,
+            so magnesium displaces hydrogen, giving <strong>MgCl₂ + H₂</strong>. Magnesium is 2+ and
+            chloride 1−, so the formula follows from Unit 1 — and then you balance it. Three lessons
+            combining into a prediction.
+          </p>
+        </>
+      ),
+      lab: {
+        title: "Reaction Sorter",
+        intro: (
+          <>
+            <p>Ten reactions, one at a time. Name the pattern, then see why.</p>
+            <ul>
+              <li>Count how many things are on each side first — that alone separates synthesis from decomposition.</li>
+              <li>If a lone element appears on both sides, it is a replacement. One swap = single, two = double.</li>
+              <li>O₂ on the left with CO₂ and H₂O on the right is always combustion.</li>
+            </ul>
+          </>
+        ),
+        Component: ReactionTypeLab,
+      },
+      quiz: [
+        {
+          q: "2 Mg + O₂ → 2 MgO is an example of…",
+          choices: ["Decomposition", "Synthesis", "Single replacement", "Double replacement"],
+          answer: 1,
+          explain: "Two simple substances combine into one compound: A + B → AB, a synthesis reaction.",
+        },
+        {
+          q: "Which pattern does AgNO₃ + NaCl → AgCl + NaNO₃ follow?",
+          choices: [
+            "Single replacement",
+            "Double replacement — the two compounds swap partners",
+            "Combustion",
+            "Decomposition",
+          ],
+          answer: 1,
+          explain:
+            "Silver pairs with chloride and sodium with nitrate: AB + CD → AD + CB. The insoluble AgCl precipitating out is what drives it.",
+        },
+        {
+          q: "Zinc displaces copper from copper sulfate, but copper will not displace zinc from zinc sulfate. Why?",
+          choices: [
+            "Copper is heavier",
+            "Zinc is more reactive than copper, so only that direction is favourable",
+            "Copper sulfate is a gas",
+            "The reaction needs light",
+          ],
+          answer: 1,
+          explain:
+            "In a single replacement the more reactive metal takes the anion. Zinc sits above copper in the reactivity series, so only zinc → copper works.",
+        },
+        {
+          q: "What are the products of the complete combustion of any hydrocarbon?",
+          choices: [
+            "Carbon monoxide and hydrogen",
+            "Carbon dioxide and water",
+            "Soot and oxygen",
+            "It depends on the hydrocarbon",
+          ],
+          answer: 1,
+          explain:
+            "With enough oxygen every carbon ends up in CO₂ and every hydrogen in H₂O. Too little oxygen gives incomplete combustion — CO and soot.",
+        },
+        {
+          q: "Magnesium is added to hydrochloric acid. Using the patterns, what should you expect?",
+          choices: [
+            "MgCl₂ + H₂ — a single replacement, with hydrogen gas bubbling off",
+            "MgH₂ + Cl₂",
+            "No reaction",
+            "MgCl + HCl₂",
+          ],
+          answer: 0,
+          explain:
+            "A metal plus an acid is single replacement: the metal displaces hydrogen. Mg is 2+ and Cl is 1−, giving MgCl₂ plus H₂ gas. Balanced: Mg + 2 HCl → MgCl₂ + H₂.",
         },
       ],
     },

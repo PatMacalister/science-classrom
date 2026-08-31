@@ -16,12 +16,24 @@ interface SimCanvasProps {
   onPointerMove?: (p: PointerInfo) => void;
   onPointerUp?: (p: PointerInfo) => void;
   onClick?: (p: PointerInfo) => void;
+  /**
+   * What the simulation shows, for assistive technology. Canvas pixels are
+   * invisible to a screen reader, so without this the lab is a blank hole in
+   * the page. Labs whose state is numeric should also render <Readouts>, which
+   * is a live region and announces changes.
+   */
+  label?: string;
 }
 
 /**
  * A fixed-logical-size, DPI-aware canvas running a requestAnimationFrame loop.
  * The draw callback is kept in a ref that is refreshed after every render, so
  * closures always see the latest React state without restarting the loop.
+ *
+ * Interaction is pointer-driven, but every pointer gesture is also reachable
+ * from the keyboard: the canvas is focusable, arrow keys steer a virtual
+ * pointer (Shift for fine steps), and Enter/Space press and release it. That
+ * makes drag-based labs operable without a mouse.
  */
 export default function SimCanvas({
   width = 900,
@@ -31,6 +43,7 @@ export default function SimCanvas({
   onPointerMove,
   onPointerUp,
   onClick,
+  label,
 }: SimCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const handlers = useRef({ draw, onPointerDown, onPointerMove, onPointerUp, onClick });
@@ -85,6 +98,63 @@ export default function SimCanvas({
     canvas.addEventListener("pointerup", up);
     canvas.addEventListener("click", click);
 
+    /* ---- keyboard: a virtual pointer, steered from the centre ---- */
+    const vp = { x: width / 2, y: height / 2, held: false };
+    const key = (ev: KeyboardEvent) => {
+      const step = ev.shiftKey ? 2 : 16;
+      let moved = false;
+      switch (ev.key) {
+        case "ArrowLeft":
+          vp.x = Math.max(0, vp.x - step);
+          moved = true;
+          break;
+        case "ArrowRight":
+          vp.x = Math.min(width, vp.x + step);
+          moved = true;
+          break;
+        case "ArrowUp":
+          vp.y = Math.max(0, vp.y - step);
+          moved = true;
+          break;
+        case "ArrowDown":
+          vp.y = Math.min(height, vp.y + step);
+          moved = true;
+          break;
+        case "Enter":
+        case " ":
+          ev.preventDefault();
+          if (vp.held) {
+            vp.held = false;
+            handlers.current.onPointerUp?.({ x: vp.x, y: vp.y });
+            handlers.current.onClick?.({ x: vp.x, y: vp.y });
+          } else {
+            vp.held = true;
+            handlers.current.onPointerDown?.({ x: vp.x, y: vp.y });
+          }
+          return;
+        case "Home":
+          vp.x = width / 2;
+          vp.y = height / 2;
+          moved = true;
+          break;
+        default:
+          return;
+      }
+      if (moved) {
+        ev.preventDefault();
+        handlers.current.onPointerMove?.({ x: vp.x, y: vp.y });
+      }
+    };
+    const blur = () => {
+      // never leave a drag stuck open when focus moves away
+      if (vp.held) {
+        vp.held = false;
+        handlers.current.onPointerUp?.({ x: vp.x, y: vp.y });
+      }
+    };
+    canvas.addEventListener("keydown", key);
+    canvas.addEventListener("blur", blur);
+
     return () => {
       running = false;
       cancelAnimationFrame(raf);
@@ -92,8 +162,23 @@ export default function SimCanvas({
       canvas.removeEventListener("pointermove", move);
       canvas.removeEventListener("pointerup", up);
       canvas.removeEventListener("click", click);
+      canvas.removeEventListener("keydown", key);
+      canvas.removeEventListener("blur", blur);
     };
   }, [width, height]);
 
-  return <canvas ref={canvasRef} className="sim-canvas" style={{ aspectRatio: `${width} / ${height}` }} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="sim-canvas"
+      style={{ aspectRatio: `${width} / ${height}` }}
+      tabIndex={0}
+      role="application"
+      aria-label={
+        label
+          ? `${label}. Arrow keys move the pointer, Enter grabs and releases.`
+          : "Interactive simulation. Arrow keys move the pointer, Enter grabs and releases."
+      }
+    />
+  );
 }

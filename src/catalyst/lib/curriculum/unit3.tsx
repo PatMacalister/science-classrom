@@ -17,7 +17,7 @@ export const unit3: UnitModule = {
       title: "Solid, Liquid, Gas",
       subtitle:
         "Ice, water and steam are the same molecule at three energy levels. Temperature just changes the dance.",
-      buildsOn: ["bond-spectrum"],
+      buildsOn: ["bond-spectrum", "intermolecular"],
       Theory: () => (
         <>
           <h2>Three dances, one dancer</h2>

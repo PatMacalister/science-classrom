@@ -1,5 +1,5 @@
 import type { UnitModule } from "./types";
-import { IonicLab, CovalentLab, BondLab } from "@/catalyst/components/labs/labs-unit1";
+import { IonicLab, CovalentLab, BondLab, ShapeLab, IMFLab } from "@/catalyst/components/labs/labs-unit1";
 
 export const unit1: UnitModule = {
   unit: {
@@ -376,6 +376,348 @@ export const unit1: UnitModule = {
           answer: 1,
           explain:
             "Water's δ+/δ− poles surround and stabilize the ions, out-competing the lattice. Nonpolar oil has no poles to offer — like dissolves like.",
+        },
+      ],
+    },
+
+    /* ================================================================ */
+    {
+      slug: "molecular-shapes",
+      unitId: "u1",
+      title: "Molecular Shapes & Why Water Is Bent",
+      subtitle:
+        "Electron groups repel and push as far apart as they can. The shape that results decides whether a molecule is polar — and water's shape decides most of biology.",
+      buildsOn: ["covalent"],
+      Theory: () => (
+        <>
+          <h2>One rule: electron groups repel</h2>
+          <p>
+            Molecules are three-dimensional objects with definite shapes, and you can predict those
+            shapes from a single idea called <strong>VSEPR</strong> (Valence Shell Electron Pair
+            Repulsion). It says: <em>groups of electrons around a central atom all repel each other,
+            so they arrange themselves as far apart as possible.</em>
+          </p>
+          <p>
+            A &ldquo;group&rdquo; is either a bond (single, double or triple — each counts once) or a{" "}
+            <strong>lone pair</strong>: a pair of valence electrons on the central atom that is not
+            bonded to anything. Count the groups, and geometry does the rest:
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Groups</th>
+                <th>Arrangement</th>
+                <th>Angle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2</td><td>linear</td><td>180°</td></tr>
+              <tr><td>3</td><td>trigonal planar</td><td>120°</td></tr>
+              <tr><td>4</td><td>tetrahedral</td><td>109.5°</td></tr>
+            </tbody>
+          </table>
+          <p>
+            Methane, CH₄, has four bonds and no lone pairs, so the hydrogens sit at the four corners
+            of a tetrahedron at 109.5°. Not flat — a genuinely three-dimensional shape, and the
+            reason organic chemistry is so rich.
+          </p>
+
+          <h2>Lone pairs push harder</h2>
+          <p>
+            A lone pair is held by only one nucleus, so it spreads out more and pushes{" "}
+            <em>harder</em> than a bonding pair. And when you name a shape, you name what you can
+            see — the atoms — not the invisible lone pairs.
+          </p>
+          <p>Take the three neighbours in period 2, each with four electron groups:</p>
+          <ul>
+            <li>
+              <strong>Methane CH₄</strong>: 4 bonds, 0 lone pairs → <em>tetrahedral</em>, 109.5°.
+            </li>
+            <li>
+              <strong>Ammonia NH₃</strong>: 3 bonds, 1 lone pair → the pair presses down, giving a{" "}
+              <em>trigonal pyramid</em> at 107°.
+            </li>
+            <li>
+              <strong>Water H₂O</strong>: 2 bonds, 2 lone pairs → two pairs press down, giving a{" "}
+              <em>bent</em> molecule at 104.5°.
+            </li>
+          </ul>
+          <p>
+            The same underlying tetrahedral arrangement every time; the shape you observe changes
+            because some corners are occupied by things you cannot see.
+          </p>
+
+          <h2>Polar bonds do not always make a polar molecule</h2>
+          <p>
+            This is the payoff, and the part most often got wrong. A molecule&rsquo;s overall
+            polarity depends on <strong>both</strong> its bond dipoles and its shape, because
+            dipoles are vectors — they can cancel.
+          </p>
+          <p>
+            <strong>Carbon dioxide, O=C=O</strong>, has two strongly polar bonds. But the molecule
+            is linear, so the two pulls point in exactly opposite directions and cancel perfectly.
+            CO₂ is <em>nonpolar</em> despite its polar bonds.
+          </p>
+          <p>
+            <strong>Water, H₂O</strong>, has two polar bonds too — but it is bent at 104.5°, so the
+            pulls do <em>not</em> cancel. They add to give a strong net dipole pointing from the
+            hydrogens towards the oxygen. Water is a strongly polar molecule.
+          </p>
+          <div className="callout tip">
+            <span className="co-title">Everything downstream depends on that 104.5°</span>
+            <p>
+              Because water is bent and polar, it dissolves salts and sugars, it climbs tree trunks,
+              it has a huge heat capacity that stabilises the climate, and its solid form is less
+              dense than its liquid, so ice floats and lakes freeze from the top down. Had oxygen
+              lacked those two lone pairs, water would be a linear, nonpolar gas at room
+              temperature — and none of that, including you, would be here.
+            </p>
+          </div>
+        </>
+      ),
+      lab: {
+        title: "Shape & Polarity Explorer",
+        intro: (
+          <>
+            <p>Five molecules, drawn with their lone pairs and their net dipole.</p>
+            <ul>
+              <li>Step CH₄ → NH₃ → H₂O and watch the lone pairs squeeze the bond angle down each time.</li>
+              <li>Compare CO₂ and H₂O: both have two polar bonds, but only one is a polar molecule. Shape decides.</li>
+              <li>Hide the lone pairs. The shape suddenly looks arbitrary — that is why VSEPR counts what you cannot see.</li>
+            </ul>
+          </>
+        ),
+        Component: ShapeLab,
+      },
+      quiz: [
+        {
+          q: "What does VSEPR theory say determines molecular shape?",
+          choices: [
+            "Electron groups around the central atom repel and get as far apart as possible",
+            "Atoms arrange themselves by atomic mass",
+            "Molecules always adopt the flattest possible shape",
+            "The nucleus pulls all the atoms into a line",
+          ],
+          answer: 0,
+          explain:
+            "Bonds and lone pairs are regions of negative charge. They repel, and the shape is whatever arrangement maximises their separation.",
+        },
+        {
+          q: "Water's bond angle is 104.5°, less than methane's 109.5°. Why?",
+          choices: [
+            "Oxygen is heavier than carbon",
+            "Water has only two bonds, so they spread out less",
+            "Water's two lone pairs repel more strongly than bonding pairs and squeeze the bonds together",
+            "Water molecules vibrate constantly",
+          ],
+          answer: 2,
+          explain:
+            "A lone pair is held by one nucleus only, spreads out more, and pushes harder — compressing the H–O–H angle below the ideal tetrahedral value.",
+        },
+        {
+          q: "CO₂ has two polar C=O bonds but is a nonpolar molecule. Why?",
+          choices: [
+            "The bonds are actually nonpolar",
+            "It is linear, so the two bond dipoles point opposite each other and cancel",
+            "Carbon dioxide is ionic",
+            "Oxygen and carbon have the same electronegativity",
+          ],
+          answer: 1,
+          explain:
+            "Dipoles are vectors. In a linear O=C=O the two equal pulls point 180° apart and sum to zero, leaving no net dipole.",
+        },
+        {
+          q: "A central atom has 3 bonds and 1 lone pair. What shape is the molecule?",
+          choices: ["Tetrahedral", "Trigonal planar", "Trigonal pyramidal", "Linear"],
+          answer: 2,
+          explain:
+            "Four electron groups arrange tetrahedrally, but you name only the atoms you can see: three bonds pushed down by a lone pair form a trigonal pyramid, like NH₃.",
+        },
+        {
+          q: "Which pair of facts together makes a molecule polar overall?",
+          choices: [
+            "Polar bonds and a symmetric shape",
+            "Polar bonds and an asymmetric shape that stops them cancelling",
+            "Nonpolar bonds and an asymmetric shape",
+            "Any molecule that contains oxygen",
+          ],
+          answer: 1,
+          explain:
+            "You need both: bond dipoles to exist, and a geometry in which they do not cancel. Symmetric molecules with polar bonds (CO₂, CH₄, BF₃) come out nonpolar.",
+        },
+      ],
+    },
+
+    /* ================================================================ */
+    {
+      slug: "intermolecular",
+      unitId: "u1",
+      title: "Intermolecular Forces",
+      subtitle:
+        "The weak attractions between molecules decide whether something is a gas, a liquid or a solid — and they are the reason water behaves like nothing else.",
+      buildsOn: ["molecular-shapes", "bond-spectrum"],
+      Theory: () => (
+        <>
+          <h2>The forces between, not within</h2>
+          <p>
+            Covalent bonds hold a molecule together. <strong>Intermolecular forces</strong> hold
+            separate molecules to <em>each other</em>. They are far weaker — typically a few percent
+            as strong — and they never appear in a chemical equation. But they decide almost every
+            physical property you can observe: melting point, boiling point, viscosity, surface
+            tension, whether something dissolves.
+          </p>
+          <p>Three kinds matter, weakest first.</p>
+
+          <h3>1. London dispersion forces (in everything)</h3>
+          <p>
+            Electrons move. At any instant they may happen to bunch on one side of a molecule,
+            creating a fleeting dipole, which induces an opposite fleeting dipole in a neighbour —
+            and for that moment the two attract. Averaged over time it is a real, if feeble, force.
+          </p>
+          <p>
+            Dispersion forces exist in <em>every</em> substance and grow with the number of
+            electrons. That is why the noble gases liquefy in order down the group, and why methane
+            is a gas while candle wax — the same kind of molecule, just far longer — is a solid.
+          </p>
+
+          <h3>2. Dipole–dipole forces (in polar molecules)</h3>
+          <p>
+            Polar molecules have permanent δ+ and δ− ends, so they line up and attract head to tail.
+            Stronger than dispersion for molecules of similar size, which is why polar substances
+            generally boil higher than nonpolar ones of comparable mass.
+          </p>
+
+          <h3>3. Hydrogen bonding (the strong one)</h3>
+          <p>
+            A special, unusually strong case of dipole–dipole. It requires hydrogen bonded directly
+            to <strong>N, O or F</strong> — the three small, greedy atoms. Hydrogen has just one
+            electron, so when oxygen or fluorine pulls that electron away, what remains is close to
+            a bare proton: a very concentrated positive charge that can get very close to a lone
+            pair on a neighbouring molecule.
+          </p>
+          <div className="callout note">
+            <span className="co-title">Remember the three: N, O, F</span>
+            <p>
+              Hydrogen bonds need H attached to <strong>N</strong>itrogen, <strong>O</strong>xygen
+              or <strong>F</strong>luorine. H–Cl does not qualify: chlorine is polar enough but too
+              large, so its charge is too spread out. The German memory hook is short:{" "}
+              <em>„NOF — sonst nix.“</em>
+            </p>
+          </div>
+
+          <h2>The anomaly that proves it</h2>
+          <p>
+            Compare the hydrides of group 16 — H₂O, H₂S, H₂Se, H₂Te. Dispersion forces grow with
+            size, so boiling points should rise steadily down the group. They do, for the last
+            three. Water, the smallest and lightest, should boil around −80 °C.
+          </p>
+          <p>
+            It boils at <strong>+100 °C</strong>. That 180-degree discrepancy is hydrogen bonding,
+            and it is why there is liquid water on this planet at all.
+          </p>
+          <p>
+            Water is exceptional even among hydrogen-bonded substances, because of its shape. Each
+            molecule has two hydrogens to donate <em>and</em> two lone pairs to accept — so every
+            water molecule can hold four neighbours at once, building a continuous network. Ammonia
+            has three hydrogens but only one lone pair; hydrogen fluoride has one hydrogen and three
+            lone pairs. Only water is balanced.
+          </p>
+          <p>Follow the consequences:</p>
+          <ul>
+            <li>
+              <strong>Ice floats.</strong> Freezing locks the network into an open hexagonal cage
+              that is <em>less</em> dense than the liquid. Almost every other substance sinks in
+              itself. Lakes therefore freeze from the top down, and life survives underneath.
+            </li>
+            <li>
+              <strong>Huge heat capacity.</strong> Warming water means loosening a vast web of
+              hydrogen bonds, which absorbs enormous energy — oceans moderate the climate, and sweat
+              cools you efficiently.
+            </li>
+            <li>
+              <strong>Surface tension.</strong> Molecules at the surface are pulled inwards by
+              neighbours with nothing above to balance them. Insects walk on it.
+            </li>
+            <li>
+              <strong>&ldquo;Like dissolves like.&rdquo;</strong> Polar water dissolves polar and
+              ionic things and refuses nonpolar ones, because it would have to break its own
+              hydrogen-bond network to make room for a molecule that offers nothing in return.
+            </li>
+          </ul>
+        </>
+      ),
+      lab: {
+        title: "Boiling Point Lab",
+        intro: (
+          <>
+            <p>
+              Four small molecules, one thermometer. The purple lines are the attractions between
+              molecules.
+            </p>
+            <ul>
+              <li>Set the temperature to −50 °C and step through all four substances. Two are gases, two are liquids.</li>
+              <li>Compare CH₄ (M = 16) with H₂O (M = 18) — nearly the same mass, 261 degrees apart in boiling point.</li>
+              <li>Raise the temperature past the boiling point and watch the attraction lines let go.</li>
+            </ul>
+          </>
+        ),
+        Component: IMFLab,
+      },
+      quiz: [
+        {
+          q: "Which forces are broken when a molecular substance boils?",
+          choices: [
+            "The covalent bonds inside the molecules",
+            "The intermolecular forces between molecules",
+            "Ionic bonds",
+            "Nuclear forces",
+          ],
+          answer: 1,
+          explain:
+            "Boiling separates whole molecules from each other. The covalent bonds inside them survive intact — steam is still H₂O.",
+        },
+        {
+          q: "Hydrogen bonding requires hydrogen to be bonded to which atoms?",
+          choices: ["Any nonmetal", "Carbon, nitrogen or sulfur", "Nitrogen, oxygen or fluorine", "Only oxygen"],
+          answer: 2,
+          explain:
+            "Only N, O and F are small and electronegative enough to strip hydrogen nearly bare and leave a concentrated positive charge — „NOF, sonst nix“.",
+        },
+        {
+          q: "Water (M = 18) boils at 100 °C while methane (M = 16) boils at −161 °C. Why?",
+          choices: [
+            "Water molecules are much heavier",
+            "Water forms hydrogen bonds; methane is nonpolar and has only weak dispersion forces",
+            "Methane has stronger covalent bonds",
+            "Water is ionic",
+          ],
+          answer: 1,
+          explain:
+            "At nearly identical mass the only difference is intermolecular attraction. Water's hydrogen-bond network is dramatically stronger.",
+        },
+        {
+          q: "Why does ice float on water?",
+          choices: [
+            "Ice contains trapped air",
+            "Hydrogen bonds lock the molecules into an open cage that is less dense than the liquid",
+            "Ice molecules are lighter than water molecules",
+            "Cold water expands because its covalent bonds lengthen",
+          ],
+          answer: 1,
+          explain:
+            "Freezing fixes each molecule to four neighbours in a hexagonal lattice with gaps in it. That open structure is less dense than liquid water, so ice floats.",
+        },
+        {
+          q: "Why does oil refuse to dissolve in water?",
+          choices: [
+            "Oil molecules are too large",
+            "Oil is nonpolar and offers nothing to replace the hydrogen bonds water would have to break",
+            "Oil is denser than water",
+            "Oil reacts with water",
+          ],
+          answer: 1,
+          explain:
+            "Dissolving would cost water its hydrogen-bond network with no compensating attraction to nonpolar oil. 'Like dissolves like' is that energy balance stated briefly.",
         },
       ],
     },
