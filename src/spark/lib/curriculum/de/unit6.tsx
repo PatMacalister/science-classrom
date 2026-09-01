@@ -85,36 +85,36 @@ export const unit6De: Record<string, LessonContentDe> = {
         q: "Ein Op-Amp ohne Rückkopplung gibt aus…",
         choices: [
           "Eine präzise Kopie seines Eingangs",
-          "Schiene hoch oder Schiene tief, je nachdem, welcher Eingang höher liegt",
           "Immer 0 V",
+          "Schiene hoch oder Schiene tief, je nachdem, welcher Eingang höher liegt",
           "Die halbe Versorgung",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Leerlaufverstärkung ~100 000 heißt: Jede reale Eingangsdifferenz sättigt den Ausgang an einer Schiene — das ist Komparatorverhalten.",
       },
       {
         q: "Der +-Eingang eines Komparators liegt bei 3,2 V, sein −-Eingang bei 3,1 V. Der Ausgang ist…",
-        choices: ["Etwa 0,1 V", "Hoch (an der +-Schiene)", "Tief (an der −-Schiene)", "3,15 V"],
-        answer: 1,
+        choices: ["Etwa 0,1 V", "3,15 V", "Tief (an der −-Schiene)", "Hoch (an der +-Schiene)"],
+        answer: 3,
         explain: "V+ > V−, und die riesige Verstärkung hebt diese 0,1 V Differenz bis ganz an die positive Schiene.",
       },
       {
         q: "Hysterese (ein Schmitt-Trigger) existiert, um…",
         choices: [
-          "die Verstärkung zu erhöhen",
           "zu verhindern, dass verrauschte Signale den Ausgang an der Schwelle flattern lassen",
+          "die Verstärkung zu erhöhen",
           "den Stromverbrauch zu senken",
           "den Ausgang zu invertieren",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Getrennte Auf-/Ab-Schwellen bedeuten: Rauschen innerhalb des Bandes kann den Ausgang nicht erneut auslösen — eine saubere Flanke pro echter Kreuzung.",
       },
       {
         q: "Welches Alltagsgerät ist im Kern ein Komparator mit Hysterese?",
-        choices: ["Ein Thermostat", "Eine Batterie", "Ein Transformator", "Eine Sicherung"],
-        answer: 0,
+        choices: ["Eine Batterie", "Ein Thermostat", "Ein Transformator", "Eine Sicherung"],
+        answer: 1,
         explain:
           "Heizung an unter 19,5°, aus über 20,5°: zwei Schwellen, sauberes Schalten, kein Heizungsflattern — ein Schmitt-Trigger in der Wand.",
       },
@@ -201,19 +201,19 @@ export const unit6De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ein nichtinvertierender Verstärker hat Rf = 47 kΩ und Rg = 10 kΩ. Seine Verstärkung ist…",
-        choices: ["4,7×", "5,7×", "47×", "0,21×"],
-        answer: 1,
+        choices: ["5,7×", "4,7×", "47×", "0,21×"],
+        answer: 0,
         explain: "Verstärkung = 1 + Rf/Rg = 1 + 4,7 = 5,7. Das '+1' vergisst man leicht — das Quiz nie.",
       },
       {
         q: "Gegenkopplung macht die Verstärkung eines Verstärkers abhängig von…",
         choices: [
           "der Anzahl der internen Transistoren des Op-Amps",
-          "dem Verhältnis zweier externer Widerstände",
           "der Versorgungsspannung",
+          "dem Verhältnis zweier externer Widerstände",
           "der Temperatur",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Die überschüssige Verstärkung des Op-Amps erzwingt die goldenen Regeln; das Verhältnis des Rückkopplungsteilers legt die Gesamtverstärkung dann präzise fest.",
       },
@@ -221,11 +221,11 @@ export const unit6De: Record<string, LessonContentDe> = {
         q: "Ein Puffer mit Verstärkung 1 ist nützlich, weil er…",
         choices: [
           "das Signal verdoppelt",
-          "eine Spannung kopiert, dabei fast nichts aus der Quelle zieht und die Last mit Autorität treibt",
-          "Rauschen herausfiltert",
           "AC in DC wandelt",
+          "Rauschen herausfiltert",
+          "eine Spannung kopiert, dabei fast nichts aus der Quelle zieht und die Last mit Autorität treibt",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Er löst das Belastungsproblem: Fragile Quellen (wie Teiler) bleiben unbelastet, schwere Lasten werden getrieben. Verstärkung 1, Wert 10.",
       },

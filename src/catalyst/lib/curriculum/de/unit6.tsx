@@ -67,20 +67,20 @@ export const unit6De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Oxidation bedeutet…",
-        choices: ["Elektronen aufnehmen", "Elektronen abgeben", "nur Sauerstoffatome aufnehmen", "gasförmig werden"],
-        answer: 1,
+        choices: ["Elektronen aufnehmen", "gasförmig werden", "nur Sauerstoffatome aufnehmen", "Elektronen abgeben"],
+        answer: 3,
         explain:
           "Merkspruch: Oxidation — Elektronen-Abgabe, Reduktion — Elektronen-Aufnahme. Sauerstoff war nur der historisch erste bekannte Elektronendieb.",
       },
       {
         q: "Warum müssen Oxidation und Reduktion immer zusammen auftreten?",
         choices: [
-          "Tradition",
           "Ein abgegebenes Elektron muss von etwas aufgenommen werden — Elektronen verschwinden nicht",
+          "Tradition",
           "Müssen sie nicht; jedes kann allein auftreten",
           "Weil Reaktionen Wärme brauchen",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Die Elektronenbuchhaltung muss aufgehen. Jede Redoxreaktion ist ein Geber-Nehmer-Paar — daher 'Red-Ox' als ein Wort.",
       },
@@ -88,11 +88,11 @@ export const unit6De: Record<string, LessonContentDe> = {
         q: "Zink verdrängt Kupfer aus CuSO₄-Lösung, aber Kupfer verdrängt kein Zink aus ZnSO₄, weil…",
         choices: [
           "Kupfer schwerer ist",
-          "Zink in der Spannungsreihe höher steht — es gibt Elektronen bereitwilliger ab",
           "ZnSO₄ nicht blau ist",
+          "Zink in der Spannungsreihe höher steht — es gibt Elektronen bereitwilliger ab",
           "Kupfer sich zu schnell löst",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Die Spannungsreihe ist eine Einbahn-Hackordnung der Elektronen-Abgabefreude. Das unedlere Metall reduziert die Ionen des edleren — nie umgekehrt.",
       },
@@ -180,11 +180,11 @@ export const unit6De: Record<string, LessonContentDe> = {
         q: "Warum müssen die Elektronen in einer galvanischen Zelle durch den äußeren Draht?",
         choices: [
           "Drähte ziehen Elektronen an",
-          "Die beiden Halbreaktionen sind räumlich getrennt — der Draht ist der einzige Weg zum Empfänger",
           "Die Salzbrücke blockiert Elektronen absichtlich",
+          "Die beiden Halbreaktionen sind räumlich getrennt — der Draht ist der einzige Weg zum Empfänger",
           "Müssen sie nicht; sie schwimmen durch die Lösung",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Die Trennung ist die ganze Erfindung: Gebermetall und Empfängerionen berühren sich nie, also wird die zwingende Elektronenübertragung durch deinen Stromkreis geleitet.",
       },
@@ -202,19 +202,19 @@ export const unit6De: Record<string, LessonContentDe> = {
       },
       {
         q: "Zn hat E° = −0,76 V und Ag hat E° = +0,80 V. Eine Zn/Ag-Zelle liefert…",
-        choices: ["0,04 V", "1,56 V", "0,76 V", "−1,56 V"],
-        answer: 1,
+        choices: ["1,56 V", "0,04 V", "0,76 V", "−1,56 V"],
+        answer: 0,
         explain: "E°Zelle = E°(Kathode) − E°(Anode) = 0,80 − (−0,76) = 1,56 V. Weiter auseinander in der Reihe = mehr Volt.",
       },
       {
         q: "Die Anode einer Batterie ist die Elektrode, an der…",
         choices: [
           "Reduktion stattfindet; sie ist der Pluspol",
-          "Oxidation stattfindet; sie ist der Minuspol",
-          "nichts passiert",
           "Ionen aus dem Nichts entstehen",
+          "nichts passiert",
+          "Oxidation stattfindet; sie ist der Minuspol",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Merkhilfe: An-Ode und Ox-idation. Sie löst sich auf und gibt dabei die Elektronen ab, die sie zum Minuspol machen.",
       },
@@ -297,11 +297,11 @@ export const unit6De: Record<string, LessonContentDe> = {
         q: "Elektrolyse unterscheidet sich von einer galvanischen Zelle dadurch, dass…",
         choices: [
           "sie keine Elektroden benutzt",
-          "äußere elektrische Energie eine nicht freiwillige Reaktion erzwingt",
-          "sie nur mit geschmolzenen Metallen funktioniert",
           "sie Strom erzeugt",
+          "sie nur mit geschmolzenen Metallen funktioniert",
+          "äußere elektrische Energie eine nicht freiwillige Reaktion erzwingt",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Galvanisch: eine willige Reaktion zahlt Volt aus. Elektrolytisch: du zahlst Volt, um die Reaktion rückwärts zu treiben. Gleiche Architektur, umgekehrter Energiefluss.",
       },
@@ -320,12 +320,12 @@ export const unit6De: Record<string, LessonContentDe> = {
       {
         q: "Unterhalb von etwa 1,2 V erzeugt die Wasserelektrolyse…",
         choices: [
-          "halb so viel Gas",
           "nichts — der angelegte Schub ist kleiner als die Steigung der Reaktion",
+          "halb so viel Gas",
           "nur Wasserstoff",
           "Dampf",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Die Schwelle ist der Energiepreis pro Elektron für die Bergauf-Reaktion. Zahlst du weniger, nimmt kein Elektron den Deal an.",
       },
@@ -333,11 +333,11 @@ export const unit6De: Record<string, LessonContentDe> = {
         q: "Eine Akkubatterie zu laden ist in Wahrheit…",
         choices: [
           "sie mit frischen Elektronen aufzufüllen",
-          "Elektrolyse: ihre Entladereaktion wird zum Rückwärtslaufen gezwungen",
           "ihre Chemikalien zu erwärmen",
+          "Elektrolyse: ihre Entladereaktion wird zum Rückwärtslaufen gezwungen",
           "ein Softwarevorgang",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Das Ladegerät treibt die verbrauchte Chemie der Zelle bergauf und stellt die Edukte wieder her. Beim Entladen läuft dann wieder die galvanische Richtung — ein chemischer Kreislauf.",
       },

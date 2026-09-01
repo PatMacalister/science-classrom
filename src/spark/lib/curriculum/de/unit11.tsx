@@ -84,11 +84,11 @@ export const unit11De: Record<string, LessonContentDe> = {
         q: "Ein Mikrocontroller unterscheidet sich von den Chips deiner früheren Lektionen, weil er enthält…",
         choices: [
           "keine Transistoren",
-          "eine programmierbare CPU mit Speicher und I/O-Peripherie — einen kompletten Computer",
-          "nur Analogschaltungen",
           "eine eingebaute Batterie",
+          "nur Analogschaltungen",
+          "eine programmierbare CPU mit Speicher und I/O-Peripherie — einen kompletten Computer",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Es ist die Logik aus Einheit 7 im Großmaßstab plus Programmspeicher: ein Computer, dessen Pins bis in dein Steckbrett reichen.",
       },
       {
@@ -106,11 +106,11 @@ export const unit11De: Record<string, LessonContentDe> = {
         q: "Die Rate deines 555-Blinkers zu ändern brauchte einen neuen Kondensator. Die Rate des MCU-Blinkers zu ändern braucht…",
         choices: [
           "einen neuen Quarz",
-          "das Editieren einer Zahl im Code",
           "einen heißeren Lötkolben",
+          "das Editieren einer Zahl im Code",
           "eine andere LED",
         ],
-        answer: 1,
+        answer: 2,
         explain: "sleep(0.5) → sleep(0.1). Diese Editierbarkeit ist die ganze Revolution.",
       },
       {
@@ -201,8 +201,8 @@ export const unit11De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ein 12-Bit-ADC mit 3,3-V-Referenz löst Stufen auf von etwa…",
-        choices: ["3,3 V", "0,8 mV", "0,8 V", "12 mV"],
-        answer: 1,
+        choices: ["0,8 mV", "3,3 V", "0,8 V", "12 mV"],
+        answer: 0,
         explain: "3,3 V / 4096 Stufen ≈ 0,8 mV pro Stufe.",
       },
       {
@@ -220,22 +220,22 @@ export const unit11De: Record<string, LessonContentDe> = {
         q: "Quantisierung bedeutet…",
         choices: [
           "Der ADC zerstört das Signal",
-          "Alle Spannungen innerhalb einer Stufe lesen sich als dieselbe Zahl",
           "Der Eingang muss quantenmechanisch sein",
+          "Alle Spannungen innerhalb einer Stufe lesen sich als dieselbe Zahl",
           "Messwerte liegen immer um 50 % daneben",
         ],
-        answer: 1,
+        answer: 2,
         explain: "Endliche Stufen → endliche Präzision. Mehr Bits, kleinere Stufen — nie null.",
       },
       {
         q: "Software-Hysterese (zwei Schwellen) verhindert…",
         choices: [
           "dass der ADC überhitzt",
-          "schnelles An/Aus-Flattern, wenn der Messwert um eine einzelne Schwelle pendelt",
-          "den Quantisierungsfehler",
           "die Notwendigkeit eines Spannungsteilers",
+          "den Quantisierungsfehler",
+          "schnelles An/Aus-Flattern, wenn der Messwert um eine einzelne Schwelle pendelt",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Dieselbe Krankheit und Kur wie beim Komparator aus Lektion 6.1 — Rauschen kann innerhalb des Bandes nicht erneut auslösen.",
       },
     ],

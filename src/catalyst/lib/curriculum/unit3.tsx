@@ -95,12 +95,12 @@ export const unit3: UnitModule = {
         {
           q: "What changes when ice melts into water?",
           choices: [
-            "The H₂O molecules break into H and O",
             "The molecules' motion and arrangement — the molecules themselves are unchanged",
+            "The H₂O molecules break into H and O",
             "The molecules get smaller",
             "Hydrogen bonds get stronger",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Melting is a change of state, not of substance. The same H₂O molecules stop vibrating in a lattice and start sliding past each other.",
         },
@@ -108,11 +108,11 @@ export const unit3: UnitModule = {
           q: "Iron melts at 1538 °C, nitrogen at −210 °C. The difference tells you…",
           choices: [
             "iron atoms are faster",
-            "the forces between iron atoms are far stronger than those between N₂ molecules",
-            "nitrogen contains more energy",
             "nothing — melting points are random",
+            "nitrogen contains more energy",
+            "the forces between iron atoms are far stronger than those between N₂ molecules",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Melting point measures how much thermal jiggling the inter-particle forces can withstand. Metallic bonds beat weak intermolecular forces by a factor of thousands of degrees.",
         },
@@ -120,11 +120,11 @@ export const unit3: UnitModule = {
           q: "While water boils, its temperature stays pinned at 100 °C because…",
           choices: [
             "thermometers fail in steam",
-            "the added energy is breaking intermolecular bonds, not speeding particles up",
             "water cannot get hotter",
+            "the added energy is breaking intermolecular bonds, not speeding particles up",
             "the stove weakens",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "During a phase change, energy goes into tearing the structure apart. Only when every molecule has escaped does further heating raise the speed (and temperature) again.",
         },
@@ -240,29 +240,29 @@ export const unit3: UnitModule = {
           q: "Why must T be in kelvin in PV = nRT?",
           choices: [
             "Kelvin numbers are bigger",
-            "Kelvin starts at absolute zero, so it's proportional to actual particle motion",
             "Celsius is only for liquids",
+            "Kelvin starts at absolute zero, so it's proportional to actual particle motion",
             "Tradition from Lord Kelvin",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Pressure is proportional to absolute molecular kinetic energy. Only a scale with zero at zero-motion makes 'double T → double P' true.",
         },
         {
           q: "You squeeze a syringe (sealed, constant temperature) to half its volume. The pressure…",
-          choices: ["halves", "doubles", "stays the same", "drops to zero"],
-          answer: 1,
+          choices: ["doubles", "halves", "stays the same", "drops to zero"],
+          answer: 0,
           explain: "PV = const at fixed n and T (Boyle). Half the space → twice the collision rate → twice the pressure.",
         },
         {
           q: "Why do aerosol cans warn against fire?",
           choices: [
             "The paint burns",
-            "At constant volume, heating raises pressure until the can bursts",
-            "The gas becomes toxic",
             "Metal melts at low temperature",
+            "The gas becomes toxic",
+            "At constant volume, heating raises pressure until the can bursts",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "The can's volume is fixed, so P grows in lockstep with T (Gay-Lussac). Enough heat and the pressure exceeds what the seams can hold.",
         },
@@ -376,11 +376,11 @@ export const unit3: UnitModule = {
           q: "What happens to salt when it dissolves in water?",
           choices: [
             "It melts",
-            "Its lattice is taken apart into ions, each surrounded by water dipoles",
-            "It reacts to form a new compound",
             "It evaporates",
+            "It reacts to form a new compound",
+            "Its lattice is taken apart into ions, each surrounded by water dipoles",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Dissolving is disassembly, not disappearance: polar water molecules pry Na⁺ and Cl⁻ from the lattice and escort them individually.",
         },
@@ -400,18 +400,18 @@ export const unit3: UnitModule = {
           q: "You dissolve lots of KNO₃ in hot water, then let it cool. What happens?",
           choices: [
             "Nothing — dissolving is permanent",
-            "The excess crystallizes out as the solubility limit drops",
             "The water evaporates",
+            "The excess crystallizes out as the solubility limit drops",
             "The solution gets hotter",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Cooling slides you down the steep solubility curve; whatever exceeds the new limit must leave the solution as crystals. That's how rock candy is grown.",
         },
         {
           q: "What is the molarity of 0.5 mol of salt dissolved in 2 L of solution?",
-          choices: ["1 mol/L", "0.25 mol/L", "0.5 mol/L", "4 mol/L"],
-          answer: 1,
+          choices: ["0.25 mol/L", "1 mol/L", "0.5 mol/L", "4 mol/L"],
+          answer: 0,
           explain: "c = n/V = 0.5 / 2 = 0.25 mol/L.",
         },
       ],

@@ -94,26 +94,26 @@ export const unit4: UnitModule = {
       quiz: [
         {
           q: "An acid, dissolved in water, is a substance that…",
-          choices: ["releases OH⁻ ions", "releases H⁺ ions", "absorbs water", "conducts electricity"],
-          answer: 1,
+          choices: ["releases OH⁻ ions", "absorbs water", "releases H⁺ ions", "conducts electricity"],
+          answer: 2,
           explain:
             "Acids donate H⁺ (riding as H₃O⁺); bases supply OH⁻ or swallow H⁺. The H⁺ concentration is what pH measures.",
         },
         {
           q: "A liquid at pH 3 compared to one at pH 6 has…",
-          choices: ["twice the H⁺", "3× the H⁺", "1000× the H⁺", "half the H⁺"],
-          answer: 2,
+          choices: ["1000× the H⁺", "3× the H⁺", "twice the H⁺", "half the H⁺"],
+          answer: 0,
           explain: "Three pH steps = 10 × 10 × 10 = 1000× the H⁺ concentration. The scale is logarithmic.",
         },
         {
           q: "You dilute vinegar with water over and over. Its pH…",
           choices: [
             "rises without limit, becoming a strong base",
-            "approaches 7 but cannot cross it",
-            "stays exactly constant",
             "drops toward 0",
+            "stays exactly constant",
+            "approaches 7 but cannot cross it",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Dilution replaces acid with water, so the mixture tends toward water's pH 7. Crossing 7 needs an actual base, not more water.",
         },
@@ -234,23 +234,23 @@ export const unit4: UnitModule = {
           q: "What does titration measure?",
           choices: [
             "The color of an acid",
-            "The unknown concentration of an acid (or base), by neutralizing it with a known one",
             "The boiling point of a solution",
+            "The unknown concentration of an acid (or base), by neutralizing it with a known one",
             "The mass of the flask",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "At the equivalence point, base moles = acid moles. Knowing the base's concentration and volume used reveals the acid's concentration.",
         },
         {
           q: "The equivalence point is reached when…",
           choices: [
-            "the flask is full",
             "moles of added OH⁻ exactly equal the moles of H⁺ present",
+            "the flask is full",
             "the pH reaches 14",
             "the indicator dissolves",
           ],
-          answer: 1,
+          answer: 0,
           explain: "Exactly enough base to neutralize every H⁺ — for HCl + NaOH that lands the solution at pH 7.",
         },
         {
@@ -267,8 +267,8 @@ export const unit4: UnitModule = {
         },
         {
           q: "25 mL of unknown HCl needs 20 mL of 0.5 M NaOH to reach equivalence. The acid's concentration is…",
-          choices: ["0.2 M", "0.4 M", "0.5 M", "0.625 M"],
-          answer: 1,
+          choices: ["0.2 M", "0.625 M", "0.5 M", "0.4 M"],
+          answer: 3,
           explain: "c₁ = c₂V₂/V₁ = 0.5 × 20 / 25 = 0.4 mol/L.",
         },
       ],

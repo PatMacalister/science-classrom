@@ -152,8 +152,8 @@ export const unit5: UnitModule = {
       quiz: [
         {
           q: "A sine wave peaks at 10 V. Its RMS value is about…",
-          choices: ["10 V", "7.1 V", "5 V", "14.1 V"],
-          answer: 1,
+          choices: ["7.1 V", "10 V", "5 V", "14.1 V"],
+          answer: 0,
           explain: "Vrms = Vp/√2 = 10/1.414 ≈ 7.07 V — the DC voltage with the same heating power.",
         },
         {
@@ -176,8 +176,8 @@ export const unit5: UnitModule = {
         },
         {
           q: "The period of 50 Hz mains is…",
-          choices: ["50 ms", "20 ms", "2 ms", "0.5 s"],
-          answer: 1,
+          choices: ["50 ms", "0.5 s", "2 ms", "20 ms"],
+          answer: 3,
           explain: "T = 1/f = 1/50 = 0.02 s = 20 ms per full cycle.",
         },
       ],
@@ -253,8 +253,8 @@ export const unit5: UnitModule = {
       quiz: [
         {
           q: "A full-wave bridge rectifier uses how many diodes?",
-          choices: ["1", "2", "4", "8"],
-          answer: 2,
+          choices: ["1", "4", "2", "8"],
+          answer: 1,
           explain: "Four, in a diamond. Each half-cycle, one diagonal pair conducts and steers current the same way through the load.",
         },
         {
@@ -267,22 +267,22 @@ export const unit5: UnitModule = {
           q: "The smoothing capacitor reduces ripple by…",
           choices: [
             "Blocking the AC entirely",
-            "Charging at the peaks and feeding the load during the dips",
-            "Increasing the frequency",
             "Lowering the output voltage",
+            "Increasing the frequency",
+            "Charging at the peaks and feeding the load during the dips",
           ],
-          answer: 1,
+          answer: 3,
           explain: "It's a reservoir: topped up at each peak, drained (slightly) by the load in between — the RC story from Lesson 2.3.",
         },
         {
           q: "A bridge's DC output peaks about 1.4 V below the AC peak because…",
           choices: [
-            "The capacitor eats voltage",
             "Current always crosses two diodes, each dropping ~0.7 V",
+            "The capacitor eats voltage",
             "RMS is lower than peak",
             "The load resistance divides it down",
           ],
-          answer: 1,
+          answer: 0,
           explain: "Every path through the bridge crosses exactly two forward diode drops: 2 × 0.7 V (Lesson 3.1's Vf, twice).",
         },
       ],
@@ -391,8 +391,8 @@ export const unit5: UnitModule = {
       quiz: [
         {
           q: "As frequency rises, a capacitor's reactance Xc…",
-          choices: ["Rises", "Falls", "Stays constant", "Becomes negative"],
-          answer: 1,
+          choices: ["Falls", "Rises", "Stays constant", "Becomes negative"],
+          answer: 0,
           explain: "Xc = 1/(2πfC): more wiggles per second means the cap never fills — easier flow, lower reactance.",
         },
         {
@@ -403,19 +403,19 @@ export const unit5: UnitModule = {
         },
         {
           q: "At exactly the cutoff frequency, the filter's output amplitude is…",
-          choices: ["Zero", "Half the input", "70.7% of the input", "Equal to the input"],
-          answer: 2,
+          choices: ["Zero", "70.7% of the input", "Half the input", "Equal to the input"],
+          answer: 1,
           explain: "At fc, Xc = R and the divider gives 1/√2 ≈ 0.707 — the famous −3 dB point.",
         },
         {
           q: "To send only low frequencies to a subwoofer you'd use…",
           choices: [
             "A high-pass filter",
-            "A low-pass filter",
-            "A rectifier",
             "A comparator",
+            "A rectifier",
+            "A low-pass filter",
           ],
-          answer: 1,
+          answer: 3,
           explain: "Low-pass passes lows and blocks highs — exactly what a woofer crossover does.",
         },
       ],

@@ -89,23 +89,23 @@ export const unit15De: Record<string, LessonContentDe> = {
       {
         q: "Ein 10-kΩ-Widerstand mit ±5 % garantiert…",
         choices: [
-          "exakt 10 kΩ",
           "einen Wert irgendwo zwischen 9,5 kΩ und 10,5 kΩ",
+          "exakt 10 kΩ",
           "10 kΩ mit ±5 % Drift pro Jahr",
           "5 % Ausfallrate",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Toleranz begrenzt die Fertigungsstreuung. Der tatsächliche Wert ist ein Punkt in diesem Bereich — du weißt nicht, wo.",
       },
       {
         q: "Warum beweist ein funktionierender Prototyp den Entwurf nicht?",
         choices: [
           "Prototypen benutzen besseres Lötzinn",
-          "Er testet einen Punkt der Toleranzwolke; die Produktion zieht Tausende",
           "Prototypen laufen mit niedrigerer Spannung",
+          "Er testet einen Punkt der Toleranzwolke; die Produktion zieht Tausende",
           "Er beweist ihn doch",
         ],
-        answer: 1,
+        answer: 2,
         explain: "Jede Einheit würfelt bei jedem Bauteil neu. Worst-Case- und Monte-Carlo-Analyse existieren, um der ganzen Wolke zu begegnen.",
       },
       {
@@ -123,11 +123,11 @@ export const unit15De: Record<string, LessonContentDe> = {
         q: "„Absolute maximum ratings“ im Datenblatt bedeuten…",
         choices: [
           "den empfohlenen Arbeitspunkt",
-          "Grenzen, die du nie überschreiten darfst, auch nicht kurz — kein Entwurfsziel",
-          "für 10 Jahre garantierte Werte",
           "Marketingzahlen",
+          "für 10 Jahre garantierte Werte",
+          "Grenzen, die du nie überschreiten darfst, auch nicht kurz — kein Entwurfsziel",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Entwirf innerhalb der Recommended-Tabelle; Absolute Max ist, wo der Schaden beginnt, nicht wo die Reserve endet.",
       },
     ],
@@ -222,17 +222,17 @@ export const unit15De: Record<string, LessonContentDe> = {
         q: "Die erste Messung an jeder toten Schaltung sollte sein…",
         choices: [
           "der Ausgang",
-          "die Versorgungsschiene — Versorgungsfehler sind die häufigste Klasse",
           "das teuerste Bauteil",
+          "die Versorgungsschiene — Versorgungsfehler sind die häufigste Klasse",
           "die Temperatur",
         ],
-        answer: 1,
+        answer: 2,
         explain: "Eine Messung überführt entweder den wahrscheinlichsten Verdächtigen oder entlastet eine ganze Kategorie. Immer zuerst die Versorgung.",
       },
       {
         q: "Halbieren findet die kaputte Stufe einer 16-stufigen Signalkette in etwa…",
-        choices: ["16 Messungen", "8 Messungen", "4 Messungen", "1 Messung"],
-        answer: 2,
+        choices: ["4 Messungen", "8 Messungen", "16 Messungen", "1 Messung"],
+        answer: 0,
         explain: "Jede Messung halbiert das Gebiet: 16 → 8 → 4 → 2 → 1. Binäre Suche, mit Multimeter.",
       },
       {
@@ -240,10 +240,10 @@ export const unit15De: Record<string, LessonContentDe> = {
         choices: [
           "im Timing-Netzwerk des 555",
           "in der Batterie",
-          "stromab von Pin 3 — im LED-Zweig",
           "nicht lokalisierbar",
+          "stromab von Pin 3 — im LED-Zweig",
         ],
-        answer: 2,
+        answer: 3,
         explain: "Gesund stromauf + tot stromab klammert den Fehler dazwischen ein. Der Oszillator ist entlastet; der LED-Zweig ist verhaftet.",
       },
       {

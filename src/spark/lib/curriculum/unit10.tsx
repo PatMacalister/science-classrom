@@ -111,33 +111,33 @@ export const unit10: UnitModule = {
           q: "The internal mechanism of a linear regulator is essentially…",
           choices: [
             "A transformer",
-            "A feedback amplifier driving a pass transistor as a variable resistor",
             "A fuse that blows at 5 V",
+            "A feedback amplifier driving a pass transistor as a variable resistor",
             "A big capacitor",
           ],
-          answer: 1,
+          answer: 2,
           explain: "Reference + error amp + pass transistor: Unit 6's negative feedback, holding a DC setpoint.",
         },
         {
           q: "'Dropout voltage' means…",
           choices: [
             "The voltage at which the chip explodes",
-            "The minimum headroom Vin must have above Vout for regulation to work",
-            "The output ripple",
             "The voltage lost in the wires",
+            "The output ripple",
+            "The minimum headroom Vin must have above Vout for regulation to work",
           ],
-          answer: 1,
+          answer: 3,
           explain: "A 7805 needs roughly Vin ≥ 7 V. Below that the pass transistor is fully open and the output just follows Vin down.",
         },
         {
           q: "When is a linear regulator the RIGHT choice?",
           choices: [
-            "Converting 48 V to 1 V at 20 A",
             "Small voltage drops or low currents, and noise-sensitive analog/radio circuits",
+            "Converting 48 V to 1 V at 20 A",
             "Never — switching always wins",
             "Only in cars",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Where the (Vin−Vout)·I product is small, its simplicity and total silence are unbeatable. Big drops and big currents belong to switchers.",
         },
@@ -244,8 +244,8 @@ export const unit10: UnitModule = {
       quiz: [
         {
           q: "A buck converter with Vin = 12 V running at 40% duty outputs about…",
-          choices: ["12 V", "7.2 V", "4.8 V", "2.4 V"],
-          answer: 2,
+          choices: ["4.8 V", "7.2 V", "12 V", "2.4 V"],
+          answer: 0,
           explain: "Vout ≈ D·Vin = 0.4 × 12 = 4.8 V — PWM's average, kept by the LC filter.",
         },
         {
@@ -264,22 +264,22 @@ export const unit10: UnitModule = {
           q: "The L and C in a buck converter act as…",
           choices: [
             "A resonant radio tuner",
-            "A low-pass filter that keeps the average and rejects the switching chop",
-            "A backup battery",
             "A voltage doubler",
+            "A backup battery",
+            "A low-pass filter that keeps the average and rejects the switching chop",
           ],
-          answer: 1,
+          answer: 3,
           explain: "Exactly your Lesson 5.3 filter, sized so f_cutoff ≪ f_switching: DC average passes, chop is stopped.",
         },
         {
           q: "Raising the switching frequency lets you…",
           choices: [
-            "Use smaller L and C, at the price of slightly more switching loss",
-            "Skip the inductor entirely",
             "Exceed 100% efficiency",
+            "Skip the inductor entirely",
+            "Use smaller L and C, at the price of slightly more switching loss",
             "Eliminate the output capacitor's ripple current",
           ],
-          answer: 0,
+          answer: 2,
           explain:
             "Ripple ∝ 1/f_sw, so components shrink — but every edge costs a little energy. Real designs balance the two.",
         },

@@ -96,8 +96,8 @@ export const unit13De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Um ein 5-kHz-Signal treu zu erfassen, musst du mindestens abtasten mit…",
-        choices: ["2,5 kHz", "5 kHz", "10 kHz", "50 kHz"],
-        answer: 2,
+        choices: ["10 kHz", "5 kHz", "2,5 kHz", "50 kHz"],
+        answer: 0,
         explain: "Nyquist: fs ≥ 2·fmax = 10 kHz — mindestens zwei Abtastwerte pro Zyklus.",
       },
       {
@@ -122,11 +122,11 @@ export const unit13De: Record<string, LessonContentDe> = {
         q: "Rückwärtsdrehende Wagenräder in alten Filmen sind ein Beispiel für…",
         choices: [
           "Linsenverzerrung der Kamera",
-          "Aliasing — 24 Bilder/s untertasten die Speichenrotation",
-          "verkehrt eingelegte Filmrollen",
           "magnetische Störungen",
+          "verkehrt eingelegte Filmrollen",
+          "Aliasing — 24 Bilder/s untertasten die Speichenrotation",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Die Bildrate blickt zu selten auf die Speichen, und die Spiegelung erzeugt langsame (sogar negative) Scheinrotation.",
       },
     ],
@@ -215,23 +215,23 @@ export const unit13De: Record<string, LessonContentDe> = {
       {
         q: "Ein Tiefpass macht aus einem Rechteck fast einen Sinus, weil…",
         choices: [
-          "er die Elektronen verlangsamt",
           "er die Harmonischen entfernt und vor allem die Grundschwingung übrig lässt",
+          "er die Elektronen verlangsamt",
           "er neue Frequenzen hinzufügt",
           "er die Phase invertiert",
         ],
-        answer: 1,
+        answer: 0,
         explain: "In der Frequenz-Ansicht verschwindet das Rätsel: keine Harmonischen, keine Kanten — nur der Grundsinus.",
       },
       {
         q: "Scharfe, schnelle Kanten in einer Wellenform bedeuten…",
         choices: [
-          "starken hochfrequenten Harmonischen-Anteil",
+          "das Signal ist digital und hat kein Spektrum",
           "nur tieffrequenten Inhalt",
           "einen DC-Versatz",
-          "das Signal ist digital und hat kein Spektrum",
+          "starken hochfrequenten Harmonischen-Anteil",
         ],
-        answer: 0,
+        answer: 3,
         explain:
           "Schnelligkeit in der Zeit = Ausdehnung in der Frequenz. Darum strahlen knackige Digitalflanken Störungen ab, und darum zählt für Nyquist die höchste Harmonische.",
       },
@@ -323,34 +323,34 @@ export const unit13De: Record<string, LessonContentDe> = {
       {
         q: "Der Code y += α(x − y) implementiert…",
         choices: [
-          "einen Hochpass",
           "einen Tiefpass — das RC-Ladegesetz in diskreter Zeit",
+          "einen Hochpass",
           "einen Verstärker",
           "einen Oszillator",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Er bewegt y proportional zur Distanz auf x zu — exakt die exponentielle Annäherung des Kondensators aus 2.3.",
       },
       {
         q: "α kleiner machen (oder das Mittelungsfenster größer)…",
         choices: [
-          "glättet mehr, reagiert aber langsamer",
-          "glättet mehr und reagiert schneller",
           "ändert nur die Amplitude",
+          "glättet mehr und reagiert schneller",
+          "glättet mehr, reagiert aber langsamer",
           "verursacht Aliasing",
         ],
-        answer: 0,
+        answer: 2,
         explain: "Der universelle Handel: größeres effektives τ = ruhigerer Ausgang = spätere Reaktion. Wie jedes RC, das dir begegnet ist.",
       },
       {
         q: "Ein Filter muss immer analoge Hardware bleiben:",
         choices: [
           "der Klangregler",
-          "das Anti-Aliasing-Filter vor dem ADC",
-          "die Glättung nach dem DAC",
           "keines — Software kann alles",
+          "die Glättung nach dem DAC",
+          "das Anti-Aliasing-Filter vor dem ADC",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Aliasing verdirbt die Daten im Moment der Abtastung; kein späterer Code macht das rückgängig. Der Wächter muss vor dem Tor stehen.",
       },
       {

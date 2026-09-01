@@ -94,20 +94,20 @@ export const unit6: UnitModule = {
       quiz: [
         {
           q: "Oxidation means…",
-          choices: ["gaining electrons", "losing electrons", "gaining oxygen atoms only", "becoming a gas"],
-          answer: 1,
+          choices: ["gaining electrons", "becoming a gas", "gaining oxygen atoms only", "losing electrons"],
+          answer: 3,
           explain:
             "OIL RIG: Oxidation Is Loss (of electrons), Reduction Is Gain. Oxygen was just the historical first-known electron thief.",
         },
         {
           q: "Why must oxidation and reduction always occur together?",
           choices: [
-            "Tradition",
             "A lost electron must be gained by something — electrons don't vanish",
+            "Tradition",
             "They don't; each can occur alone",
             "Because reactions need heat",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Electron bookkeeping must balance. Every redox reaction is a donor-acceptor pair — hence 'red-ox' as one word.",
         },
@@ -115,11 +115,11 @@ export const unit6: UnitModule = {
           q: "Zinc displaces copper from CuSO₄ solution, but copper won't displace zinc from ZnSO₄ because…",
           choices: [
             "copper is heavier",
-            "zinc sits higher in the activity series — it gives up electrons more readily",
             "ZnSO₄ isn't blue",
+            "zinc sits higher in the activity series — it gives up electrons more readily",
             "copper dissolves too fast",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "The activity series is a one-way hierarchy of electron-pushing eagerness. The more 'base' metal reduces ions of the more 'noble' one — never the reverse.",
         },
@@ -223,11 +223,11 @@ export const unit6: UnitModule = {
           q: "In a galvanic cell, why must the electrons cross through the external wire?",
           choices: [
             "Wires attract electrons",
-            "The two half-reactions are physically separated — the wire is the only path to the acceptor",
             "The salt bridge blocks electrons on purpose",
+            "The two half-reactions are physically separated — the wire is the only path to the acceptor",
             "They don't; they swim through the solution",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Separation is the whole invention: the donor metal and the acceptor ions never touch, so the mandatory electron transfer is routed through your circuit.",
         },
@@ -245,19 +245,19 @@ export const unit6: UnitModule = {
         },
         {
           q: "Zn has E° = −0.76 V and Ag has E° = +0.80 V. A Zn/Ag cell delivers…",
-          choices: ["0.04 V", "1.56 V", "0.76 V", "−1.56 V"],
-          answer: 1,
+          choices: ["1.56 V", "0.04 V", "0.76 V", "−1.56 V"],
+          answer: 0,
           explain: "E°cell = E°(cathode) − E°(anode) = 0.80 − (−0.76) = 1.56 V. Farther apart in the series = more volts.",
         },
         {
           q: "The anode of a battery is the electrode where…",
           choices: [
             "reduction happens; it is the + terminal",
-            "oxidation happens; it is the − terminal",
-            "nothing happens",
             "ions are created from nothing",
+            "nothing happens",
+            "oxidation happens; it is the − terminal",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "AnOde = Oxidation (both start with vowels, as the classic mnemonic goes). It dissolves, shedding the electrons that make it the − terminal.",
         },
@@ -346,11 +346,11 @@ export const unit6: UnitModule = {
           q: "Electrolysis differs from a galvanic cell in that…",
           choices: [
             "it uses no electrodes",
-            "external electrical energy forces a non-spontaneous reaction",
-            "it only works with molten metals",
             "it produces electricity",
+            "it only works with molten metals",
+            "external electrical energy forces a non-spontaneous reaction",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Galvanic: willing reaction pays out volts. Electrolytic: you pay volts to drive the reaction backwards. Same architecture, reversed energy flow.",
         },
@@ -369,12 +369,12 @@ export const unit6: UnitModule = {
         {
           q: "Below about 1.2 V, water electrolysis produces…",
           choices: [
-            "half as much gas",
             "nothing — the applied push is smaller than the reaction's uphill grade",
+            "half as much gas",
             "only hydrogen",
             "steam",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "The threshold is the energy price per electron of the uphill reaction. Pay less and no electrons take the deal.",
         },
@@ -382,11 +382,11 @@ export const unit6: UnitModule = {
           q: "Charging a rechargeable battery is really…",
           choices: [
             "refilling it with fresh electrons",
-            "electrolysis: forcing its discharge reaction to run backwards",
             "warming its chemicals",
+            "electrolysis: forcing its discharge reaction to run backwards",
             "a software process",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "The charger drives the cell's spent chemistry uphill, restoring the reactants. Discharge then runs the galvanic direction again — a chemical cycle.",
         },

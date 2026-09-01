@@ -100,33 +100,33 @@ export const unit10De: Record<string, LessonContentDe> = {
         q: "Der innere Mechanismus eines Linearreglers ist im Kern…",
         choices: [
           "ein Transformator",
-          "ein Rückkopplungsverstärker, der einen Längstransistor als variablen Widerstand steuert",
           "eine Sicherung, die bei 5 V durchbrennt",
+          "ein Rückkopplungsverstärker, der einen Längstransistor als variablen Widerstand steuert",
           "ein großer Kondensator",
         ],
-        answer: 1,
+        answer: 2,
         explain: "Referenz + Fehlerverstärker + Längstransistor: die Gegenkopplung aus Einheit 6, die einen Gleichspannungs-Sollwert hält.",
       },
       {
         q: "„Dropout-Spannung“ bedeutet…",
         choices: [
           "die Spannung, bei der der Chip explodiert",
-          "den Mindestabstand, den Vin über Vout haben muss, damit die Regelung funktioniert",
-          "die Ausgangswelligkeit",
           "die in den Drähten verlorene Spannung",
+          "die Ausgangswelligkeit",
+          "den Mindestabstand, den Vin über Vout haben muss, damit die Regelung funktioniert",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Ein 7805 braucht grob Vin ≥ 7 V. Darunter ist der Längstransistor voll offen, und der Ausgang folgt Vin einfach nach unten.",
       },
       {
         q: "Wann ist ein Linearregler die RICHTIGE Wahl?",
         choices: [
-          "48 V auf 1 V bei 20 A umwandeln",
           "Kleine Spannungsabfälle oder kleine Ströme, und rauschempfindliche Analog-/Radioschaltungen",
+          "48 V auf 1 V bei 20 A umwandeln",
           "Nie — Schaltregler gewinnen immer",
           "Nur in Autos",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Wo das Produkt (Vin−Vout)·I klein ist, sind seine Einfachheit und völlige Stille unschlagbar. Große Spannungsstufen und große Ströme gehören den Schaltreglern.",
       },
@@ -229,8 +229,8 @@ export const unit10De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ein Abwärtswandler mit Vin = 12 V bei 40 % Tastgrad gibt etwa aus…",
-        choices: ["12 V", "7,2 V", "4,8 V", "2,4 V"],
-        answer: 2,
+        choices: ["4,8 V", "7,2 V", "12 V", "2,4 V"],
+        answer: 0,
         explain: "Vout ≈ D·Vin = 0,4 × 12 = 4,8 V — der PWM-Mittelwert, bewahrt vom LC-Filter.",
       },
       {
@@ -249,22 +249,22 @@ export const unit10De: Record<string, LessonContentDe> = {
         q: "L und C in einem Abwärtswandler wirken als…",
         choices: [
           "resonanter Radio-Tuner",
-          "Tiefpassfilter, das den Mittelwert behält und das Schalt-Gehacke abweist",
-          "Notstrombatterie",
           "Spannungsverdoppler",
+          "Notstrombatterie",
+          "Tiefpassfilter, das den Mittelwert behält und das Schalt-Gehacke abweist",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Genau dein Filter aus Lektion 5.3, so dimensioniert, dass f_cutoff ≪ f_switching: Der Gleichanteil passiert, das Gehacke wird gestoppt.",
       },
       {
         q: "Eine höhere Schaltfrequenz erlaubt dir…",
         choices: [
-          "kleinere L und C, zum Preis etwas höherer Schaltverluste",
-          "die Spule ganz wegzulassen",
           "über 100 % Wirkungsgrad zu kommen",
+          "die Spule ganz wegzulassen",
+          "kleinere L und C, zum Preis etwas höherer Schaltverluste",
           "den Welligkeitsstrom des Ausgangskondensators zu eliminieren",
         ],
-        answer: 0,
+        answer: 2,
         explain:
           "Welligkeit ∝ 1/f_sw, die Bauteile schrumpfen also — aber jede Flanke kostet ein wenig Energie. Echte Designs balancieren beides.",
       },

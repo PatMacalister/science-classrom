@@ -90,11 +90,11 @@ export const unit5: UnitModule = {
           q: "An exothermic reaction is one where…",
           choices: [
             "the reactants explode",
-            "forming the new bonds releases more energy than breaking the old ones cost",
             "heat must be added continuously",
+            "forming the new bonds releases more energy than breaking the old ones cost",
             "no bonds change",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "ΔH < 0: the bond-energy balance is positive for the surroundings — the surplus leaves as heat (and sometimes light).",
         },
@@ -102,11 +102,11 @@ export const unit5: UnitModule = {
           q: "Why doesn't wood ignite spontaneously at room temperature?",
           choices: [
             "Burning wood is endothermic",
-            "Air lacks oxygen",
             "The activation energy is too high for room-temperature collisions",
+            "Air lacks oxygen",
             "Wood contains water",
           ],
-          answer: 2,
+          answer: 1,
           explain:
             "Combustion is steeply downhill, but there's a high pass in the way. A match gives some molecules the crossing energy; their released heat recruits the rest.",
         },
@@ -114,23 +114,23 @@ export const unit5: UnitModule = {
           q: "What does a catalyst change — and what does it leave alone?",
           choices: [
             "It changes ΔH but not Ea",
-            "It lowers Ea but leaves ΔH untouched",
-            "It raises the temperature",
             "It is consumed to fuel the reaction",
+            "It raises the temperature",
+            "It lowers Ea but leaves ΔH untouched",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "A catalyst is a tunnel through the hill: lower pass, same two valleys. And it's regenerated — one catalyst molecule serves millions of reactions.",
         },
         {
           q: "Diamond converting to graphite would release energy, yet diamonds persist because…",
           choices: [
-            "diamond is the more stable form",
             "the activation energy for the conversion is enormous",
+            "diamond is the more stable form",
             "graphite is rarer",
             "jewellers stabilize them",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Thermodynamics says 'downhill'; kinetics says 'over an impossibly high pass'. With no route across, the unstable form lasts billions of years.",
         },
@@ -214,11 +214,11 @@ export const unit5: UnitModule = {
           q: "According to collision theory, a reaction occurs only when particles…",
           choices: [
             "touch each other at all",
-            "collide with enough energy and the right orientation",
-            "have the same mass",
             "are at the same temperature",
+            "have the same mass",
+            "collide with enough energy and the right orientation",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Most collisions are too soft or badly aimed and just bounce. Rate = the count of collisions that clear both conditions.",
         },
@@ -238,23 +238,23 @@ export const unit5: UnitModule = {
           q: "Wood dust can explode while a log merely burns because…",
           choices: [
             "dust contains more energy per gram",
-            "dust exposes vastly more surface for oxygen collisions",
             "logs are wetter",
+            "dust exposes vastly more surface for oxygen collisions",
             "dust is hotter",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Combustion happens at the wood-air interface. Milling multiplies that interface a million-fold, so the same total reaction finishes in milliseconds.",
         },
         {
           q: "Doubling the concentration of a reactant typically…",
           choices: [
-            "halves the rate",
             "roughly doubles the rate — twice the meetings per second",
+            "halves the rate",
             "changes nothing",
             "doubles the activation energy",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Twice the particles per litre means collisions with them happen about twice as often. (Exact exponents vary by mechanism — advanced kinetics.)",
         },
@@ -340,12 +340,12 @@ export const unit5: UnitModule = {
         {
           q: "At dynamic equilibrium…",
           choices: [
-            "all reactions have stopped",
             "forward and reverse reactions run at equal rates, so totals stay constant",
+            "all reactions have stopped",
             "only the forward reaction runs",
             "the temperature is zero",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Individual particles convert constantly in both directions; the two flows cancel. Stillness at the macro level, frenzy at the micro level.",
         },
@@ -365,11 +365,11 @@ export const unit5: UnitModule = {
           q: "For an exothermic equilibrium, raising the temperature…",
           choices: [
             "shifts it toward products",
-            "shifts it toward reactants — heat acts like an added product",
             "has no effect",
+            "shifts it toward reactants — heat acts like an added product",
             "destroys the catalyst",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Treat heat as a product of the forward reaction. Adding product pushes the balance backwards — warm equilibria of exothermic reactions hold less product.",
         },
@@ -377,11 +377,11 @@ export const unit5: UnitModule = {
           q: "Why do ammonia plants continuously remove NH₃ from the reactor?",
           choices: [
             "Ammonia would poison the catalyst",
-            "Removing product makes the equilibrium continuously shift forward to replace it",
-            "To keep the reactor cool",
             "For easier storage only",
+            "To keep the reactor cool",
+            "Removing product makes the equilibrium continuously shift forward to replace it",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Siphoning the product is Le Chatelier's most profitable lever: the system never reaches its tie and keeps producing. Half the world's food depends on it.",
         },

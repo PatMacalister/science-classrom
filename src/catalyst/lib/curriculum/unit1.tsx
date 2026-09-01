@@ -87,12 +87,12 @@ export const unit1: UnitModule = {
         {
           q: "What actually holds Na⁺ and Cl⁻ together in salt?",
           choices: [
-            "A shared pair of electrons",
             "Electrostatic attraction between opposite charges",
+            "A shared pair of electrons",
             "Tiny hooks on the atoms",
             "Gravity",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "After the electron transfer both particles are charged ions, and + attracts −. The ionic bond is pure electrostatics — no sharing involved.",
         },
@@ -100,11 +100,11 @@ export const unit1: UnitModule = {
           q: "Why does magnesium form MgCl₂ but MgO (not MgO₂)?",
           choices: [
             "Chlorine is bigger than oxygen",
-            "Charges must balance: Mg²⁺ needs two Cl⁻ but only one O²⁻",
-            "Oxygen is a gas",
             "It's a historical convention",
+            "Oxygen is a gas",
+            "Charges must balance: Mg²⁺ needs two Cl⁻ but only one O²⁻",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Mg gives 2 electrons. Each Cl accepts one (so two are needed); one O accepts both. Formulas of ionic compounds are charge bookkeeping.",
         },
@@ -112,11 +112,11 @@ export const unit1: UnitModule = {
           q: "Why do salts have such high melting points?",
           choices: [
             "Their atoms are unusually heavy",
-            "Melting must overcome the attraction of an entire ion lattice",
             "They contain water",
+            "Melting must overcome the attraction of an entire ion lattice",
             "They don't — salts melt easily",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Every ion is held by all its oppositely-charged neighbours in a 3D lattice. Breaking that collective grip takes serious heat — 801 °C for NaCl.",
         },
@@ -221,12 +221,12 @@ export const unit1: UnitModule = {
         {
           q: "Why is N₂ so unreactive that it makes up 78% of air without doing much?",
           choices: [
-            "Nitrogen is a noble gas",
-            "Its atoms are too far apart",
             "Its triple bond is extremely strong and hard to break",
+            "Its atoms are too far apart",
+            "Nitrogen is a noble gas",
             "It is lighter than oxygen",
           ],
-          answer: 2,
+          answer: 0,
           explain:
             "Three shared pairs bind the two N atoms with one of the strongest bonds in chemistry. Breaking it (e.g. in the Haber process) costs enormous energy.",
         },
@@ -234,11 +234,11 @@ export const unit1: UnitModule = {
           q: "How many covalent bonds does carbon typically form, and why?",
           choices: [
             "2 — it has 2 spare electrons",
-            "4 — it has 4 valence electrons and needs 4 more",
-            "8 — one per octet electron",
             "It varies randomly",
+            "8 — one per octet electron",
+            "4 — it has 4 valence electrons and needs 4 more",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "With 4 valence electrons and 4 vacancies, carbon shares four pairs. Those four hands make it the backbone element of organic chemistry.",
         },
@@ -246,11 +246,11 @@ export const unit1: UnitModule = {
           q: "Why is the water molecule bent instead of straight?",
           choices: [
             "Hydrogen atoms repel each other",
-            "Oxygen's two lone pairs take up space and push the bonds together",
             "Gravity bends it",
+            "Oxygen's two lone pairs take up space and push the bonds together",
             "It isn't — water is linear",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Oxygen carries two unshared (lone) pairs. Electron clouds repel, so the lone pairs squeeze the two O–H bonds to ~104.5°.",
         },
@@ -338,11 +338,11 @@ export const unit1: UnitModule = {
           q: "Why do metals conduct electricity?",
           choices: [
             "Their nuclei are charged",
-            "Their valence electrons form a mobile sea that can drift through the lattice",
-            "They contain trapped lightning",
             "Their atoms vibrate quickly",
+            "They contain trapped lightning",
+            "Their valence electrons form a mobile sea that can drift through the lattice",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "In the metallic bond, valence electrons belong to no atom in particular. Free-drifting charge is precisely what an electric current needs.",
         },
@@ -360,8 +360,8 @@ export const unit1: UnitModule = {
         },
         {
           q: "H–Cl has Δχ ≈ 0.96. This bond is…",
-          choices: ["ionic", "nonpolar covalent", "polar covalent — shared but shifted toward Cl", "metallic"],
-          answer: 2,
+          choices: ["polar covalent — shared but shifted toward Cl", "nonpolar covalent", "ionic", "metallic"],
+          answer: 0,
           explain:
             "0.4 < 0.96 < 1.7: shared, but chlorine wins the tug-of-war. Cl turns δ−, H turns δ+ — the molecule is a dipole.",
         },
@@ -369,11 +369,11 @@ export const unit1: UnitModule = {
           q: "Why does salt dissolve in water but not in oil?",
           choices: [
             "Oil is too thick",
-            "Water's polar molecules pry ions from the lattice; nonpolar oil offers no such grip",
             "Salt is afraid of oil",
+            "Water's polar molecules pry ions from the lattice; nonpolar oil offers no such grip",
             "Oil molecules are too large",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Water's δ+/δ− poles surround and stabilize the ions, out-competing the lattice. Nonpolar oil has no poles to offer — like dissolves like.",
         },
@@ -493,12 +493,12 @@ export const unit1: UnitModule = {
         {
           q: "What does VSEPR theory say determines molecular shape?",
           choices: [
-            "Electron groups around the central atom repel and get as far apart as possible",
-            "Atoms arrange themselves by atomic mass",
             "Molecules always adopt the flattest possible shape",
+            "Atoms arrange themselves by atomic mass",
+            "Electron groups around the central atom repel and get as far apart as possible",
             "The nucleus pulls all the atoms into a line",
           ],
-          answer: 0,
+          answer: 2,
           explain:
             "Bonds and lone pairs are regions of negative charge. They repel, and the shape is whatever arrangement maximises their separation.",
         },
@@ -506,42 +506,42 @@ export const unit1: UnitModule = {
           q: "Water's bond angle is 104.5°, less than methane's 109.5°. Why?",
           choices: [
             "Oxygen is heavier than carbon",
-            "Water has only two bonds, so they spread out less",
             "Water's two lone pairs repel more strongly than bonding pairs and squeeze the bonds together",
+            "Water has only two bonds, so they spread out less",
             "Water molecules vibrate constantly",
           ],
-          answer: 2,
+          answer: 1,
           explain:
             "A lone pair is held by one nucleus only, spreads out more, and pushes harder — compressing the H–O–H angle below the ideal tetrahedral value.",
         },
         {
           q: "CO₂ has two polar C=O bonds but is a nonpolar molecule. Why?",
           choices: [
-            "The bonds are actually nonpolar",
             "It is linear, so the two bond dipoles point opposite each other and cancel",
+            "The bonds are actually nonpolar",
             "Carbon dioxide is ionic",
             "Oxygen and carbon have the same electronegativity",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Dipoles are vectors. In a linear O=C=O the two equal pulls point 180° apart and sum to zero, leaving no net dipole.",
         },
         {
           q: "A central atom has 3 bonds and 1 lone pair. What shape is the molecule?",
-          choices: ["Tetrahedral", "Trigonal planar", "Trigonal pyramidal", "Linear"],
-          answer: 2,
+          choices: ["Tetrahedral", "Trigonal planar", "Linear", "Trigonal pyramidal"],
+          answer: 3,
           explain:
             "Four electron groups arrange tetrahedrally, but you name only the atoms you can see: three bonds pushed down by a lone pair form a trigonal pyramid, like NH₃.",
         },
         {
           q: "Which pair of facts together makes a molecule polar overall?",
           choices: [
-            "Polar bonds and a symmetric shape",
             "Polar bonds and an asymmetric shape that stops them cancelling",
+            "Polar bonds and a symmetric shape",
             "Nonpolar bonds and an asymmetric shape",
             "Any molecule that contains oxygen",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "You need both: bond dipoles to exist, and a geometry in which they do not cancel. Symmetric molecules with polar bonds (CO₂, CH₄, BF₃) come out nonpolar.",
         },
@@ -678,8 +678,8 @@ export const unit1: UnitModule = {
         },
         {
           q: "Hydrogen bonding requires hydrogen to be bonded to which atoms?",
-          choices: ["Any nonmetal", "Carbon, nitrogen or sulfur", "Nitrogen, oxygen or fluorine", "Only oxygen"],
-          answer: 2,
+          choices: ["Nitrogen, oxygen or fluorine", "Carbon, nitrogen or sulfur", "Any nonmetal", "Only oxygen"],
+          answer: 0,
           explain:
             "Only N, O and F are small and electronegative enough to strip hydrogen nearly bare and leave a concentrated positive charge — „NOF, sonst nix“.",
         },
@@ -687,11 +687,11 @@ export const unit1: UnitModule = {
           q: "Water (M = 18) boils at 100 °C while methane (M = 16) boils at −161 °C. Why?",
           choices: [
             "Water molecules are much heavier",
-            "Water forms hydrogen bonds; methane is nonpolar and has only weak dispersion forces",
             "Methane has stronger covalent bonds",
+            "Water forms hydrogen bonds; methane is nonpolar and has only weak dispersion forces",
             "Water is ionic",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "At nearly identical mass the only difference is intermolecular attraction. Water's hydrogen-bond network is dramatically stronger.",
         },
@@ -699,23 +699,23 @@ export const unit1: UnitModule = {
           q: "Why does ice float on water?",
           choices: [
             "Ice contains trapped air",
-            "Hydrogen bonds lock the molecules into an open cage that is less dense than the liquid",
-            "Ice molecules are lighter than water molecules",
             "Cold water expands because its covalent bonds lengthen",
+            "Ice molecules are lighter than water molecules",
+            "Hydrogen bonds lock the molecules into an open cage that is less dense than the liquid",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Freezing fixes each molecule to four neighbours in a hexagonal lattice with gaps in it. That open structure is less dense than liquid water, so ice floats.",
         },
         {
           q: "Why does oil refuse to dissolve in water?",
           choices: [
-            "Oil molecules are too large",
             "Oil is nonpolar and offers nothing to replace the hydrogen bonds water would have to break",
+            "Oil molecules are too large",
             "Oil is denser than water",
             "Oil reacts with water",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Dissolving would cost water its hydrogen-bond network with no compensating attraction to nonpolar oil. 'Like dissolves like' is that energy balance stated briefly.",
         },
