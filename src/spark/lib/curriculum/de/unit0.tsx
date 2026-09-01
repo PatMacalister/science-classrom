@@ -96,8 +96,8 @@ export const unit0De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Welche Teilchen bewegen sich in einem Metalldraht tatsächlich und tragen die Ladung?",
-        choices: ["Protonen", "Elektronen", "Neutronen", "Ganze Atome"],
-        answer: 1,
+        choices: ["Protonen", "Neutronen", "Elektronen", "Ganze Atome"],
+        answer: 2,
         explain:
           "Protonen sitzen fest in den Atomkernen. In Metallen bilden die äußeren Elektronen einen frei beweglichen 'See' — sie sind die Ladungsträger.",
       },
@@ -109,8 +109,8 @@ export const unit0De: Record<string, LessonContentDe> = {
       },
       {
         q: "Was ist die Einheit der elektrischen Ladung?",
-        choices: ["das Volt", "das Ampere", "das Coulomb", "das Watt"],
-        answer: 2,
+        choices: ["das Volt", "das Ampere", "das Watt", "das Coulomb"],
+        answer: 3,
         explain: "Ladung wird in Coulomb (C) gemessen. Ein Coulomb ist die Ladung von etwa 6,24 × 10¹⁸ Elektronen.",
       },
       {
@@ -216,37 +216,37 @@ export const unit0De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ein Volt ist…",
-        choices: ["ein Coulomb pro Sekunde", "ein Joule pro Coulomb", "ein Newton pro Meter", "ein Elektron pro Joule"],
-        answer: 1,
+        choices: ["ein Coulomb pro Sekunde", "ein Elektron pro Joule", "ein Newton pro Meter", "ein Joule pro Coulomb"],
+        answer: 3,
         explain: "V = W/Q: Spannung ist Energie (Joule) pro Ladung (Coulomb).",
       },
       {
         q: "Eine 9-V-Batterie drückt 2 Coulomb Ladung durch eine Schaltung. Wie viel Energie hat sie geliefert?",
-        choices: ["4,5 J", "9 J", "18 J", "11 J"],
-        answer: 2,
+        choices: ["4,5 J", "18 J", "9 J", "11 J"],
+        answer: 1,
         explain: "W = V × Q = 9 V × 2 C = 18 Joule.",
       },
       {
         q: "Welche Aussage über Spannung stimmt?",
         choices: [
           "Spannung fließt durch Drähte",
-          "Spannung wird immer zwischen zwei Punkten gemessen",
           "Spannung ist die Zahl der Elektronen in einem Draht",
+          "Spannung wird immer zwischen zwei Punkten gemessen",
           "Eine Batterie speichert zusätzliche Elektronen",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Spannung ist eine Potentialdifferenz zwischen zwei Punkten — wie eine Höhe braucht sie einen Bezug. Nichts namens 'Spannung' fließt.",
       },
       {
         q: "Im Platten-Labor änderte das senkrechte Verschieben der Testladung (parallel zu den Platten) nichts an ihrer Energie. Warum?",
         choices: [
-          "Die Simulation ist vereinfacht",
           "Sie blieb auf derselben Äquipotentiallinie — gleiches Potential, gleiche Energie",
+          "Die Simulation ist vereinfacht",
           "Die Ladung war zu klein",
           "Das Feld existiert nur nahe der Platten",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Linien parallel zu den Platten sind Äquipotentiallinien: Jeder Punkt darauf hat dasselbe Potential, Bewegung entlang kostet keine Energie.",
       },
@@ -332,25 +332,25 @@ export const unit0De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ein Ampere ist…",
-        choices: ["ein Joule pro Sekunde", "ein Coulomb pro Sekunde", "ein Volt pro Meter", "ein Elektron pro Sekunde"],
-        answer: 1,
+        choices: ["ein Joule pro Sekunde", "ein Volt pro Meter", "ein Coulomb pro Sekunde", "ein Elektron pro Sekunde"],
+        answer: 2,
         explain: "I = Q/t. Ein Strom von 1 A heißt: 1 Coulomb Ladung passiert pro Sekunde.",
       },
       {
         q: "Ein konstanter Strom von 2 A fließt 10 Sekunden lang. Wie viel Ladung ist geflossen?",
-        choices: ["0,2 C", "5 C", "12 C", "20 C"],
-        answer: 3,
+        choices: ["20 C", "5 C", "12 C", "0,2 C"],
+        answer: 0,
         explain: "Q = I × t = 2 A × 10 s = 20 Coulomb.",
       },
       {
         q: "Warum leuchtet eine Lampe sofort, obwohl Elektronen langsamer als 1 mm/s driften?",
         choices: [
           "Elektronen reisen in Wahrheit mit Lichtgeschwindigkeit",
-          "Der Draht ist schon voller Elektronen, die alle gleichzeitig losgehen",
-          "Die Lampe speichert Elektronen auf Vorrat",
           "Die Wärme des Schalters wandert den Draht entlang",
+          "Die Lampe speichert Elektronen auf Vorrat",
+          "Der Draht ist schon voller Elektronen, die alle gleichzeitig losgehen",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Das elektrische Feld breitet sich nahezu lichtschnell aus und setzt den ganzen Elektronensee gleichzeitig in Bewegung — wie ein bereits volles Murmelrohr.",
       },

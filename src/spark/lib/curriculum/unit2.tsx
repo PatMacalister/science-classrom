@@ -90,8 +90,8 @@ export const unit2: UnitModule = {
       quiz: [
         {
           q: "Currents of 2 A and 3 A flow into a node; one wire leaves. Its current is…",
-          choices: ["1 A", "2.5 A", "5 A", "6 A"],
-          answer: 2,
+          choices: ["1 A", "2.5 A", "6 A", "5 A"],
+          answer: 3,
           explain: "KCL: in = out, so 2 + 3 = 5 A must leave.",
         },
         {
@@ -115,12 +115,12 @@ export const unit2: UnitModule = {
         {
           q: "You measure the drops around a real 9 V loop and get only 8.1 V total. Most likely…",
           choices: [
-            "KVL doesn't hold in real circuits",
             "There's an unmeasured drop — e.g. a poor connection eating ~0.9 V",
+            "KVL doesn't hold in real circuits",
             "The battery created extra energy",
             "Your multimeter breaks KCL",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "KVL always holds. Missing volts means a drop you didn't measure — corroded contacts and loose wires are classic culprits.",
         },
@@ -229,30 +229,30 @@ export const unit2: UnitModule = {
       quiz: [
         {
           q: "Vin = 9 V, R₁ = 10 kΩ (top), R₂ = 10 kΩ (bottom). Vout is…",
-          choices: ["9 V", "6 V", "4.5 V", "3 V"],
-          answer: 2,
+          choices: ["4.5 V", "6 V", "9 V", "3 V"],
+          answer: 0,
           explain: "Equal resistors split evenly: 9 × 10k/(10k+10k) = 4.5 V.",
         },
         {
           q: "To get a LARGER Vout from the same Vin you should…",
           choices: [
-            "Increase R₂ relative to R₁",
             "Increase R₁ relative to R₂",
+            "Increase R₂ relative to R₁",
             "Increase both equally",
             "Decrease Vin",
           ],
-          answer: 0,
+          answer: 1,
           explain: "Vout follows R₂'s share of the total: grow R₂ (or shrink R₁) and the output rises.",
         },
         {
           q: "A potentiometer is best described as…",
           choices: [
             "A variable capacitor",
-            "A voltage divider with a movable tap",
-            "A type of battery",
             "A current amplifier",
+            "A type of battery",
+            "A voltage divider with a movable tap",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "The wiper slides along a resistive track, continuously re-splitting it into R₁ and R₂.",
         },
@@ -260,11 +260,11 @@ export const unit2: UnitModule = {
           q: "You attach a small speaker to a divider output and the voltage collapses. Why?",
           choices: [
             "The speaker generates negative voltage",
-            "The speaker's low resistance sits in parallel with R₂, wrecking the ratio",
             "Dividers only work with LEDs",
+            "The speaker's low resistance sits in parallel with R₂, wrecking the ratio",
             "KVL stops applying",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "A low-resistance load in parallel with R₂ makes the effective bottom leg tiny — the divider was never a power supply.",
         },
@@ -372,8 +372,8 @@ export const unit2: UnitModule = {
       quiz: [
         {
           q: "τ for R = 1 kΩ and C = 100 µF is…",
-          choices: ["0.1 ms", "10 ms", "0.1 s", "10 s"],
-          answer: 2,
+          choices: ["0.1 ms", "10 ms", "10 s", "0.1 s"],
+          answer: 3,
           explain: "τ = RC = 1000 × 0.0001 = 0.1 seconds.",
         },
         {
@@ -384,20 +384,20 @@ export const unit2: UnitModule = {
         },
         {
           q: "A fully charged capacitor in a DC circuit carries how much steady current?",
-          choices: ["Maximum current", "Half the initial current", "Essentially none", "It depends on its colour"],
-          answer: 2,
+          choices: ["Maximum current", "Essentially none", "Half the initial current", "It depends on its colour"],
+          answer: 1,
           explain:
             "Once charged to the source voltage there's no voltage difference left to drive current — capacitors block steady DC.",
         },
         {
           q: "Your timer runs too fast. Using τ = RC, you could slow it by…",
           choices: [
-            "Decreasing R",
             "Increasing C (or R)",
+            "Decreasing R",
             "Decreasing C",
             "Removing the resistor",
           ],
-          answer: 1,
+          answer: 0,
           explain: "Bigger R or C → bigger τ → slower timing. (You'll do exactly this to your blinker.)",
         },
       ],
@@ -481,30 +481,30 @@ export const unit2: UnitModule = {
         {
           q: "An inductor most strongly resists…",
           choices: [
-            "Steady current",
             "Changes in current",
+            "Steady current",
             "Changes in voltage",
             "Being near capacitors",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "V = L·dI/dt: voltage appears only when current *changes*. Steady current sails through.",
         },
         {
           q: "The RL time constant is…",
-          choices: ["τ = L × R", "τ = R / L", "τ = L / R", "τ = 1 / (LR)"],
-          answer: 2,
+          choices: ["τ = L × R", "τ = L / R", "τ = R / L", "τ = 1 / (LR)"],
+          answer: 1,
           explain: "τ = L/R — e.g. 0.1 H over 100 Ω gives 1 ms.",
         },
         {
           q: "Why does opening a switch on a coil make a big voltage spike?",
           choices: [
             "The battery voltage doubles",
-            "Interrupting current means an enormous dI/dt, and V = L·dI/dt",
             "The coil short-circuits",
+            "Interrupting current means an enormous dI/dt, and V = L·dI/dt",
             "Magnetic fields attract sparks",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "The collapsing field forces the current to continue somewhere; with no path, the voltage rises until something (an arc) gives way.",
         },
@@ -512,11 +512,11 @@ export const unit2: UnitModule = {
           q: "A flyback diode across a relay coil…",
           choices: [
             "Speeds up the relay",
-            "Gives the interrupted current a safe path, clamping the spike",
-            "Increases the coil's inductance",
             "Blocks the relay from turning on",
+            "Increases the coil's inductance",
+            "Gives the interrupted current a safe path, clamping the spike",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "When the switch opens, current freewheels through the diode and decays gently instead of arcing — cheap insurance fitted to every coil you'll ever drive.",
         },

@@ -86,19 +86,19 @@ export const unit7: UnitModule = {
       quiz: [
         {
           q: "A NAND gate with both inputs at 1 outputs…",
-          choices: ["1", "0", "Half the supply", "It depends on temperature"],
-          answer: 1,
+          choices: ["1", "Half the supply", "0", "It depends on temperature"],
+          answer: 2,
           explain: "NAND = NOT-AND. AND(1,1) = 1, inverted → 0. Every other combo outputs 1.",
         },
         {
           q: "XOR outputs 1 when…",
           choices: [
-            "Both inputs are 1",
             "The inputs are different",
+            "Both inputs are 1",
             "Either input is 1",
             "Both inputs are 0",
           ],
-          answer: 1,
+          answer: 0,
           explain: "Exclusive-OR: one or the other but not both. It's the 'difference detector' — and binary addition's sum bit.",
         },
         {
@@ -117,11 +117,11 @@ export const unit7: UnitModule = {
           q: "Why is NAND called a universal gate?",
           choices: [
             "It's the fastest gate",
-            "Any logic function can be built from NANDs alone",
-            "It uses no power",
             "It has the most inputs",
+            "It uses no power",
+            "Any logic function can be built from NANDs alone",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "NOT, AND, OR (and everything built from them — so, everything) can each be constructed purely from NAND gates.",
         },
@@ -198,8 +198,8 @@ export const unit7: UnitModule = {
       quiz: [
         {
           q: "Binary 1011 in decimal is…",
-          choices: ["9", "11", "13", "22"],
-          answer: 1,
+          choices: ["11", "9", "13", "22"],
+          answer: 0,
           explain: "8 + 0 + 2 + 1 = 11.",
         },
         {
@@ -217,18 +217,18 @@ export const unit7: UnitModule = {
           q: "In a ripple-carry adder, the carry travels…",
           choices: [
             "From the most significant bit downward",
-            "From the least significant column up through the higher ones",
             "To all columns simultaneously",
+            "From the least significant column up through the higher ones",
             "Nowhere — carries are discarded",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Each column's carry-out feeds the next column's carry-in, LSB→MSB — just like pencil-and-paper 'carry the one'.",
         },
         {
           q: "Adding 4-bit numbers 1111 + 0001 produces 10000. In a 4-bit register this is…",
-          choices: ["16, stored fine", "Overflow — the result needs a fifth bit", "Zero, with no side effects", "A short circuit"],
-          answer: 1,
+          choices: ["16, stored fine", "A short circuit", "Zero, with no side effects", "Overflow — the result needs a fifth bit"],
+          answer: 3,
           explain:
             "The carry out of the top column has nowhere to live: overflow. CPUs raise a flag for exactly this moment.",
         },
@@ -319,24 +319,24 @@ export const unit7: UnitModule = {
         {
           q: "A D flip-flop copies D to Q…",
           choices: [
-            "Continuously",
             "Only at the clock edge",
+            "Continuously",
             "Whenever D changes",
             "Once at power-up",
           ],
-          answer: 1,
+          answer: 0,
           explain: "That edge-triggering is the point: all flip-flops in a system update in lock-step with the clock.",
         },
         {
           q: "A 3-bit counter counts from 0 up to…",
-          choices: ["3", "7", "8", "15"],
-          answer: 1,
+          choices: ["3", "8", "7", "15"],
+          answer: 2,
           explain: "n bits count 0 to 2ⁿ−1: three bits give 0–7, then wrap to 0.",
         },
         {
           q: "Feed a 32 768 Hz crystal through 15 divide-by-two stages and you get…",
-          choices: ["32 Hz", "2 Hz", "1 Hz — a watch's tick", "0.5 Hz"],
-          answer: 2,
+          choices: ["32 Hz", "2 Hz", "0.5 Hz", "1 Hz — a watch's tick"],
+          answer: 3,
           explain: "32 768 = 2¹⁵, so ÷2 fifteen times leaves exactly 1 Hz. That's why watch crystals use that odd number.",
         },
       ],

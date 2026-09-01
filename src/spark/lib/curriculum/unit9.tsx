@@ -98,26 +98,26 @@ export const unit9: UnitModule = {
         },
         {
           q: "f₀ = 1/(2π√(LC)). Quadrupling C makes the resonant frequency…",
-          choices: ["4× higher", "2× higher", "2× lower", "4× lower"],
-          answer: 2,
+          choices: ["2× lower", "2× higher", "4× higher", "4× lower"],
+          answer: 0,
           explain: "f₀ scales as 1/√C: 4× the capacitance → √4 = 2× lower frequency.",
         },
         {
           q: "A high-Q resonator…",
           choices: [
-            "Rings long and responds only near its natural frequency",
-            "Rings briefly but loudly",
             "Has high resistance",
+            "Rings briefly but loudly",
+            "Rings long and responds only near its natural frequency",
             "Cannot oscillate",
           ],
-          answer: 0,
+          answer: 2,
           explain:
             "Low loss = long ring = sharp frequency preference. That selectivity is exactly what radio tuning needs.",
         },
         {
           q: "Which everyday component is a resonator with an extremely high Q?",
-          choices: ["A fuse", "A quartz crystal", "An LED", "A potentiometer"],
-          answer: 1,
+          choices: ["A fuse", "A potentiometer", "An LED", "A quartz crystal"],
+          answer: 3,
           explain:
             "Quartz crystals resonate mechanically with Q in the tens of thousands — that's why they keep time in every watch, computer and radio.",
         },
@@ -210,29 +210,29 @@ export const unit9: UnitModule = {
         {
           q: "Turning an old radio's tuning knob physically changes…",
           choices: [
-            "The antenna length",
             "A variable capacitor, moving the tank's resonant frequency",
+            "The antenna length",
             "The battery voltage",
             "The speaker impedance",
           ],
-          answer: 1,
+          answer: 0,
           explain: "Interleaved plates change C, and f₀ = 1/(2π√LC) follows. The knob is a capacitor.",
         },
         {
           q: "A tank tuned to 1 MHz with Q = 100 passes a band roughly…",
-          choices: ["1 kHz wide", "10 kHz wide", "100 kHz wide", "1 MHz wide"],
-          answer: 1,
+          choices: ["1 kHz wide", "100 kHz wide", "10 kHz wide", "1 MHz wide"],
+          answer: 2,
           explain: "Bandwidth ≈ f₀/Q = 1 MHz/100 = 10 kHz — nicely matched to an AM channel.",
         },
         {
           q: "With too little Q (poor selectivity) you would hear…",
           choices: [
             "Nothing at all",
-            "Two neighbouring stations at the same time",
-            "Only Morse code",
             "The station, but inverted",
+            "Only Morse code",
+            "Two neighbouring stations at the same time",
           ],
-          answer: 1,
+          answer: 3,
           explain: "A wide, mushy peak lets adjacent carriers through together — the classic cheap-radio problem.",
         },
       ],
@@ -318,19 +318,19 @@ export const unit9: UnitModule = {
       quiz: [
         {
           q: "In AM, the audio information is carried in the wave's…",
-          choices: ["Frequency", "Amplitude (its envelope)", "Phase", "Colour"],
-          answer: 1,
+          choices: ["Frequency", "Phase", "Amplitude (its envelope)", "Colour"],
+          answer: 2,
           explain: "Amplitude Modulation: the carrier's strength traces the audio waveform — the envelope is the sound.",
         },
         {
           q: "An envelope detector consists of…",
           choices: [
-            "A transistor and two coils",
             "A diode, a capacitor and a resistor",
+            "A transistor and two coils",
             "An op-amp and a crystal",
             "Three capacitors",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Diode rectifies, C holds each peak, R lets the voltage follow the envelope down — Lessons 3.1 + 2.3 + 5.2 in one.",
         },
@@ -350,11 +350,11 @@ export const unit9: UnitModule = {
           q: "A crystal radio needs no battery because…",
           choices: [
             "Diodes generate power",
-            "It runs on the energy of the received radio wave itself",
-            "The earphone contains a cell",
             "It doesn't actually work",
+            "The earphone contains a cell",
+            "It runs on the energy of the received radio wave itself",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "The antenna harvests real (tiny) power from the transmitter's wave — enough for a sensitive earphone. Radio as free lunch.",
         },

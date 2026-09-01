@@ -92,36 +92,36 @@ export const unit6: UnitModule = {
           q: "An op-amp with no feedback outputs…",
           choices: [
             "A precise copy of its input",
-            "Rail high or rail low, depending on which input is higher",
             "Always 0 V",
+            "Rail high or rail low, depending on which input is higher",
             "Half the supply",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Open-loop gain ~100 000 means any real input difference saturates the output at a rail — that's comparator behaviour.",
         },
         {
           q: "A comparator's + input sits at 3.2 V and its − input at 3.1 V. The output is…",
-          choices: ["About 0.1 V", "High (at the + rail)", "Low (at the − rail)", "3.15 V"],
-          answer: 1,
+          choices: ["About 0.1 V", "3.15 V", "Low (at the − rail)", "High (at the + rail)"],
+          answer: 3,
           explain: "V+ > V−, and the huge gain amplifies that 0.1 V difference all the way to the positive rail.",
         },
         {
           q: "Hysteresis (a Schmitt trigger) exists to…",
           choices: [
-            "Increase the gain",
             "Stop noisy signals from making the output chatter at the threshold",
+            "Increase the gain",
             "Reduce power consumption",
             "Invert the output",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Separate up/down thresholds mean noise within the band can't re-trigger the output — one clean edge per real crossing.",
         },
         {
           q: "Which everyday device is essentially a comparator with hysteresis?",
-          choices: ["A thermostat", "A battery", "A transformer", "A fuse"],
-          answer: 0,
+          choices: ["A battery", "A thermostat", "A transformer", "A fuse"],
+          answer: 1,
           explain:
             "Heat on below 19.5°, off above 20.5°: two thresholds, clean switching, no furnace chatter — a Schmitt trigger in the wall.",
         },
@@ -210,19 +210,19 @@ export const unit6: UnitModule = {
       quiz: [
         {
           q: "A non-inverting amp has Rf = 47 kΩ and Rg = 10 kΩ. Its gain is…",
-          choices: ["4.7×", "5.7×", "47×", "0.21×"],
-          answer: 1,
+          choices: ["5.7×", "4.7×", "47×", "0.21×"],
+          answer: 0,
           explain: "Gain = 1 + Rf/Rg = 1 + 4.7 = 5.7. The '+1' is easy to forget — the quiz never does.",
         },
         {
           q: "Negative feedback makes an amplifier's gain depend on…",
           choices: [
             "The op-amp's internal transistor count",
-            "The ratio of two external resistors",
             "The supply voltage",
+            "The ratio of two external resistors",
             "Temperature",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "The op-amp's surplus gain enforces the golden rules; the feedback divider's ratio then sets the overall gain precisely.",
         },
@@ -230,11 +230,11 @@ export const unit6: UnitModule = {
           q: "A unity-gain buffer is useful because it…",
           choices: [
             "Doubles the signal",
-            "Copies a voltage while drawing almost nothing from the source and driving the load with authority",
-            "Filters out noise",
             "Converts AC to DC",
+            "Filters out noise",
+            "Copies a voltage while drawing almost nothing from the source and driving the load with authority",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "It solves the loading problem: fragile sources (like dividers) stay unloaded, heavy loads get driven. Gain 1, value 10.",
         },

@@ -78,12 +78,12 @@ export const unit14De: Record<string, LessonContentDe> = {
       {
         q: "Ein rein proportionaler Heizungsregler pendelt sich immer unter seinem Sollwert ein, weil…",
         choices: [
-          "Heizungen schwach sind",
           "null Abweichung null Stellgröße hieße — aber Temperatur halten braucht eine Stellgröße ungleich null",
+          "Heizungen schwach sind",
           "der Sensor zu hoch misst",
           "Kp negativ ist",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "P-Stellgröße existiert nur, solange Abweichung existiert. Das System pendelt sich bei der Abweichung ein, deren Stellgröße den Wärmeverlust exakt ausgleicht — der berühmte P-Versatz.",
       },
@@ -100,19 +100,19 @@ export const unit14De: Record<string, LessonContentDe> = {
       },
       {
         q: "Ein Toaster mit Zeitschaltuhr ist ein Beispiel für…",
-        choices: ["geschlossene Regelung", "offene Steuerung", "PID-Regelung", "Hysterese"],
-        answer: 1,
+        choices: ["geschlossene Regelung", "PID-Regelung", "offene Steuerung", "Hysterese"],
+        answer: 2,
         explain: "Er misst den Toast nie. Feste Aktion, erhofftes Ergebnis — offener Kreis.",
       },
       {
         q: "Welche frühere Schaltung war bereits ein geschlossener Regelkreis?",
         choices: [
           "der Farbcode-Decoder für Widerstände",
-          "der Op-Amp-Verstärker, der V₋ gleich V₊ hält",
-          "der Einweggleichrichter",
           "der LC-Schwingkreis",
+          "der Einweggleichrichter",
+          "der Op-Amp-Verstärker, der V₋ gleich V₊ hält",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Gegenkopplung (6.2) ist Regelungstechnik in Elektronikgeschwindigkeit: Ausgang messen, vergleichen, korrigieren — fortlaufend.",
       },
     ],
@@ -201,30 +201,30 @@ export const unit14De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Welcher PID-Term beseitigt die bleibende Regelabweichung?",
-        choices: ["P", "I — er summiert die Abweichung, bis der Versatz auf null gedrückt ist", "D", "keiner davon"],
-        answer: 1,
+        choices: ["P", "keiner davon", "D", "I — er summiert die Abweichung, bis der Versatz auf null gedrückt ist"],
+        answer: 3,
         explain: "Das Integral wächst, solange irgendeine Abweichung anhält, und liefert die stehende Stellgröße, die P allein nicht konnte.",
       },
       {
         q: "Der Job des D-Terms ist es…",
         choices: [
-          "die Endgenauigkeit zu erhöhen",
           "die Antwort bei Annäherung ans Ziel zu bremsen und Überschwingen zu dämpfen",
+          "die Endgenauigkeit zu erhöhen",
           "den Sensor zu beschleunigen",
           "den Sollwert überflüssig zu machen",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Er reagiert auf die Änderungsrate der Abweichung — Fuß vom Gas vor dem Aufprall, wie die Dämpfung in deinem klingelnden LC-Kreis.",
       },
       {
         q: "„Integral-Windup“ ist das Problem, dass…",
         choices: [
-          "das Integral während der Stellglied-Sättigung einen riesigen Rückstand ansammelt und später massives Überschwingen verursacht",
-          "die Ableitung Rauschen verstärkt",
           "Kp auf null gesetzt ist",
+          "die Ableitung Rauschen verstärkt",
+          "das Integral während der Stellglied-Sättigung einen riesigen Rückstand ansammelt und später massives Überschwingen verursacht",
           "der Kreis zu schnell läuft",
         ],
-        answer: 0,
+        answer: 2,
         explain: "Während der Sättigung bleibt die Abweichung, und der Akkumulator bläht sich auf. Die Kur ist eine Begrenzung — Anti-Windup, Standard in jedem echten PID.",
       },
       {

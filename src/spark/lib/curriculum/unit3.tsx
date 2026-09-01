@@ -164,12 +164,12 @@ export const unit3: UnitModule = {
         {
           q: "A diode conducts when…",
           choices: [
-            "Current flows cathode → anode",
             "It is forward-biased and the voltage across it exceeds Vf",
+            "Current flows cathode → anode",
             "Any voltage at all is applied",
             "It is cooled below room temperature",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Forward bias (anode positive) plus at least the forward voltage (~0.7 V silicon, 1.8–3.2 V LEDs) opens the valve.",
         },
@@ -181,19 +181,19 @@ export const unit3: UnitModule = {
         },
         {
           q: "Which physical feature marks an LED's cathode?",
-          choices: ["The longer leg", "The flat side / shorter leg", "A red dot", "The thicker leg"],
-          answer: 1,
+          choices: ["The longer leg", "The thicker leg", "A red dot", "The flat side / shorter leg"],
+          answer: 3,
           explain: "Flat side and short leg = cathode (−). Long leg = anode (+). Worth memorising before the capstone build.",
         },
         {
           q: "Why does an LED need a resistor when a lamp doesn't?",
           choices: [
             "LEDs are more expensive",
-            "Past Vf an LED barely limits current itself — its I–V curve is nearly vertical",
             "Lamps run on AC only",
+            "Past Vf an LED barely limits current itself — its I–V curve is nearly vertical",
             "Resistors make the light brighter",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "A filament's resistance limits its own current. An LED conducting past Vf is almost a short — something else must set the current.",
         },
@@ -280,31 +280,31 @@ export const unit3: UnitModule = {
       quiz: [
         {
           q: "A BJT with β = 100 gets 50 µA of base current (active region). Collector current?",
-          choices: ["50 µA", "0.5 mA", "5 mA", "50 mA"],
-          answer: 2,
+          choices: ["50 µA", "0.5 mA", "50 mA", "5 mA"],
+          answer: 3,
           explain: "I_C = β·I_B = 100 × 50 µA = 5000 µA = 5 mA.",
         },
         {
           q: "In saturation, a transistor switch…",
           choices: [
-            "Is fully on, dropping only ~0.2 V",
             "Blocks all current",
+            "Is fully on, dropping only ~0.2 V",
             "Amplifies proportionally",
             "Is destroyed",
           ],
-          answer: 0,
+          answer: 1,
           explain:
             "Saturation = fully on: the collector circuit's own resistance limits the current and the transistor drops almost nothing.",
         },
         {
           q: "Why does the base connection need a resistor?",
           choices: [
-            "To make the transistor slower",
             "The base–emitter junction is a diode — without limiting, it draws destructive current",
+            "To make the transistor slower",
             "To increase β",
             "Tradition",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Same rule as the LED: a forward-biased junction won't limit its own current. The base resistor sets it.",
         },
@@ -312,11 +312,11 @@ export const unit3: UnitModule = {
           q: "Digital circuits use transistors mainly in which regions?",
           choices: [
             "Active only",
-            "Cutoff and saturation — fully off and fully on",
             "Saturation only",
+            "Cutoff and saturation — fully off and fully on",
             "None: digital chips contain no transistors",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Logic wants unambiguous 0s and 1s: cutoff and saturation are the two clean, low-waste states. A CPU is billions of such switches.",
         },
@@ -443,8 +443,8 @@ export const unit3: UnitModule = {
       quiz: [
         {
           q: "In astable mode, the capacitor voltage oscillates between…",
-          choices: ["0 V and Vcc", "⅓ Vcc and ⅔ Vcc", "0 V and ⅓ Vcc", "⅔ Vcc and Vcc"],
-          answer: 1,
+          choices: ["0 V and Vcc", "0 V and ⅓ Vcc", "⅓ Vcc and ⅔ Vcc", "⅔ Vcc and Vcc"],
+          answer: 2,
           explain:
             "The internal divider sets the two comparator thresholds at ⅓ and ⅔ of the supply; the capacitor ping-pongs between them.",
         },
@@ -456,19 +456,19 @@ export const unit3: UnitModule = {
         },
         {
           q: "The output of a 555 appears on pin…",
-          choices: ["1", "3", "7", "8"],
-          answer: 1,
+          choices: ["3", "1", "7", "8"],
+          answer: 0,
           explain: "Pin 3 is OUT. (1 = GND, 8 = VCC, 7 = discharge — worth knowing cold before you build.)",
         },
         {
           q: "Why is the astable's HIGH time always longer than its LOW time?",
           choices: [
             "The chip is slow to react",
-            "C charges through R1+R2 but discharges through R2 alone",
-            "LEDs slow the rising edge",
             "It isn't — LOW is longer",
+            "LEDs slow the rising edge",
+            "C charges through R1+R2 but discharges through R2 alone",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Charging fights through both resistors; discharging only R2. More resistance = more time (τ = RC), so HIGH > LOW always.",
         },
