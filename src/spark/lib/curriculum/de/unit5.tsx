@@ -83,8 +83,8 @@ export const unit5De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Eine Sinuswelle erreicht 10 V Spitze. Ihr Effektivwert ist etwa…",
-        choices: ["10 V", "7,1 V", "5 V", "14,1 V"],
-        answer: 1,
+        choices: ["7,1 V", "10 V", "5 V", "14,1 V"],
+        answer: 0,
         explain: "Vrms = Vp/√2 = 10/1,414 ≈ 7,07 V — die Gleichspannung mit derselben Heizleistung.",
       },
       {
@@ -107,8 +107,8 @@ export const unit5De: Record<string, LessonContentDe> = {
       },
       {
         q: "Die Periode von 50-Hz-Netzstrom ist…",
-        choices: ["50 ms", "20 ms", "2 ms", "0,5 s"],
-        answer: 1,
+        choices: ["50 ms", "0,5 s", "2 ms", "20 ms"],
+        answer: 3,
         explain: "T = 1/f = 1/50 = 0,02 s = 20 ms pro vollem Zyklus.",
       },
     ],
@@ -179,8 +179,8 @@ export const unit5De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ein Brückengleichrichter verwendet wie viele Dioden?",
-        choices: ["1", "2", "4", "8"],
-        answer: 2,
+        choices: ["1", "4", "2", "8"],
+        answer: 1,
         explain: "Vier, im Diamant. In jeder Halbwelle leitet ein Diagonalpaar und lenkt den Strom gleichsinnig durch die Last.",
       },
       {
@@ -193,22 +193,22 @@ export const unit5De: Record<string, LessonContentDe> = {
         q: "Der Glättungskondensator verringert die Welligkeit, indem er…",
         choices: [
           "das AC vollständig blockiert",
-          "sich an den Scheiteln lädt und die Last in den Tälern versorgt",
-          "die Frequenz erhöht",
           "die Ausgangsspannung senkt",
+          "die Frequenz erhöht",
+          "sich an den Scheiteln lädt und die Last in den Tälern versorgt",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Er ist ein Reservoir: an jedem Scheitel aufgefüllt, dazwischen (leicht) von der Last geleert — die RC-Geschichte aus Lektion 2.3.",
       },
       {
         q: "Der DC-Ausgang einer Brücke liegt etwa 1,4 V unter dem AC-Scheitel, weil…",
         choices: [
-          "der Kondensator Spannung frisst",
           "der Strom immer zwei Dioden durchquert, jede mit ~0,7 V Abfall",
+          "der Kondensator Spannung frisst",
           "der Effektivwert kleiner ist als der Scheitel",
           "der Lastwiderstand sie herunterteilt",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Jeder Weg durch die Brücke kreuzt genau zwei Durchlassspannungen: 2 × 0,7 V (Lektion 3.1s Vf, doppelt).",
       },
     ],
@@ -312,8 +312,8 @@ export const unit5De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Steigt die Frequenz, dann wird der Blindwiderstand Xc eines Kondensators…",
-        choices: ["größer", "kleiner", "bleibt konstant", "negativ"],
-        answer: 1,
+        choices: ["kleiner", "größer", "bleibt konstant", "negativ"],
+        answer: 0,
         explain: "Xc = 1/(2πfC): Mehr Wackler pro Sekunde heißt, der Kondensator füllt sich nie — leichterer Fluss, kleinerer Blindwiderstand.",
       },
       {
@@ -324,19 +324,19 @@ export const unit5De: Record<string, LessonContentDe> = {
       },
       {
         q: "Genau bei der Grenzfrequenz beträgt die Ausgangsamplitude des Filters…",
-        choices: ["null", "die Hälfte des Eingangs", "70,7 % des Eingangs", "so viel wie der Eingang"],
-        answer: 2,
+        choices: ["null", "70,7 % des Eingangs", "die Hälfte des Eingangs", "so viel wie der Eingang"],
+        answer: 1,
         explain: "Bei fc ist Xc = R, und der Teiler liefert 1/√2 ≈ 0,707 — der berühmte −3-dB-Punkt.",
       },
       {
         q: "Um nur tiefe Frequenzen an einen Subwoofer zu schicken, nimmst du…",
         choices: [
           "einen Hochpass",
-          "einen Tiefpass",
-          "einen Gleichrichter",
           "einen Komparator",
+          "einen Gleichrichter",
+          "einen Tiefpass",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Der Tiefpass lässt Tiefen durch und sperrt Höhen — exakt was eine Woofer-Weiche tut.",
       },
     ],

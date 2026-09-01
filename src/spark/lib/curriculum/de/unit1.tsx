@@ -85,11 +85,11 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Warum stoppt das Öffnen eines Schalters irgendwo in der Schleife den Strom überall?",
         choices: [
           "Elektronen haben Angst vor Lücken",
-          "Ladung kann sich weder stauen noch verschwinden — der Fluss in einer Schleife ist kontinuierlich, eine Unterbrechung stoppt alles",
-          "Der Schalter absorbiert alle Elektronen",
           "Tut es nicht — auf der Batterieseite fließt der Strom weiter",
+          "Der Schalter absorbiert alle Elektronen",
+          "Ladung kann sich weder stauen noch verschwinden — der Fluss in einer Schleife ist kontinuierlich, eine Unterbrechung stoppt alles",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Ein Stromkreis ist wie ein Ring aus Murmeln: Keine kann sich bewegen, wenn nicht alle sich bewegen. Eine Unterbrechung irgendwo stoppt die ganze Schleife.",
       },
@@ -238,8 +238,8 @@ export const unit1De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Eine 9-V-Batterie liegt an 450 Ω. Welcher Strom fließt?",
-        choices: ["50 mA", "20 mA", "2 A", "0,5 A"],
-        answer: 1,
+        choices: ["50 mA", "2 A", "20 mA", "0,5 A"],
+        answer: 2,
         explain: "I = V/R = 9/450 = 0,02 A = 20 mA.",
       },
       {
@@ -250,14 +250,14 @@ export const unit1De: Record<string, LessonContentDe> = {
       },
       {
         q: "Bei fester Spannung bewirkt eine Verdopplung des Widerstands…",
-        choices: ["Doppelten Strom", "Halben Strom", "Halbe Spannung", "Gar nichts"],
-        answer: 1,
+        choices: ["Halben Strom", "Doppelten Strom", "Halbe Spannung", "Gar nichts"],
+        answer: 0,
         explain: "I = V/R: Bei festem V bedeutet doppeltes R halbes I.",
       },
       {
         q: "Du brauchst etwa 15 mA aus einer 5-V-Versorgung. Welcher Standardwiderstand passt am besten?",
-        choices: ["33 Ω", "330 Ω", "3,3 kΩ", "33 kΩ"],
-        answer: 1,
+        choices: ["33 Ω", "33 kΩ", "3,3 kΩ", "330 Ω"],
+        answer: 3,
         explain: "R = V/I = 5/0,015 ≈ 333 Ω → der Standardwert 330 Ω.",
       },
     ],
@@ -355,25 +355,25 @@ export const unit1De: Record<string, LessonContentDe> = {
       },
       {
         q: "Orange–Orange–Braun ergibt…",
-        choices: ["33 Ω", "330 Ω", "3,3 kΩ", "303 Ω"],
-        answer: 1,
+        choices: ["330 Ω", "33 Ω", "3,3 kΩ", "303 Ω"],
+        answer: 0,
         explain: "3 und 3 → 33, Braun ×10 → 330 Ω. Das ist der klassische LED-Vorwiderstandswert.",
       },
       {
         q: "Ein goldener Toleranzring bedeutet: Der wahre Wert liegt innerhalb von…",
-        choices: ["±1 %", "±5 %", "±10 %", "±20 %"],
-        answer: 1,
+        choices: ["±1 %", "±20 %", "±10 %", "±5 %"],
+        answer: 3,
         explain: "Gold = ±5 %. Silber = ±10 %, Braun = ±1 %.",
       },
       {
         q: "Warum gibt es Standardwiderstände in krummen Werten wie 4,7 k statt runden 5 k?",
         choices: [
           "Die Fertigung trifft keine runden Zahlen",
-          "E-Reihen-Werte sind in gleichen Verhältnissen gestaffelt, damit sich die Toleranzbereiche lückenlos aneinanderlegen",
           "Tradition aus der Röhrenzeit",
+          "E-Reihen-Werte sind in gleichen Verhältnissen gestaffelt, damit sich die Toleranzbereiche lückenlos aneinanderlegen",
           "Runde Werte sind patentiert",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Jeder E12-Wert liegt ~21 % über dem vorigen, sodass ±10-%-Bauteile den ganzen Bereich nahtlos abdecken — ein wunderbar praktisches Stück Ingenieurskunst.",
       },
@@ -478,8 +478,8 @@ export const unit1De: Record<string, LessonContentDe> = {
       },
       {
         q: "Welche Formel liefert die Leistung eines Widerstands direkt aus der Spannung über ihm?",
-        choices: ["P = V × R", "P = V²/R", "P = I²/R", "P = R/V"],
-        answer: 1,
+        choices: ["P = V²/R", "P = V × R", "P = I²/R", "P = R/V"],
+        answer: 0,
         explain: "Setzt man I = V/R in P = VI ein, ergibt sich P = V²/R.",
       },
       {
@@ -492,11 +492,11 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Ein ¼-W-Widerstand mit 330 Ω wird direkt an 12 V gelegt. Was passiert?",
         choices: [
           "Nichts — Widerstände können nicht überhitzen",
-          "P = 144/330 ≈ 0,44 W, weit über der Belastbarkeit: er überhitzt",
-          "Die Spannung sinkt, um ihn zu schützen",
           "Es funktioniert, denn 12 V sind eine sichere Spannung",
+          "Die Spannung sinkt, um ihn zu schützen",
+          "P = 144/330 ≈ 0,44 W, weit über der Belastbarkeit: er überhitzt",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "P = V²/R = 0,44 W ≈ 175 % der ¼-W-Belastbarkeit. Eine für dich sichere Spannung ist nicht dasselbe wie eine sichere Leistung fürs Bauteil.",
       },
@@ -600,25 +600,25 @@ export const unit1De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Zwei 100-Ω-Widerstände in Reihe ergeben…",
-        choices: ["50 Ω", "100 Ω", "200 Ω", "10 kΩ"],
-        answer: 2,
+        choices: ["50 Ω", "200 Ω", "100 Ω", "10 kΩ"],
+        answer: 1,
         explain: "Reihenwiderstände addieren sich: 100 + 100 = 200 Ω.",
       },
       {
         q: "Zwei 100-Ω-Widerstände parallel ergeben…",
-        choices: ["200 Ω", "100 Ω", "50 Ω", "25 Ω"],
-        answer: 2,
+        choices: ["50 Ω", "100 Ω", "200 Ω", "25 Ω"],
+        answer: 0,
         explain: "Ein gleiches Paar parallel halbiert: 100·100/(100+100) = 50 Ω.",
       },
       {
         q: "Was gilt für eine Parallelschaltung immer?",
         choices: [
           "Sie ist größer als der größte Zweig",
-          "Sie ist kleiner als der kleinste Zweig",
-          "Sie entspricht dem Durchschnitt",
           "Sie entspricht der Summe",
+          "Sie entspricht dem Durchschnitt",
+          "Sie ist kleiner als der kleinste Zweig",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Jeder zusätzliche Pfad erleichtert den Fluss, daher liegt die Kombination sogar unter dem kleinsten einzelnen Zweig.",
       },

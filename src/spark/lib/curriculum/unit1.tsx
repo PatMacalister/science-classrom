@@ -162,11 +162,11 @@ export const unit1: UnitModule = {
           q: "Why does opening a switch anywhere in a loop stop the current everywhere?",
           choices: [
             "Electrons are afraid of gaps",
-            "Charge can't pile up or vanish — flow in a loop is continuous, so one break halts it all",
-            "The switch absorbs all the electrons",
             "It doesn't — current keeps flowing on the battery side",
+            "The switch absorbs all the electrons",
+            "Charge can't pile up or vanish — flow in a loop is continuous, so one break halts it all",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "A circuit is like a ring of marbles: none can move unless all move. A break anywhere stops the whole loop.",
         },
@@ -320,8 +320,8 @@ export const unit1: UnitModule = {
       quiz: [
         {
           q: "A 9 V battery is connected across 450 Ω. What current flows?",
-          choices: ["50 mA", "20 mA", "2 A", "0.5 A"],
-          answer: 1,
+          choices: ["50 mA", "2 A", "20 mA", "0.5 A"],
+          answer: 2,
           explain: "I = V/R = 9/450 = 0.02 A = 20 mA.",
         },
         {
@@ -332,14 +332,14 @@ export const unit1: UnitModule = {
         },
         {
           q: "At a fixed voltage, doubling the resistance…",
-          choices: ["Doubles the current", "Halves the current", "Halves the voltage", "Has no effect"],
-          answer: 1,
+          choices: ["Halves the current", "Doubles the current", "Halves the voltage", "Has no effect"],
+          answer: 0,
           explain: "I = V/R: with V fixed, R doubling means I halves.",
         },
         {
           q: "You need about 15 mA from a 5 V supply. Which standard resistor is closest to right?",
-          choices: ["33 Ω", "330 Ω", "3.3 kΩ", "33 kΩ"],
-          answer: 1,
+          choices: ["33 Ω", "33 kΩ", "3.3 kΩ", "330 Ω"],
+          answer: 3,
           explain: "R = V/I = 5/0.015 ≈ 333 Ω → the standard 330 Ω value.",
         },
       ],
@@ -441,25 +441,25 @@ export const unit1: UnitModule = {
         },
         {
           q: "Orange–orange–brown reads…",
-          choices: ["33 Ω", "330 Ω", "3.3 kΩ", "303 Ω"],
-          answer: 1,
+          choices: ["330 Ω", "33 Ω", "3.3 kΩ", "303 Ω"],
+          answer: 0,
           explain: "3 and 3 → 33, brown ×10 → 330 Ω. This is the classic LED resistor value.",
         },
         {
           q: "A gold tolerance band means the true value is within…",
-          choices: ["±1%", "±5%", "±10%", "±20%"],
-          answer: 1,
+          choices: ["±1%", "±20%", "±10%", "±5%"],
+          answer: 3,
           explain: "Gold = ±5%. Silver = ±10%, brown = ±1%.",
         },
         {
           q: "Why do standard resistors come in odd values like 4.7 k instead of a round 5 k?",
           choices: [
             "Manufacturing can't hit round numbers",
-            "E-series values are spaced by equal ratios so tolerance ranges tile without gaps",
             "Tradition from the vacuum-tube era",
+            "E-series values are spaced by equal ratios so tolerance ranges tile without gaps",
             "Round values are patented",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Each E12 value is ~21% above the last, so ±10% parts cover the whole range seamlessly — a beautifully practical piece of engineering.",
         },
@@ -567,8 +567,8 @@ export const unit1: UnitModule = {
         },
         {
           q: "Which formula gives a resistor's power directly from the voltage across it?",
-          choices: ["P = V × R", "P = V²/R", "P = I²/R", "P = R/V"],
-          answer: 1,
+          choices: ["P = V²/R", "P = V × R", "P = I²/R", "P = R/V"],
+          answer: 0,
           explain: "Substituting I = V/R into P = VI gives P = V²/R.",
         },
         {
@@ -581,11 +581,11 @@ export const unit1: UnitModule = {
           q: "A ¼ W, 330 Ω resistor is placed straight across 12 V. What happens?",
           choices: [
             "Nothing — resistors can't overheat",
-            "P = 144/330 ≈ 0.44 W, far over its rating: it overheats",
-            "The voltage drops to protect it",
             "It works because 12 V is a safe voltage",
+            "The voltage drops to protect it",
+            "P = 144/330 ≈ 0.44 W, far over its rating: it overheats",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "P = V²/R = 0.44 W ≈ 175% of the ¼ W rating. Safe voltage for you is not the same as safe power for the part.",
         },
@@ -690,25 +690,25 @@ export const unit1: UnitModule = {
       quiz: [
         {
           q: "Two 100 Ω resistors in series total…",
-          choices: ["50 Ω", "100 Ω", "200 Ω", "10 kΩ"],
-          answer: 2,
+          choices: ["50 Ω", "200 Ω", "100 Ω", "10 kΩ"],
+          answer: 1,
           explain: "Series resistances add: 100 + 100 = 200 Ω.",
         },
         {
           q: "Two 100 Ω resistors in parallel total…",
-          choices: ["200 Ω", "100 Ω", "50 Ω", "25 Ω"],
-          answer: 2,
+          choices: ["50 Ω", "100 Ω", "200 Ω", "25 Ω"],
+          answer: 0,
           explain: "Equal pair in parallel halves: 100·100/(100+100) = 50 Ω.",
         },
         {
           q: "Which is always true of a parallel combination?",
           choices: [
             "It's larger than the largest branch",
-            "It's smaller than the smallest branch",
-            "It equals the average",
             "It equals the sum",
+            "It equals the average",
+            "It's smaller than the smallest branch",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Every added path makes flow easier, so the combination is below even the smallest single branch.",
         },

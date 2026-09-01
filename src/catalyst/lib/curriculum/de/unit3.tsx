@@ -81,12 +81,12 @@ export const unit3De: Record<string, LessonContentDe> = {
       {
         q: "Was ändert sich, wenn Eis zu Wasser schmilzt?",
         choices: [
-          "Die H₂O-Moleküle zerfallen in H und O",
           "Bewegung und Anordnung der Moleküle — die Moleküle selbst bleiben unverändert",
+          "Die H₂O-Moleküle zerfallen in H und O",
           "Die Moleküle werden kleiner",
           "Die Wasserstoffbrücken werden stärker",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Schmelzen ist ein Zustandswechsel, kein Stoffwechsel. Dieselben H₂O-Moleküle hören auf, im Gitter zu schwingen, und beginnen aneinander vorbeizugleiten.",
       },
@@ -94,11 +94,11 @@ export const unit3De: Record<string, LessonContentDe> = {
         q: "Eisen schmilzt bei 1538 °C, Stickstoff bei −210 °C. Der Unterschied sagt dir…",
         choices: [
           "Eisenatome sind schneller",
-          "die Kräfte zwischen Eisenatomen sind weit stärker als die zwischen N₂-Molekülen",
-          "Stickstoff enthält mehr Energie",
           "gar nichts — Schmelzpunkte sind zufällig",
+          "Stickstoff enthält mehr Energie",
+          "die Kräfte zwischen Eisenatomen sind weit stärker als die zwischen N₂-Molekülen",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Der Schmelzpunkt misst, wie viel thermisches Zappeln die Kräfte zwischen den Teilchen aushalten. Metallbindungen schlagen schwache zwischenmolekulare Kräfte um Tausende Grad.",
       },
@@ -106,11 +106,11 @@ export const unit3De: Record<string, LessonContentDe> = {
         q: "Während Wasser siedet, bleibt seine Temperatur bei 100 °C stehen, weil…",
         choices: [
           "Thermometer im Dampf versagen",
-          "die zugeführte Energie zwischenmolekulare Bindungen bricht statt Teilchen zu beschleunigen",
           "Wasser nicht heißer werden kann",
+          "die zugeführte Energie zwischenmolekulare Bindungen bricht statt Teilchen zu beschleunigen",
           "der Herd schwächelt",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Bei einem Phasenübergang geht die Energie ins Zerreißen der Struktur. Erst wenn jedes Molekül entkommen ist, erhöht weiteres Heizen wieder Geschwindigkeit (und Temperatur).",
       },
@@ -221,29 +221,29 @@ export const unit3De: Record<string, LessonContentDe> = {
         q: "Warum muss T in PV = nRT in Kelvin stehen?",
         choices: [
           "Kelvin-Zahlen sind größer",
-          "Kelvin beginnt beim absoluten Nullpunkt und ist damit proportional zur tatsächlichen Teilchenbewegung",
           "Celsius gilt nur für Flüssigkeiten",
+          "Kelvin beginnt beim absoluten Nullpunkt und ist damit proportional zur tatsächlichen Teilchenbewegung",
           "Tradition seit Lord Kelvin",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Druck ist proportional zur absoluten kinetischen Energie der Moleküle. Nur eine Skala mit Null bei Null-Bewegung macht 'doppeltes T → doppeltes P' wahr.",
       },
       {
         q: "Du drückst eine Spritze (verschlossen, konstante Temperatur) auf das halbe Volumen. Der Druck…",
-        choices: ["halbiert sich", "verdoppelt sich", "bleibt gleich", "fällt auf null"],
-        answer: 1,
+        choices: ["verdoppelt sich", "halbiert sich", "bleibt gleich", "fällt auf null"],
+        answer: 0,
         explain: "PV = konstant bei festem n und T (Boyle). Halber Raum → doppelte Stoßrate → doppelter Druck.",
       },
       {
         q: "Warum warnen Spraydosen vor Feuer?",
         choices: [
           "Der Lack brennt",
-          "Bei konstantem Volumen steigt der Druck mit der Temperatur, bis die Dose platzt",
-          "Das Gas wird giftig",
           "Metall schmilzt bei niedriger Temperatur",
+          "Das Gas wird giftig",
+          "Bei konstantem Volumen steigt der Druck mit der Temperatur, bis die Dose platzt",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Das Volumen der Dose ist fest, also wächst P im Gleichschritt mit T (Gay-Lussac). Genug Hitze und der Druck übersteigt, was die Nähte halten.",
       },
@@ -351,11 +351,11 @@ export const unit3De: Record<string, LessonContentDe> = {
         q: "Was passiert mit Salz, wenn es sich in Wasser löst?",
         choices: [
           "Es schmilzt",
-          "Sein Gitter wird in Ionen zerlegt, jedes von Wasserdipolen umhüllt",
-          "Es reagiert zu einer neuen Verbindung",
           "Es verdampft",
+          "Es reagiert zu einer neuen Verbindung",
+          "Sein Gitter wird in Ionen zerlegt, jedes von Wasserdipolen umhüllt",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Auflösen ist Zerlegen, nicht Verschwinden: Polare Wassermoleküle hebeln Na⁺ und Cl⁻ aus dem Gitter und geleiten sie einzeln davon.",
       },
@@ -375,18 +375,18 @@ export const unit3De: Record<string, LessonContentDe> = {
         q: "Du löst viel KNO₃ in heißem Wasser und lässt es abkühlen. Was passiert?",
         choices: [
           "Nichts — Auflösen ist endgültig",
-          "Der Überschuss kristallisiert aus, weil die Löslichkeitsgrenze sinkt",
           "Das Wasser verdampft",
+          "Der Überschuss kristallisiert aus, weil die Löslichkeitsgrenze sinkt",
           "Die Lösung wird heißer",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Abkühlen schiebt dich die steile Löslichkeitskurve hinab; was die neue Grenze übersteigt, muss die Lösung als Kristalle verlassen. So wächst Kandiszucker.",
       },
       {
         q: "Wie groß ist die Molarität von 0,5 mol Salz, gelöst in 2 L Lösung?",
-        choices: ["1 mol/L", "0,25 mol/L", "0,5 mol/L", "4 mol/L"],
-        answer: 1,
+        choices: ["0,25 mol/L", "1 mol/L", "0,5 mol/L", "4 mol/L"],
+        answer: 0,
         explain: "c = n/V = 0,5 / 2 = 0,25 mol/L.",
       },
     ],

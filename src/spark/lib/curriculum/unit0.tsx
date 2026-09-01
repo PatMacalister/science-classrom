@@ -113,8 +113,8 @@ export const unit0: UnitModule = {
       quiz: [
         {
           q: "In a metal wire, which particles actually move to carry charge?",
-          choices: ["Protons", "Electrons", "Neutrons", "Whole atoms"],
-          answer: 1,
+          choices: ["Protons", "Neutrons", "Electrons", "Whole atoms"],
+          answer: 2,
           explain:
             "Protons are locked inside atomic nuclei. In metals, the outer electrons form a free-moving 'sea' — they are the charge carriers.",
         },
@@ -127,8 +127,8 @@ export const unit0: UnitModule = {
         },
         {
           q: "What is the unit of electric charge?",
-          choices: ["The volt", "The ampere", "The coulomb", "The watt"],
-          answer: 2,
+          choices: ["The volt", "The ampere", "The watt", "The coulomb"],
+          answer: 3,
           explain:
             "Charge is measured in coulombs (C). One coulomb is the charge of about 6.24 × 10¹⁸ electrons.",
         },
@@ -254,40 +254,40 @@ export const unit0: UnitModule = {
           q: "One volt equals…",
           choices: [
             "One coulomb per second",
-            "One joule per coulomb",
-            "One newton per metre",
             "One electron per joule",
+            "One newton per metre",
+            "One joule per coulomb",
           ],
-          answer: 1,
+          answer: 3,
           explain: "V = W/Q: voltage is energy (joules) per charge (coulombs).",
         },
         {
           q: "A 9 V battery pushes 2 coulombs of charge through a circuit. How much energy did it deliver?",
-          choices: ["4.5 J", "9 J", "18 J", "11 J"],
-          answer: 2,
+          choices: ["4.5 J", "18 J", "9 J", "11 J"],
+          answer: 1,
           explain: "W = V × Q = 9 V × 2 C = 18 joules.",
         },
         {
           q: "Which statement about voltage is correct?",
           choices: [
             "Voltage flows through wires",
-            "Voltage is always measured between two points",
             "Voltage is the number of electrons in a wire",
+            "Voltage is always measured between two points",
             "A battery stores extra electrons",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Voltage is a difference in potential between two points — like height, it needs a reference. Nothing called 'voltage' flows.",
         },
         {
           q: "In the plate lab, moving the test charge straight up or down (parallel to the plates) changed nothing about its energy. Why?",
           choices: [
-            "The simulation is simplified",
             "It stayed on the same equipotential — same potential, same energy",
+            "The simulation is simplified",
             "The charge was too small to matter",
             "The field only exists near the plates",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Lines parallel to the plates are equipotentials: every point on one has the same potential, so moving along one costs no energy.",
         },
@@ -376,28 +376,28 @@ export const unit0: UnitModule = {
           q: "One ampere is…",
           choices: [
             "One joule per second",
-            "One coulomb per second",
             "One volt per metre",
+            "One coulomb per second",
             "One electron per second",
           ],
-          answer: 1,
+          answer: 2,
           explain: "I = Q/t. A current of 1 A means 1 coulomb of charge passes per second.",
         },
         {
           q: "A steady 2 A flows for 10 seconds. How much charge passed?",
-          choices: ["0.2 C", "5 C", "12 C", "20 C"],
-          answer: 3,
+          choices: ["20 C", "5 C", "12 C", "0.2 C"],
+          answer: 0,
           explain: "Q = I × t = 2 A × 10 s = 20 coulombs.",
         },
         {
           q: "Why does a lamp light instantly even though electrons drift slower than 1 mm/s?",
           choices: [
             "Electrons actually travel at light speed",
-            "The wire is already full of electrons that all start moving at once",
-            "The lamp stores electrons in advance",
             "Heat from the switch travels down the wire",
+            "The lamp stores electrons in advance",
+            "The wire is already full of electrons that all start moving at once",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "The electric field propagates near light speed and sets the whole electron sea moving simultaneously — like a tube already full of marbles.",
         },

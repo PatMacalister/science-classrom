@@ -112,19 +112,19 @@ export const unit19: UnitModule = {
       quiz: [
         {
           q: "In a brushed DC motor, speed is set mainly by ___ and torque by ___.",
-          choices: ["current / voltage", "voltage / current", "resistance / capacitance", "PWM frequency / duty"],
-          answer: 1,
+          choices: ["current / voltage", "PWM frequency / duty", "resistance / capacitance", "voltage / current"],
+          answer: 3,
           explain: "Back-EMF balances the applied voltage at a matching speed; load current through the coils makes the torque.",
         },
         {
           q: "To reverse a DC motor, an H-bridge…",
           choices: [
-            "Raises the voltage",
             "Activates the opposite diagonal pair, flipping the current's direction through the motor",
+            "Raises the voltage",
             "Reverses the battery chemically",
             "Uses a bigger capacitor",
           ],
-          answer: 1,
+          answer: 0,
           explain: "Q1+Q4 sends current one way through the crossbar; Q2+Q3 sends it the other. Same battery, opposite spin.",
         },
         {
@@ -142,11 +142,11 @@ export const unit19: UnitModule = {
           q: "Shorting a spinning motor's terminals (brake mode) stops it quickly because…",
           choices: [
             "It cuts the power",
-            "Its own back-EMF drives current that opposes the motion — the motor generates against itself",
             "Friction increases",
+            "Its own back-EMF drives current that opposes the motion — the motor generates against itself",
             "The magnetic field collapses permanently",
           ],
-          answer: 1,
+          answer: 2,
           explain: "Generator action in reverse. Catch that current in a battery instead of a short and you have regenerative braking.",
         },
       ],
@@ -221,33 +221,33 @@ export const unit19: UnitModule = {
           q: "Inside a hobby servo you find a motor, gears, a controller and…",
           choices: [
             "An encoder disc",
-            "A potentiometer on the output shaft reporting its angle",
-            "A GPS receiver",
             "A second motor",
+            "A GPS receiver",
+            "A potentiometer on the output shaft reporting its angle",
           ],
-          answer: 1,
+          answer: 3,
           explain: "The shaft turns a divider (2.2); the internal P-controller (14.1) drives until report matches command.",
         },
         {
           q: "A servo's commanded angle is encoded in…",
           choices: [
             "The supply voltage",
-            "The width of a repeating pulse (≈1–2 ms every 20 ms)",
             "The wire colour",
+            "The width of a repeating pulse (≈1–2 ms every 20 ms)",
             "An I2C message",
           ],
-          answer: 1,
+          answer: 2,
           explain: "Pulse-width again — Unit 8's idea reused as a command language. 1.5 ms = centre.",
         },
         {
           q: "A stepper motor knows its position because…",
           choices: [
-            "It has an internal sensor",
             "It doesn't — the controller counts the steps it has commanded",
+            "It has an internal sensor",
             "It measures back-EMF",
             "It asks the servo",
           ],
-          answer: 1,
+          answer: 0,
           explain: "Open loop: position = step count. Deterministic and cheap — until a skipped step goes unnoticed.",
         },
         {
@@ -330,19 +330,19 @@ export const unit19: UnitModule = {
       quiz: [
         {
           q: "A single-channel encoder cannot tell you…",
-          choices: ["Speed", "Distance", "Direction of rotation", "Slot count"],
-          answer: 2,
+          choices: ["Direction of rotation", "Distance", "Speed", "Slot count"],
+          answer: 0,
           explain: "Clicks look the same both ways. The second, quarter-offset channel exists precisely to break that tie.",
         },
         {
           q: "In quadrature encoding, direction is read by…",
           choices: [
             "Comparing the two channels' amplitudes",
-            "Checking which channel leads — e.g. sampling B on A's rising edge",
-            "Counting only channel B",
             "Measuring frequency",
+            "Counting only channel B",
+            "Checking which channel leads — e.g. sampling B on A's rising edge",
           ],
-          answer: 1,
+          answer: 3,
           explain: "90° of phase means the lead order flips with rotation direction — one flip-flop decodes it.",
         },
         {
@@ -360,11 +360,11 @@ export const unit19: UnitModule = {
           q: "Why do wheeled robots not rely on odometry alone?",
           choices: [
             "Encoders are too expensive",
-            "Wheels slip and errors accumulate — odometry drifts and needs fusing with other senses",
             "Counting overflows",
+            "Wheels slip and errors accumulate — odometry drifts and needs fusing with other senses",
             "They do — it's perfect",
           ],
-          answer: 1,
+          answer: 2,
           explain: "Every slip is a silent lie the count believes forever. Fusion with IMUs and range sensors keeps reality in the loop.",
         },
       ],

@@ -112,12 +112,12 @@ export const unit2: UnitModule = {
         {
           q: "What does a chemical reaction do to atoms?",
           choices: [
-            "Creates new atoms and destroys old ones",
             "Rearranges them into new combinations — none appear or vanish",
+            "Creates new atoms and destroys old ones",
             "Converts them into pure energy",
             "Melts them together",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Reactions break and form bonds; the atoms all survive. Conservation of mass is why equations must balance.",
         },
@@ -137,11 +137,11 @@ export const unit2: UnitModule = {
           q: "In 2 H₂ + O₂ → 2 H₂O, the coefficients 2 : 1 : 2 tell you…",
           choices: [
             "the masses of each substance",
-            "the reacting ratio — valid for molecules, dozens or moles alike",
-            "the temperature required",
             "how fast the reaction runs",
+            "the temperature required",
+            "the reacting ratio — valid for molecules, dozens or moles alike",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Coefficients are proportions, like a recipe: two parts hydrogen to one part oxygen gives two parts water, whatever the batch size.",
         },
@@ -268,11 +268,11 @@ export const unit2: UnitModule = {
           q: "Which pattern does AgNO₃ + NaCl → AgCl + NaNO₃ follow?",
           choices: [
             "Single replacement",
-            "Double replacement — the two compounds swap partners",
             "Combustion",
+            "Double replacement — the two compounds swap partners",
             "Decomposition",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Silver pairs with chloride and sodium with nitrate: AB + CD → AD + CB. The insoluble AgCl precipitating out is what drives it.",
         },
@@ -280,23 +280,23 @@ export const unit2: UnitModule = {
           q: "Zinc displaces copper from copper sulfate, but copper will not displace zinc from zinc sulfate. Why?",
           choices: [
             "Copper is heavier",
-            "Zinc is more reactive than copper, so only that direction is favourable",
-            "Copper sulfate is a gas",
             "The reaction needs light",
+            "Copper sulfate is a gas",
+            "Zinc is more reactive than copper, so only that direction is favourable",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "In a single replacement the more reactive metal takes the anion. Zinc sits above copper in the reactivity series, so only zinc → copper works.",
         },
         {
           q: "What are the products of the complete combustion of any hydrocarbon?",
           choices: [
-            "Carbon monoxide and hydrogen",
             "Carbon dioxide and water",
+            "Carbon monoxide and hydrogen",
             "Soot and oxygen",
             "It depends on the hydrocarbon",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "With enough oxygen every carbon ends up in CO₂ and every hydrogen in H₂O. Too little oxygen gives incomplete combustion — CO and soot.",
         },
@@ -400,29 +400,29 @@ export const unit2: UnitModule = {
           q: "Why is Avogadro's number chosen to be exactly that odd value?",
           choices: [
             "It was picked at random",
-            "So that one mole of a substance weighs its particle mass in grams",
-            "It's the number of atoms in the human body",
             "To honour Avogadro's birthday",
+            "It's the number of atoms in the human body",
+            "So that one mole of a substance weighs its particle mass in grams",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "N_A converts atomic mass units to grams: a 12 u carbon atom → 12 g per mole of carbon. That makes the scale a particle counter.",
         },
         {
           q: "What is the molar mass of CO₂ (C = 12.01, O = 16.00)?",
-          choices: ["28.01 g/mol", "44.01 g/mol", "32.00 g/mol", "12.01 g/mol"],
-          answer: 1,
+          choices: ["28.01 g/mol", "32.00 g/mol", "44.01 g/mol", "12.01 g/mol"],
+          answer: 2,
           explain: "12.01 + 2 × 16.00 = 44.01 g/mol. Molar mass is just adding up the table values in the formula.",
         },
         {
           q: "You have 100 g of water and 100 g of iron. Which contains more particles?",
           choices: [
-            "The iron — metal atoms are packed tighter",
             "The water — its molar mass (18) is much smaller than iron's (56)",
+            "The iron — metal atoms are packed tighter",
             "Both the same — same mass, same particles",
             "Cannot be determined",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "n = m/M: 100/18 ≈ 5.6 mol of water vs 100/55.85 ≈ 1.8 mol of iron. Lighter particles → more of them per gram.",
         },
@@ -534,12 +534,12 @@ export const unit2: UnitModule = {
         {
           q: "Why must stoichiometry convert grams to moles before comparing substances?",
           choices: [
-            "Grams are imprecise",
             "Equation coefficients count particles (moles), not mass",
+            "Grams are imprecise",
             "Moles are easier to weigh",
             "It's tradition",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "The balanced equation speaks in particle ratios. 2 g of H₂ and 2 g of O₂ are wildly different particle counts — moles make them comparable.",
         },
@@ -554,18 +554,18 @@ export const unit2: UnitModule = {
           q: "Adding more of the excess reagent to a reaction…",
           choices: [
             "increases the yield proportionally",
-            "changes nothing — the limiting reagent still decides",
             "speeds up time",
+            "changes nothing — the limiting reagent still decides",
             "always doubles the product",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Yield hangs on whatever runs out first. Extra excess reagent just deepens the leftover pile.",
         },
         {
           q: "Burning 1 mol of CH₄ (CH₄ + 2 O₂ → CO₂ + 2 H₂O) consumes how much O₂?",
-          choices: ["1 mol", "2 mol", "0.5 mol", "4 mol"],
-          answer: 1,
+          choices: ["1 mol", "4 mol", "0.5 mol", "2 mol"],
+          answer: 3,
           explain: "The coefficients say 1 : 2 — every mole of methane burns two moles of oxygen.",
         },
       ],

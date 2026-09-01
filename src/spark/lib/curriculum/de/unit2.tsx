@@ -77,8 +77,8 @@ export const unit2De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ströme von 2 A und 3 A fließen in einen Knoten; ein Draht führt hinaus. Sein Strom ist…",
-        choices: ["1 A", "2,5 A", "5 A", "6 A"],
-        answer: 2,
+        choices: ["1 A", "2,5 A", "6 A", "5 A"],
+        answer: 3,
         explain: "Knotenregel: rein = raus, also müssen 2 + 3 = 5 A hinausfließen.",
       },
       {
@@ -102,12 +102,12 @@ export const unit2De: Record<string, LessonContentDe> = {
       {
         q: "Du misst die Abfälle um eine echte 9-V-Schleife und kommst nur auf 8,1 V. Am wahrscheinlichsten…",
         choices: [
-          "Die Maschenregel gilt in echten Schaltungen nicht",
           "Es gibt einen ungemessenen Abfall — z. B. eine schlechte Verbindung, die ~0,9 V frisst",
+          "Die Maschenregel gilt in echten Schaltungen nicht",
           "Die Batterie hat zusätzliche Energie erzeugt",
           "Dein Multimeter bricht die Knotenregel",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Die Maschenregel gilt immer. Fehlende Volt bedeuten einen Abfall, den du nicht gemessen hast — korrodierte Kontakte und lose Drähte sind die Klassiker.",
       },
@@ -209,30 +209,30 @@ export const unit2De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Vin = 9 V, R₁ = 10 kΩ (oben), R₂ = 10 kΩ (unten). Vout ist…",
-        choices: ["9 V", "6 V", "4,5 V", "3 V"],
-        answer: 2,
+        choices: ["4,5 V", "6 V", "9 V", "3 V"],
+        answer: 0,
         explain: "Gleiche Widerstände teilen gleichmäßig: 9 × 10k/(10k+10k) = 4,5 V.",
       },
       {
         q: "Für ein GRÖSSERES Vout aus demselben Vin solltest du…",
         choices: [
-          "R₂ gegenüber R₁ vergrößern",
           "R₁ gegenüber R₂ vergrößern",
+          "R₂ gegenüber R₁ vergrößern",
           "beide gleichermaßen vergrößern",
           "Vin verkleinern",
         ],
-        answer: 0,
+        answer: 1,
         explain: "Vout folgt dem Anteil von R₂ am Gesamtwiderstand: R₂ vergrößern (oder R₁ verkleinern), und der Ausgang steigt.",
       },
       {
         q: "Ein Potentiometer beschreibt man am besten als…",
         choices: [
           "einen variablen Kondensator",
-          "einen Spannungsteiler mit beweglichem Abgriff",
-          "eine Batterieart",
           "einen Stromverstärker",
+          "eine Batterieart",
+          "einen Spannungsteiler mit beweglichem Abgriff",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Der Schleifer gleitet über eine Widerstandsbahn und teilt sie fortlaufend neu in R₁ und R₂ auf.",
       },
@@ -240,11 +240,11 @@ export const unit2De: Record<string, LessonContentDe> = {
         q: "Du schließt einen kleinen Lautsprecher an einen Teilerausgang an, und die Spannung bricht zusammen. Warum?",
         choices: [
           "Der Lautsprecher erzeugt negative Spannung",
-          "Sein kleiner Widerstand liegt parallel zu R₂ und ruiniert das Verhältnis",
           "Teiler funktionieren nur mit LEDs",
+          "Sein kleiner Widerstand liegt parallel zu R₂ und ruiniert das Verhältnis",
           "Die Maschenregel gilt nicht mehr",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Eine niederohmige Last parallel zu R₂ macht das effektive untere Bein winzig — der Teiler war nie ein Netzteil.",
       },
@@ -347,8 +347,8 @@ export const unit2De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "τ für R = 1 kΩ und C = 100 µF ist…",
-        choices: ["0,1 ms", "10 ms", "0,1 s", "10 s"],
-        answer: 2,
+        choices: ["0,1 ms", "10 ms", "10 s", "0,1 s"],
+        answer: 3,
         explain: "τ = RC = 1000 × 0,0001 = 0,1 Sekunden.",
       },
       {
@@ -359,20 +359,20 @@ export const unit2De: Record<string, LessonContentDe> = {
       },
       {
         q: "Wie viel stetigen Strom führt ein voll geladener Kondensator im Gleichstromkreis?",
-        choices: ["Maximalen Strom", "Den halben Anfangsstrom", "Praktisch keinen", "Kommt auf seine Farbe an"],
-        answer: 2,
+        choices: ["Maximalen Strom", "Praktisch keinen", "Den halben Anfangsstrom", "Kommt auf seine Farbe an"],
+        answer: 1,
         explain:
           "Einmal auf Quellenspannung geladen bleibt keine Spannungsdifferenz übrig, die Strom treiben könnte — Kondensatoren blockieren stetigen Gleichstrom.",
       },
       {
         q: "Dein Timer läuft zu schnell. Mit τ = RC verlangsamst du ihn durch…",
         choices: [
-          "kleineres R",
           "größeres C (oder R)",
+          "kleineres R",
           "kleineres C",
           "Entfernen des Widerstands",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Größeres R oder C → größeres τ → langsameres Timing. (Genau das wirst du mit deinem Blinker machen.)",
       },
     ],
@@ -452,30 +452,30 @@ export const unit2De: Record<string, LessonContentDe> = {
       {
         q: "Eine Spule widersetzt sich am stärksten…",
         choices: [
-          "stetigem Strom",
           "Stromänderungen",
+          "stetigem Strom",
           "Spannungsänderungen",
           "der Nähe von Kondensatoren",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "V = L·dI/dt: Spannung entsteht nur, wenn sich der Strom *ändert*. Stetiger Strom segelt hindurch.",
       },
       {
         q: "Die RL-Zeitkonstante ist…",
-        choices: ["τ = L × R", "τ = R / L", "τ = L / R", "τ = 1 / (LR)"],
-        answer: 2,
+        choices: ["τ = L × R", "τ = L / R", "τ = R / L", "τ = 1 / (LR)"],
+        answer: 1,
         explain: "τ = L/R — z. B. 0,1 H durch 100 Ω ergibt 1 ms.",
       },
       {
         q: "Warum erzeugt das Öffnen eines Schalters an einer Spule eine große Spannungsspitze?",
         choices: [
           "Die Batteriespannung verdoppelt sich",
-          "Strom unterbrechen heißt riesiges dI/dt, und V = L·dI/dt",
           "Die Spule schließt sich kurz",
+          "Strom unterbrechen heißt riesiges dI/dt, und V = L·dI/dt",
           "Magnetfelder ziehen Funken an",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Das kollabierende Feld zwingt den Strom, irgendwo weiterzufließen; ohne Weg steigt die Spannung, bis etwas (ein Lichtbogen) nachgibt.",
       },
@@ -483,11 +483,11 @@ export const unit2De: Record<string, LessonContentDe> = {
         q: "Eine Freilaufdiode über einer Relaisspule…",
         choices: [
           "beschleunigt das Relais",
-          "gibt dem unterbrochenen Strom einen sicheren Pfad und klemmt die Spitze",
-          "erhöht die Induktivität der Spule",
           "verhindert das Einschalten des Relais",
+          "erhöht die Induktivität der Spule",
+          "gibt dem unterbrochenen Strom einen sicheren Pfad und klemmt die Spitze",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Öffnet der Schalter, läuft der Strom durch die Diode frei und klingt sanft ab, statt Funken zu schlagen — billige Versicherung an jeder Spule, die du je ansteuern wirst.",
       },

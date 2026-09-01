@@ -78,19 +78,19 @@ export const unit7De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ein NAND-Gatter mit beiden Eingängen auf 1 gibt aus…",
-        choices: ["1", "0", "Die halbe Versorgung", "Es hängt von der Temperatur ab"],
-        answer: 1,
+        choices: ["1", "Die halbe Versorgung", "0", "Es hängt von der Temperatur ab"],
+        answer: 2,
         explain: "NAND = NOT-AND. AND(1,1) = 1, invertiert → 0. Jede andere Kombination gibt 1 aus.",
       },
       {
         q: "XOR gibt 1 aus, wenn…",
         choices: [
-          "beide Eingänge 1 sind",
           "die Eingänge verschieden sind",
+          "beide Eingänge 1 sind",
           "mindestens ein Eingang 1 ist",
           "beide Eingänge 0 sind",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Exklusiv-ODER: der eine oder der andere, aber nicht beide. Es ist der 'Verschiedenheits-Detektor' — und das Summenbit der binären Addition.",
       },
       {
@@ -109,11 +109,11 @@ export const unit7De: Record<string, LessonContentDe> = {
         q: "Warum heißt NAND ein universelles Gatter?",
         choices: [
           "Es ist das schnellste Gatter",
-          "Jede Logikfunktion lässt sich allein aus NANDs bauen",
-          "Es verbraucht keine Leistung",
           "Es hat die meisten Eingänge",
+          "Es verbraucht keine Leistung",
+          "Jede Logikfunktion lässt sich allein aus NANDs bauen",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "NOT, AND, OR (und alles, was daraus gebaut wird — also alles) lassen sich jeweils rein aus NAND-Gattern konstruieren.",
       },
@@ -186,8 +186,8 @@ export const unit7De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Binär 1011 ist dezimal…",
-        choices: ["9", "11", "13", "22"],
-        answer: 1,
+        choices: ["11", "9", "13", "22"],
+        answer: 0,
         explain: "8 + 0 + 2 + 1 = 11.",
       },
       {
@@ -205,18 +205,18 @@ export const unit7De: Record<string, LessonContentDe> = {
         q: "In einem Ripple-Carry-Addierer wandert der Übertrag…",
         choices: [
           "vom höchstwertigen Bit abwärts",
-          "von der niederwertigsten Spalte aufwärts durch die höheren",
           "zu allen Spalten gleichzeitig",
+          "von der niederwertigsten Spalte aufwärts durch die höheren",
           "nirgendwohin — Überträge werden verworfen",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Der Ausgangsübertrag jeder Spalte speist den Eingangsübertrag der nächsten, LSB→MSB — genau wie das 'eins im Sinn' beim schriftlichen Rechnen.",
       },
       {
         q: "Die Addition der 4-Bit-Zahlen 1111 + 0001 ergibt 10000. In einem 4-Bit-Register ist das…",
-        choices: ["16, problemlos gespeichert", "Überlauf — das Ergebnis braucht ein fünftes Bit", "Null, ohne Nebenwirkungen", "Ein Kurzschluss"],
-        answer: 1,
+        choices: ["16, problemlos gespeichert", "Ein Kurzschluss", "Null, ohne Nebenwirkungen", "Überlauf — das Ergebnis braucht ein fünftes Bit"],
+        answer: 3,
         explain:
           "Der Übertrag aus der obersten Spalte hat kein Zuhause: Überlauf. CPUs setzen für genau diesen Moment ein Flag.",
       },
@@ -305,24 +305,24 @@ export const unit7De: Record<string, LessonContentDe> = {
       {
         q: "Ein D-Flipflop kopiert D nach Q…",
         choices: [
-          "kontinuierlich",
           "nur an der Taktflanke",
+          "kontinuierlich",
           "immer wenn D sich ändert",
           "einmal beim Einschalten",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Diese Flankensteuerung ist der Punkt: Alle Flipflops eines Systems aktualisieren sich im Gleichschritt mit dem Takt.",
       },
       {
         q: "Ein 3-Bit-Zähler zählt von 0 bis…",
-        choices: ["3", "7", "8", "15"],
-        answer: 1,
+        choices: ["3", "8", "7", "15"],
+        answer: 2,
         explain: "n Bit zählen 0 bis 2ⁿ−1: Drei Bit ergeben 0–7, danach geht es zurück auf 0.",
       },
       {
         q: "Schicke einen 32 768-Hz-Quarz durch 15 Teile-durch-zwei-Stufen, und du bekommst…",
-        choices: ["32 Hz", "2 Hz", "1 Hz — den Tick einer Armbanduhr", "0,5 Hz"],
-        answer: 2,
+        choices: ["32 Hz", "2 Hz", "0,5 Hz", "1 Hz — den Tick einer Armbanduhr"],
+        answer: 3,
         explain: "32 768 = 2¹⁵, also lässt fünfzehnmaliges ÷2 exakt 1 Hz übrig. Deshalb benutzen Uhrenquarze diese krumme Zahl.",
       },
     ],

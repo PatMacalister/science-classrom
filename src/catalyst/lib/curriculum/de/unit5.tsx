@@ -72,11 +72,11 @@ export const unit5De: Record<string, LessonContentDe> = {
         q: "Eine exotherme Reaktion ist eine, bei der…",
         choices: [
           "die Edukte explodieren",
-          "das Knüpfen der neuen Bindungen mehr Energie freisetzt, als das Brechen der alten gekostet hat",
           "ständig Wärme zugeführt werden muss",
+          "das Knüpfen der neuen Bindungen mehr Energie freisetzt, als das Brechen der alten gekostet hat",
           "sich keine Bindungen ändern",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "ΔH < 0: Die Bindungsenergiebilanz fällt zugunsten der Umgebung aus — der Überschuss verlässt das System als Wärme (und manchmal Licht).",
       },
@@ -84,11 +84,11 @@ export const unit5De: Record<string, LessonContentDe> = {
         q: "Warum entzündet sich Holz bei Raumtemperatur nicht von selbst?",
         choices: [
           "Holzverbrennung ist endotherm",
-          "Der Luft fehlt Sauerstoff",
           "Die Aktivierungsenergie ist zu hoch für Stöße bei Raumtemperatur",
+          "Der Luft fehlt Sauerstoff",
           "Holz enthält Wasser",
         ],
-        answer: 2,
+        answer: 1,
         explain:
           "Verbrennung geht steil bergab, aber ein hoher Pass steht im Weg. Ein Streichholz gibt einigen Molekülen die Überquerungsenergie; deren freigesetzte Wärme rekrutiert den Rest.",
       },
@@ -96,23 +96,23 @@ export const unit5De: Record<string, LessonContentDe> = {
         q: "Was ändert ein Katalysator — und was lässt er in Ruhe?",
         choices: [
           "Er ändert ΔH, aber nicht Ea",
-          "Er senkt Ea, lässt ΔH aber unangetastet",
-          "Er erhöht die Temperatur",
           "Er wird verbraucht, um die Reaktion zu befeuern",
+          "Er erhöht die Temperatur",
+          "Er senkt Ea, lässt ΔH aber unangetastet",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Ein Katalysator ist ein Tunnel durch den Hügel: niedrigerer Pass, dieselben zwei Täler. Und er wird zurückgewonnen — ein Katalysatormolekül bedient Millionen Reaktionen.",
       },
       {
         q: "Die Umwandlung von Diamant zu Graphit würde Energie freisetzen, trotzdem bleiben Diamanten bestehen, weil…",
         choices: [
-          "Diamant die stabilere Form ist",
           "die Aktivierungsenergie für die Umwandlung enorm ist",
+          "Diamant die stabilere Form ist",
           "Graphit seltener ist",
           "Juweliere sie stabilisieren",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Die Thermodynamik sagt 'bergab'; die Kinetik sagt 'über einen unmöglich hohen Pass'. Ohne Route hält die instabile Form Milliarden Jahre.",
       },
@@ -190,11 +190,11 @@ export const unit5De: Record<string, LessonContentDe> = {
         q: "Laut Stoßtheorie findet eine Reaktion nur statt, wenn Teilchen…",
         choices: [
           "einander überhaupt berühren",
-          "mit genug Energie und der richtigen Ausrichtung zusammenstoßen",
-          "die gleiche Masse haben",
           "die gleiche Temperatur haben",
+          "die gleiche Masse haben",
+          "mit genug Energie und der richtigen Ausrichtung zusammenstoßen",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Die meisten Stöße sind zu sanft oder schlecht gezielt und prallen einfach ab. Rate = Zahl der Stöße, die beide Bedingungen erfüllen.",
       },
@@ -214,23 +214,23 @@ export const unit5De: Record<string, LessonContentDe> = {
         q: "Holzstaub kann explodieren, während ein Scheit nur brennt, weil…",
         choices: [
           "Staub mehr Energie pro Gramm enthält",
-          "Staub weit mehr Oberfläche für Sauerstoffstöße bietet",
           "Scheite feuchter sind",
+          "Staub weit mehr Oberfläche für Sauerstoffstöße bietet",
           "Staub heißer ist",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Verbrennung passiert an der Grenzfläche Holz-Luft. Mahlen vervielfacht diese Fläche millionenfach, sodass dieselbe Gesamtreaktion in Millisekunden abläuft.",
       },
       {
         q: "Die Konzentration eines Edukts zu verdoppeln…",
         choices: [
-          "halbiert die Rate",
           "verdoppelt die Rate ungefähr — doppelt so viele Treffen pro Sekunde",
+          "halbiert die Rate",
           "ändert nichts",
           "verdoppelt die Aktivierungsenergie",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Doppelt so viele Teilchen pro Liter bedeuten etwa doppelt so häufige Stöße mit ihnen. (Die genauen Exponenten hängen vom Mechanismus ab — das ist Kinetik für Fortgeschrittene.)",
       },
@@ -310,12 +310,12 @@ export const unit5De: Record<string, LessonContentDe> = {
       {
         q: "Im dynamischen Gleichgewicht…",
         choices: [
-          "sind alle Reaktionen zum Stillstand gekommen",
           "laufen Hin- und Rückreaktion gleich schnell, sodass die Summen konstant bleiben",
+          "sind alle Reaktionen zum Stillstand gekommen",
           "läuft nur die Hinreaktion",
           "ist die Temperatur null",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Einzelne Teilchen wandeln sich ständig in beide Richtungen; die beiden Ströme heben sich auf. Stillstand im Großen, Getümmel im Kleinen.",
       },
@@ -335,11 +335,11 @@ export const unit5De: Record<string, LessonContentDe> = {
         q: "Bei einem exothermen Gleichgewicht bewirkt Temperaturerhöhung…",
         choices: [
           "Verschiebung zu den Produkten",
-          "Verschiebung zu den Edukten — Wärme wirkt wie ein zugegebenes Produkt",
           "keinen Effekt",
+          "Verschiebung zu den Edukten — Wärme wirkt wie ein zugegebenes Produkt",
           "Zerstörung des Katalysators",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Behandle Wärme als Produkt der Hinreaktion. Produkt zuzugeben drückt die Balance rückwärts — warme Gleichgewichte exothermer Reaktionen enthalten weniger Produkt.",
       },
@@ -347,11 +347,11 @@ export const unit5De: Record<string, LessonContentDe> = {
         q: "Warum ziehen Ammoniakanlagen ständig NH₃ aus dem Reaktor ab?",
         choices: [
           "Ammoniak würde den Katalysator vergiften",
-          "Produkt zu entfernen verschiebt das Gleichgewicht laufend nach vorn, um es zu ersetzen",
-          "Um den Reaktor kühl zu halten",
           "Nur zur einfacheren Lagerung",
+          "Um den Reaktor kühl zu halten",
+          "Produkt zu entfernen verschiebt das Gleichgewicht laufend nach vorn, um es zu ersetzen",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Das Produkt abzuziehen ist Le Chateliers profitabelster Hebel: Das System erreicht sein Unentschieden nie und produziert weiter. Die halbe Welternährung hängt daran.",
       },

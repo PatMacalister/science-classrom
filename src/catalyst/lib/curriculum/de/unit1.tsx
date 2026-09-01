@@ -71,12 +71,12 @@ export const unit1De: Record<string, LessonContentDe> = {
       {
         q: "Was hält Na⁺ und Cl⁻ im Salz tatsächlich zusammen?",
         choices: [
-          "Ein gemeinsames Elektronenpaar",
           "Elektrostatische Anziehung zwischen ungleichen Ladungen",
+          "Ein gemeinsames Elektronenpaar",
           "Winzige Häkchen an den Atomen",
           "Die Schwerkraft",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Nach der Elektronenübertragung sind beide Teilchen geladene Ionen, und + zieht − an. Die Ionenbindung ist reine Elektrostatik — nichts wird geteilt.",
       },
@@ -84,11 +84,11 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Warum bildet Magnesium MgCl₂, aber MgO (nicht MgO₂)?",
         choices: [
           "Chlor ist größer als Sauerstoff",
-          "Ladungen müssen aufgehen: Mg²⁺ braucht zwei Cl⁻, aber nur ein O²⁻",
-          "Sauerstoff ist ein Gas",
           "Das ist historische Konvention",
+          "Sauerstoff ist ein Gas",
+          "Ladungen müssen aufgehen: Mg²⁺ braucht zwei Cl⁻, aber nur ein O²⁻",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Mg gibt 2 Elektronen ab. Jedes Cl nimmt eines (also braucht es zwei); ein O nimmt beide. Formeln von Ionenverbindungen sind Ladungsbuchhaltung.",
       },
@@ -96,11 +96,11 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Warum haben Salze so hohe Schmelzpunkte?",
         choices: [
           "Ihre Atome sind ungewöhnlich schwer",
-          "Schmelzen muss die Anziehung eines ganzen Ionengitters überwinden",
           "Sie enthalten Wasser",
+          "Schmelzen muss die Anziehung eines ganzen Ionengitters überwinden",
           "Haben sie nicht — Salze schmelzen leicht",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Jedes Ion wird von all seinen ungleich geladenen Nachbarn im 3D-Gitter gehalten. Diesen kollektiven Griff zu brechen kostet ernsthaft Hitze — 801 °C bei NaCl.",
       },
@@ -198,12 +198,12 @@ export const unit1De: Record<string, LessonContentDe> = {
       {
         q: "Warum ist N₂ so reaktionsträge, dass es 78 % der Luft ausmacht, ohne viel zu tun?",
         choices: [
-          "Stickstoff ist ein Edelgas",
-          "Seine Atome sind zu weit voneinander entfernt",
           "Seine Dreifachbindung ist extrem stark und schwer zu brechen",
+          "Seine Atome sind zu weit voneinander entfernt",
+          "Stickstoff ist ein Edelgas",
           "Es ist leichter als Sauerstoff",
         ],
-        answer: 2,
+        answer: 0,
         explain:
           "Drei geteilte Paare binden die beiden N-Atome mit einer der stärksten Bindungen der Chemie. Sie zu brechen (z. B. im Haber-Bosch-Verfahren) kostet enorme Energie.",
       },
@@ -211,11 +211,11 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Wie viele kovalente Bindungen bildet Kohlenstoff typischerweise, und warum?",
         choices: [
           "2 — er hat 2 übrige Elektronen",
-          "4 — er hat 4 Valenzelektronen und braucht 4 weitere",
-          "8 — eine pro Oktett-Elektron",
           "Das schwankt zufällig",
+          "8 — eine pro Oktett-Elektron",
+          "4 — er hat 4 Valenzelektronen und braucht 4 weitere",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Mit 4 Valenzelektronen und 4 Lücken teilt Kohlenstoff vier Paare. Diese vier Hände machen ihn zum Rückgrat der organischen Chemie.",
       },
@@ -223,11 +223,11 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Warum ist das Wassermolekül gewinkelt statt gerade?",
         choices: [
           "Die Wasserstoffatome stoßen sich ab",
-          "Sauerstoffs zwei freie Elektronenpaare brauchen Platz und drücken die Bindungen zusammen",
           "Die Schwerkraft biegt es",
+          "Sauerstoffs zwei freie Elektronenpaare brauchen Platz und drücken die Bindungen zusammen",
           "Ist es nicht — Wasser ist linear",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Sauerstoff trägt zwei ungeteilte (freie) Paare. Elektronenwolken stoßen sich ab, also quetschen die freien Paare die beiden O–H-Bindungen auf ~104,5°.",
       },
@@ -308,11 +308,11 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Warum leiten Metalle elektrischen Strom?",
         choices: [
           "Ihre Kerne sind geladen",
-          "Ihre Valenzelektronen bilden ein bewegliches Meer, das durchs Gitter driften kann",
-          "Sie enthalten eingefangene Blitze",
           "Ihre Atome schwingen schnell",
+          "Sie enthalten eingefangene Blitze",
+          "Ihre Valenzelektronen bilden ein bewegliches Meer, das durchs Gitter driften kann",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "In der Metallbindung gehören Valenzelektronen keinem Atom im Besonderen. Frei driftende Ladung ist genau das, was ein elektrischer Strom braucht.",
       },
@@ -330,8 +330,8 @@ export const unit1De: Record<string, LessonContentDe> = {
       },
       {
         q: "H–Cl hat Δχ ≈ 0,96. Diese Bindung ist…",
-        choices: ["ionisch", "unpolar kovalent", "polar kovalent — geteilt, aber zum Cl verschoben", "metallisch"],
-        answer: 2,
+        choices: ["polar kovalent — geteilt, aber zum Cl verschoben", "unpolar kovalent", "ionisch", "metallisch"],
+        answer: 0,
         explain:
           "0,4 < 0,96 < 1,7: geteilt, aber Chlor gewinnt das Tauziehen. Cl wird δ−, H wird δ+ — das Molekül ist ein Dipol.",
       },
@@ -339,11 +339,11 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Warum löst sich Salz in Wasser, aber nicht in Öl?",
         choices: [
           "Öl ist zu dickflüssig",
-          "Wassers polare Moleküle hebeln Ionen aus dem Gitter; unpolares Öl bietet keinen solchen Griff",
           "Salz hat Angst vor Öl",
+          "Wassers polare Moleküle hebeln Ionen aus dem Gitter; unpolares Öl bietet keinen solchen Griff",
           "Ölmoleküle sind zu groß",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Wassers δ+/δ−-Pole umhüllen und stabilisieren die Ionen und übertreffen so das Gitter. Unpolares Öl hat keine Pole anzubieten — Gleiches löst Gleiches.",
       },
@@ -459,12 +459,12 @@ export const unit1De: Record<string, LessonContentDe> = {
       {
         q: "Was bestimmt laut VSEPR die Molekülform?",
         choices: [
-          "Elektronengruppen um das Zentralatom stoßen sich ab und gehen maximal auf Abstand",
-          "Die Atome ordnen sich nach ihrer Atommasse",
           "Moleküle nehmen immer die flachste mögliche Form an",
+          "Die Atome ordnen sich nach ihrer Atommasse",
+          "Elektronengruppen um das Zentralatom stoßen sich ab und gehen maximal auf Abstand",
           "Der Kern zieht alle Atome in eine Linie",
         ],
-        answer: 0,
+        answer: 2,
         explain:
           "Bindungen und freie Paare sind Bereiche negativer Ladung. Sie stoßen sich ab, und die Form ist diejenige Anordnung, die ihren Abstand maximiert.",
       },
@@ -472,42 +472,42 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Wassers Bindungswinkel beträgt 104,5°, weniger als Methans 109,5°. Warum?",
         choices: [
           "Sauerstoff ist schwerer als Kohlenstoff",
-          "Wasser hat nur zwei Bindungen, die sich deshalb weniger ausbreiten",
           "Wassers zwei freie Paare stoßen stärker ab als Bindungspaare und drücken die Bindungen zusammen",
+          "Wasser hat nur zwei Bindungen, die sich deshalb weniger ausbreiten",
           "Wassermoleküle schwingen ständig",
         ],
-        answer: 2,
+        answer: 1,
         explain:
           "Ein freies Paar wird nur von einem Kern gehalten, breitet sich weiter aus und drückt kräftiger — der H-O-H-Winkel sinkt unter den idealen Tetraederwert.",
       },
       {
         q: "CO₂ hat zwei polare C=O-Bindungen, ist aber ein unpolares Molekül. Warum?",
         choices: [
-          "Die Bindungen sind in Wirklichkeit unpolar",
           "Es ist linear, sodass die beiden Bindungsdipole entgegengesetzt zeigen und sich aufheben",
+          "Die Bindungen sind in Wirklichkeit unpolar",
           "Kohlenstoffdioxid ist ionisch",
           "Sauerstoff und Kohlenstoff haben dieselbe Elektronegativität",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Dipole sind Vektoren. In einem linearen O=C=O zeigen die beiden gleich großen Züge 180° auseinander und summieren sich zu null.",
       },
       {
         q: "Ein Zentralatom hat 3 Bindungen und 1 freies Paar. Welche Form hat das Molekül?",
-        choices: ["Tetraedrisch", "Trigonal-planar", "Trigonal-pyramidal", "Linear"],
-        answer: 2,
+        choices: ["Tetraedrisch", "Trigonal-planar", "Linear", "Trigonal-pyramidal"],
+        answer: 3,
         explain:
           "Vier Elektronengruppen ordnen sich tetraedrisch an, benannt werden aber nur die sichtbaren Atome: drei von einem freien Paar heruntergedrückte Bindungen bilden eine trigonale Pyramide — wie NH₃.",
       },
       {
         q: "Welches Paar von Tatsachen macht ein Molekül insgesamt polar?",
         choices: [
-          "Polare Bindungen und eine symmetrische Form",
           "Polare Bindungen und eine asymmetrische Form, die ihr Aufheben verhindert",
+          "Polare Bindungen und eine symmetrische Form",
           "Unpolare Bindungen und eine asymmetrische Form",
           "Jedes Molekül, das Sauerstoff enthält",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Beides ist nötig: Bindungsdipole müssen existieren, und die Geometrie darf sie nicht aufheben. Symmetrische Moleküle mit polaren Bindungen (CO₂, CH₄, BF₃) sind unpolar.",
       },
@@ -640,12 +640,12 @@ export const unit1De: Record<string, LessonContentDe> = {
       {
         q: "Wasserstoffbrücken verlangen Wasserstoff gebunden an welche Atome?",
         choices: [
-          "Jedes Nichtmetall",
-          "Kohlenstoff, Stickstoff oder Schwefel",
           "Stickstoff, Sauerstoff oder Fluor",
+          "Kohlenstoff, Stickstoff oder Schwefel",
+          "Jedes Nichtmetall",
           "Nur Sauerstoff",
         ],
-        answer: 2,
+        answer: 0,
         explain:
           "Nur N, O und F sind klein und elektronegativ genug, um Wasserstoff fast nackt zurückzulassen — „NOF, sonst nix“.",
       },
@@ -653,11 +653,11 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Wasser (M = 18) siedet bei 100 °C, Methan (M = 16) bei −161 °C. Warum?",
         choices: [
           "Wassermoleküle sind viel schwerer",
-          "Wasser bildet Wasserstoffbrücken; Methan ist unpolar und hat nur schwache Dispersionskräfte",
           "Methan hat stärkere kovalente Bindungen",
+          "Wasser bildet Wasserstoffbrücken; Methan ist unpolar und hat nur schwache Dispersionskräfte",
           "Wasser ist ionisch",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Bei nahezu gleicher Masse bleibt als Unterschied nur die zwischenmolekulare Anziehung. Wassers Wasserstoffbrücken-Netz ist dramatisch stärker.",
       },
@@ -665,23 +665,23 @@ export const unit1De: Record<string, LessonContentDe> = {
         q: "Warum schwimmt Eis auf Wasser?",
         choices: [
           "Eis enthält eingeschlossene Luft",
-          "Wasserstoffbrücken zwingen die Moleküle in einen offenen Käfig, der weniger dicht ist als die Flüssigkeit",
-          "Eismoleküle sind leichter als Wassermoleküle",
           "Kaltes Wasser dehnt sich aus, weil seine kovalenten Bindungen länger werden",
+          "Eismoleküle sind leichter als Wassermoleküle",
+          "Wasserstoffbrücken zwingen die Moleküle in einen offenen Käfig, der weniger dicht ist als die Flüssigkeit",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Beim Gefrieren bindet jedes Molekül vier Nachbarn in einem Sechseckgitter mit Lücken. Diese offene Struktur ist weniger dicht als flüssiges Wasser — Eis schwimmt.",
       },
       {
         q: "Warum löst sich Öl nicht in Wasser?",
         choices: [
-          "Ölmoleküle sind zu groß",
           "Öl ist unpolar und bietet nichts, was die Wasserstoffbrücken ersetzt, die Wasser dafür brechen müsste",
+          "Ölmoleküle sind zu groß",
           "Öl ist dichter als Wasser",
           "Öl reagiert mit Wasser",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Das Lösen würde Wasser sein Wasserstoffbrücken-Netz kosten, ohne Gegenleistung durch unpolares Öl. „Gleiches löst Gleiches“ ist genau diese Energiebilanz, kurz gesagt.",
       },
