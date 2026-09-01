@@ -110,8 +110,8 @@ export const unit13: UnitModule = {
       quiz: [
         {
           q: "To faithfully capture a 5 kHz signal you must sample at least at…",
-          choices: ["2.5 kHz", "5 kHz", "10 kHz", "50 kHz"],
-          answer: 2,
+          choices: ["10 kHz", "5 kHz", "2.5 kHz", "50 kHz"],
+          answer: 0,
           explain: "Nyquist: fs ≥ 2·fmax = 10 kHz — two samples per cycle minimum.",
         },
         {
@@ -136,11 +136,11 @@ export const unit13: UnitModule = {
           q: "Wagon wheels spinning backwards in old films are an example of…",
           choices: [
             "Camera lens distortion",
-            "Aliasing — 24 frames/s undersampling the spoke rotation",
-            "Reversed film reels",
             "Magnetic interference",
+            "Reversed film reels",
+            "Aliasing — 24 frames/s undersampling the spoke rotation",
           ],
-          answer: 1,
+          answer: 3,
           explain: "The frame rate glances at the spokes too slowly, and the fold produces slow (even negative) apparent rotation.",
         },
       ],
@@ -234,23 +234,23 @@ export const unit13: UnitModule = {
         {
           q: "A low-pass filter turns a square wave into a near-sine because…",
           choices: [
-            "It slows the electrons",
             "It removes the harmonics, leaving mostly the fundamental",
+            "It slows the electrons",
             "It adds new frequencies",
             "It inverts the phase",
           ],
-          answer: 1,
+          answer: 0,
           explain: "In the frequency view the mystery vanishes: no harmonics, no edges — just the fundamental sine.",
         },
         {
           q: "Sharp, fast edges in a waveform imply…",
           choices: [
-            "Strong high-frequency harmonic content",
+            "The signal is digital and has no spectrum",
             "Low frequency content only",
             "A DC offset",
-            "The signal is digital and has no spectrum",
+            "Strong high-frequency harmonic content",
           ],
-          answer: 0,
+          answer: 3,
           explain:
             "Speed in time = extent in frequency. This is why crisp digital edges radiate interference and why Nyquist cares about the highest harmonic.",
         },
@@ -347,34 +347,34 @@ export const unit13: UnitModule = {
         {
           q: "The code y += α(x − y) implements…",
           choices: [
-            "A high-pass filter",
             "A low-pass filter — the RC charging law in discrete time",
+            "A high-pass filter",
             "An amplifier",
             "An oscillator",
           ],
-          answer: 1,
+          answer: 0,
           explain: "It moves y toward x proportionally to the distance — exactly the capacitor's exponential approach from 2.3.",
         },
         {
           q: "Making α smaller (or the averaging window bigger)…",
           choices: [
-            "Smooths more but responds slower",
-            "Smooths more and responds faster",
             "Only changes the amplitude",
+            "Smooths more and responds faster",
+            "Smooths more but responds slower",
             "Causes aliasing",
           ],
-          answer: 0,
+          answer: 2,
           explain: "The universal trade: bigger effective τ = calmer output = later reaction. Same as every RC you've met.",
         },
         {
           q: "One filter must always remain analog hardware:",
           choices: [
             "The tone control",
-            "The anti-alias filter before the ADC",
-            "The smoothing after the DAC",
             "None — software can do everything",
+            "The smoothing after the DAC",
+            "The anti-alias filter before the ADC",
           ],
-          answer: 1,
+          answer: 3,
           explain: "Aliasing corrupts data at the moment of sampling; no later code can undo it. The guard must stand before the gate.",
         },
         {

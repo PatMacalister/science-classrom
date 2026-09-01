@@ -71,19 +71,19 @@ export const unit19De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Beim Bürsten-Gleichstrommotor bestimmt vor allem ___ die Drehzahl und ___ das Drehmoment.",
-        choices: ["Strom / Spannung", "Spannung / Strom", "Widerstand / Kapazität", "PWM-Frequenz / Tastgrad"],
-        answer: 1,
+        choices: ["Strom / Spannung", "PWM-Frequenz / Tastgrad", "Widerstand / Kapazität", "Spannung / Strom"],
+        answer: 3,
         explain: "Die Gegen-EMK balanciert die angelegte Spannung bei passender Drehzahl aus; der Laststrom durch die Spulen macht das Drehmoment.",
       },
       {
         q: "Um einen Gleichstrommotor umzukehren, tut eine H-Brücke Folgendes:",
         choices: [
-          "sie erhöht die Spannung",
           "sie aktiviert das gegenüberliegende Diagonalpaar und dreht so die Stromrichtung durch den Motor",
+          "sie erhöht die Spannung",
           "sie polt die Batterie chemisch um",
           "sie benutzt einen größeren Kondensator",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Q1+Q4 schickt den Strom in die eine Richtung durch den Querbalken; Q2+Q3 in die andere. Gleiche Batterie, umgekehrte Drehung.",
       },
       {
@@ -101,11 +101,11 @@ export const unit19De: Record<string, LessonContentDe> = {
         q: "Die Anschlüsse eines drehenden Motors kurzzuschließen (Bremsmodus) stoppt ihn schnell, weil…",
         choices: [
           "es den Strom abschneidet",
-          "seine eigene Gegen-EMK Strom treibt, der der Bewegung entgegenwirkt — der Motor generiert gegen sich selbst",
           "die Reibung zunimmt",
+          "seine eigene Gegen-EMK Strom treibt, der der Bewegung entgegenwirkt — der Motor generiert gegen sich selbst",
           "das Magnetfeld dauerhaft kollabiert",
         ],
-        answer: 1,
+        answer: 2,
         explain: "Generatorwirkung, umgedreht. Fang diesen Strom in einer Batterie statt in einem Kurzschluss, und du hast Rekuperation.",
       },
     ],
@@ -173,33 +173,33 @@ export const unit19De: Record<string, LessonContentDe> = {
         q: "In einem Modellbau-Servo findest du Motor, Getriebe, Regler und…",
         choices: [
           "eine Encoderscheibe",
-          "ein Potentiometer auf der Ausgangswelle, das ihren Winkel meldet",
-          "einen GPS-Empfänger",
           "einen zweiten Motor",
+          "einen GPS-Empfänger",
+          "ein Potentiometer auf der Ausgangswelle, das ihren Winkel meldet",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Die Welle dreht einen Teiler (2.2); der interne P-Regler (14.1) treibt, bis Meldung und Befehl übereinstimmen.",
       },
       {
         q: "Der befohlene Winkel eines Servos steckt in…",
         choices: [
           "der Versorgungsspannung",
-          "der Breite eines wiederholten Pulses (≈1–2 ms alle 20 ms)",
           "der Kabelfarbe",
+          "der Breite eines wiederholten Pulses (≈1–2 ms alle 20 ms)",
           "einer I2C-Nachricht",
         ],
-        answer: 1,
+        answer: 2,
         explain: "Wieder Pulsbreite — die Idee aus Einheit 8, wiederverwendet als Befehlssprache. 1,5 ms = Mitte.",
       },
       {
         q: "Ein Schrittmotor kennt seine Position, weil…",
         choices: [
-          "er einen internen Sensor hat",
           "er sie nicht kennt — der Controller zählt die befohlenen Schritte",
+          "er einen internen Sensor hat",
           "er die Gegen-EMK misst",
           "er den Servo fragt",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Offener Kreis: Position = Schrittzahl. Deterministisch und billig — bis ein übersprungener Schritt unbemerkt bleibt.",
       },
       {
@@ -278,19 +278,19 @@ export const unit19De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ein Einkanal-Encoder kann dir nicht sagen…",
-        choices: ["die Geschwindigkeit", "die Distanz", "die Drehrichtung", "die Schlitzzahl"],
-        answer: 2,
+        choices: ["die Drehrichtung", "die Distanz", "die Geschwindigkeit", "die Schlitzzahl"],
+        answer: 0,
         explain: "Klicks sehen in beide Richtungen gleich aus. Der zweite, viertelversetzte Kanal existiert genau, um dieses Patt zu brechen.",
       },
       {
         q: "Bei der Quadraturkodierung liest man die Richtung, indem…",
         choices: [
           "man die Amplituden der zwei Kanäle vergleicht",
-          "man prüft, welcher Kanal führt — z. B. B an As steigender Flanke abtastet",
-          "man nur Kanal B zählt",
           "man die Frequenz misst",
+          "man nur Kanal B zählt",
+          "man prüft, welcher Kanal führt — z. B. B an As steigender Flanke abtastet",
         ],
-        answer: 1,
+        answer: 3,
         explain: "90° Phase heißt: Die Führungsreihenfolge kippt mit der Drehrichtung — ein Flipflop dekodiert es.",
       },
       {
@@ -308,11 +308,11 @@ export const unit19De: Record<string, LessonContentDe> = {
         q: "Warum verlassen sich Radroboter nicht allein auf Odometrie?",
         choices: [
           "Encoder sind zu teuer",
-          "Räder rutschen und Fehler summieren sich — Odometrie driftet und braucht Fusion mit anderen Sinnen",
           "das Zählen läuft über",
+          "Räder rutschen und Fehler summieren sich — Odometrie driftet und braucht Fusion mit anderen Sinnen",
           "tun sie doch — sie ist perfekt",
         ],
-        answer: 1,
+        answer: 2,
         explain: "Jeder Rutscher ist eine stille Lüge, die der Zähler für immer glaubt. Fusion mit IMUs und Abstandssensoren hält die Realität im Kreis.",
       },
     ],

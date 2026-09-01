@@ -81,20 +81,20 @@ export const unit0De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Was entscheidet, welches Element ein Atom ist?",
-        choices: ["Die Anzahl der Neutronen", "Die Anzahl der Protonen", "Die Anzahl der Elektronen", "Seine Masse"],
-        answer: 1,
+        choices: ["Die Anzahl der Neutronen", "Seine Masse", "Die Anzahl der Elektronen", "Die Anzahl der Protonen"],
+        answer: 3,
         explain:
           "Die Protonenzahl (Ordnungszahl Z) ist die Identität des Elements. Neutronen machen Isotope, Elektronen machen Ionen — aber 6 Protonen sind immer Kohlenstoff.",
       },
       {
         q: "Kohlenstoff-12 und Kohlenstoff-14 sind…",
         choices: [
-          "verschiedene Elemente",
           "Isotope — gleiche Protonen, verschiedene Neutronen",
+          "verschiedene Elemente",
           "Ionen — gleiche Protonen, verschiedene Elektronen",
           "Moleküle",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Beide haben 6 Protonen (das macht sie zu Kohlenstoff). C-12 hat 6 Neutronen, C-14 hat 8 — gleiches Element, andere Massenzahl A.",
       },
@@ -191,8 +191,8 @@ export const unit0De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Wie viele Elektronen passen in die ersten beiden Schalen?",
-        choices: ["8 und 8", "2 und 8", "2 und 6", "8 und 18"],
-        answer: 1,
+        choices: ["2 und 8", "8 und 8", "2 und 6", "8 und 18"],
+        answer: 0,
         explain:
           "Die erste Schale fasst 2, die zweite 8 — deshalb hat die erste Periode 2 Elemente und die zweite 8.",
       },
@@ -224,11 +224,11 @@ export const unit0De: Record<string, LessonContentDe> = {
         q: "Warum sind Edelgase so reaktionsträge?",
         choices: [
           "Sie sind zu schwer zum Reagieren",
-          "Ihre Außenschale ist bereits voll",
-          "Sie haben keine Elektronen",
           "Sie sind immer Ionen",
+          "Sie haben keine Elektronen",
+          "Ihre Außenschale ist bereits voll",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Reaktivität ist die Jagd nach einer vollen Außenschale. Edelgase starten schon mit einer — sie haben nichts zu gewinnen, zu verlieren oder zu teilen.",
       },
@@ -348,11 +348,11 @@ export const unit0De: Record<string, LessonContentDe> = {
         q: "Elemente in derselben Spalte (Gruppe) des Periodensystems haben…",
         choices: [
           "die gleiche Masse",
-          "die gleiche Anzahl Schalen",
           "die gleiche Anzahl Valenzelektronen — und ähnliche Chemie",
+          "die gleiche Anzahl Schalen",
           "nichts gemeinsam",
         ],
-        answer: 2,
+        answer: 1,
         explain:
           "Spalten sammeln Elemente, deren Außenschalen gleich aussehen. Gleiche Valenzelektronen → gleiches chemisches Verhalten: genau das ist der Sinn der Tafel.",
       },
@@ -360,11 +360,11 @@ export const unit0De: Record<string, LessonContentDe> = {
         q: "Eine neue Zeile (Periode) beginnt immer dann, wenn…",
         choices: [
           "ein Element radioaktiv wird",
-          "eine neue Elektronenschale zu füllen beginnt",
           "sich die Masse des Elements verdoppelt",
+          "eine neue Elektronenschale zu füllen beginnt",
           "Mendelejew das Papier ausging",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Periodennummer = Anzahl besetzter Schalen. Natrium beginnt Periode 3, weil sein 11. Elektron die dritte Schale eröffnet.",
       },
@@ -372,23 +372,23 @@ export const unit0De: Record<string, LessonContentDe> = {
         q: "Das Symbol für Kalium ist K, weil…",
         choices: [
           "K der erste Buchstabe von Kalium ist und das Englische Potassium sagt",
-          "es vom lateinischen Namen Kalium kommt",
-          "es von einem Herrn K entdeckt wurde",
           "P schon vergeben war und man zufällig K nahm",
+          "es von einem Herrn K entdeckt wurde",
+          "es vom lateinischen Namen Kalium kommt",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Kalium (von arabisch al-qalya, Pflanzenasche) ist der lateinische Name — Englisch sagt 'potassium', das Symbol folgt dem Lateinischen. Eine Eselsbrücke überbrückt die Lücke.",
       },
       {
         q: "Welches ist das reaktivste Nichtmetall, und wo steht es?",
         choices: [
-          "Caesium — unten links",
-          "Helium — oben rechts",
           "Fluor — oben rechts, ein Elektron unter der vollen Schale",
+          "Helium — oben rechts",
+          "Caesium — unten links",
           "Eisen — genau in der Mitte",
         ],
-        answer: 2,
+        answer: 0,
         explain:
           "Fluor vereint beide Trends: kleiner, stark geladener Kern und eine Schale, der genau ein Elektron fehlt. Es greift fast alles an — sogar Glas.",
       },

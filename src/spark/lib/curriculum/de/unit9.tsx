@@ -89,26 +89,26 @@ export const unit9De: Record<string, LessonContentDe> = {
       },
       {
         q: "f₀ = 1/(2π√(LC)). Eine Vervierfachung von C macht die Resonanzfrequenz…",
-        choices: ["4× höher", "2× höher", "2× niedriger", "4× niedriger"],
-        answer: 2,
+        choices: ["2× niedriger", "2× höher", "4× höher", "4× niedriger"],
+        answer: 0,
         explain: "f₀ skaliert mit 1/√C: 4-fache Kapazität → √4 = 2× niedrigere Frequenz.",
       },
       {
         q: "Ein Resonator mit hoher Güte Q…",
         choices: [
-          "klingt lange und reagiert nur nahe seiner Eigenfrequenz",
-          "klingt kurz, aber laut",
           "hat einen hohen Widerstand",
+          "klingt kurz, aber laut",
+          "klingt lange und reagiert nur nahe seiner Eigenfrequenz",
           "kann nicht schwingen",
         ],
-        answer: 0,
+        answer: 2,
         explain:
           "Wenig Verlust = langes Klingen = scharfe Frequenzvorliebe. Genau diese Trennschärfe braucht die Radio-Abstimmung.",
       },
       {
         q: "Welches Alltagsbauteil ist ein Resonator mit extrem hoher Güte?",
-        choices: ["Eine Sicherung", "Ein Schwingquarz", "Eine LED", "Ein Potentiometer"],
-        answer: 1,
+        choices: ["Eine Sicherung", "Ein Potentiometer", "Eine LED", "Ein Schwingquarz"],
+        answer: 3,
         explain:
           "Schwingquarze schwingen mechanisch mit Güten in den Zehntausenden — deshalb halten sie die Zeit in jeder Uhr, jedem Computer und jedem Radio.",
       },
@@ -198,29 +198,29 @@ export const unit9De: Record<string, LessonContentDe> = {
       {
         q: "Das Drehen des Abstimmknopfs an einem alten Radio verändert physisch…",
         choices: [
-          "die Antennenlänge",
           "einen Drehkondensator, der die Resonanzfrequenz des Schwingkreises verschiebt",
+          "die Antennenlänge",
           "die Batteriespannung",
           "die Lautsprecherimpedanz",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Ineinandergeschobene Platten ändern C, und f₀ = 1/(2π√LC) folgt. Der Knopf ist ein Kondensator.",
       },
       {
         q: "Ein auf 1 MHz abgestimmter Schwingkreis mit Q = 100 lässt ein Band durch von grob…",
-        choices: ["1 kHz Breite", "10 kHz Breite", "100 kHz Breite", "1 MHz Breite"],
-        answer: 1,
+        choices: ["1 kHz Breite", "100 kHz Breite", "10 kHz Breite", "1 MHz Breite"],
+        answer: 2,
         explain: "Bandbreite ≈ f₀/Q = 1 MHz/100 = 10 kHz — hübsch passend zu einem AM-Kanal.",
       },
       {
         q: "Mit zu wenig Q (schlechter Trennschärfe) würdest du hören…",
         choices: [
           "gar nichts",
-          "zwei benachbarte Sender gleichzeitig",
-          "nur Morsezeichen",
           "den Sender, aber invertiert",
+          "nur Morsezeichen",
+          "zwei benachbarte Sender gleichzeitig",
         ],
-        answer: 1,
+        answer: 3,
         explain: "Eine breite, matschige Spitze lässt benachbarte Träger gemeinsam durch — das klassische Billigradio-Problem.",
       },
     ],
@@ -302,19 +302,19 @@ export const unit9De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Bei AM steckt die Audioinformation in der … der Welle.",
-        choices: ["Frequenz", "Amplitude (ihrer Hüllkurve)", "Phase", "Farbe"],
-        answer: 1,
+        choices: ["Frequenz", "Phase", "Amplitude (ihrer Hüllkurve)", "Farbe"],
+        answer: 2,
         explain: "Amplitudenmodulation: Die Stärke des Trägers zeichnet die Audio-Wellenform nach — die Hüllkurve ist der Klang.",
       },
       {
         q: "Ein Hüllkurvendetektor besteht aus…",
         choices: [
-          "einem Transistor und zwei Spulen",
           "einer Diode, einem Kondensator und einem Widerstand",
+          "einem Transistor und zwei Spulen",
           "einem Operationsverstärker und einem Quarz",
           "drei Kondensatoren",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Die Diode richtet gleich, C hält jede Spitze, R lässt die Spannung der Hüllkurve nach unten folgen — Lektionen 3.1 + 2.3 + 5.2 in einem.",
       },
@@ -334,11 +334,11 @@ export const unit9De: Record<string, LessonContentDe> = {
         q: "Ein Detektorradio braucht keine Batterie, weil…",
         choices: [
           "Dioden Strom erzeugen",
-          "es allein mit der Energie der empfangenen Radiowelle läuft",
-          "der Ohrhörer eine Zelle enthält",
           "es in Wahrheit gar nicht funktioniert",
+          "der Ohrhörer eine Zelle enthält",
+          "es allein mit der Energie der empfangenen Radiowelle läuft",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Die Antenne erntet echte (winzige) Leistung aus der Welle des Senders — genug für einen empfindlichen Ohrhörer. Radio als Gratis-Mahlzeit.",
       },

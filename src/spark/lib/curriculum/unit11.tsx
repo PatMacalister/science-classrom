@@ -92,11 +92,11 @@ export const unit11: UnitModule = {
           q: "A microcontroller differs from the chips in your earlier lessons because it contains…",
           choices: [
             "No transistors",
-            "A programmable CPU with memory and I/O peripherals — a complete computer",
-            "Only analog circuits",
             "A built-in battery",
+            "Only analog circuits",
+            "A programmable CPU with memory and I/O peripherals — a complete computer",
           ],
-          answer: 1,
+          answer: 3,
           explain: "It's Unit 7's logic at scale plus program storage: a computer whose pins reach into your breadboard.",
         },
         {
@@ -114,11 +114,11 @@ export const unit11: UnitModule = {
           q: "Changing your 555 blinker's rate needed a new capacitor. Changing the MCU blinker's rate needs…",
           choices: [
             "A new crystal",
-            "Editing a number in the code",
             "A hotter soldering iron",
+            "Editing a number in the code",
             "A different LED",
           ],
-          answer: 1,
+          answer: 2,
           explain: "sleep(0.5) → sleep(0.1). That editability is the entire revolution.",
         },
         {
@@ -214,8 +214,8 @@ export const unit11: UnitModule = {
       quiz: [
         {
           q: "A 12-bit ADC with a 3.3 V reference resolves steps of about…",
-          choices: ["3.3 V", "0.8 mV", "0.8 V", "12 mV"],
-          answer: 1,
+          choices: ["0.8 mV", "3.3 V", "0.8 V", "12 mV"],
+          answer: 0,
           explain: "3.3 V / 4096 levels ≈ 0.8 mV per step.",
         },
         {
@@ -233,22 +233,22 @@ export const unit11: UnitModule = {
           q: "Quantisation means…",
           choices: [
             "The ADC destroys the signal",
-            "All voltages within one step read as the same number",
             "The input must be quantum-mechanical",
+            "All voltages within one step read as the same number",
             "Readings are always wrong by 50%",
           ],
-          answer: 1,
+          answer: 2,
           explain: "Finite steps → finite precision. More bits, smaller steps — never zero.",
         },
         {
           q: "Software hysteresis (two thresholds) prevents…",
           choices: [
             "The ADC from overheating",
-            "Rapid on/off chatter when the reading hovers near a single threshold",
-            "Quantisation error",
             "The need for a divider",
+            "Quantisation error",
+            "Rapid on/off chatter when the reading hovers near a single threshold",
           ],
-          answer: 1,
+          answer: 3,
           explain: "Same disease and cure as Lesson 6.1's comparator — noise can't re-trigger inside the band.",
         },
       ],

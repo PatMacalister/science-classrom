@@ -94,20 +94,20 @@ export const unit0: UnitModule = {
       quiz: [
         {
           q: "What decides which element an atom is?",
-          choices: ["The number of neutrons", "The number of protons", "The number of electrons", "Its mass"],
-          answer: 1,
+          choices: ["The number of neutrons", "Its mass", "The number of electrons", "The number of protons"],
+          answer: 3,
           explain:
             "The proton count (atomic number Z) is the element's identity. Neutrons make isotopes, electrons make ions — but 6 protons is always carbon.",
         },
         {
           q: "Carbon-12 and carbon-14 are…",
           choices: [
-            "different elements",
             "isotopes — same protons, different neutrons",
+            "different elements",
             "ions — same protons, different electrons",
             "molecules",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "Both have 6 protons (that's what makes them carbon). Carbon-12 has 6 neutrons, carbon-14 has 8 — same element, different mass number A.",
         },
@@ -212,8 +212,8 @@ export const unit0: UnitModule = {
       quiz: [
         {
           q: "How many electrons fit in the first two shells?",
-          choices: ["8 and 8", "2 and 8", "2 and 6", "8 and 18"],
-          answer: 1,
+          choices: ["2 and 8", "8 and 8", "2 and 6", "8 and 18"],
+          answer: 0,
           explain: "The first shell holds 2, the second holds 8 — that's why the first period of the table has 2 elements and the second has 8.",
         },
         {
@@ -244,11 +244,11 @@ export const unit0: UnitModule = {
           q: "Why are noble gases so unreactive?",
           choices: [
             "They are too heavy to react",
-            "Their outer shell is already full",
-            "They have no electrons",
             "They are always ions",
+            "They have no electrons",
+            "Their outer shell is already full",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Reactivity is the hunt for a full outer shell. Noble gases start with one — they have nothing to gain, lose or share.",
         },
@@ -374,11 +374,11 @@ export const unit0: UnitModule = {
           q: "Elements in the same column (group) of the periodic table have…",
           choices: [
             "the same mass",
-            "the same number of shells",
             "the same number of valence electrons — and similar chemistry",
+            "the same number of shells",
             "nothing in common",
           ],
-          answer: 2,
+          answer: 1,
           explain:
             "Columns collect elements whose outer shells look alike. Same valence electrons → same chemical behaviour: that's the table's whole point.",
         },
@@ -386,11 +386,11 @@ export const unit0: UnitModule = {
           q: "A new row (period) of the table begins whenever…",
           choices: [
             "an element becomes radioactive",
-            "a new electron shell starts filling",
             "the element's mass doubles",
+            "a new electron shell starts filling",
             "Mendeleev ran out of paper",
           ],
-          answer: 1,
+          answer: 2,
           explain:
             "Period number = number of occupied shells. Sodium starts period 3 because its 11th electron opens the third shell.",
         },
@@ -398,23 +398,23 @@ export const unit0: UnitModule = {
           q: "The symbol for potassium is K because…",
           choices: [
             "K is the first letter of potassium",
-            "it comes from the Latin name kalium",
-            "it was discovered by a Mr. K",
             "P was already taken, so they picked K at random",
+            "it was discovered by a Mr. K",
+            "it comes from the Latin name kalium",
           ],
-          answer: 1,
+          answer: 3,
           explain:
             "Kalium (from Arabic al-qalya, plant ash) is the element's Latin name — English kept 'potassium', but the symbol follows the Latin. An Eselsbrücke bridges the gap.",
         },
         {
           q: "Which element is the most reactive non-metal, and where does it sit?",
           choices: [
-            "Caesium — bottom left",
-            "Helium — top right",
             "Fluorine — top right, one electron short of a full shell",
+            "Helium — top right",
+            "Caesium — bottom left",
             "Iron — dead centre",
           ],
-          answer: 2,
+          answer: 0,
           explain:
             "Fluorine combines the two trends: small, highly charged nucleus and a shell lacking exactly one electron. It attacks almost everything — even glass.",
         },

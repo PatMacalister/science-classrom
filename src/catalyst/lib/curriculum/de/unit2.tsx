@@ -90,12 +90,12 @@ export const unit2De: Record<string, LessonContentDe> = {
       {
         q: "Was macht eine chemische Reaktion mit den Atomen?",
         choices: [
-          "Sie erzeugt neue Atome und vernichtet alte",
           "Sie ordnet sie zu neuen Kombinationen um — keines entsteht oder verschwindet",
+          "Sie erzeugt neue Atome und vernichtet alte",
           "Sie wandelt sie in reine Energie um",
           "Sie schmilzt sie zusammen",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Reaktionen brechen und knüpfen Bindungen; alle Atome überleben. Massenerhaltung ist der Grund, warum Gleichungen ausgeglichen sein müssen.",
       },
@@ -115,11 +115,11 @@ export const unit2De: Record<string, LessonContentDe> = {
         q: "In 2 H₂ + O₂ → 2 H₂O sagen dir die Koeffizienten 2 : 1 : 2…",
         choices: [
           "die Massen der Stoffe",
-          "das Reaktionsverhältnis — gültig für Moleküle, Dutzende und Mol gleichermaßen",
-          "die nötige Temperatur",
           "wie schnell die Reaktion läuft",
+          "die nötige Temperatur",
+          "das Reaktionsverhältnis — gültig für Moleküle, Dutzende und Mol gleichermaßen",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Koeffizienten sind Proportionen, wie ein Rezept: zwei Teile Wasserstoff auf einen Teil Sauerstoff ergeben zwei Teile Wasser, egal wie groß die Charge ist.",
       },
@@ -241,11 +241,11 @@ export const unit2De: Record<string, LessonContentDe> = {
         q: "Welchem Muster folgt AgNO₃ + NaCl → AgCl + NaNO₃?",
         choices: [
           "Einfache Substitution",
-          "Doppelte Substitution — die beiden Verbindungen tauschen Partner",
           "Verbrennung",
+          "Doppelte Substitution — die beiden Verbindungen tauschen Partner",
           "Analyse",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Silber geht zum Chlorid, Natrium zum Nitrat: AB + CD → AD + CB. Angetrieben wird das Ganze davon, dass unlösliches AgCl ausfällt.",
       },
@@ -253,23 +253,23 @@ export const unit2De: Record<string, LessonContentDe> = {
         q: "Zink verdrängt Kupfer aus Kupfersulfat, Kupfer aber nicht Zink aus Zinksulfat. Warum?",
         choices: [
           "Kupfer ist schwerer",
-          "Zink ist unedler als Kupfer, also ist nur diese Richtung günstig",
-          "Kupfersulfat ist ein Gas",
           "Die Reaktion braucht Licht",
+          "Kupfersulfat ist ein Gas",
+          "Zink ist unedler als Kupfer, also ist nur diese Richtung günstig",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Bei einer einfachen Substitution übernimmt das unedlere Metall das Anion. Zink steht in der Spannungsreihe über Kupfer, also läuft nur Zink → Kupfer.",
       },
       {
         q: "Was sind die Produkte der vollständigen Verbrennung eines beliebigen Kohlenwasserstoffs?",
         choices: [
-          "Kohlenstoffmonoxid und Wasserstoff",
           "Kohlenstoffdioxid und Wasser",
+          "Kohlenstoffmonoxid und Wasserstoff",
           "Ruß und Sauerstoff",
           "Das hängt vom Kohlenwasserstoff ab",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Mit genug Sauerstoff landet jeder Kohlenstoff in CO₂ und jeder Wasserstoff in H₂O. Zu wenig Sauerstoff ergibt unvollständige Verbrennung — CO und Ruß.",
       },
@@ -360,29 +360,29 @@ export const unit2De: Record<string, LessonContentDe> = {
         q: "Warum ist die Avogadro-Zahl genau dieser krumme Wert?",
         choices: [
           "Sie wurde zufällig gewählt",
-          "Damit ein Mol eines Stoffes seine Teilchenmasse in Gramm wiegt",
-          "Es ist die Anzahl Atome im menschlichen Körper",
           "Zu Ehren von Avogadros Geburtstag",
+          "Es ist die Anzahl Atome im menschlichen Körper",
+          "Damit ein Mol eines Stoffes seine Teilchenmasse in Gramm wiegt",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "N_A rechnet atomare Masseneinheiten in Gramm um: ein 12-u-Kohlenstoffatom → 12 g pro Mol Kohlenstoff. Das macht die Waage zum Teilchenzähler.",
       },
       {
         q: "Wie groß ist die molare Masse von CO₂ (C = 12,01, O = 16,00)?",
-        choices: ["28,01 g/mol", "44,01 g/mol", "32,00 g/mol", "12,01 g/mol"],
-        answer: 1,
+        choices: ["28,01 g/mol", "32,00 g/mol", "44,01 g/mol", "12,01 g/mol"],
+        answer: 2,
         explain: "12,01 + 2 × 16,00 = 44,01 g/mol. Molare Masse ist schlicht das Addieren der Tabellenwerte in der Formel.",
       },
       {
         q: "Du hast 100 g Wasser und 100 g Eisen. Was enthält mehr Teilchen?",
         choices: [
-          "Das Eisen — Metallatome sind dichter gepackt",
           "Das Wasser — seine molare Masse (18) ist viel kleiner als die von Eisen (56)",
+          "Das Eisen — Metallatome sind dichter gepackt",
           "Beide gleich — gleiche Masse, gleiche Teilchen",
           "Lässt sich nicht bestimmen",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "n = m/M: 100/18 ≈ 5,6 mol Wasser gegenüber 100/55,85 ≈ 1,8 mol Eisen. Leichtere Teilchen → mehr davon pro Gramm.",
       },
@@ -489,12 +489,12 @@ export const unit2De: Record<string, LessonContentDe> = {
       {
         q: "Warum muss die Stöchiometrie Gramm in Mol umrechnen, bevor sie Stoffe vergleicht?",
         choices: [
-          "Gramm sind ungenau",
           "Die Koeffizienten der Gleichung zählen Teilchen (Mol), nicht Masse",
+          "Gramm sind ungenau",
           "Mol lassen sich leichter wiegen",
           "Das ist Tradition",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Die ausgeglichene Gleichung spricht in Teilchenverhältnissen. 2 g H₂ und 2 g O₂ sind völlig verschiedene Teilchenzahlen — Mol macht sie vergleichbar.",
       },
@@ -509,18 +509,18 @@ export const unit2De: Record<string, LessonContentDe> = {
         q: "Mehr vom überschüssigen Edukt zuzugeben…",
         choices: [
           "erhöht die Ausbeute proportional",
-          "ändert nichts — das limitierende Edukt entscheidet weiterhin",
           "beschleunigt die Zeit",
+          "ändert nichts — das limitierende Edukt entscheidet weiterhin",
           "verdoppelt immer das Produkt",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Die Ausbeute hängt an dem, was zuerst ausgeht. Zusätzliches Überschuss-Edukt vergrößert nur den Restehaufen.",
       },
       {
         q: "Das Verbrennen von 1 mol CH₄ (CH₄ + 2 O₂ → CO₂ + 2 H₂O) verbraucht wie viel O₂?",
-        choices: ["1 mol", "2 mol", "0,5 mol", "4 mol"],
-        answer: 1,
+        choices: ["1 mol", "4 mol", "0,5 mol", "2 mol"],
+        answer: 3,
         explain: "Die Koeffizienten sagen 1 : 2 — jedes Mol Methan verbrennt zwei Mol Sauerstoff.",
       },
     ],

@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "search-index": "node scripts/build-search-index.mjs",
+    "quiz-parity": "node scripts/check-quiz-parity.mjs",
     "predev": "npm run search-index",
     "dev": "next dev",
-    "prebuild": "npm run search-index",
+    "prebuild": "npm run search-index && npm run quiz-parity",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

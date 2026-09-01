@@ -76,26 +76,26 @@ export const unit4De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Eine Säure, in Wasser gelöst, ist ein Stoff, der…",
-        choices: ["OH⁻-Ionen freisetzt", "H⁺-Ionen freisetzt", "Wasser aufnimmt", "Strom leitet"],
-        answer: 1,
+        choices: ["OH⁻-Ionen freisetzt", "Wasser aufnimmt", "H⁺-Ionen freisetzt", "Strom leitet"],
+        answer: 2,
         explain:
           "Säuren geben H⁺ ab (das als H₃O⁺ mitreist); Basen liefern OH⁻ oder schlucken H⁺. Die H⁺-Konzentration ist das, was der pH misst.",
       },
       {
         q: "Eine Flüssigkeit mit pH 3 hat verglichen mit einer mit pH 6…",
-        choices: ["doppelt so viel H⁺", "3× so viel H⁺", "1000× so viel H⁺", "halb so viel H⁺"],
-        answer: 2,
+        choices: ["1000× so viel H⁺", "3× so viel H⁺", "doppelt so viel H⁺", "halb so viel H⁺"],
+        answer: 0,
         explain: "Drei pH-Stufen = 10 × 10 × 10 = 1000× die H⁺-Konzentration. Die Skala ist logarithmisch.",
       },
       {
         q: "Du verdünnst Essig immer weiter mit Wasser. Sein pH…",
         choices: [
           "steigt unbegrenzt und wird zur starken Base",
-          "nähert sich 7, kann es aber nicht überschreiten",
-          "bleibt exakt konstant",
           "fällt Richtung 0",
+          "bleibt exakt konstant",
+          "nähert sich 7, kann es aber nicht überschreiten",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Verdünnen ersetzt Säure durch Wasser, also strebt die Mischung zu Wassers pH 7. Über 7 kommt man nur mit einer echten Base, nicht mit mehr Wasser.",
       },
@@ -210,23 +210,23 @@ export const unit4De: Record<string, LessonContentDe> = {
         q: "Was misst eine Titration?",
         choices: [
           "Die Farbe einer Säure",
-          "Die unbekannte Konzentration einer Säure (oder Base), durch Neutralisieren mit einer bekannten",
           "Den Siedepunkt einer Lösung",
+          "Die unbekannte Konzentration einer Säure (oder Base), durch Neutralisieren mit einer bekannten",
           "Die Masse des Kolbens",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Am Äquivalenzpunkt gilt Stoffmenge Base = Stoffmenge Säure. Kennt man Konzentration und verbrauchtes Volumen der Base, kennt man die Konzentration der Säure.",
       },
       {
         q: "Der Äquivalenzpunkt ist erreicht, wenn…",
         choices: [
-          "der Kolben voll ist",
           "die zugegebene Stoffmenge OH⁻ exakt der vorhandenen Stoffmenge H⁺ entspricht",
+          "der Kolben voll ist",
           "der pH 14 erreicht",
           "der Indikator sich auflöst",
         ],
-        answer: 1,
+        answer: 0,
         explain: "Genau genug Base, um jedes H⁺ zu neutralisieren — bei HCl + NaOH landet die Lösung damit bei pH 7.",
       },
       {
@@ -243,8 +243,8 @@ export const unit4De: Record<string, LessonContentDe> = {
       },
       {
         q: "25 mL unbekannte HCl brauchen 20 mL 0,5 M NaOH bis zum Äquivalenzpunkt. Die Konzentration der Säure ist…",
-        choices: ["0,2 M", "0,4 M", "0,5 M", "0,625 M"],
-        answer: 1,
+        choices: ["0,2 M", "0,625 M", "0,5 M", "0,4 M"],
+        answer: 3,
         explain: "c₁ = c₂V₂/V₁ = 0,5 × 20 / 25 = 0,4 mol/L.",
       },
     ],

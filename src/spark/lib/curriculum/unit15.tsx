@@ -98,23 +98,23 @@ export const unit15: UnitModule = {
         {
           q: "A ±5% 10 kΩ resistor guarantees…",
           choices: [
-            "Exactly 10 kΩ",
             "A value somewhere between 9.5 kΩ and 10.5 kΩ",
+            "Exactly 10 kΩ",
             "10 kΩ that drifts ±5% per year",
             "5% failure rate",
           ],
-          answer: 1,
+          answer: 0,
           explain: "Tolerance bounds the manufacturing spread. The actual value is one point inside that range — you don't know where.",
         },
         {
           q: "Why does one working prototype not prove a design?",
           choices: [
             "Prototypes use better solder",
-            "It samples one point of the tolerance cloud; production samples thousands",
             "Prototypes run at lower voltage",
+            "It samples one point of the tolerance cloud; production samples thousands",
             "It does prove it",
           ],
-          answer: 1,
+          answer: 2,
           explain: "Every unit gets a different roll of the dice on every part. Worst-case and Monte Carlo analysis exist to face the whole cloud.",
         },
         {
@@ -132,11 +132,11 @@ export const unit15: UnitModule = {
           q: "'Absolute maximum ratings' in a datasheet mean…",
           choices: [
             "The recommended operating point",
-            "Limits you may never exceed even briefly — not a design target",
-            "Values guaranteed for 10 years",
             "Marketing numbers",
+            "Values guaranteed for 10 years",
+            "Limits you may never exceed even briefly — not a design target",
           ],
-          answer: 1,
+          answer: 3,
           explain: "Design inside the recommended table; absolute max is where damage begins, not where headroom ends.",
         },
       ],
@@ -232,17 +232,17 @@ export const unit15: UnitModule = {
           q: "The first measurement on any dead circuit should be…",
           choices: [
             "The output",
-            "The supply rail — power faults are the most common class",
             "The most expensive component",
+            "The supply rail — power faults are the most common class",
             "The temperature",
           ],
-          answer: 1,
+          answer: 2,
           explain: "One probe either convicts the most likely suspect or eliminates a whole category. Always power first.",
         },
         {
           q: "Half-splitting a 16-stage signal chain finds the broken stage in about…",
-          choices: ["16 probes", "8 probes", "4 probes", "1 probe"],
-          answer: 2,
+          choices: ["4 probes", "8 probes", "16 probes", "1 probe"],
+          answer: 0,
           explain: "Each measurement halves the territory: 16 → 8 → 4 → 2 → 1. Binary search, with a multimeter.",
         },
         {
@@ -250,10 +250,10 @@ export const unit15: UnitModule = {
           choices: [
             "In the 555's timing network",
             "In the battery",
-            "Downstream of pin 3 — the LED branch",
             "Impossible to localise",
+            "Downstream of pin 3 — the LED branch",
           ],
-          answer: 2,
+          answer: 3,
           explain: "Healthy upstream + dead downstream brackets the fault between them. The oscillator is exonerated; the LED branch is under arrest.",
         },
         {

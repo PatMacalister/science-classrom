@@ -89,12 +89,12 @@ export const unit14: UnitModule = {
         {
           q: "A purely proportional heater controller always settles below its setpoint because…",
           choices: [
-            "Heaters are weak",
             "Zero error would mean zero drive — but holding temperature needs nonzero drive",
+            "Heaters are weak",
             "The sensor reads high",
             "Kp is negative",
           ],
-          answer: 1,
+          answer: 0,
           explain:
             "P-drive exists only while error exists. The system settles at the error whose drive exactly balances the heat loss — the famous P offset.",
         },
@@ -111,19 +111,19 @@ export const unit14: UnitModule = {
         },
         {
           q: "A toaster on a timer is an example of…",
-          choices: ["Closed-loop control", "Open-loop control", "PID control", "Hysteresis"],
-          answer: 1,
+          choices: ["Closed-loop control", "PID control", "Open-loop control", "Hysteresis"],
+          answer: 2,
           explain: "It never measures the toast. Fixed action, hoped-for result — open loop.",
         },
         {
           q: "Which earlier circuit was already a closed feedback loop?",
           choices: [
             "The resistor colour-code decoder",
-            "The op-amp amplifier holding V₋ equal to V₊",
-            "The half-wave rectifier",
             "The LC tank",
+            "The half-wave rectifier",
+            "The op-amp amplifier holding V₋ equal to V₊",
           ],
-          answer: 1,
+          answer: 3,
           explain: "Negative feedback (6.2) is control theory at electronic speed: measure the output, compare, correct — continuously.",
         },
       ],
@@ -216,30 +216,30 @@ export const unit14: UnitModule = {
       quiz: [
         {
           q: "Which PID term eliminates steady-state offset?",
-          choices: ["P", "I — it accumulates error until the offset is driven to zero", "D", "None of them"],
-          answer: 1,
+          choices: ["P", "None of them", "D", "I — it accumulates error until the offset is driven to zero"],
+          answer: 3,
           explain: "The integral keeps growing while any error persists, supplying the standing drive that P alone couldn't.",
         },
         {
           q: "The derivative term's job is to…",
           choices: [
-            "Increase the final accuracy",
             "Brake the response as it approaches the target, damping overshoot",
+            "Increase the final accuracy",
             "Speed up the sensor",
             "Remove the need for a setpoint",
           ],
-          answer: 1,
+          answer: 0,
           explain: "It reacts to the error's rate of change — easing off before impact, like damping in your ringing LC tank.",
         },
         {
           q: "'Integral windup' is the problem of…",
           choices: [
-            "The integral accumulating a huge backlog while the actuator is saturated, causing massive overshoot later",
-            "The derivative amplifying noise",
             "Kp being set to zero",
+            "The derivative amplifying noise",
+            "The integral accumulating a huge backlog while the actuator is saturated, causing massive overshoot later",
             "The loop running too fast",
           ],
-          answer: 0,
+          answer: 2,
           explain: "During saturation the error persists and the accumulator balloons. The cure is a clamp — anti-windup, standard in every real PID.",
         },
         {

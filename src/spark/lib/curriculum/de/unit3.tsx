@@ -109,12 +109,12 @@ export const unit3De: Record<string, LessonContentDe> = {
       {
         q: "Eine Diode leitet, wenn…",
         choices: [
-          "Strom von der Kathode zur Anode fließt",
           "sie in Durchlassrichtung gepolt ist und die Spannung über ihr Vf übersteigt",
+          "Strom von der Kathode zur Anode fließt",
           "überhaupt irgendeine Spannung anliegt",
           "sie unter Raumtemperatur gekühlt wird",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Durchlassrichtung (Anode positiv) plus mindestens die Durchlassspannung (~0,7 V bei Silizium, 1,8–3,2 V bei LEDs) öffnet das Ventil.",
       },
@@ -126,19 +126,19 @@ export const unit3De: Record<string, LessonContentDe> = {
       },
       {
         q: "Welches physische Merkmal kennzeichnet die Kathode einer LED?",
-        choices: ["Das längere Bein", "Die abgeflachte Seite / das kürzere Bein", "Ein roter Punkt", "Das dickere Bein"],
-        answer: 1,
+        choices: ["Das längere Bein", "Das dickere Bein", "Ein roter Punkt", "Die abgeflachte Seite / das kürzere Bein"],
+        answer: 3,
         explain: "Abgeflachte Seite und kurzes Bein = Kathode (−). Langes Bein = Anode (+). Lohnt sich, das vor dem Capstone-Aufbau auswendig zu können.",
       },
       {
         q: "Warum braucht eine LED einen Widerstand, eine Glühlampe aber nicht?",
         choices: [
           "LEDs sind teurer",
-          "Jenseits von Vf begrenzt eine LED ihren Strom kaum selbst — ihre I–V-Kennlinie ist fast senkrecht",
           "Glühlampen laufen nur mit AC",
+          "Jenseits von Vf begrenzt eine LED ihren Strom kaum selbst — ihre I–V-Kennlinie ist fast senkrecht",
           "Widerstände machen das Licht heller",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Der Widerstand eines Glühfadens begrenzt dessen Strom von selbst. Eine leitende LED jenseits von Vf ist fast ein Kurzschluss — etwas anderes muss den Strom festlegen.",
       },
@@ -220,31 +220,31 @@ export const unit3De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Ein BJT mit β = 100 bekommt 50 µA Basisstrom (aktiver Bereich). Kollektorstrom?",
-        choices: ["50 µA", "0,5 mA", "5 mA", "50 mA"],
-        answer: 2,
+        choices: ["50 µA", "0,5 mA", "50 mA", "5 mA"],
+        answer: 3,
         explain: "I_C = β·I_B = 100 × 50 µA = 5000 µA = 5 mA.",
       },
       {
         q: "Ein Transistorschalter in der Sättigung…",
         choices: [
-          "ist voll durchgeschaltet und lässt nur ~0,2 V an sich abfallen",
           "blockiert jeden Strom",
+          "ist voll durchgeschaltet und lässt nur ~0,2 V an sich abfallen",
           "verstärkt proportional",
           "ist zerstört",
         ],
-        answer: 0,
+        answer: 1,
         explain:
           "Sättigung = voll an: Der eigene Widerstand des Kollektorkreises begrenzt den Strom, und am Transistor fällt fast nichts mehr ab.",
       },
       {
         q: "Warum braucht der Basisanschluss einen Widerstand?",
         choices: [
-          "Um den Transistor langsamer zu machen",
           "Der Basis-Emitter-Übergang ist eine Diode — ohne Begrenzung zieht er zerstörerisch viel Strom",
+          "Um den Transistor langsamer zu machen",
           "Um β zu erhöhen",
           "Tradition",
         ],
-        answer: 1,
+        answer: 0,
         explain:
           "Dieselbe Regel wie bei der LED: Ein in Durchlassrichtung gepolter Übergang begrenzt seinen Strom nicht selbst. Der Basiswiderstand legt ihn fest.",
       },
@@ -252,11 +252,11 @@ export const unit3De: Record<string, LessonContentDe> = {
         q: "Digitalschaltungen nutzen Transistoren hauptsächlich in welchen Bereichen?",
         choices: [
           "Nur im aktiven Bereich",
-          "Sperrbereich und Sättigung — voll aus und voll an",
           "Nur in der Sättigung",
+          "Sperrbereich und Sättigung — voll aus und voll an",
           "In keinem: Digitalchips enthalten keine Transistoren",
         ],
-        answer: 1,
+        answer: 2,
         explain:
           "Logik will eindeutige Nullen und Einsen: Sperrbereich und Sättigung sind die zwei sauberen, verlustarmen Zustände. Eine CPU ist Milliarden solcher Schalter.",
       },
@@ -380,8 +380,8 @@ export const unit3De: Record<string, LessonContentDe> = {
     quiz: [
       {
         q: "Im astabilen Betrieb pendelt die Kondensatorspannung zwischen…",
-        choices: ["0 V und Vcc", "⅓ Vcc und ⅔ Vcc", "0 V und ⅓ Vcc", "⅔ Vcc und Vcc"],
-        answer: 1,
+        choices: ["0 V und Vcc", "0 V und ⅓ Vcc", "⅓ Vcc und ⅔ Vcc", "⅔ Vcc und Vcc"],
+        answer: 2,
         explain:
           "Der interne Teiler legt die beiden Komparatorschwellen auf ⅓ und ⅔ der Versorgung; der Kondensator pendelt dazwischen hin und her.",
       },
@@ -393,19 +393,19 @@ export const unit3De: Record<string, LessonContentDe> = {
       },
       {
         q: "Der Ausgang eines 555 liegt auf Pin…",
-        choices: ["1", "3", "7", "8"],
-        answer: 1,
+        choices: ["3", "1", "7", "8"],
+        answer: 0,
         explain: "Pin 3 ist OUT. (1 = GND, 8 = VCC, 7 = Entladung — das solltest du vor dem Aufbau im Schlaf können.)",
       },
       {
         q: "Warum ist die HIGH-Zeit des astabilen 555 immer länger als seine LOW-Zeit?",
         choices: [
           "Der Chip reagiert träge",
-          "C lädt über R1+R2, entlädt sich aber nur über R2",
-          "LEDs bremsen die steigende Flanke",
           "Stimmt nicht — LOW ist länger",
+          "LEDs bremsen die steigende Flanke",
+          "C lädt über R1+R2, entlädt sich aber nur über R2",
         ],
-        answer: 1,
+        answer: 3,
         explain:
           "Das Laden kämpft sich durch beide Widerstände, das Entladen nur durch R2. Mehr Widerstand = mehr Zeit (τ = RC), also immer HIGH > LOW.",
       },
