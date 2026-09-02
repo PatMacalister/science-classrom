@@ -9,13 +9,15 @@ progress and language-aware interface:
 | --- | --- | --- | --- |
 | ⚡ **Spark Academy** | `/spark` | Electrical engineering (57 lessons, 21 units, 4 tiers + specializations) | Real builds: 555 blinker, PWM dimmer, Pico firmware, a self-built oscilloscope, CPU/SDR/robot/PCB branches |
 | ⚗️ **Catalyst Academy** | `/catalyst` | Chemistry (25 lessons, 7 units, core + advanced) | Kitchen Lab (red-cabbage pH, CO₂ balloon, crystals) and a lemon battery lighting an LED — plus all 118 elements with a memory hook each at `/catalyst/elements` |
-| 🧬 **Helix Academy** | `/helix` | Biology (17 lessons, 7 units, core + advanced) | Real DNA pulled out of a strawberry on a stick, and a balloon inflated by living yeast to a volume you predicted — plus the genetic code with a hook for every amino acid at `/helix/codons` |
+| 🧬 **Helix Academy** | `/helix` | Biology (23 lessons, 10 units, core + advanced through immunity, nerves and CRISPR) | Real DNA pulled out of a strawberry on a stick, and a balloon inflated by living yeast to a volume you predicted — plus the genetic code with a hook for every amino acid at `/helix/codons` |
 
 Every lesson everywhere: **theory → interactive lab → quiz** (≥ 75% to pass),
 with numeric problems on quantitative lessons, a spaced-repetition review deck
-(`/<course>/review`) and a printable certificate (`/<course>/certificate`).
+(`/<course>/review`), a cross-unit final exam (`/<course>/exam`) whose misses
+feed that deck, a progress dashboard (`/<course>/stats`) and a printable
+certificate (`/<course>/certificate`).
 
-Across courses: **`/search`** covers all 99 lessons in both languages, lessons
+Across courses: **`/search`** covers all 105 lessons in both languages, lessons
 can point at their counterpart in another field ("same idea, other course"),
 and every lab is keyboard-operable — the canvas takes focus, arrow keys steer a
 virtual pointer, Enter grabs and releases, and the readouts are a live region

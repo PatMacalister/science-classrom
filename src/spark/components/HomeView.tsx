@@ -121,6 +121,12 @@ export default function HomeView() {
         <Link className="btn secondary" href="/spark/review" suppressHydrationWarning>
           {t("reviewDeck")}{reviewDue > 0 ? ` ${t("reviewDue", { n: reviewDue })}` : ""}
         </Link>{" "}
+        <Link className="btn secondary" href="/spark/exam">
+          {t("examLink")}
+        </Link>{" "}
+        <Link className="btn secondary" href="/spark/stats">
+          {t("statsLink")}
+        </Link>{" "}
         <Link className="btn secondary" href="/spark/certificate">
           {t("certificate")}
         </Link>
