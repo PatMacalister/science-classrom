@@ -83,8 +83,8 @@ export const COURSES: CourseInfo[] = [
       en: "Ends in your kitchen: real DNA pulled out of a strawberry on a stick, and a balloon inflated by living yeast to a volume you predicted.",
       de: "Endet in deiner Küche: echte DNA, am Stäbchen aus einer Erdbeere gezogen, und ein Ballon, den lebende Hefe auf ein von dir vorhergesagtes Volumen aufbläst.",
     },
-    lessonsTotal: 17,
-    unitsTotal: 7,
+    lessonsTotal: 23,
+    unitsTotal: 10,
   },
 ];
 

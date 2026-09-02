@@ -43,6 +43,21 @@ export const unitMetaDe: Record<string, Partial<Unit>> = {
     blurb:
       "Von der Zelle heraus auf das ganze System: wohin die Energie geht, warum Populationen aufhören zu wachsen — und ein Ballon, den du mit lebenden Zellen aufbläst.",
   },
+  u7: {
+    title: "Die Abwehr des Körpers",
+    blurb:
+      "Zwei Immunsysteme teilen sich deinen Körper: Eines antwortet in Minuten und stellt keine Fragen, das andere braucht eine Woche, um das Gesicht eines Feindes zu lernen — und vergisst es dann nie wieder.",
+  },
+  u8: {
+    title: "Signale: Nerven & Gehirn",
+    blurb:
+      "Dein Nervensystem läuft auf einem Zehntel Volt und einer chemischen Stimmauszählung. Zwei Lektionen führen vom einzelnen Impuls zu den Anfängen des Rechnens.",
+  },
+  u9: {
+    title: "Biotechnologie: Leben lesen & editieren",
+    blurb:
+      "Der Kurs endet, wo Biologie zu Ingenieurskunst wird: eine Maschine, die DNA milliardenfach fotokopiert, und eine programmierbare Schere, von Bakterien entliehen.",
+  },
 };
 
 export const lessonMetaDe: Record<string, Partial<Lesson>> = {
@@ -143,5 +158,41 @@ export const lessonMetaDe: Record<string, Partial<Lesson>> = {
     title: "Abschluss: Der Hefe-Ballon",
     subtitle:
       "Füttere lebende Zellen, fange ihr Abgas auf und prüfe das Volumen gegen eine Zahl, die du vorher berechnet hast.",
+  },
+
+  /* ---- unit 7 ---- */
+  "innate-immunity": {
+    title: "Angeborene Immunität: Die erste Mauer",
+    subtitle:
+      "Haut, Schleim, Fieber und Zellen, die Eindringlinge fressen — die angeborene Abwehr antwortet in Minuten und behandelt jeden Keim gleich.",
+  },
+  "adaptive-immunity": {
+    title: "Adaptive Immunität: Das Gedächtnis des Feindes",
+    subtitle:
+      "B-Zellen, T-Zellen und Antikörper — eine Abwehr, die jeden Feind einzeln lernt, und der Trick, den Impfstoffe ihr spielen.",
+  },
+
+  /* ---- unit 8 ---- */
+  neuron: {
+    title: "Das Neuron: Elektrizität aus einer Ionen-Batterie",
+    subtitle:
+      "Nerven laufen auf Membranspannung — etwa ein Zehntel Volt, in einer Millisekunde gekippt, rasend auf einem Draht, der keiner ist.",
+  },
+  synapse: {
+    title: "Die Synapse: Wo Signale zu Entscheidungen werden",
+    subtitle:
+      "Der Spalt zwischen Neuronen ist der Ort des Rechnens — chemische Stimmen, in Millivolt ausgezählt, entscheiden, ob die nächste Zelle feuert.",
+  },
+
+  /* ---- unit 9 ---- */
+  pcr: {
+    title: "PCR: Der molekulare Fotokopierer",
+    subtitle:
+      "Dreißig Zyklen Erhitzen und Abkühlen machen aus einem DNA-Molekül eine Milliarde. Der Trick hinter jedem DNA-Test — und es ist nur die Replikation aus Einheit 2, im Röhrchen.",
+  },
+  crispr: {
+    title: "CRISPR: Den Text selbst editieren",
+    subtitle:
+      "Bakterien erfanden eine programmierbare Abwehr, die eine Sequenz unter Milliarden findet und schneidet. Wir haben sie entliehen — und Menschen damit editiert.",
   },
 };

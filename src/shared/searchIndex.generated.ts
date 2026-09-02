@@ -477,6 +477,72 @@ export const SEARCH_INDEX: SearchRow[] = [
     "subtitleDe": "Füttere lebende Zellen, fange ihr Abgas auf und prüfe das Volumen gegen eine Zahl, die du vorher berechnet hast."
   },
   {
+    "course": "helix",
+    "slug": "innate-immunity",
+    "unitNum": 7,
+    "unitTitle": "The Body's Defenses",
+    "lessonNo": "7.1",
+    "title": "Innate Immunity: The First Wall",
+    "subtitle": "Skin, mucus, fever and cells that eat intruders — the defense you were born with responds in minutes and treats every germ the same.",
+    "titleDe": "Angeborene Immunität: Die erste Mauer",
+    "subtitleDe": "Haut, Schleim, Fieber und Zellen, die Eindringlinge fressen — die angeborene Abwehr antwortet in Minuten und behandelt jeden Keim gleich."
+  },
+  {
+    "course": "helix",
+    "slug": "adaptive-immunity",
+    "unitNum": 7,
+    "unitTitle": "The Body's Defenses",
+    "lessonNo": "7.2",
+    "title": "Adaptive Immunity: Memory of the Enemy",
+    "subtitle": "B cells, T cells and antibodies — a defense that learns each enemy individually, and the trick vaccines play on it.",
+    "titleDe": "Adaptive Immunität: Das Gedächtnis des Feindes",
+    "subtitleDe": "B-Zellen, T-Zellen und Antikörper — eine Abwehr, die jeden Feind einzeln lernt, und der Trick, den Impfstoffe ihr spielen."
+  },
+  {
+    "course": "helix",
+    "slug": "neuron",
+    "unitNum": 8,
+    "unitTitle": "Signals: Nerves & Brains",
+    "lessonNo": "8.1",
+    "title": "The Neuron: Electricity from a Battery of Ions",
+    "subtitle": "Nerves run on membrane voltage — about a tenth of a volt, flipped in a millisecond, racing down a wire that isn't metal.",
+    "titleDe": "Das Neuron: Elektrizität aus einer Ionen-Batterie",
+    "subtitleDe": "Nerven laufen auf Membranspannung — etwa ein Zehntel Volt, in einer Millisekunde gekippt, rasend auf einem Draht, der keiner ist."
+  },
+  {
+    "course": "helix",
+    "slug": "synapse",
+    "unitNum": 8,
+    "unitTitle": "Signals: Nerves & Brains",
+    "lessonNo": "8.2",
+    "title": "The Synapse: Where Signals Become Decisions",
+    "subtitle": "The gap between neurons is where the computing happens — chemical votes, counted in millivolts, decide whether the next cell fires.",
+    "titleDe": "Die Synapse: Wo Signale zu Entscheidungen werden",
+    "subtitleDe": "Der Spalt zwischen Neuronen ist der Ort des Rechnens — chemische Stimmen, in Millivolt ausgezählt, entscheiden, ob die nächste Zelle feuert."
+  },
+  {
+    "course": "helix",
+    "slug": "pcr",
+    "unitNum": 9,
+    "unitTitle": "Biotechnology: Reading & Editing Life",
+    "lessonNo": "9.1",
+    "title": "PCR: The Molecular Photocopier",
+    "subtitle": "Thirty cycles of heating and cooling turn one DNA molecule into a billion. It is the trick behind every DNA test — and it is just Unit 2's replication, run in a tube.",
+    "titleDe": "PCR: Der molekulare Fotokopierer",
+    "subtitleDe": "Dreißig Zyklen Erhitzen und Abkühlen machen aus einem DNA-Molekül eine Milliarde. Der Trick hinter jedem DNA-Test — und es ist nur die Replikation aus Einheit 2, im Röhrchen."
+  },
+  {
+    "course": "helix",
+    "slug": "crispr",
+    "unitNum": 9,
+    "unitTitle": "Biotechnology: Reading & Editing Life",
+    "lessonNo": "9.2",
+    "title": "CRISPR: Editing the Text Itself",
+    "subtitle": "Bacteria evolved a programmable defense that finds one sequence among billions and cuts it. We borrowed it — and edited humans with it.",
+    "titleDe": "CRISPR: Den Text selbst editieren",
+    "subtitleDe": "Bakterien erfanden eine programmierbare Abwehr, die eine Sequenz unter Milliarden findet und schneidet. Wir haben sie entliehen — und Menschen damit editiert."
+  },
+  {
     "course": "spark",
     "slug": "charge",
     "unitNum": 0,

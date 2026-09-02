@@ -23,7 +23,7 @@ export const TIERS: TierInfo[] = [
     id: "advanced",
     name: "Advanced Course",
     tagline:
-      "Heredity, evolution and ecology — how the code gets passed on, edited by selection, and spread through a living world.",
+      "Heredity, evolution and ecology, then the body's own systems — immunity, nerves — and finally the tools that edit the code itself.",
   },
 ];
 
