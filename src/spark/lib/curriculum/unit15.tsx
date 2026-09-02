@@ -42,11 +42,11 @@ export const unit15: UnitModule = {
               <strong>Parasitics:</strong> every wire is a small resistor <em>and</em> a small
               inductor; every capacitor hides series resistance (ESR) and inductance; every
               adjacent pair of traces is a tiny capacitor. Below ~1 MHz you can mostly ignore
-              this; your PWM's crisp edges (spectrum lesson!) cannot.
+              this; your PWM’s crisp edges (spectrum lesson!) cannot.
             </li>
             <li>
-              <strong>Ratings and datasheets:</strong> the manufacturer's datasheet is the
-              part's contract. The master habit: design to the <em>recommended operating</em>{" "}
+              <strong>Ratings and datasheets:</strong> the manufacturer’s datasheet is the
+              part’s contract. The master habit: design to the <em>recommended operating</em>{" "}
               table, treat <em>absolute maximum</em> as the cliff edge you never picnic on.
             </li>
           </ul>
@@ -70,10 +70,10 @@ export const unit15: UnitModule = {
           <div className="callout note">
             <span className="co-title">One rule worth its own box: decoupling</span>
             <p>
-              Every chip's supply pin gets a 100 nF capacitor, millimetres away, to the ground
+              Every chip’s supply pin gets a 100 nF capacitor, millimetres away, to the ground
               plane. Fast digital edges demand gulps of current that the distant supply (through
               its parasitic wire inductance — Lesson 2.4!) cannot deliver in time; the local
-              capacitor is the chip's personal reservoir. The 555 datasheet asks for it, the
+              capacitor is the chip’s personal reservoir. The 555 datasheet asks for it, the
               Pico has a forest of them, and forgetting it is the classic source of
               &ldquo;works on the bench, glitches in the field.&rdquo;
             </p>

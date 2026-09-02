@@ -424,6 +424,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     loadedRef.current = true;
     try {
       const stored = localStorage.getItem(LANG_KEY);
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time hydration from localStorage
       if (stored === "de" || stored === "en") setLangState(stored);
     } catch {}
   }, []);

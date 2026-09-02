@@ -298,7 +298,7 @@ export const unit7: UnitModule = {
             <ul>
               <li>Watch Q0 run at half the clock, Q1 at a quarter, Q2 at an eighth — frequency division, visibly.</li>
               <li>Read the LEDs as binary and check they match the decimal readout through a full 0–7 lap.</li>
-              <li>Pause the clock and step with Pulse — the state <em>holds</em> between pulses. That's memory.</li>
+              <li>Pause the clock and step with Pulse — the state <em>holds</em> between pulses. That’s memory.</li>
             </ul>
           </>
         ),

@@ -38,6 +38,7 @@ export function useSerialNumbers() {
   const closingRef = useRef(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time Web Serial feature detection at mount
     if (typeof navigator !== "undefined" && !navigator.serial) setStatus("unsupported");
   }, []);
 
@@ -123,7 +124,12 @@ export function useSerialNumbers() {
     }
   }, []);
 
+  /** Drop the buffered samples (e.g. when switching to the demo stream). */
+  const clearSamples = useCallback(() => {
+    samplesRef.current = [];
+  }, []);
+
   useEffect(() => () => void disconnect(), [disconnect]);
 
-  return { status, error, lastText, sampleRate, samplesRef, connect, disconnect };
+  return { status, error, lastText, sampleRate, samplesRef, connect, disconnect, clearSamples };
 }

@@ -341,7 +341,7 @@ export const unit5: UnitModule = {
             <li><strong>Radio:</strong> add an inductor for LC resonance and you can select one station out of the whole spectrum. (A perfect topic for a future unit.)</li>
           </ul>
           <div className="callout tip">
-            <span className="co-title">It's still just Ohm + divider</span>
+            <span className="co-title">It’s still just Ohm + divider</span>
             <p>
               Nothing new was invented here: X<sub>C</sub> slots into the divider formula where
               R₂ used to be. Advanced electronics keeps re-using the same five ideas at higher

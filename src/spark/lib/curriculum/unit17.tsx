@@ -29,14 +29,14 @@ export const unit17: UnitModule = {
             that can add, subtract, AND, or OR two registers, chosen by a few control bits.
           </p>
 
-          <h2>Subtraction for free: two's complement</h2>
+          <h2>Subtraction for free: two’s complement</h2>
           <p>
             Here is one of computing&rsquo;s great elegance moves. To represent −B, flip every
             bit of B and add one — the <strong>two&rsquo;s complement</strong>. Then:
           </p>
           <div className="formula">
             A − B = A + (~B + 1)
-            <span className="note">subtraction = the same adder, with B's bits inverted and carry-in set to 1 — zero new hardware</span>
+            <span className="note">subtraction = the same adder, with B’s bits inverted and carry-in set to 1 — zero new hardware</span>
           </div>
           <p>
             The same trick gives negative numbers a home: in 4 bits, 0–7 mean themselves and
@@ -76,7 +76,7 @@ export const unit17: UnitModule = {
             <ul>
               <li>Compute 5 − 3, then 3 − 5: the “wrong” answer 14 is −2 in signed reading. Same bits.</li>
               <li>Make Z light up three different ways (ADD, SUB, AND).</li>
-              <li>Check SUB against the recipe: flip B's bits by hand, add 1, add to A.</li>
+              <li>Check SUB against the recipe: flip B’s bits by hand, add 1, add to A.</li>
             </ul>
           </>
         ),
@@ -182,8 +182,8 @@ export const unit17: UnitModule = {
             <p>A 16-cell RAM, an address bus, a data bus, and buttons to make them talk.</p>
             <ul>
               <li>Read cell 3, then cell 14 — watch the address bus pick and the data bus answer.</li>
-              <li>Write your favourite number somewhere, then read it back. That's a variable.</li>
-              <li>Notice cells 14 and 15 hold 3 and 4 — the CPU capstone's data lives here.</li>
+              <li>Write your favourite number somewhere, then read it back. That’s a variable.</li>
+              <li>Notice cells 14 and 15 hold 3 and 4 — the CPU capstone’s data lives here.</li>
             </ul>
           </>
         ),

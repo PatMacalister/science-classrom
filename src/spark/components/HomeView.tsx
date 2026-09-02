@@ -35,6 +35,7 @@ export default function HomeView() {
   const firstIncomplete = LESSONS.find((l) => !progress.isComplete(l.slug));
   const doneCount = LESSONS.filter((l) => progress.isComplete(l.slug)).length;
   const buildCount = LESSONS.filter((l) => l.checklist).length;
+  // eslint-disable-next-line react-hooks/purity -- due-date badge is intentionally clock-based
   const now = Date.now();
   const inDeck = new Set(
     Object.entries(progress.state.review)

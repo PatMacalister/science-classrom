@@ -157,7 +157,7 @@ export default function LiveScope() {
               type="button"
               className={`seg-btn${demo ? " active" : ""}`}
               onClick={() => {
-                if (!demo) serial.samplesRef.current = [];
+                if (!demo) serial.clearSamples();
                 setDemo(!demo);
               }}
             >

@@ -15,11 +15,11 @@ const N_BUILD = 800;
 const SPEC_LO = 4.365; // 4.5 V ± 3%
 const SPEC_HI = 4.635;
 
-function buildBatch(tol: number): number[] {
+function buildBatch(tol: number, rand: () => number = Math.random): number[] {
   const out: number[] = [];
   for (let i = 0; i < N_BUILD; i++) {
-    const r1 = 10000 * (1 + (Math.random() * 2 - 1) * tol);
-    const r2 = 10000 * (1 + (Math.random() * 2 - 1) * tol);
+    const r1 = 10000 * (1 + (rand() * 2 - 1) * tol);
+    const r2 = 10000 * (1 + (rand() * 2 - 1) * tol);
     out.push((9 * r2) / (r1 + r2));
   }
   return out;
@@ -27,11 +27,19 @@ function buildBatch(tol: number): number[] {
 
 export function MonteCarloLab() {
   const [tolIdx, setTolIdx] = useState(1);
-  const [batch, setBatch] = useState<number[]>([]);
+  // first batch from a seeded LCG so the initializer stays pure; rebuilds
+  // (tolerance change, "build another") happen in event handlers with real
+  // randomness
+  const [batch, setBatch] = useState<number[]>(() => {
+    let s = 0x5eed;
+    const rand = () => ((s = (s * 1664525 + 1013904223) >>> 0), s / 2 ** 32);
+    return buildBatch(TOLS[1], rand);
+  });
 
-  useEffect(() => {
-    setBatch(buildBatch(TOLS[tolIdx]));
-  }, [tolIdx]);
+  const pickTol = (i: number) => {
+    setTolIdx(i);
+    setBatch(buildBatch(TOLS[i]));
+  };
 
   const mean = batch.length ? batch.reduce((a, b) => a + b, 0) / batch.length : 0;
   const lo = batch.length ? Math.min(...batch) : 0;
@@ -106,7 +114,7 @@ export function MonteCarloLab() {
         <Segmented
           label="Resistor tolerance"
           value={String(tolIdx)}
-          onChange={(v) => setTolIdx(Number(v))}
+          onChange={(v) => pickTol(Number(v))}
           options={TOLS.map((t, i) => ({ value: String(i), label: `±${t * 100}%${t === 0.05 ? " (gold band)" : t === 0.1 ? " (silver)" : " (brown)"}` }))}
         />
         <div className="ctl-row">
@@ -239,6 +247,7 @@ export function FaultFinderLab() {
   const [score, setScore] = useState({ solved: 0, probes: 0 });
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time random fault pick at mount; keeps the first round unpredictable while render stays pure
     setFaultIdx(Math.floor(Math.random() * FAULTS.length));
   }, []);
 

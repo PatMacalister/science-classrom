@@ -65,7 +65,7 @@ export const unit6: UnitModule = {
             exactly the ⅓/⅔ two-threshold trick your 555 timer has used all along.
           </p>
           <div className="callout note">
-            <span className="co-title">You've already met one</span>
+            <span className="co-title">You’ve already met one</span>
             <p>
               Inside the 555 (Lesson 3.3) live two comparators watching ⅓ Vcc and ⅔ Vcc. The
               whole advanced course keeps unmasking parts you already trust.
@@ -79,7 +79,7 @@ export const unit6: UnitModule = {
           <>
             <p>A comparator watching a wandering signal against your threshold.</p>
             <ul>
-              <li>Slide Vref around and watch the output's duty change.</li>
+              <li>Slide Vref around and watch the output’s duty change.</li>
               <li>Switch to the noisy signal with no hysteresis: chatter at every crossing.</li>
               <li>Engage the Schmitt band — the edges snap clean. Count the thresholds on the scope.</li>
             </ul>
@@ -200,8 +200,8 @@ export const unit6: UnitModule = {
             <p>Three classic feedback circuits with live waveforms and rails that bite.</p>
             <ul>
               <li>Non-inverting, Rf = 47 k, Rg = 10 k: verify the gain is 5.7× on the scope.</li>
-              <li>Push the input amplitude until the output flat-tops. That's clipping.</li>
-              <li>Inverting mode: the output flips upside down. Buffer mode: two identical traces — and that's the point.</li>
+              <li>Push the input amplitude until the output flat-tops. That’s clipping.</li>
+              <li>Inverting mode: the output flips upside down. Buffer mode: two identical traces — and that’s the point.</li>
             </ul>
           </>
         ),

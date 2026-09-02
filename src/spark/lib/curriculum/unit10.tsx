@@ -21,7 +21,7 @@ export const unit10: UnitModule = {
       buildsOn: ["feedback", "rectifiers", "power"],
       Theory: () => (
         <>
-          <h2>Why raw supplies aren't enough</h2>
+          <h2>Why raw supplies aren’t enough</h2>
           <p>
             Your rectifier lesson (5.2) ended with DC that still ripples, and batteries sag from
             9.5 V to 7 V across their life. Chips don&rsquo;t tolerate that: logic wants 3.3 V or
@@ -154,7 +154,7 @@ export const unit10: UnitModule = {
       buildsOn: ["pwm-dimmer", "inductors", "filters", "linear-regulators"],
       Theory: () => (
         <>
-          <h2>Don't burn the difference — refuse to take it</h2>
+          <h2>Don’t burn the difference — refuse to take it</h2>
           <p>
             The linear regulator wastes power because its transistor stands half-open,
             dropping voltage while current flows — the exact situation Lesson 3.2 warned about.
@@ -188,7 +188,7 @@ export const unit10: UnitModule = {
             is measured in power stations.
           </p>
 
-          <h2>The engineer's trades</h2>
+          <h2>The engineer’s trades</h2>
           <ul>
             <li><strong>Ripple vs size:</strong> bigger L and C smooth better but cost space and money. ΔI ∝ 1/(L·f_sw).</li>
             <li><strong>Frequency:</strong> switching faster shrinks L and C — but each switching edge wastes a crumb of energy, so efficiency dips. Modern designs run 0.5–2 MHz.</li>
@@ -212,7 +212,7 @@ export const unit10: UnitModule = {
             <ul>
               <li>Set 12 V in, 42% duty: 5 V out. Sweep the duty — the output follows D·Vin.</li>
               <li>Shrink L to 10 µH: the ripple balloons. Fix it by raising f_sw — then check what happened to efficiency.</li>
-              <li>Ask for 12 V → 3.3 V and compare the two efficiency bars. This is why phones don't cook.</li>
+              <li>Ask for 12 V → 3.3 V and compare the two efficiency bars. This is why phones don’t cook.</li>
             </ul>
           </>
         ),

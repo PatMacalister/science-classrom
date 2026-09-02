@@ -258,7 +258,7 @@ export const unit9: UnitModule = {
           </p>
           <div className="formula">
             v(t) = (1 + m·audio(t)) · sin(2π·f_c·t)
-            <span className="note">m = modulation depth · the audio lives in the carrier's outline — its envelope</span>
+            <span className="note">m = modulation depth · the audio lives in the carrier’s outline — its envelope</span>
           </div>
           <p>
             Squint at an AM waveform and you see it: a fast carrier filling a slow-moving

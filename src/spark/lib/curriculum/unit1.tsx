@@ -274,7 +274,7 @@ export const unit1: UnitModule = {
             Components that obey V = I·R with a constant R are called <em>ohmic</em> — resistors
             and wires behave this way. Plenty of interesting parts do <em>not</em>: a lamp
             filament&rsquo;s resistance rises as it heats, and diodes and LEDs (Unit 3) barely
-            conduct at all until the voltage crosses a threshold, then conduct furiously. Ohm's
+            conduct at all until the voltage crosses a threshold, then conduct furiously. Ohm’s
             law still applies to every resistor <em>in</em> those circuits — it just doesn&rsquo;t
             describe the exotic parts themselves.
           </p>

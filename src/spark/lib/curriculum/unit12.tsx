@@ -102,7 +102,7 @@ export const unit12: UnitModule = {
               <tr><td>1</td><td>Pico 3V3(OUT) — physical pin 36</td><td>+ rail</td><td>jumper (red)</td></tr>
               <tr><td>2</td><td>Pico GND — physical pin 38</td><td>− rail</td><td>jumper (black)</td></tr>
               <tr><td>3</td><td>+ rail</td><td>a free column (the sensor node)</td><td><strong>LDR</strong></td></tr>
-              <tr><td>4</td><td>sensor node</td><td>− rail</td><td><strong>10 kΩ</strong> (divider's bottom leg)</td></tr>
+              <tr><td>4</td><td>sensor node</td><td>− rail</td><td><strong>10 kΩ</strong> (divider’s bottom leg)</td></tr>
               <tr><td>5</td><td>sensor node</td><td>GP26 / ADC0 — physical pin 31</td><td>jumper</td></tr>
               <tr><td>6</td><td>pot outer legs</td><td>+ rail and − rail</td><td>the pot IS a divider (2.2)</td></tr>
               <tr><td>7</td><td>pot wiper (middle leg)</td><td>GP27 / ADC1 — physical pin 32</td><td>jumper</td></tr>
@@ -150,11 +150,11 @@ export const unit12: UnitModule = {
             </tbody>
           </table>
 
-          <h2>Experiments — now it's software</h2>
+          <h2>Experiments — now it’s software</h2>
           <ul>
             <li><strong>Breathe:</strong> replace the fade math with a slow sine of duty — a MacBook-style breathing lamp. Three lines.</li>
             <li><strong>Log the dawn:</strong> <code>print(light)</code> each loop and watch sunrise as a column of numbers in Thonny. Your first data logger.</li>
-            <li><strong>Average 16 ADC reads</strong> (11.2's tip) and watch the dusk transition steady itself.</li>
+            <li><strong>Average 16 ADC reads</strong> (11.2’s tip) and watch the dusk transition steady itself.</li>
             <li><strong>Pico W owners:</strong> the same chip has Wi-Fi — a web-controlled lamp is a weekend, not a career.</li>
           </ul>
 

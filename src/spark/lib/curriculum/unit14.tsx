@@ -48,7 +48,7 @@ export const unit14: UnitModule = {
           <ul>
             <li>
               <strong>Steady-state offset.</strong> Holding a heater above room temperature
-              needs <em>nonzero</em> drive — but P-control's drive is zero when the error is
+              needs <em>nonzero</em> drive — but P-control’s drive is zero when the error is
               zero. So it settles where the leftover error, times Kp, exactly sustains the
               temperature: always a little short. Raise Kp and the offset shrinks… but:
             </li>
@@ -58,7 +58,7 @@ export const unit14: UnitModule = {
               on stale information, overshoots, slams the other way, overshoots again: the loop
               rings like your LC tank (9.1), and past a critical gain the ringing grows instead
               of dying. Feedback + delay + too much gain = an oscillator. (Sometimes on
-              purpose — that's precisely how oscillators are built. In a heater, it's a defect.)
+              purpose — that’s precisely how oscillators are built. In a heater, it’s a defect.)
             </li>
           </ul>
           <div className="callout note">
@@ -79,7 +79,7 @@ export const unit14: UnitModule = {
             <ul>
               <li>Kp = 1: settles calmly — well short of the setpoint. Compare with the theory meter.</li>
               <li>Kp = 6: closer and wobblier. Kp = 15: a full-blown oscillator.</li>
-              <li>Open the window at each gain and watch how each recovers (or doesn't).</li>
+              <li>Open the window at each gain and watch how each recovers (or doesn’t).</li>
             </ul>
           </>
         ),
@@ -189,7 +189,7 @@ export const unit14: UnitModule = {
             with better manners.
           </p>
           <div className="callout tip">
-            <span className="co-title">The master's habit</span>
+            <span className="co-title">The master’s habit</span>
             <p>
               When any regulated thing misbehaves — a wobbling drone, a thermostat that
               overshoots, a shower that alternates scald and freeze — diagnose it in PID terms:

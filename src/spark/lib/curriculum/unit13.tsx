@@ -167,7 +167,7 @@ export const unit13: UnitModule = {
           </p>
           <div className="formula">
             wave = a₁·sin(2πf·t) + a₂·sin(2π·2f·t) + a₃·sin(2π·3f·t) + …
-            <span className="note">the list of amplitudes (a₁, a₂, a₃ …) is the wave's spectrum — its recipe</span>
+            <span className="note">the list of amplitudes (a₁, a₂, a₃ …) is the wave’s spectrum — its recipe</span>
           </div>
           <p>
             The classic recipes are worth recognising on sight: a <strong>square wave</strong>{" "}
@@ -317,7 +317,7 @@ export const unit13: UnitModule = {
             <li>Retunable at runtime — imagine re-soldering a capacitor every time conditions change.</li>
             <li>Perfectly repeatable — no tolerance cloud (15.1 will show what clouds cost).</li>
             <li>Shapes impossible in RC: sharp brick-walls, notches, matched filters — chains of these one-liners.</li>
-            <li>But: they only exist <em>after</em> the ADC — the anti-alias filter before it must stay analog forever (13.1's law).</li>
+            <li>But: they only exist <em>after</em> the ADC — the anti-alias filter before it must stay analog forever (13.1’s law).</li>
           </ul>
           <div className="callout note">
             <span className="co-title">The professional split</span>
