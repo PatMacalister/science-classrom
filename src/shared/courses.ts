@@ -86,6 +86,23 @@ export const COURSES: CourseInfo[] = [
     lessonsTotal: 23,
     unitsTotal: 10,
   },
+  {
+    id: "vector",
+    name: "Vector Academy",
+    emoji: "🪐",
+    accent: "#38bdf8",
+    field: { en: "Physics", de: "Physik" },
+    tagline: {
+      en: "Physics from the ground up — motion, forces, energy, waves, light and heat to the first quantum cracks, plus every SI unit, prefix and constant with a memory hook.",
+      de: "Physik von Grund auf — Bewegung, Kräfte, Energie, Wellen, Licht und Wärme bis zu den ersten Quantenrissen, plus jede SI-Einheit, jedes Präfix und jede Konstante mit Eselsbrücke.",
+    },
+    capstone: {
+      en: "Ends in your backyard: g measured with a string and a stopwatch to within a percent or two, and the speed of sound clapped against a wall.",
+      de: "Endet im Hinterhof: g mit Schnur und Stoppuhr auf ein, zwei Prozent genau gemessen, und die Schallgeschwindigkeit an eine Wand geklatscht.",
+    },
+    lessonsTotal: 18,
+    unitsTotal: 7,
+  },
 ];
 
 export function getCourse(id: string): CourseInfo | undefined {
