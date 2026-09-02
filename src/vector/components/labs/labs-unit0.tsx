@@ -120,10 +120,13 @@ export function FreeFallLab() {
 
   const g = world === "moon" ? 1.62 : world === "earth" ? 9.81 : 24.8;
 
-  // Euler steps; with air, drag ∝ v² gives a terminal velocity of ~55 m/s
+  // Euler steps; the drag constant belongs to the ball and the air, so it is
+  // fixed at the value giving 55 m/s terminal on Earth — on other worlds the
+  // terminal velocity √(g/k) scales with the local gravity, as it should
+  const K_DRAG = 9.81 / (55 * 55);
   const series = (() => {
     const dt = 0.02;
-    const k = air === "on" ? g / (55 * 55) : 0;
+    const k = air === "on" ? K_DRAG : 0;
     let v = 0;
     let x = 0;
     const out: Array<{ v: number; x: number }> = [{ v: 0, x: 0 }];
@@ -135,7 +138,7 @@ export function FreeFallLab() {
     return out;
   })();
   const at = series[Math.min(series.length - 1, Math.round((time / 5) * (series.length - 1)))];
-  const terminal = air === "on" ? 55 : null;
+  const terminal = air === "on" ? Math.sqrt(g / K_DRAG) : null;
 
   const draw = (ctx: CanvasRenderingContext2D) => {
     // falling ball column
@@ -231,7 +234,7 @@ export function FreeFallLab() {
       <Readouts>
         <Readout label="Speed" value={`${at.v.toFixed(1)} m/s`} tone="amber" />
         <Readout label="Distance fallen" value={`${at.x.toFixed(1)} m`} tone="good" />
-        <Readout label="Terminal velocity" value={terminal ? `≈ ${terminal} m/s` : "none (vacuum)"} />
+        <Readout label="Terminal velocity" value={terminal ? `≈ ${terminal.toFixed(0)} m/s` : "none (vacuum)"} />
       </Readouts>
     </>
   );

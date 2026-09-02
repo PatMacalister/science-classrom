@@ -70,8 +70,8 @@ export const LAB_DE: Record<string, string> = {
   /* ---- unit 1: forces ---- */
   "net force": "Nettokraft",
   acceleration: "Beschleunigung",
-  "friction exceeds the push — a real cart would sit still":
-    "die Reibung übersteigt den Schub — ein echter Wagen bliebe stehen",
+  "static friction only ever matches the push — it sits still at net zero":
+    "Haftreibung spiegelt den Schub immer nur — er steht still bei netto null",
   "net zero: whatever velocity it has, it keeps":
     "netto null: welche Geschwindigkeit er hat, die behält er",
   "Push force": "Schubkraft",
@@ -245,6 +245,9 @@ export const LAB_DE: Record<string, string> = {
   "dispersion: n depends slightly on λ": "Dispersion: n hängt leicht von λ ab",
   radio: "Radio",
   microwave: "Mikrowelle",
+  infrared: "Infrarot",
+  ultraviolet: "Ultraviolett",
+  visible: "sichtbar",
   IR: "IR",
   UV: "UV",
   "X-ray": "Röntgen",

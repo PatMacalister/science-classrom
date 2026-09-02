@@ -16,7 +16,11 @@ export function ForceCartLab() {
   const [mass, setMass] = useState(20);
   const [friction, setFriction] = useState(10);
 
-  const net = force - friction;
+  // Static friction only ever MATCHES the push — it cannot exceed it, so a
+  // cart starting from rest never sees a negative net force, just zero.
+  const effFriction = Math.min(friction, force);
+  const net = force - effFriction;
+  const overpowered = friction > force;
   const a = net / mass;
   // velocity after 3 s of this net force, from rest — a concrete number to read
   const v3 = Math.max(0, a * 3);
@@ -40,18 +44,18 @@ export function ForceCartLab() {
       D.wire(ctx, [[cx + w / 2, trackY - 26], [cx + w / 2 + force * fScale, trackY - 26]], D.COL.good, 4);
       D.label(ctx, `push ${force} N`, cx + w / 2 + force * fScale + 8, trackY - 26, { align: "left", size: 11, color: D.COL.good });
     }
-    if (friction > 0) {
-      D.wire(ctx, [[cx - w / 2, trackY - 12], [cx - w / 2 - friction * fScale, trackY - 12]], D.COL.bad, 4);
-      D.label(ctx, `friction ${friction} N`, cx - w / 2 - friction * fScale - 8, trackY - 12, { align: "right", size: 11, color: D.COL.bad });
+    if (effFriction > 0) {
+      D.wire(ctx, [[cx - w / 2, trackY - 12], [cx - w / 2 - effFriction * fScale, trackY - 12]], D.COL.bad, 4);
+      D.label(ctx, `friction ${effFriction} N`, cx - w / 2 - effFriction * fScale - 8, trackY - 12, { align: "right", size: 11, color: D.COL.bad });
     }
 
     // the ledger
     D.panel(ctx, 300, 300, 300, 80);
-    D.label(ctx, `net = ${force} − ${friction} = ${net} N`, 450, 328, { size: 13, mono: true, color: net === 0 ? D.COL.muted : D.COL.accent });
+    D.label(ctx, `net = ${force} − ${effFriction} = ${net} N`, 450, 328, { size: 13, mono: true, color: net === 0 ? D.COL.muted : D.COL.accent });
     D.label(ctx, `a = net / m = ${a.toFixed(2)} m/s²`, 450, 358, { size: 13, mono: true, bold: true, color: net === 0 ? D.COL.muted : D.COL.amber });
 
-    if (net < 0) {
-      D.label(ctx, "friction exceeds the push — a real cart would sit still", 450, 90, { size: 12, color: D.COL.bad });
+    if (overpowered) {
+      D.label(ctx, "static friction only ever matches the push — it sits still at net zero", 450, 90, { size: 12, color: D.COL.bad });
     } else if (net === 0) {
       D.label(ctx, "net zero: whatever velocity it has, it keeps", 450, 90, { size: 12, bold: true, color: D.COL.good });
     }
