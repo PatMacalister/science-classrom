@@ -12,14 +12,16 @@ import {
 } from "react";
 import {
   EMPTY_PROGRESS,
+  betterExam,
   mergeProgress,
   normalizeProgress,
+  type ExamRecord,
   type ProgressState,
   type QuizRecord,
   type ReviewItem,
 } from "./progressTypes";
 
-export type { ProgressState, QuizRecord, ReviewItem };
+export type { ExamRecord, ProgressState, QuizRecord, ReviewItem };
 
 export type SyncStatus = "off" | "syncing" | "synced" | "error";
 
@@ -37,6 +39,7 @@ export interface ProgressStore {
   setCheck(key: string, value: boolean): void;
   setName(name: string): void;
   gradeReview(key: string, correct: boolean): void;
+  recordExam(score: number, total: number): void;
   reset(): void;
   /* ---- sync & backup ---- */
   syncStatus: SyncStatus;
@@ -219,6 +222,21 @@ export function ProgressProvider({ course, children }: { course: string; childre
     });
   }, []);
 
+  const recordExam = useCallback((score: number, total: number) => {
+    setState((s) => {
+      const rec: ExamRecord = {
+        score,
+        total,
+        passed: total > 0 && score / total >= PASS_THRESHOLD,
+        ts: Date.now(),
+      };
+      return {
+        ...s,
+        exam: { attempts: s.exam.attempts + 1, best: s.exam.best ? betterExam(rec, s.exam.best) : rec },
+      };
+    });
+  }, []);
+
   const reset = useCallback(() => setState(EMPTY_PROGRESS), []);
 
   const enableSync = useCallback(async (): Promise<string> => {
@@ -319,6 +337,7 @@ export function ProgressProvider({ course, children }: { course: string; childre
       setCheck,
       setName,
       gradeReview,
+      recordExam,
       reset,
       syncStatus,
       syncCode,
@@ -337,6 +356,7 @@ export function ProgressProvider({ course, children }: { course: string; childre
       setCheck,
       setName,
       gradeReview,
+      recordExam,
       reset,
       syncStatus,
       syncCode,

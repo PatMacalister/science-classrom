@@ -6,16 +6,20 @@ import { unit3 } from "./unit3";
 import { unit4 } from "./unit4";
 import { unit5 } from "./unit5";
 import { unit6 } from "./unit6";
+import { unit7 } from "./unit7";
+import { unit8 } from "./unit8";
+import { unit9 } from "./unit9";
 
 /**
  * The curriculum, in teaching order. Units 0–3 are the core course
- * (ending in the strawberry DNA extraction), units 4–6 the advanced
- * course (ending in the yeast balloon). Tier presentation lives in
- * tiers.ts. To extend, create a unit file exporting a UnitModule and
- * append it here — routing, navigation, numbering and progress all pick
- * it up automatically.
+ * (ending in the strawberry DNA extraction), units 4–9 the advanced
+ * course: heredity, evolution and ecology (ending in the yeast balloon),
+ * then the body's own systems (immunity, nerves) and biotechnology.
+ * Tier presentation lives in tiers.ts. To extend, create a unit file
+ * exporting a UnitModule and append it here — routing, navigation,
+ * numbering and progress all pick it up automatically.
  */
-const MODULES: UnitModule[] = [unit0, unit1, unit2, unit3, unit4, unit5, unit6];
+const MODULES: UnitModule[] = [unit0, unit1, unit2, unit3, unit4, unit5, unit6, unit7, unit8, unit9];
 
 export const UNITS: Unit[] = MODULES.map((m) => m.unit);
 export const LESSONS: Lesson[] = MODULES.flatMap((m) => m.lessons);

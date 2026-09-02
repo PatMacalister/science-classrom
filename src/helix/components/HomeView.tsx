@@ -121,6 +121,12 @@ export default function HomeView() {
         <Link className="btn secondary" href="/helix/review" suppressHydrationWarning>
           {t("reviewDeck")}{reviewDue > 0 ? ` ${t("reviewDue", { n: reviewDue })}` : ""}
         </Link>{" "}
+        <Link className="btn secondary" href="/helix/exam">
+          {t("examLink")}
+        </Link>{" "}
+        <Link className="btn secondary" href="/helix/stats">
+          {t("statsLink")}
+        </Link>{" "}
         <Link className="btn secondary" href="/helix/certificate">
           {t("certificate")}
         </Link>
