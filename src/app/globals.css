@@ -799,6 +799,44 @@ sub, sup { font-size: 0.72em; }
 }
 .review-progress { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); margin-bottom: 14px; }
 
+/* ===== exam & stats ===== */
+.sbar {
+  display: block;
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.sbar > span { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+.exam-bar { max-width: 480px; margin-bottom: 18px; }
+.exam-verdict { font-size: 1.15rem; font-weight: 700; margin: 6px 0 18px; }
+.exam-verdict.pass { color: var(--good); }
+.exam-verdict.fail { color: var(--bad); }
+.exam-answers { margin: 0 0 10px; font-size: 0.92rem; line-height: 1.6; }
+.exam-pass-badge {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--good);
+  border: 1px solid var(--good);
+  border-radius: 6px;
+  padding: 1px 7px;
+  margin-left: 4px;
+}
+.stats-section { margin: 26px 0; }
+.stats-section h2 { font-size: 1.05rem; margin-bottom: 10px; }
+.stats-section .hero-stats { justify-content: flex-start; margin: 0; }
+.stats-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
+.stats-row .sname { flex: 0 0 min(46%, 340px); font-size: 0.9rem; }
+.stats-row .sval { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+.stats-row.overall .sname { font-weight: 600; }
+@media (max-width: 640px) {
+  .stats-row { flex-wrap: wrap; gap: 6px; }
+  .stats-row .sname { flex-basis: 100%; }
+}
+
 /* ===== certificate ===== */
 .cert-frame {
   border: 3px double var(--amber);

@@ -121,6 +121,12 @@ export default function HomeView() {
         <Link className="btn secondary" href="/catalyst/review" suppressHydrationWarning>
           {t("reviewDeck")}{reviewDue > 0 ? ` ${t("reviewDue", { n: reviewDue })}` : ""}
         </Link>{" "}
+        <Link className="btn secondary" href="/catalyst/exam">
+          {t("examLink")}
+        </Link>{" "}
+        <Link className="btn secondary" href="/catalyst/stats">
+          {t("statsLink")}
+        </Link>{" "}
         <Link className="btn secondary" href="/catalyst/certificate">
           {t("certificate")}
         </Link>

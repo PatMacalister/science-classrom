@@ -13,7 +13,9 @@ progress and language-aware interface:
 
 Every lesson everywhere: **theory → interactive lab → quiz** (≥ 75% to pass),
 with numeric problems on quantitative lessons, a spaced-repetition review deck
-(`/<course>/review`) and a printable certificate (`/<course>/certificate`).
+(`/<course>/review`), a cross-unit final exam (`/<course>/exam`) whose misses
+feed that deck, a progress dashboard (`/<course>/stats`) and a printable
+certificate (`/<course>/certificate`).
 
 Across courses: **`/search`** covers all 99 lessons in both languages, lessons
 can point at their counterpart in another field ("same idea, other course"),
