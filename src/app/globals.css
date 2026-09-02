@@ -46,6 +46,33 @@
   --aa-stop: #f26d6d;
 }
 
+.theme-vector {
+  --accent: #38bdf8;
+  --accent-dim: #1d7fb0;
+  --btn-fg: #06222e;
+  /* entry kinds, used by the units-and-constants table and its drill */
+  --si-base: #38bdf8;
+  --si-derived: #4ade80;
+  --si-prefix: #f6b26b;
+  --si-constant: #c792ea;
+}
+
+/* ---- units & constants reference (Vector) ---- */
+.si-section { margin: 18px 0; }
+.si-kind-head {
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 14px 0 8px;
+}
+.si-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+}
+.si-grid .codon-tile { width: 100%; text-align: left; }
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }

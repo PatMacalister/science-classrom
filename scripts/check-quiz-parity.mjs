@@ -22,7 +22,7 @@ import {
 } from "./curriculum-ast.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const COURSES = ["spark", "catalyst", "helix"];
+const COURSES = ["spark", "catalyst", "helix", "vector"];
 
 let failures = 0;
 const fail = (course, msg) => {

@@ -1168,5 +1168,203 @@ export const SEARCH_INDEX: SearchRow[] = [
     "subtitle": "Design the board in KiCad, order five copies for pocket money, and learn to solder on hardware you designed yourself. Breadboard → product.",
     "titleDe": "Abschluss: Fertige den Blinker",
     "subtitleDe": "Entwirf die Platine in KiCad, bestelle fünf Exemplare für Taschengeld und lerne Löten an Hardware, die du selbst entworfen hast. Breadboard → Produkt."
+  },
+  {
+    "course": "vector",
+    "slug": "velocity",
+    "unitNum": 0,
+    "unitTitle": "Motion",
+    "lessonNo": "0.1",
+    "title": "Position & Velocity: Saying Where, Precisely",
+    "subtitle": "Physics starts by replacing 'it moved' with numbers — and the graph of those numbers already answers questions your eyes can't.",
+    "titleDe": "Position & Geschwindigkeit: Präzise sagen, wo",
+    "subtitleDe": "Physik beginnt damit, „es hat sich bewegt“ durch Zahlen zu ersetzen — und der Graph dieser Zahlen beantwortet schon Fragen, die deine Augen nicht können."
+  },
+  {
+    "course": "vector",
+    "slug": "acceleration",
+    "unitNum": 0,
+    "unitTitle": "Motion",
+    "lessonNo": "0.2",
+    "title": "Acceleration: When Velocity Itself Changes",
+    "subtitle": "The hardest idea in kinematics is that speeding up, slowing down and turning are all the same thing — and that falling is its purest example.",
+    "titleDe": "Beschleunigung: Wenn die Geschwindigkeit selbst sich ändert",
+    "subtitleDe": "Die härteste Idee der Kinematik: Schnellerwerden, Bremsen und Abbiegen sind dasselbe — und das Fallen ist ihr reinstes Beispiel."
+  },
+  {
+    "course": "vector",
+    "slug": "projectiles",
+    "unitNum": 0,
+    "unitTitle": "Motion",
+    "lessonNo": "0.3",
+    "title": "Projectiles: Two Motions That Ignore Each Other",
+    "subtitle": "A thrown ball is two easy problems wearing a trench coat: steady sideways motion, plus plain free fall. Split them and everything computes.",
+    "titleDe": "Würfe: Zwei Bewegungen, die einander ignorieren",
+    "subtitleDe": "Ein geworfener Ball ist zwei leichte Aufgaben im Trenchcoat: gleichmäßige Seitwärtsbewegung plus schlichter freier Fall. Trenne sie, und alles rechnet sich."
+  },
+  {
+    "course": "vector",
+    "slug": "newton-laws",
+    "unitNum": 1,
+    "unitTitle": "Forces",
+    "lessonNo": "1.1",
+    "title": "Newton's Three Laws: The Operating System",
+    "subtitle": "Motion doesn't need a cause — changes in motion do. Three sentences from 1687 that still run every machine, sport and orbit.",
+    "titleDe": "Newtons drei Gesetze: Das Betriebssystem",
+    "subtitleDe": "Bewegung braucht keine Ursache — Änderungen der Bewegung schon. Drei Sätze von 1687, die noch immer jede Maschine, jeden Sport und jede Umlaufbahn betreiben."
+  },
+  {
+    "course": "vector",
+    "slug": "friction",
+    "unitNum": 1,
+    "unitTitle": "Forces",
+    "lessonNo": "1.2",
+    "title": "Friction: The Force That Hides in Plain Sight",
+    "subtitle": "It ruins ideal physics problems and makes walking possible. Two rules govern it — and one everyday surprise about what it does not depend on.",
+    "titleDe": "Reibung: Die Kraft, die sich in Sichtweite versteckt",
+    "subtitleDe": "Sie ruiniert ideale Physikaufgaben und macht das Gehen möglich. Zwei Regeln beherrschen sie — und eine Alltagsüberraschung darüber, wovon sie nicht abhängt."
+  },
+  {
+    "course": "vector",
+    "slug": "gravity",
+    "unitNum": 1,
+    "unitTitle": "Forces",
+    "lessonNo": "1.3",
+    "title": "Gravity & Orbits: Falling Forever",
+    "subtitle": "The apple and the Moon obey one law. An orbit is not an escape from gravity — it is falling, aimed well enough to keep missing.",
+    "titleDe": "Gravitation & Umlaufbahnen: Für immer fallen",
+    "subtitleDe": "Der Apfel und der Mond gehorchen einem Gesetz. Eine Umlaufbahn ist keine Flucht vor der Schwerkraft — sie ist Fallen, gut genug gezielt, um immer zu verfehlen."
+  },
+  {
+    "course": "vector",
+    "slug": "energy",
+    "unitNum": 2,
+    "unitTitle": "Energy & Momentum",
+    "lessonNo": "2.1",
+    "title": "Energy: The Quantity That Only Changes Costume",
+    "subtitle": "Physics' best accounting trick: a number you can compute before and after any process — and it always balances.",
+    "titleDe": "Energie: Die Größe, die nur das Kostüm wechselt",
+    "subtitleDe": "Der beste Buchhaltungstrick der Physik: eine Zahl, die du vor und nach jedem Vorgang berechnen kannst — und sie geht immer auf."
+  },
+  {
+    "course": "vector",
+    "slug": "momentum",
+    "unitNum": 2,
+    "unitTitle": "Energy & Momentum",
+    "lessonNo": "2.2",
+    "title": "Momentum: What Collisions Conserve",
+    "subtitle": "Mass times velocity survives every crash, explosion and rebound — which is why airbags work and why recoil is not optional.",
+    "titleDe": "Impuls: Was Kollisionen erhalten",
+    "subtitleDe": "Masse mal Geschwindigkeit überlebt jeden Crash, jede Explosion und jeden Abprall — darum funktionieren Airbags, und darum ist Rückstoß nicht verhandelbar."
+  },
+  {
+    "course": "vector",
+    "slug": "measure-g",
+    "unitNum": 3,
+    "unitTitle": "The Backyard Capstone",
+    "lessonNo": "3.1",
+    "title": "Capstone: Measure g with a String",
+    "subtitle": "A pendulum's swing time depends on just two things — its length and the planet it hangs on. Time it, and the planet is the unknown you solve for.",
+    "titleDe": "Abschluss: Miss g mit einer Schnur",
+    "subtitleDe": "Die Schwingdauer eines Pendels hängt von genau zwei Dingen ab — seiner Länge und dem Planeten, an dem es hängt. Stoppe sie, und der Planet ist die Unbekannte, nach der du auflöst."
+  },
+  {
+    "course": "vector",
+    "slug": "waves",
+    "unitNum": 4,
+    "unitTitle": "Waves & Sound",
+    "lessonNo": "4.1",
+    "title": "Waves: Motion Without Transport",
+    "subtitle": "A stadium wave circles the ground while every fan stays in their seat. That trick — energy travelling through stuff that doesn't — runs half of physics.",
+    "titleDe": "Wellen: Bewegung ohne Transport",
+    "subtitleDe": "Eine Stadionwelle umrundet das Stadion, während jeder Fan sitzen bleibt. Dieser Trick — Energie, die durch Stoff reist, der selbst bleibt — betreibt die halbe Physik."
+  },
+  {
+    "course": "vector",
+    "slug": "sound",
+    "unitNum": 4,
+    "unitTitle": "Waves & Sound",
+    "lessonNo": "4.2",
+    "title": "Sound: Pressure in Flight (and a Build)",
+    "subtitle": "Pitch is frequency, loudness is amplitude, and a passing siren bends both rules audibly. Then: measure the speed of sound with a wall and a clap.",
+    "titleDe": "Schall: Druck im Flug (und ein Experiment)",
+    "subtitleDe": "Tonhöhe ist Frequenz, Lautstärke ist Amplitude, und eine vorbeifahrende Sirene verbiegt beide hörbar. Dann: Miss die Schallgeschwindigkeit mit einer Wand und einem Klatschen."
+  },
+  {
+    "course": "vector",
+    "slug": "interference",
+    "unitNum": 4,
+    "unitTitle": "Waves & Sound",
+    "lessonNo": "4.3",
+    "title": "Interference: When Waves Meet",
+    "subtitle": "Two waves in the same place simply add — crest on crest doubles, crest on trough cancels to silence. That one rule builds standing waves, musical notes and noise-cancelling headphones.",
+    "titleDe": "Interferenz: Wenn Wellen sich treffen",
+    "subtitleDe": "Zwei Wellen am selben Ort addieren sich schlicht — Kamm auf Kamm verdoppelt, Kamm auf Tal löscht zu Stille. Diese eine Regel baut stehende Wellen, Musiknoten und Noise-Cancelling."
+  },
+  {
+    "course": "vector",
+    "slug": "refraction",
+    "unitNum": 5,
+    "unitTitle": "Light & Optics",
+    "lessonNo": "5.1",
+    "title": "Reflection & Refraction: Light Changes Lanes",
+    "subtitle": "Two rules govern every mirror, pool illusion and glass fibre: the bounce is symmetric, and the bend comes from a speed change at the border.",
+    "titleDe": "Reflexion & Brechung: Licht wechselt die Spur",
+    "subtitleDe": "Zwei Regeln beherrschen jeden Spiegel, jede Pool-Täuschung und jede Glasfaser: Der Abprall ist symmetrisch, und die Biegung kommt vom Tempowechsel an der Grenze."
+  },
+  {
+    "course": "vector",
+    "slug": "lenses",
+    "unitNum": 5,
+    "unitTitle": "Light & Optics",
+    "lessonNo": "5.2",
+    "title": "Lenses: Bending Light on Purpose",
+    "subtitle": "Curve the glass and refraction becomes engineering: one number — the focal length — explains cameras, glasses, and why your arm gets longer every decade after forty.",
+    "titleDe": "Linsen: Licht mit Absicht biegen",
+    "subtitleDe": "Krümme das Glas, und Brechung wird Ingenieurskunst: Eine Zahl — die Brennweite — erklärt Kameras, Brillen und warum der Arm ab vierzig jedes Jahrzehnt länger wird."
+  },
+  {
+    "course": "vector",
+    "slug": "spectrum",
+    "unitNum": 5,
+    "unitTitle": "Light & Optics",
+    "lessonNo": "5.3",
+    "title": "Colour & the Spectrum: Most Light Is Invisible",
+    "subtitle": "A prism doesn't add colour to sunlight — it un-mixes what was always there. And the rainbow you can see is one octave of a keyboard that runs from radio to gamma.",
+    "titleDe": "Farbe & Spektrum: Das meiste Licht ist unsichtbar",
+    "subtitleDe": "Ein Prisma fügt dem Sonnenlicht keine Farbe hinzu — es entmischt, was immer da war. Und der sichtbare Regenbogen ist eine Oktave einer Klaviatur von Radio bis Gamma."
+  },
+  {
+    "course": "vector",
+    "slug": "heat",
+    "unitNum": 6,
+    "unitTitle": "Heat & the Edge of the Classical World",
+    "lessonNo": "6.1",
+    "title": "Temperature & Heat: Jiggling, Quantified",
+    "subtitle": "Temperature is not a substance — it is the average kinetic energy of molecules. Get that straight and heat flow, thermometers and 'cold' door handles all make sense.",
+    "titleDe": "Temperatur & Wärme: Zittern, beziffert",
+    "subtitleDe": "Temperatur ist keine Substanz — sie ist die mittlere Bewegungsenergie der Moleküle. Sitzt das, ergeben Wärmefluss, Thermometer und „kalte“ Türklinken plötzlich Sinn."
+  },
+  {
+    "course": "vector",
+    "slug": "quanta",
+    "unitNum": 6,
+    "unitTitle": "Heat & the Edge of the Classical World",
+    "lessonNo": "6.2",
+    "title": "Quanta: Where the Smooth World Turns Grainy",
+    "subtitle": "Shine light on metal and electrons pop out — but only if the colour is right, no matter how bright the beam. Explaining that one stubborn fact broke classical physics.",
+    "titleDe": "Quanten: Wo die glatte Welt körnig wird",
+    "subtitleDe": "Licht auf Metall schlägt Elektronen heraus — aber nur bei der richtigen Farbe, egal wie hell der Strahl. Diese eine sture Tatsache zu erklären brach die klassische Physik."
+  },
+  {
+    "course": "vector",
+    "slug": "half-life",
+    "unitNum": 6,
+    "unitTitle": "Heat & the Edge of the Classical World",
+    "lessonNo": "6.3",
+    "title": "Half-Life: Perfect Clocks from Pure Chance",
+    "subtitle": "No nucleus knows when it will decay — yet a trillion of them keep time better than any watch. Randomness, aggregated, is how we date pharaohs and planets.",
+    "titleDe": "Halbwertszeit: Perfekte Uhren aus reinem Zufall",
+    "subtitleDe": "Kein Kern weiß, wann er zerfällt — doch eine Billion von ihnen hält besser Zeit als jede Armbanduhr. Aggregierter Zufall datiert Pharaonen und Planeten."
   }
 ];
