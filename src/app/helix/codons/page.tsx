@@ -3,16 +3,18 @@
 import Link from "next/link";
 import { useState } from "react";
 import CodonTable, { AminoList } from "@/helix/components/CodonTable";
+import CodonDrill from "@/helix/components/CodonDrill";
 import { useT } from "@/helix/lib/i18n";
 
 /**
  * The genetic code page: the classic 4×4×4 table (click a codon for its amino
- * acid and memory hook), plus a searchable list of all 21 outcomes with every
- * hook visible at once — the counterpart to Catalyst's periodic table.
+ * acid and memory hook), a searchable list of all 21 outcomes with every hook
+ * visible at once, and a drill whose misses feed the review deck — the
+ * counterpart to Catalyst's periodic table.
  */
 export default function CodonsPage() {
   const t = useT();
-  const [view, setView] = useState<"grid" | "list">("grid");
+  const [view, setView] = useState<"grid" | "list" | "drill">("grid");
   const [query, setQuery] = useState("");
 
   return (
@@ -43,6 +45,13 @@ export default function CodonsPage() {
           >
             {t("codonsListView")}
           </button>
+          <button
+            type="button"
+            className={`seg-btn${view === "drill" ? " active" : ""}`}
+            onClick={() => setView("drill")}
+          >
+            🎯 {t("codonsDrillView")}
+          </button>
         </div>
         {view === "list" ? (
           <input
@@ -54,7 +63,7 @@ export default function CodonsPage() {
         ) : null}
       </div>
 
-      {view === "grid" ? <CodonTable /> : <AminoList query={query} />}
+      {view === "drill" ? <CodonDrill /> : view === "grid" ? <CodonTable /> : <AminoList query={query} />}
     </div>
   );
 }
