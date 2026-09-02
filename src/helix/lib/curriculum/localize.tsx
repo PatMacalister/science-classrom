@@ -9,13 +9,16 @@ import { unit3De } from "./de/unit3";
 import { unit4De } from "./de/unit4";
 import { unit5De } from "./de/unit5";
 import { unit6De } from "./de/unit6";
+import { unit7De } from "./de/unit7";
+import { unit8De } from "./de/unit8";
+import { unit9De } from "./de/unit9";
 
 /**
  * Per-lesson German content overrides. Anything omitted falls back to the
  * English original — so lessons can be translated one at a time. To translate
  * a unit, add a `de/unitN.tsx` exporting Record<slug, LessonContentDe> and
  * spread it into CONTENT_DE below. Quiz answer indices must match the
- * English originals; the review deck relies on it. All 17 Helix lessons are
+ * English originals; the review deck relies on it. All 23 Helix lessons are
  * fully translated — the course is bilingual like Spark and Catalyst.
  */
 export interface LessonContentDe {
@@ -35,6 +38,9 @@ const CONTENT_DE: Record<string, LessonContentDe> = {
   ...unit4De,
   ...unit5De,
   ...unit6De,
+  ...unit7De,
+  ...unit8De,
+  ...unit9De,
 };
 
 export function localizeUnit(unit: Unit, lang: Lang): Unit {
