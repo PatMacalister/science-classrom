@@ -57,6 +57,18 @@
   --si-constant: #c792ea;
 }
 
+.theme-servo {
+  --accent: #f59e0b;
+  --accent-dim: #a86a06;
+  --btn-fg: #241703;
+  /* part kinds, used by the parts bench and its drill */
+  --pb-sensor: #4ade80;
+  --pb-actuator: #f6b26b;
+  --pb-driver: #f26d6d;
+  --pb-brain: #c792ea;
+  --pb-mechanism: #38bdf8;
+}
+
 /* ---- units & constants reference (Vector) ---- */
 .si-section { margin: 18px 0; }
 .si-kind-head {
