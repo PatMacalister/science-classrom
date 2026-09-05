@@ -48,20 +48,35 @@ const pick = <T,>(from: T[], n: number) => {
 
 /**
  * Build one card. Distractors prefer entries of the same kind — prefix
- * against prefix is the confusion the ladder actually produces.
+ * against prefix is the confusion the ladder actually produces. Symbols
+ * collide across kinds (m, G, c): in the symbol→name direction that makes
+ * "milli" a superb distractor for "unit · m", but in the name→symbol
+ * direction two identical "m" buttons would be unfair — so the direction is
+ * chosen first, and only name→symbol enforces unique option symbols.
  * Impure by design — call it from an event handler, never during render.
  */
 export function makeCard(pool: SiEntry[], entry: SiEntry): DrillCard {
+  const dir: DrillCard["dir"] = Math.random() < 0.5 ? "sym2name" : "name2sym";
   const others = pool.filter((o) => o.id !== entry.id);
   const near = others.filter((o) => o.kind === entry.kind);
   const far = others.filter((o) => o.kind !== entry.kind);
-  const distractors = [...pick(near, 2), ...pick(far, 3)].slice(0, 3);
+  const raw = [...pick(near, 3), ...pick(far, 4)];
+  const usedSymbols = new Set([entry.symbol]);
+  const distractors: SiEntry[] = [];
+  for (const d of raw) {
+    if (distractors.length === 3) break;
+    if (dir === "name2sym") {
+      if (usedSymbols.has(d.symbol)) continue;
+      usedSymbols.add(d.symbol);
+    }
+    distractors.push(d);
+  }
   const options = [entry, ...distractors].map((o) => o.id);
   for (let i = options.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [options[i], options[j]] = [options[j], options[i]];
   }
-  return { target: entry.id, dir: Math.random() < 0.5 ? "sym2name" : "name2sym", options };
+  return { target: entry.id, dir, options };
 }
 
 export default function SiDrill() {
