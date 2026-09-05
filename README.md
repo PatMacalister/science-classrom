@@ -132,9 +132,8 @@ prefixes, shared-module redirects). Standalone sync codes are not migrated
 (fresh `science.db`); browser-local progress carries over by key.
 
 This repo is the source of truth. `../electrical-engineering` is still the
-untouched Spark reference, but `../chemistry` has since been overwritten by a
-second, independent chemistry build and is **not** the app Catalyst came from —
-its worthwhile additions were ported here on their own branch. The Spark tree
-still carries a scoped lint override in `eslint.config.mjs` for the React
-purity/immutability rules it predates; everything else lints clean at full
-strength, with no warnings.
+untouched Spark reference (`../chemistry` was a second, independent build,
+already ported and since deleted). The whole repo — Spark included — lints
+clean at full strength, with no warnings; the few clock/shuffle/hydration
+sites that are impure on purpose carry individually documented
+`eslint-disable` lines.

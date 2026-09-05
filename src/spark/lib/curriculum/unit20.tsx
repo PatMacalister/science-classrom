@@ -223,7 +223,7 @@ export const unit20: UnitModule = {
             <p>Four nets, two copper layers, one chip squatting in the middle. Connect every pad.</p>
             <ul>
               <li>VCC and GND are easy warm-ups along the edges.</li>
-              <li>TRIG must cross the others — impossible on one layer. Stop, switch to bottom copper, drag on: that's a via.</li>
+              <li>TRIG must cross the others — impossible on one layer. Stop, switch to bottom copper, drag on: that’s a via.</li>
               <li>The chip body blocks the top layer only — the bottom floor runs right under it, exactly like real boards.</li>
             </ul>
           </>
@@ -340,10 +340,10 @@ export const unit20: UnitModule = {
         title: "Spot the Six Sins",
         intro: (
           <>
-            <p>A board that would pass a casual glance — and fail review. Click what's wrong; the width calculator below backs one of the finds.</p>
+            <p>A board that would pass a casual glance — and fail review. Click what’s wrong; the width calculator below backs one of the finds.</p>
             <ul>
               <li>Two sins are electrical faults DRC would flag. Four are legal-but-foolish.</li>
-              <li>One of them you met in Lesson 15.1's decoupling callout.</li>
+              <li>One of them you met in Lesson 15.1’s decoupling callout.</li>
               <li>Use the calculator: how wide must a 2 A trace be for a 10 °C rise?</li>
             </ul>
           </>
@@ -477,7 +477,7 @@ export const unit20: UnitModule = {
               <tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr>
             </thead>
             <tbody>
-              <tr><td>Dead, chip cool</td><td>power path — clip, header joint, or a cold joint on pin 8/1</td><td>15.2's method: rail first; reflow dull joints</td></tr>
+              <tr><td>Dead, chip cool</td><td>power path — clip, header joint, or a cold joint on pin 8/1</td><td>15.2’s method: rail first; reflow dull joints</td></tr>
               <tr><td>Dead, worked on breadboard</td><td>a bridge between neighbouring pads</td><td>inspect with light at an angle; wick or drag the iron to split it</td></tr>
               <tr><td>LED dark, oscillator fine</td><td>LED reversed against the silkscreen</td><td>the classic; desolder or fit a new LED the right way</td></tr>
               <tr><td>Blinks wrong speed</td><td>wrong resistor stuffed — bands read in haste</td><td>1.3 skills; measure across it in-circuit first</td></tr>
@@ -502,7 +502,7 @@ export const unit20: UnitModule = {
           <>
             <p>Your fabbed board, an empty bench, and the one rule of population order.</p>
             <ul>
-              <li>Click the part you'd solder next — lowest profile first, so the flipped board lies flat.</li>
+              <li>Click the part you’d solder next — lowest profile first, so the flipped board lies flat.</li>
               <li>Note the socket goes in, never the chip — the 555 is inserted iron-free at the end.</li>
               <li>Watch the bench notes: each part carries its real-world gotcha (LED flat side, cap stripe).</li>
             </ul>

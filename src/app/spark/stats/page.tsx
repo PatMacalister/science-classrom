@@ -24,6 +24,7 @@ export default function StatsPage() {
 
   const doneCount = LESSONS.filter((l) => progress.isComplete(l.slug)).length;
 
+  // eslint-disable-next-line react-hooks/purity -- due-now count is intentionally clock-based
   const now = Date.now();
   const review = Object.entries(progress.state.review);
   const active = review.filter(([, r]) => r.box < 3);

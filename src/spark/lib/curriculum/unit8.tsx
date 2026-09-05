@@ -135,7 +135,7 @@ export const unit8: UnitModule = {
           </p>
           <div className="formula">
             t_high = 0.693·R_a·C · t_low = 0.693·R_b·C
-            <span className="note">Ra + Rb is always the full 100 kΩ → T and f stay fixed (~1.4 kHz); only the ratio moves. (Exact with a rail-to-rail CMOS 555 — a classic NE555's output doesn&rsquo;t quite reach the rail, skewing duty upward a little. It still works.)</span>
+            <span className="note">Ra + Rb is always the full 100 kΩ → T and f stay fixed (~1.4 kHz); only the ratio moves. (Exact with a rail-to-rail CMOS 555 — a classic NE555’s output doesn&rsquo;t quite reach the rail, skewing duty upward a little. It still works.)</span>
           </div>
           <p>
             Turn the knob and you slide the wiper: more R<sub>a</sub>, less R<sub>b</sub> —

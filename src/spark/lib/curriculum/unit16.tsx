@@ -77,14 +77,14 @@ export const unit16: UnitModule = {
           </p>
           <ul>
             <li>
-              <strong>Loading (2.2's trap):</strong> the probe's ~150 kΩ hangs on whatever you
-              touch. On the 555's <em>output</em> pin — a stiff, low-impedance source — it's
+              <strong>Loading (2.2’s trap):</strong> the probe’s ~150 kΩ hangs on whatever you
+              touch. On the 555’s <em>output</em> pin — a stiff, low-impedance source — it’s
               invisible. Directly on the high-impedance cap node it would gently distort the
               timing. Probe outputs by preference; probe delicate nodes knowingly.
             </li>
             <li>
-              <strong>Common ground:</strong> voltage is between two points (0.2's oldest
-              lesson). The Pico's GND and the blinker's − rail must be wired together, or your
+              <strong>Common ground:</strong> voltage is between two points (0.2’s oldest
+              lesson). The Pico’s GND and the blinker’s − rail must be wired together, or your
               readings are fiction.
             </li>
           </ul>
@@ -121,7 +121,7 @@ export const unit16: UnitModule = {
             <tbody>
               <tr><td>RC charge: 10 µF via 100 kΩ to 9 V</td><td>capacitor top</td><td>the exponential; 63% at τ ≈ 1 s</td><td>Lesson 2.3</td></tr>
               <tr><td>555 blinker</td><td>pin 3 (output)</td><td>square, ~1.5 Hz — measure it against f = 1.44/((R1+2R2)C)</td><td>Lessons 3.3 & 4.1</td></tr>
-              <tr><td>555 blinker</td><td>pins 2+6 (gently!)</td><td>the sawtooth between ⅓ and ⅔ of 9 V</td><td>the simulator's signature trace</td></tr>
+              <tr><td>555 blinker</td><td>pins 2+6 (gently!)</td><td>the sawtooth between ⅓ and ⅔ of 9 V</td><td>the simulator’s signature trace</td></tr>
               <tr><td>PWM dimmer</td><td>pin 3, burst mode</td><td>duty following the knob at ~1.4 kHz</td><td>Unit 8 & Nyquist (13.1)</td></tr>
               <tr><td>Night-light at dusk</td><td>GP26 divider node</td><td>the slow slide your twin predicted</td><td>Unit 12</td></tr>
             </tbody>
@@ -134,8 +134,8 @@ export const unit16: UnitModule = {
             </thead>
             <tbody>
               <tr><td>Readings pinned at 3.3 V</td><td>probing 9 V without the divider — the input was overdriven</td><td>build the 100k/47k probe, then check the pin still reads sensibly (above ~3.6 V you may have damaged it)</td></tr>
-              <tr><td>Readings are noise/garbage</td><td>no common ground</td><td>jumper Pico GND to the target's − rail</td></tr>
-              <tr><td>PWM looks like a slow wave</td><td>aliasing in live mode</td><td>that's Lesson 13.1 in the wild! use burst mode</td></tr>
+              <tr><td>Readings are noise/garbage</td><td>no common ground</td><td>jumper Pico GND to the target’s − rail</td></tr>
+              <tr><td>PWM looks like a slow wave</td><td>aliasing in live mode</td><td>that’s Lesson 13.1 in the wild! use burst mode</td></tr>
               <tr><td>Sawtooth timing looks stretched</td><td>probe loading the cap node</td><td>expected (2.2!) — measure frequency at pin 3 instead</td></tr>
               <tr><td>Plotter shows nothing</td><td>plotter window closed / prints too fast</td><td>View → Plotter in Thonny; keep the sleep_ms in live mode</td></tr>
             </tbody>

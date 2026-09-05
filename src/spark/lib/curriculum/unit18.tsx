@@ -70,7 +70,7 @@ export const unit18: UnitModule = {
           <>
             <p>Three stations, one LO knob, one fixed IF window at 10.7 MHz.</p>
             <ul>
-              <li>Slide the LO until each station's difference product drops into the green IF window.</li>
+              <li>Slide the LO until each station’s difference product drops into the green IF window.</li>
               <li>Note every station needs a different LO — but the IF filter never moves.</li>
               <li>Watch the sum products fly high and harmless; the IF only accepts the differences.</li>
             </ul>
@@ -281,7 +281,7 @@ export const unit18: UnitModule = {
             <p>A live symbol stream: green points snapped correctly, red ones lost to noise.</p>
             <ul>
               <li>BPSK at noise 0.2: serenely error-free. Switch to 16-QAM: carnage.</li>
-              <li>Find the noise level where QPSK's good throughput overtakes 16-QAM's.</li>
+              <li>Find the noise level where QPSK’s good throughput overtakes 16-QAM’s.</li>
               <li>Watch the trade in numbers: bits/symbol vs error rate — no free lunch, ever.</li>
             </ul>
           </>
@@ -358,17 +358,17 @@ export const unit18: UnitModule = {
             <tbody>
               <tr><td>RTL-SDR Blog V3 or V4 dongle</td><td>the de-facto standard; buy the kit with the telescopic dipole antenna</td><td>$35–45</td></tr>
               <tr><td>SDR software</td><td>SDR++ or SDRSharp (Windows), free</td><td>$0</td></tr>
-              <tr><td colSpan={2}><em>Optional:</em> a USB extension cable — moving the dongle away from your PC's own interference helps a lot (Lesson 13.2: fast edges radiate!)</td><td>$3</td></tr>
+              <tr><td colSpan={2}><em>Optional:</em> a USB extension cable — moving the dongle away from your PC’s own interference helps a lot (Lesson 13.2: fast edges radiate!)</td><td>$3</td></tr>
             </tbody>
           </table>
 
           <h2>The listening campaign</h2>
           <table>
             <thead>
-              <tr><th>Target</th><th>Where</th><th>What you'll see & hear</th><th>Ties to</th></tr>
+              <tr><th>Target</th><th>Where</th><th>What you’ll see & hear</th><th>Ties to</th></tr>
             </thead>
             <tbody>
-              <tr><td>FM broadcast</td><td>88–108 MHz, mode WFM</td><td>fat 200 kHz stripes; click one and music plays — FM demod = reading the arrow's spin (18.2)</td><td>9.3, 18.2</td></tr>
+              <tr><td>FM broadcast</td><td>88–108 MHz, mode WFM</td><td>fat 200 kHz stripes; click one and music plays — FM demod = reading the arrow’s spin (18.2)</td><td>9.3, 18.2</td></tr>
               <tr><td>Airband</td><td>118–137 MHz, mode AM</td><td>pilots and towers, in plain AM — your Unit 9 envelope, alive in 2026</td><td>9.3</td></tr>
               <tr><td>ISM band</td><td>433.92 MHz</td><td>press your car key / read a weather sensor: short digital bursts smeared across the waterfall</td><td>18.3</td></tr>
               <tr><td>The noise floor itself</td><td>anywhere</td><td>raise/lower the gain and watch weak signals sink into it — SNR made visible</td><td>18.3</td></tr>
@@ -400,9 +400,9 @@ export const unit18: UnitModule = {
               <tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr>
             </thead>
             <tbody>
-              <tr><td>Dongle not found</td><td>driver not installed</td><td>run the vendor's driver tool (Zadig on Windows); reconnect</td></tr>
+              <tr><td>Dongle not found</td><td>driver not installed</td><td>run the vendor’s driver tool (Zadig on Windows); reconnect</td></tr>
               <tr><td>Everything is weak</td><td>gain too low / antenna too short</td><td>raise RF gain in software; extend the telescopic elements (~75 cm for FM)</td></tr>
-              <tr><td>Strong lines every few MHz everywhere</td><td>your PC's own interference</td><td>USB extension cable, dongle away from the machine</td></tr>
+              <tr><td>Strong lines every few MHz everywhere</td><td>your PC’s own interference</td><td>USB extension cable, dongle away from the machine</td></tr>
               <tr><td>FM sounds garbled</td><td>wrong mode or bandwidth</td><td>WFM, ~200 kHz for broadcast; NFM elsewhere</td></tr>
             </tbody>
           </table>
@@ -415,7 +415,7 @@ export const unit18: UnitModule = {
             <p>A simulated band with everything the real one will show — learn to read it here first.</p>
             <ul>
               <li>Tune across the three FM stripes and watch the receiver lock each one.</li>
-              <li>Park on 95.2 and read the beacon's keying pattern off the waterfall.</li>
+              <li>Park on 95.2 and read the beacon’s keying pattern off the waterfall.</li>
               <li>Camp on 106.8 until a keyfob burst smears past — blink and you miss it.</li>
             </ul>
           </>

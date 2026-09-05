@@ -74,7 +74,7 @@ export const unit19: UnitModule = {
           </p>
           <div className="formula">
             Q1+Q4 → forward · Q2+Q3 → reverse · Q2+Q4 → brake · all off → coast
-            <span className="note">speed comes from PWM-ing the active pair — Unit 8's duty cycle, now with torque</span>
+            <span className="note">speed comes from PWM-ing the active pair — Unit 8’s duty cycle, now with torque</span>
           </div>
           <p>
             Braking deserves a pause: shorting the spinning motor through the low-side
@@ -99,7 +99,7 @@ export const unit19: UnitModule = {
         title: "Four Switches & the Forbidden State",
         intro: (
           <>
-            <p>An H-bridge with clickable switches and a motor that obeys — or a fuse that doesn't forgive.</p>
+            <p>An H-bridge with clickable switches and a motor that obeys — or a fuse that doesn’t forgive.</p>
             <ul>
               <li>Use the presets, then click switches manually and predict the motor before it moves.</li>
               <li>Spin it forward, then hit Brake — compare with Coast. Feel the difference regenerative braking exploits.</li>
@@ -189,7 +189,7 @@ export const unit19: UnitModule = {
           </p>
           <div className="formula">
             servo: command → compare → correct (closed loop) · stepper: count clicks (open loop)
-            <span className="note">the same open/closed distinction as Lesson 14.1's toaster vs thermostat — now in hardware</span>
+            <span className="note">the same open/closed distinction as Lesson 14.1’s toaster vs thermostat — now in hardware</span>
           </div>
           <div className="callout tip">
             <span className="co-title">Choosing between them</span>
@@ -210,7 +210,7 @@ export const unit19: UnitModule = {
             <ul>
               <li>Sweep the pulse slider slowly — the horn tracks with that faint controlled lag (the internal P-loop).</li>
               <li>Single-step the stepper and watch the rotor snap coil to coil. Count your way to a full turn.</li>
-              <li>Auto-run the stepper backwards — the coil sequence simply reverses. It's a counter you can hold.</li>
+              <li>Auto-run the stepper backwards — the coil sequence simply reverses. It’s a counter you can hold.</li>
             </ul>
           </>
         ),
@@ -291,7 +291,7 @@ export const unit19: UnitModule = {
             <em>which one leads</em> tells the direction:
           </p>
           <div className="formula">
-            on A's rising edge: B low → one way, B high → the other
+            on A’s rising edge: B low → one way, B high → the other
             <span className="note">decoded by edge detection + a flip-flop (7.3) — or four lines of interrupt code</span>
           </div>
           <p>
@@ -303,7 +303,7 @@ export const unit19: UnitModule = {
             CNC machines, robot arms and self-balancing anythings.
           </p>
           <div className="callout note">
-            <span className="co-title">The rest of the robot's senses</span>
+            <span className="co-title">The rest of the robot’s senses</span>
             <p>
               Odometry drifts (wheels slip), so real robots fuse it with other senses: IMUs
               (accelerometer + gyroscope chips), distance sensors, cameras. Sensor fusion is a
@@ -321,7 +321,7 @@ export const unit19: UnitModule = {
             <ul>
               <li>Spin forward: A leads B, and the count climbs. Reverse: B leads, count falls.</li>
               <li>Stop the wheel mid-slot — the count holds. Position memory, no drift while still.</li>
-              <li>Watch the scope: 90° apart, always — the offset is mechanical, so it can't lie.</li>
+              <li>Watch the scope: 90° apart, always — the offset is mechanical, so it can’t lie.</li>
             </ul>
           </>
         ),
@@ -397,7 +397,7 @@ export const unit19: UnitModule = {
               <tr><td>2WD robot chassis kit</td><td>two yellow “TT” gear motors, wheels, caster, plate — the universal starter chassis</td><td>$12–18</td></tr>
               <tr><td>DRV8833 driver module</td><td>dual H-bridge with interlocks; happier at 3.3 V logic than the old L298N</td><td>$3</td></tr>
               <tr><td>2× TCRT5000 reflectance modules</td><td>IR LED + phototransistor — a divider output per sensor (2.2 again)</td><td>$3</td></tr>
-              <tr><td>4×AA battery holder</td><td>motor power — separate from the Pico's USB/5V supply</td><td>$3</td></tr>
+              <tr><td>4×AA battery holder</td><td>motor power — separate from the Pico’s USB/5V supply</td><td>$3</td></tr>
               <tr><td>Black electrical tape</td><td>the racetrack. Light floor, wide gentle curves to start</td><td>$2</td></tr>
             </tbody>
           </table>
@@ -408,12 +408,12 @@ export const unit19: UnitModule = {
               <tr><th>#</th><th>From</th><th>To</th><th>Notes</th></tr>
             </thead>
             <tbody>
-              <tr><td>1</td><td>Battery pack + / −</td><td>DRV8833 VM / GND</td><td>motor power stays off the Pico's rail</td></tr>
-              <tr><td>2</td><td>Pico GND</td><td>DRV8833 GND & sensor GNDs</td><td><strong>common ground</strong> — the scope capstone's oldest law</td></tr>
+              <tr><td>1</td><td>Battery pack + / −</td><td>DRV8833 VM / GND</td><td>motor power stays off the Pico’s rail</td></tr>
+              <tr><td>2</td><td>Pico GND</td><td>DRV8833 GND & sensor GNDs</td><td><strong>common ground</strong> — the scope capstone’s oldest law</td></tr>
               <tr><td>3</td><td>GP2, GP3</td><td>DRV8833 AIN1, AIN2</td><td>left motor (PWM both for fwd/rev)</td></tr>
               <tr><td>4</td><td>GP4, GP5</td><td>DRV8833 BIN1, BIN2</td><td>right motor</td></tr>
-              <tr><td>5</td><td>DRV8833 AOUT/BOUT</td><td>the two motors</td><td>swap a motor's two wires if it runs backwards</td></tr>
-              <tr><td>6</td><td>Sensor AO (left / right)</td><td>GP26 / GP27</td><td>the night-light's ADC pins, now looking at the floor</td></tr>
+              <tr><td>5</td><td>DRV8833 AOUT/BOUT</td><td>the two motors</td><td>swap a motor’s two wires if it runs backwards</td></tr>
+              <tr><td>6</td><td>Sensor AO (left / right)</td><td>GP26 / GP27</td><td>the night-light’s ADC pins, now looking at the floor</td></tr>
               <tr><td>7</td><td>Sensor VCC</td><td>Pico 3V3</td><td>sensors sip; motors must not touch this rail</td></tr>
               <tr><td>8</td><td>Sensors, mounted</td><td>~15 mm apart, 3–8 mm above floor, ahead of the axle</td><td>height matters more than you think</td></tr>
             </tbody>
@@ -438,8 +438,8 @@ export const unit19: UnitModule = {
             </thead>
             <tbody>
               <tr><td>Turns away from the line</td><td>sensors or steering sign swapped</td><td>swap GP26/GP27, or negate err — one change (15.2!)</td></tr>
-              <tr><td>One motor runs backwards</td><td>motor leads reversed</td><td>swap that motor's two wires at the driver</td></tr>
-              <tr><td>Pico resets when motors kick</td><td>motor noise sagging the supply</td><td>separate battery pack for VM, common grounds, 100 µF across VM (15.1's decoupling!)</td></tr>
+              <tr><td>One motor runs backwards</td><td>motor leads reversed</td><td>swap that motor’s two wires at the driver</td></tr>
+              <tr><td>Pico resets when motors kick</td><td>motor noise sagging the supply</td><td>separate battery pack for VM, common grounds, 100 µF across VM (15.1’s decoupling!)</td></tr>
               <tr><td>Blind to the line</td><td>sensor height / ambient IR</td><td>3–8 mm off the floor, shade from sunlight, check readings over tape vs floor in Thonny</td></tr>
               <tr><td>Snakes violently</td><td>your Kp is shouting</td><td>halve KP, add KD — you rehearsed this exact tuning in the twin</td></tr>
             </tbody>
