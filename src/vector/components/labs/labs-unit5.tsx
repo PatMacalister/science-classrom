@@ -186,8 +186,8 @@ export function LensLab() {
  * ===================================================================== */
 
 const BANDS: Array<{ from: number; label: string }> = [
-  { from: 1e-3, label: "radio" },
-  { from: 1e-6, label: "microwave" },
+  { from: 1e-1, label: "radio" },
+  { from: 1e-3, label: "microwave" },
   { from: 7e-7, label: "infrared" },
   { from: 4e-7, label: "visible" },
   { from: 1e-8, label: "ultraviolet" },
@@ -233,10 +233,9 @@ export function SpectrumLab() {
     // log scale from 1e3 (radio) down to 1e-13 (gamma): logLambda 3 .. -13
     const mapX = (ll: number) => kx + ((3 - ll) / 16) * kw;
     const bandEdges: Array<[number, string]> = [
-      [3, "radio"],
+      [-1, "radio"],
       [-3, "µwave"],
-      [-6, "IR"],
-      [Math.log10(7e-7), ""],
+      [Math.log10(7e-7), "IR"],
       [Math.log10(4e-7), "UV"],
       [-8, "X-ray"],
       [-11, "gamma"],
@@ -245,10 +244,9 @@ export function SpectrumLab() {
       D.wire(ctx, [[mapX(ll), ky - 12], [mapX(ll), ky + 30]], "rgba(139,151,167,0.4)", 1);
     });
     const names: Array<[number, string]> = [
-      [0, "radio"],
-      [-4.5, "microwave"],
-      [-6.4, "IR"],
-      [-6.75, ""],
+      [1, "radio"],
+      [-2, "microwave"],
+      [-4.6, "IR"],
       [-7.5, "UV"],
       [-9.5, "X-ray"],
       [-12, "gamma"],
