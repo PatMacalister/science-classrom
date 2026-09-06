@@ -103,6 +103,23 @@ export const COURSES: CourseInfo[] = [
     lessonsTotal: 18,
     unitsTotal: 7,
   },
+  {
+    id: "servo",
+    name: "Servo Academy",
+    emoji: "🤖",
+    accent: "#f59e0b",
+    field: { en: "Robotics", de: "Robotik" },
+    tagline: {
+      en: "Robotics from the loop up — motors, sensors, PID control, kinematics, navigation and robot learning, plus the whole parts bench with a memory hook for every component.",
+      de: "Robotik von der Schleife aufwärts — Motoren, Sensoren, PID-Regelung, Kinematik, Navigation und Robot Learning, plus die ganze Teile-Werkbank mit einer Eselsbrücke für jedes Bauteil.",
+    },
+    capstone: {
+      en: "Ends with two robots that answer to you: a line follower tuned from lurching to lapping, and an arm taught by demonstration to a measured 80% success rate.",
+      de: "Endet mit zwei Robotern, die auf dich hören: einem Linienfolger, vom Torkeln zur sauberen Runde gestimmt, und einem Arm, per Vorführung auf gemessene 80% Erfolgsquote angelernt.",
+    },
+    lessonsTotal: 19,
+    unitsTotal: 7,
+  },
 ];
 
 export function getCourse(id: string): CourseInfo | undefined {
